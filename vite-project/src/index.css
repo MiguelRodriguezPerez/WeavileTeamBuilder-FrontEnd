@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&family=Roboto&family=Tajawal:wght@500&display=swap');
+
+*{
+    font-family: "Tajawal";
+    font-size: 20px;
+}
+
+#root > *{
+  margin-right: 10vw;
+}
+
+@media screen and (max-width: 700px) {
+  #root > *{
+      margin-left: 5vw;
+      margin-right: 5vw;
+  }
+}
