@@ -13,6 +13,11 @@
     "noImplicitAny": false,
     "jsx": "react-jsx",
     "allowJs": true,
-    "checkJs": false
+    "checkJs": false,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }

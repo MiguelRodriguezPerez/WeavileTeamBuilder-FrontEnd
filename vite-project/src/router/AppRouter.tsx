@@ -6,7 +6,7 @@ import { MainPage } from "../sections/main/pages/MainPage";
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
+      <Route path="/" element={< MainPage />} />
     </Routes>
   );
 };

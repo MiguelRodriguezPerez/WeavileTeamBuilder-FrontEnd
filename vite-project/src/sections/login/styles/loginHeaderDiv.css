@@ -1,0 +1,7 @@
+.login-header-div {
+    margin-left: auto;
+}
+
+.login-header-div > * {
+    margin-right: 1%;
+}
