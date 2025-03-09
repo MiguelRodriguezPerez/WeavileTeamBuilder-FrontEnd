@@ -1,0 +1,15 @@
+.weavile-button {
+    padding: 4% 5%;
+    border-radius: 8px;
+    background-color: rgb(237, 235, 235);
+    cursor: pointer;
+    border: 0px;
+    margin: 2%;
+    white-space: nowrap;
+}
+
+.weavile-button-outlined {
+    border: solid 1px rgb(220, 217, 217);
+    background-color: transparent;
+    color:rgb(237, 235, 235);
+}

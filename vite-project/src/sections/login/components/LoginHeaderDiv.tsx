@@ -1,14 +1,14 @@
-import { Button } from "@mui/material";
 
-import '../styles/loginHeaderDiv.css'
+import '../styles/loginHeaderDiv.css';
+import '../../../commonStyles/buttons.css';
 
 export const LoginHeaderDiv = () => {
     // TODO: Redirect login
 
     return (
         <div className="login-header-div">
-           <Button variant="contained">Login</Button>
-           <Button variant="outlined">Create account</Button>
+           <button className='weavile-button'>Login</button>
+           <button className='weavile-button weavile-button-outlined'>Create account</button>
         </div>
     );
 }
