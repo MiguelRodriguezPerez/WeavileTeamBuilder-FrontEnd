@@ -3,12 +3,14 @@
 *{
     font-family: "Tajawal";
     font-size: 20px;
-    background-color: #28282d;
 }
 
-#root > *{
-  margin-right: 10vw;
-  margin-left: 10vw;
+body {
+  background-color: #28282d;
+}
+
+#root > body{
+  margin: 0% 5vw;
 }
 
 @media screen and (max-width: 700px) {
