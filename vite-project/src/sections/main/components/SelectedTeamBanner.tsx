@@ -1,4 +1,4 @@
-import { SelectedPokemon } from "./SelectedPokemon";
+import { PokemonBannerWrapper } from "./SelectedPokemon";
 
 import '../styles/selectedTeamBanner.css'
 
@@ -7,12 +7,12 @@ export const SelectedTeamBanner = () => {
 
     return (
         <section className="selected-team-banner">
-            <SelectedPokemon/>
-            <SelectedPokemon/>
-            <SelectedPokemon/>
-            <SelectedPokemon/>
-            <SelectedPokemon/>
-            <SelectedPokemon/>
+            <PokemonBannerWrapper />
+            <PokemonBannerWrapper />
+            <PokemonBannerWrapper />
+            <PokemonBannerWrapper />
+            <PokemonBannerWrapper />
+            <PokemonBannerWrapper />
         </section>
     );
 }

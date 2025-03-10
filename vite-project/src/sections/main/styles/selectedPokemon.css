@@ -1,5 +1,26 @@
-.selected-pokemon {
+.selected-pokemon-sprite {
     background-image: url('../../../../images/main/pokeballbackgrounddef.png');
     background-repeat: no-repeat;
     background-position: center; /* Centra la imagen */
+}
+
+.selected-pokemon-sprite > img.heading-pokemon-sprite {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+}
+
+.selected-pokemon-info > .pokemon-name {
+    text-align: center;
+
+    background-color: #e1dede;
+    border-radius: 14px;
+    margin: 5% 15%;
+    padding: 1.5%;
+
+}
+
+.selected-pokemon-info > .pokemon-ability {
+    color: #e1dede;
+    text-align: center;
 }
