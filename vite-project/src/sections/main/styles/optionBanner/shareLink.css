@@ -1,0 +1,19 @@
+.share-link {
+    display: grid;
+    grid-template-columns: 80% 20%;
+
+    border: solid 1px white;
+    border-radius: 8px;
+}
+
+.share-link > input {
+    border-radius: 8px;
+    margin: auto;
+}
+
+.share-link > textarea {
+    padding: 3%;
+    resize: none;
+    overflow: hidden;
+    border-radius: 8px 0px 0px 0px;
+}

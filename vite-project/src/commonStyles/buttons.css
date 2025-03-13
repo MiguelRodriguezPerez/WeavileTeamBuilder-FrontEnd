@@ -1,10 +1,9 @@
 .weavile-button {
-    padding: 4% 5%;
+    padding: 1vh 0.7vw;
     border-radius: 8px;
     background-color: rgb(237, 235, 235);
     cursor: pointer;
     border: 0px;
-    margin: 2%;
     white-space: nowrap;
 }
 

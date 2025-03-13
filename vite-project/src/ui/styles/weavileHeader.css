@@ -5,3 +5,7 @@
 
     margin: 1% 2vw !important;
 }
+
+.login-header-div > button {
+    margin: 3%;
+}

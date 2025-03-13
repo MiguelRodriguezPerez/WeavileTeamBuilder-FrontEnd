@@ -9,7 +9,7 @@ body {
   background-color: #28282d;
 }
 
-#root > body{
+#root > *{
   margin: 0% 5vw;
 }
 
