@@ -10,6 +10,8 @@
     border: solid 1px white;
     border-radius: 8px 0px 0px 8px;
     border-right: 0px;
+
+    outline: none;
 }
 
 .share-link > input[type=image] {
