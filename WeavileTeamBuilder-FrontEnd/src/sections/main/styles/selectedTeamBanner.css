@@ -1,0 +1,8 @@
+/* El banner condicionaba los márgenes del resto de la página
+haciendo que se viera desajustado */
+
+.selected-team-banner {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin: 3% 5.7vw 0% !important;
+}
