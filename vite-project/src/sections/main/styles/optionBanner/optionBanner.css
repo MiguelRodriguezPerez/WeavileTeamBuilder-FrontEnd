@@ -1,8 +1,9 @@
 .option-banner {
     display: flex;
     flex-direction: row;
-    margin-bottom: 5%;
     align-items: center;
+
+    margin: 1% 7vw;
 
     border-bottom: solid 1px whitesmoke;
 }
@@ -12,5 +13,5 @@
 }
 
 .option-banner > * {
-    margin-bottom: 2vh;
+    margin-bottom: 1%;
 }

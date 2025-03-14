@@ -8,10 +8,15 @@ export const ShareLink = () => {
 
     const [linkText, setLinkText] = useState<string>('dasfawesfasdggfnsfgjngager');
 
+    const copyLinkToClipBoard = () => {
+        navigator.clipboard.writeText(linkText);
+    }
+
     return (
         <div className="share-link">
-            <textarea rows={1} value={linkText}></textarea>
-            <input type="image" src="/images/main/optionBanner/copy_icon.png" alt="copy.png" />
+            <input type="text" readOnly={ true } value={ linkText } />
+            <input type="image" onClick={ copyLinkToClipBoard } 
+                src="/images/main/optionBanner/copy_icon.png" alt="copy.png" />
         </div>
     );
 }

@@ -1,19 +1,23 @@
 .share-link {
     display: grid;
     grid-template-columns: 80% 20%;
+}
+
+.share-link > input[type=text] {
+    padding: 3%;
+    overflow: hidden;
+    
+    border: solid 1px white;
+    border-radius: 8px 0px 0px 8px;
+    border-right: 0px;
+}
+
+.share-link > input[type=image] {
+    margin: auto;
+    padding: 20%; /* Mismo padding que proporción de columna */
 
     border: solid 1px white;
-    border-radius: 8px;
+    border-left: 0px;
+    border-radius: 0px 8px 8px 0px;
 }
 
-.share-link > input {
-    border-radius: 8px;
-    margin: auto;
-}
-
-.share-link > textarea {
-    padding: 3%;
-    resize: none;
-    overflow: hidden;
-    border-radius: 8px 0px 0px 0px;
-}

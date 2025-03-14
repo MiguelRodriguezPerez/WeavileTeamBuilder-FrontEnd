@@ -10,12 +10,13 @@ body {
 }
 
 #root > *{
-  margin: 0% 5vw;
+  margin-left: 8vw;
+  margin-right: 8vw;
 }
 
-@media screen and (max-width: 700px) {
+/* @media screen and (max-width: 700px) {
   #root > *{
       margin-left: 5vw;
       margin-right: 5vw;
   }
-}
+} */
