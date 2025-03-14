@@ -1,4 +1,4 @@
-import '../styles/selectedPokemon.css'
+import '../../styles/selectedPokemon.css'
 
 export const NoPokemonSelected = () => {
     return (
