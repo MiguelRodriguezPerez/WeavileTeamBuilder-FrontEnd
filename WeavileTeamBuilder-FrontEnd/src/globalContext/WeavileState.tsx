@@ -3,8 +3,8 @@ import { PokemonTeamMember } from "../domain/teamMemberEntities/PokemonTeamMembe
 
 export interface WeavileState {
 
-    selectedPokemonTeam: PokemonTeam[] | null
-    changeSelectedTeam: (team: PokemonTeam[]) => void
+    selectedPokemonTeam: PokemonTeam | null
+    changeSelectedTeam: (team: PokemonTeam) => void
     
     selectedPokemonMember: PokemonTeamMember | null
     changeSelectedPokemon: (pokemon: PokemonTeamMember) => void

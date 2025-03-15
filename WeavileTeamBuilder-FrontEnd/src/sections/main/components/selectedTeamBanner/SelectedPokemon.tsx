@@ -1,11 +1,12 @@
 
 import { NoPokemonSelected } from './NoPokemonSelected';
+import { PokemonTeamMember } from '../../../../domain/teamMemberEntities/PokemonTeamMember';
 
-// TODO: Recibir prop team
-export const PokemonBannerWrapper = () => {
+
+export const PokemonBannerWrapper = ({member} : {member?: PokemonTeamMember}) => {
+
     return (
-        <div>
-            <NoPokemonSelected />
-        </div>
+        member ? <p>BIeeen</p> : <NoPokemonSelected/>
     );
+    
 }
