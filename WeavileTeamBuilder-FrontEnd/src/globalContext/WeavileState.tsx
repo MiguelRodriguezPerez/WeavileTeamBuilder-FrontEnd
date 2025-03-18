@@ -5,10 +5,11 @@ export interface WeavileState {
 
     /* Equipo seleccionado y función para cambiar el equipo seleccionado */
     selectedPokemonTeam: PokemonTeam | null
-    changeSelectedTeam: (team: PokemonTeam) => void
+    changeSelectedTeam: (team: PokemonTeam) => void,
+    deleteSelectedTeam: () => void,
     
     /* Pokemón seleccionado y función para cambiar el pokemón seleccionado */
-    selectedPokemonMember: PokemonTeamMember | null
-    changeSelectedPokemon: (pokemon: PokemonTeamMember) => void
+    selectedPokemonMember: PokemonTeamMember | null,
+    changeSelectedPokemon: (pokemon: PokemonTeamMember) => void,
 
 }
