@@ -1,9 +1,9 @@
 import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
-import useWeavileStore from "../../../../globalContext/WeavileStore";
 import { TeamType } from "../../../../domain/enums/TeamType";
-import { deletePokemonTeam } from "../../helpers/deletePokemonTeam";
-import { createNewTeamRequest } from "../../api";
-import { storePokemonTeam } from "../../helpers/storePokemonTeam";
+import useWeavileStore from "../../../../globalContext/WeavileStore";
+import { createNewTeamRequest } from "../../api/nonLoggedUsers";
+import { deletePokemonTeam, storePokemonTeam } from "../../helpers/nonLoggedUser";
+
 
 export const TeamTypesDropdown = () => {
 
@@ -14,21 +14,21 @@ export const TeamTypesDropdown = () => {
 
     const dropDownEvent = async (event: SelectChangeEvent) => {
 
-        const { target: { value } } = event; 
+        const { target: { value } } = event;
         /* No preguntes porque, pero es la única manera de obtener un enum a través de un string */
         const selectedTeamType = TeamType[value as keyof typeof TeamType];
 
-        if (selectedTeamType != current_team_type?.teamType 
-            && selectedTeamType === TeamType.ONEVSONE ) {
-                /* En esta línea se da por hecho que siempre será un PokemonTeam
-                y nunca null*/
-                deletePokemonTeam(current_team_type!);
-                deleteSelectedTeam();
+        if (selectedTeamType != current_team_type?.teamType
+            && selectedTeamType === TeamType.ONEVSONE) {
+            /* En esta línea se da por hecho que siempre será un PokemonTeam
+            y nunca null*/
+            deletePokemonTeam(current_team_type!);
+            deleteSelectedTeam();
 
-                const newTeam = await createNewTeamRequest(selectedTeamType);
-                storePokemonTeam(newTeam.data);
-                updateSelectedTeam(newTeam.data);
-            }
+            const newTeam = await createNewTeamRequest(selectedTeamType);
+            storePokemonTeam(newTeam.data);
+            updateSelectedTeam(newTeam.data);
+        }
     }
 
     return (
@@ -36,15 +36,17 @@ export const TeamTypesDropdown = () => {
             label='Team Type'
             value={current_team_type?.teamType.toString()}
             onChange={dropDownEvent}
-            >
-                {
-                    // Mapear correctamente los valores del enum
-                    Object.values(TeamType).map((type) => (
-                    <MenuItem value={type.toString()} key={type.toString()}>
-                        {type}
-                    </MenuItem>
+        >
+            {// Filtrar solo las claves que corresponden a los nombres, no los índices numéricos
+                Object.keys(TeamType)
+                    .filter((key) => isNaN(Number(key))) 
+                    .map((key) => (
+                        <MenuItem value={key} key={key}>
+                            {key}
+                        </MenuItem>
                     ))
-                }
+            }
+
         </Select>
     );
 }

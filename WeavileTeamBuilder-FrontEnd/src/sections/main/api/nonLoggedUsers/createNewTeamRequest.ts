@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
-import { TeamType } from '../../../domain/enums/TeamType';
-import { PokemonTeam } from "../../../domain/teamMemberEntities/PokemonTeam";
+import { TeamType } from '../../../../domain/enums/TeamType';
+import { PokemonTeam } from "../../../../domain/teamMemberEntities/PokemonTeam";
 import { PokemonTeamApi } from "./PokemonTeamApi";
 
 export const createNewTeamRequest = async (teamType: TeamType): Promise<AxiosResponse<PokemonTeam>> => {

@@ -7,6 +7,7 @@ export interface PokemonTeam {
     // TODO: Scrapear tiers
     
     id: number;
+    name: string;
     teamType: TeamType;
     members: PokemonTeamMember[];
     

@@ -1,14 +1,16 @@
-import { PokemonBannerWrapper } from "./SelectedPokemon";
-import useWeavileStore from "../../../../globalContext/WeavileStore";
-import { PokemonTeam } from '../../../../domain/teamMemberEntities/PokemonTeam';
 import { useEffect } from "react";
-import { checkIfUserHasTeams } from "../../helpers";
-import { createNewTeamRequest } from "../../api";
 import { TeamType } from "../../../../domain/enums/TeamType";
-import { storePokemonTeam } from "../../helpers/storePokemonTeam";
-
-import '../../styles/selectedTeamBanner.css'
+import { PokemonTeam } from '../../../../domain/teamMemberEntities/PokemonTeam';
+import useWeavileStore from "../../../../globalContext/WeavileStore";
+import { createNewTeamRequest } from "../../api/nonLoggedUsers";
+import { checkIfUserHasTeams } from "../../helpers/nonLoggedUser";
+import { storePokemonTeam } from "../../helpers/nonLoggedUser/storePokemonTeam";
+import { PokemonBannerWrapper } from "./SelectedPokemon";
 import { TeamTypesDropdown } from "./TeamTypesDropdown";
+
+import '../../styles/selectedTeamBanner.css';
+import { SelectedTeamName } from "./SelectedTeamName";
+
 
 export const SelectedTeamBanner = () => {
     // TODO: Get current team from context
@@ -18,28 +20,28 @@ export const SelectedTeamBanner = () => {
     const currentPokemonTeam: PokemonTeam | null = useWeavileStore((state) => state.selectedPokemonTeam);
     console.log(currentPokemonTeam);
 
+    /* Si el usuario no tiene equipos, se le creará uno por defecto */
     useEffect(() => {
-        // const asyncEffectWrapper = async () => {
-        //     console.log('aaaaaa');
-            
-        //     if (!checkIfUserHasTeams()) {
-        //         const response = await createNewTeamRequest(TeamType.INDIVIDUAL);
-        //         const firstPokemonTeam: PokemonTeam = response.data;
-        //         storePokemonTeam(firstPokemonTeam);
-        //     }
-        // }
+        const asyncEffectWrapper = async () => {
+            const response = await createNewTeamRequest(TeamType.INDIVIDUAL);
+            if (response.status === 201) {
+                const firstPokemonTeam: PokemonTeam = response.data;
+                storePokemonTeam(firstPokemonTeam);
+            }
+        }
 
-        // asyncEffectWrapper();
+        if (!checkIfUserHasTeams()) asyncEffectWrapper();
     }, [])
 
     return (
         <section className="selected-team-banner">
+            {currentPokemonTeam && <SelectedTeamName />}
             {
                 currentPokemonTeam?.members.map((member) => (
                     <PokemonBannerWrapper member={member} />
                 ))
             }
-            <TeamTypesDropdown/>
+            <TeamTypesDropdown />
         </section>
     );
 }
