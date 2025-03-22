@@ -1,7 +1,7 @@
-import { PokemonTeam } from "../../../../domain/teamMemberEntities/PokemonTeam";
+import { PokemonTeam } from '../../../../domain/teamMemberEntities/PokemonTeam';
 import { getAllTeamsLocalStorage } from "./getAllTeamsLocalStorage";
 
-export const storePokemonTeam = (argTeam: PokemonTeam): void => {
+export const storePokemonTeam = (argTeam: PokemonTeam): PokemonTeam => {
 
     // Renombrar unamed1, unamed2 ...
     if (!argTeam.name || argTeam.name === undefined || argTeam.name === '') {
@@ -17,12 +17,15 @@ export const storePokemonTeam = (argTeam: PokemonTeam): void => {
     La manera que se me ocurrio es asignandoles un id númerico y luego usar ese mismo id para determinar
     su ubicación en el localStorage*/
 
-    for (let i: number = 0; i < 14; i++) {
+    for (let i: number = 0; i < 15; i++) {
         if (localStorage.getItem(i.toString()) === null) {
             argTeam.id = i;
             localStorage.setItem(i.toString(), JSON.stringify(argTeam));
+            break;
         };
+
+        if (i = 15) throw new Error("Already stored 15 teams");
     }
 
-    throw new Error("Already stored 15 teams");
+    return JSON.parse(localStorage.getItem(argTeam.id.toString())!) as PokemonTeam;
 }

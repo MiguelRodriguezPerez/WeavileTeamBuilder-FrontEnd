@@ -1,0 +1,51 @@
+import { useEffect } from 'react';
+import { PokemonTeam } from '../../../../domain/teamMemberEntities';
+import useWeavileStore from '../../../../globalContext/WeavileStore';
+import { PokemonBannerWrapper, SelectedTeamName, TeamTypesDropdown } from './';
+
+import '../../styles/selectedTeamBanner.css';
+import { checkIfUserHasTeams, storePokemonTeam } from '../../helpers/nonLoggedUser';
+import { createNewTeamRequest } from '../../api/nonLoggedUsers';
+import { TeamType } from '../../../../domain/enums';
+
+export const SelectedTeamBanner = () => {
+    // TODO: Get current team from context
+
+    // Current TODO: Create first void team by default
+    
+    const selectedTeam: PokemonTeam | null = useWeavileStore((state) => state.selectedPokemonTeam);
+    const changeSelectedTeam = useWeavileStore((state) => state.changeSelectedTeam);  
+
+    useEffect(() => {
+        const asyncWrapper = async() => {
+            console.log('aaaaaaaaaaaaaa');
+            const result: PokemonTeam | null = checkIfUserHasTeams();
+        
+            if (result !== null) changeSelectedTeam(result);
+            else {
+                const response = await createNewTeamRequest(TeamType.INDIVIDUAL);
+                if (response.status === 201) {
+                    const firstPokemonTeam: PokemonTeam = response.data;
+                    storePokemonTeam(firstPokemonTeam);
+                    changeSelectedTeam(firstPokemonTeam);
+                } 
+                else throw new Error("Error creating default first pokemon " + response.statusText);
+            };
+        }
+        asyncWrapper();
+    }, [])
+
+    /* Si el usuario no tiene equipos, se le creará uno por defecto */
+
+    return (
+        <section className="selected-team-banner">
+            <SelectedTeamName />
+            {
+                selectedTeam!.members.map((member) => (
+                    <PokemonBannerWrapper member={member} />
+                ))
+            }
+            <TeamTypesDropdown />
+        </section>
+    );
+}
