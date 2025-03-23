@@ -3,10 +3,12 @@ import { NoPokemonSelected } from './NoPokemonSelected';
 import { PokemonTeamMember } from '../../../../domain/teamMemberEntities/PokemonTeamMember';
 
 
-export const PokemonBannerWrapper = ({member} : {member?: PokemonTeamMember}) => {
+export const PokemonBannerWrapper = ({ member } : { member: PokemonTeamMember }) => {
 
+    console.log(member);
+    
     return (
-        member ? <p>BIeeen</p> : <NoPokemonSelected/>
+        member === undefined ? <p>BIeeen</p> : <NoPokemonSelected/>
     );
     
 }

@@ -18,14 +18,14 @@ export const SelectedTeamBanner = () => {
     /* Si el usuario no tiene equipos, se le creará uno de tipo individual por defecto */
     useEffect(() => {
         const asyncEffectWrapper = async() => { 
-            /* TODO: Persistir contexto zustand. No puedes mandarselo con useEffect constantemente */
-            if(selectedTeam === null) {
-                // Evita este log
-                console.log('AAAAAAAAAAAAAAA');
-                await getDefaultTeam();
-            }
+            /* TODO: Persistir contexto zustand. No puedes mandarselo con useEffect constantemente.
+            Evita este log */
+            console.log('NO LEAS ESTE MENSAJE');
+            await getDefaultTeam();
         }
-        asyncEffectWrapper();
+        if (selectedTeam === null || selectedTeam === undefined) asyncEffectWrapper();
+        console.log(selectedTeam);
+        
     }, []);
 
     return (
@@ -34,10 +34,11 @@ export const SelectedTeamBanner = () => {
             provocando que en caso de que no existan equipos el renderizado de los nodos se adelante al efecto,
             impidiendo su correcto funcionamiento */}
             {
-                selectedTeam 
-                    && <SelectedTeamName />
-                    /* Lo mismo con members */
-                    && selectedTeam.members
+                selectedTeam && <SelectedTeamName />
+            }
+            {
+                /* Lo mismo con members */
+                selectedTeam?.members
                     && selectedTeam.members.map((member) => (
                         <PokemonBannerWrapper member={member} />
                     ))

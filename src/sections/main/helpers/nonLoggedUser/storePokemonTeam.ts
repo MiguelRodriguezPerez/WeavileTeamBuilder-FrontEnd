@@ -21,11 +21,9 @@ export const storePokemonTeam = (argTeam: PokemonTeam): PokemonTeam => {
         if (localStorage.getItem(i.toString()) === null) {
             argTeam.id = i;
             localStorage.setItem(i.toString(), JSON.stringify(argTeam));
-            break;
+            return JSON.parse(localStorage.getItem(argTeam.id.toString())!) as PokemonTeam;
         };
-
-        if (i = 15) throw new Error("Already stored 15 teams");
     }
 
-    return JSON.parse(localStorage.getItem(argTeam.id.toString())!) as PokemonTeam;
+    throw new Error("Already stored 15 teams"); 
 }
