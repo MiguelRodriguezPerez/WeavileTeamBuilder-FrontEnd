@@ -4,7 +4,6 @@ import useWeavileStore from "../../../globalContext/WeavileStore";
 import { createNewTeamRequest } from "../api/nonLoggedUsers";
 import { checkIfUserHasTeams, storePokemonTeam } from "../helpers/nonLoggedUser";
 
-// TODO: Averiguar como implementar este hook en un efecto
 export const useDefaultTeam = () => {
 
     const changeSelectedTeam = useWeavileStore((state) => state.changeSelectedTeam);     
@@ -16,9 +15,10 @@ export const useDefaultTeam = () => {
         else {
             const response = await createNewTeamRequest(TeamType.INDIVIDUAL);
             if (response.status === 201) {
-                const firstPokemonTeam: PokemonTeam = response.data;
-                storePokemonTeam(firstPokemonTeam);
-                changeSelectedTeam(firstPokemonTeam);
+                const newFirstTeam: PokemonTeam = storePokemonTeam(response.data);
+                console.log(newFirstTeam);
+                
+                changeSelectedTeam(newFirstTeam);
             } 
             else throw new Error("Error creating default first pokemon " + response.statusText);
         };

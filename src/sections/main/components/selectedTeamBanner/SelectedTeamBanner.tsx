@@ -1,37 +1,46 @@
-import { TeamType } from '../../../../domain/enums';
 import { PokemonTeam } from '../../../../domain/teamMemberEntities';
 import useWeavileStore from '../../../../globalContext/WeavileStore';
-import { createNewTeamRequest } from '../../api/nonLoggedUsers';
-import { checkIfUserHasTeams, storePokemonTeam } from '../../helpers/nonLoggedUser';
 import { PokemonBannerWrapper, SelectedTeamName, TeamTypesDropdown } from './';
-
-import '../../styles/selectedTeamBanner.css';
 import { useEffect } from 'react';
 import { useDefaultTeam } from '../../hooks/useDefaultTeam';
+
+import '../../styles/selectedTeamBanner.css';
 
 export const SelectedTeamBanner = () => {
 
     const { getDefaultTeam } = useDefaultTeam();
     const selectedTeam: PokemonTeam | null = useWeavileStore((state) => state.selectedPokemonTeam);
+    console.log(selectedTeam?.members);
+    
     const changeSelectedTeam = useWeavileStore((state) => state.changeSelectedTeam);
+    // localStorage.clear();
 
-    /* Si el usuario no tiene equipos, se le creará uno por defecto */
+    /* Si el usuario no tiene equipos, se le creará uno de tipo individual por defecto */
     useEffect(() => {
-
         const asyncEffectWrapper = async() => { 
-            if(selectedTeam === null) await getDefaultTeam();
+            /* TODO: Persistir contexto zustand. No puedes mandarselo con useEffect constantemente */
+            if(selectedTeam === null) {
+                // Evita este log
+                console.log('AAAAAAAAAAAAAAA');
+                await getDefaultTeam();
+            }
         }
         asyncEffectWrapper();
-
-    }, [])
+    }, []);
 
     return (
         <section className="selected-team-banner">
-            {selectedTeam && <SelectedTeamName />}
+            {/* Por la razón que sea el componente se renderiza antes de que el efecto se dispare,
+            provocando que en caso de que no existan equipos el renderizado de los nodos se adelante al efecto,
+            impidiendo su correcto funcionamiento */}
             {
-                selectedTeam?.members.map((member) => (
-                    <PokemonBannerWrapper member={member} />
-                ))
+                selectedTeam 
+                    && <SelectedTeamName />
+                    /* Lo mismo con members */
+                    && selectedTeam.members
+                    && selectedTeam.members.map((member) => (
+                        <PokemonBannerWrapper member={member} />
+                    ))
             }
             <TeamTypesDropdown />
         </section>
