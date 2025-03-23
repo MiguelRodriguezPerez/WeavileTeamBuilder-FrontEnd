@@ -7,41 +7,22 @@ import { PokemonBannerWrapper, SelectedTeamName, TeamTypesDropdown } from './';
 
 import '../../styles/selectedTeamBanner.css';
 import { useEffect } from 'react';
+import { useDefaultTeam } from '../../hooks/useDefaultTeam';
 
 export const SelectedTeamBanner = () => {
-    // TODO: Get current team from context
 
-    // Current TODO: Create first void team by default
-
+    const { getDefaultTeam } = useDefaultTeam();
     const selectedTeam: PokemonTeam | null = useWeavileStore((state) => state.selectedPokemonTeam);
     const changeSelectedTeam = useWeavileStore((state) => state.changeSelectedTeam);
 
     /* Si el usuario no tiene equipos, se le creará uno por defecto */
     useEffect(() => {
-        // localStorage.clear();
 
-        const asyncEffectWrapper = async () => {
-            const result: PokemonTeam | null = checkIfUserHasTeams();
-
-            if (result !== null){
-                changeSelectedTeam(result);
-            }
-            else {
-                console.log('bbbbbbb');
-                    const response = await createNewTeamRequest(TeamType.INDIVIDUAL);
-                    
-                    if (response.status === 201) {
-                        console.log('aaaaaaaaaaaaaaa');
-                        const firstPokemonTeam: PokemonTeam = response.data;
-                        storePokemonTeam(firstPokemonTeam);
-                        changeSelectedTeam(firstPokemonTeam);
-                    }
-                    else throw new Error ("Error creating default first pokemon " + response.statusText);
-            }
+        const asyncEffectWrapper = async() => { 
+            if(selectedTeam === null) await getDefaultTeam();
         }
+        asyncEffectWrapper();
 
-        
-        if(selectedTeam === null) asyncEffectWrapper();
     }, [])
 
     return (
