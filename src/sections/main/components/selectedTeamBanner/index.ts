@@ -1,5 +1,3 @@
-export * from './NoPokemonSelected';
-export * from './SelectedPokemon';
-export * from './SelectedTeamBanner';
+export * from './bannerMembers/BannerMember';
 export * from './SelectedTeamName';
 export * from './TeamTypesDropdown';

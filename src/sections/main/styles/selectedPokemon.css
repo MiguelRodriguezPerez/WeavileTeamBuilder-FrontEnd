@@ -10,7 +10,7 @@
     justify-self: center;
 }
 
-.selected-pokemon-info > .pokemon-name {
+.pokemon-banner-element > .pokemon-name {
     text-align: center;
 
     background-color: #e1dede;
@@ -20,7 +20,7 @@
 
 }
 
-.selected-pokemon-info > .pokemon-ability {
+.pokemon-banner-element > .pokemon-ability {
     color: #e1dede;
     text-align: center;
 }

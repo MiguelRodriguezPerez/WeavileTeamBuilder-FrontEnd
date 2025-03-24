@@ -1,23 +1,24 @@
+import { useEffect, useState } from 'react';
 import { PokemonTeam } from '../../../../domain/teamMemberEntities';
 import useWeavileStore from '../../../../globalContext/WeavileStore';
-import { PokemonBannerWrapper, SelectedTeamName, TeamTypesDropdown } from './';
-import { useEffect } from 'react';
 import { useDefaultTeam } from '../../hooks/useDefaultTeam';
+import { BannerMember, SelectedTeamName, TeamTypesDropdown } from './';
 
 import '../../styles/selectedTeamBanner.css';
 
 export const SelectedTeamBanner = () => {
 
+    const [dummyNumber, setDummyNumber] = useState(0);
     const { getDefaultTeam } = useDefaultTeam();
     const selectedTeam: PokemonTeam | null = useWeavileStore((state) => state.selectedPokemonTeam);
     console.log(selectedTeam?.members);
-    
+
     const changeSelectedTeam = useWeavileStore((state) => state.changeSelectedTeam);
     // localStorage.clear();
 
     /* Si el usuario no tiene equipos, se le creará uno de tipo individual por defecto */
     useEffect(() => {
-        const asyncEffectWrapper = async() => { 
+        const asyncEffectWrapper = async () => {
             /* TODO: Persistir contexto zustand. No puedes mandarselo con useEffect constantemente.
             Evita este log */
             console.log('NO LEAS ESTE MENSAJE');
@@ -25,7 +26,7 @@ export const SelectedTeamBanner = () => {
         }
         if (selectedTeam === null || selectedTeam === undefined) asyncEffectWrapper();
         console.log(selectedTeam);
-        
+
     }, []);
 
     return (
@@ -39,9 +40,11 @@ export const SelectedTeamBanner = () => {
             {
                 /* Lo mismo con members */
                 selectedTeam?.members
-                    && selectedTeam.members.map((member) => (
-                        <PokemonBannerWrapper member={member} />
-                    ))
+                /* Si no planeas cambiar de manera dinámica el número de pokemón (el dropdown no cuenta)
+                ni moverlos de posición key={index} es seguro */
+                && selectedTeam.members.map((member, index) => (
+                    <BannerMember member={member} key={index} />
+                ))
             }
             <TeamTypesDropdown />
         </section>

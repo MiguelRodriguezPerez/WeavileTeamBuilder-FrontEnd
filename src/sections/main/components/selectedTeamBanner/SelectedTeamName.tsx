@@ -1,9 +1,9 @@
 import { useState } from "react";
 import useWeavileStore from "../../../../globalContext/WeavileStore";
-
-import '../../styles/selectedTeamName.css'
 import { PokemonTeam } from "../../../../domain/teamMemberEntities";
 import { updateStoredTeam } from "../../helpers/nonLoggedUser/updateStoredTeam";
+
+import '../../styles/selectedTeamName.css'
 
 export const SelectedTeamName = () => {
 

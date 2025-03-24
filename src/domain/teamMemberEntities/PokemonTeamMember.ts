@@ -3,8 +3,13 @@ import { PokemonType } from "../enums";
 import { NatureData } from "./NatureData";
 
 export interface PokemonTeamMember {
+
     id: number;
     name: string;
+
+    front_default_sprite: Blob; // Sospechoso de fallar
+    pc_sprite: Blob; // Sospechoso de fallar
+
     base_hp: number;
     base_attack: number;
     base_defense: number;
@@ -32,5 +37,6 @@ export interface PokemonTeamMember {
     type_list: PokemonType[];
     tera_type?: PokemonType;
     nature: NatureData;
-  }
+
+}
   
