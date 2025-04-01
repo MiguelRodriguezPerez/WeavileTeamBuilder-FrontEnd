@@ -10,6 +10,10 @@
     justify-self: center;
 }
 
+.pokemon-banner-element {
+    cursor: pointer;
+}
+
 .pokemon-banner-element > .pokemon-name {
     text-align: center;
 

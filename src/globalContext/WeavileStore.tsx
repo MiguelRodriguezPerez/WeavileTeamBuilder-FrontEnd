@@ -24,7 +24,7 @@ const useWeavileStore = create(persist<WeavileState>(
     }),
     {
         name: 'weavile-state',
-        storage: createJSONStorage(() => localStorage), // (opcional) valor por defecto 'localStorage'
+        storage: createJSONStorage(() => localStorage),
     },   
 ));
 

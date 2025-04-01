@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { PokemonTeam } from '../../../../domain/teamMemberEntities';
 import useWeavileStore from '../../../../globalContext/WeavileStore';
 import { useDefaultTeam } from '../../hooks/useDefaultTeam';
@@ -8,7 +8,6 @@ import '../../styles/selectedTeamBanner.css';
 
 export const SelectedTeamBanner = () => {
 
-    const [dummyNumber, setDummyNumber] = useState(0);
     const { getDefaultTeam } = useDefaultTeam();
     const selectedTeam: PokemonTeam | null = useWeavileStore((state) => state.selectedPokemonTeam);
     console.log(selectedTeam?.members);
@@ -19,14 +18,10 @@ export const SelectedTeamBanner = () => {
     /* Si el usuario no tiene equipos, se le creará uno de tipo individual por defecto */
     useEffect(() => {
         const asyncEffectWrapper = async () => {
-            /* TODO: Persistir contexto zustand. No puedes mandarselo con useEffect constantemente.
-            Evita este log */
-            console.log('NO LEAS ESTE MENSAJE');
             await getDefaultTeam();
         }
         if (selectedTeam === null || selectedTeam === undefined) asyncEffectWrapper();
         console.log(selectedTeam);
-
     }, []);
 
     return (
