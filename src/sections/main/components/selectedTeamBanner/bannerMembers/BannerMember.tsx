@@ -10,7 +10,7 @@ import '../../../styles/selectedPokemon.css';
 
 export const BannerMember = ({ member }: { member: PokemonTeamMember }) => {
 
-    const changeSelectedPokemon = useWeavileStore(state => state.changeSelectedPokemon);
+    const changeSelectedPokemon = useWeavileStore(state => state.changeSelectedPokemon); 
 
     return (
         <div className='pokemon-banner-element' onClick={ () => changeSelectedPokemon(member) }>
