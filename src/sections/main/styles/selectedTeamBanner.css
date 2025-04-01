@@ -6,3 +6,8 @@ haciendo que se viera desajustado */
     grid-template-columns: repeat(6, 1fr);
     margin: 3% 5.7vw 0% !important;
 }
+
+.selected-team-banner > .selected-team-name {
+    grid-column: 1/-1;
+    margin: 0% 41%;
+}
