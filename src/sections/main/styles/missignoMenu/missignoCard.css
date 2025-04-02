@@ -1,0 +1,11 @@
+.missigno-card {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+
+    margin: 0.5% 0%;
+}
+
+.missigno-card > .missigno-name {
+    color: rgb(244, 241, 241);
+}
