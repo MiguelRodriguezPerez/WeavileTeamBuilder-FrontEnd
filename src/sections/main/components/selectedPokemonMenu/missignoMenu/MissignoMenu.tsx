@@ -6,7 +6,6 @@ import { MissignoGrid } from "./";
 
 
 export const MissignoMenu = () => {
-
     const [search, setSearch] = useState<string>('');
 
     return (

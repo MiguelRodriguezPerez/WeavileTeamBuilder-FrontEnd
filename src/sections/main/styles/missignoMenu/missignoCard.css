@@ -6,6 +6,24 @@
     margin: 0.5% 0%;
 }
 
+/* Las dimensiones de los iconos de pokemón y missignoIcon no coinciden,
+así que para alinearlos modifique los márgenes en caso de 
+que toque mostrar missignoIcon */ 
+.missigno-icon {
+    /* Los márgenes absolutos son intencionales */
+    margin : 10px 12px -5px;
+}
+
 .missigno-card > .missigno-name {
     color: rgb(244, 241, 241);
+}
+
+.missigno-types-list {
+    display: flex;
+    margin-bottom: 4px;
+    margin-left: 2%;
+}
+
+.missigno-types-list > img {
+    margin: 0% 3%;
 }
