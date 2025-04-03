@@ -27,3 +27,15 @@ que toque mostrar missignoIcon */
 .missigno-types-list > img {
     margin: 0% 3%;
 }
+
+.missigno-ablities-list {
+    margin-left: 3%;
+    display: flex;
+    flex-direction: row;
+}
+
+.missigno-ablities-list > span {
+    /* margin-left: 1%; */
+    padding: 0% 2%;
+    white-space: nowrap;
+}
