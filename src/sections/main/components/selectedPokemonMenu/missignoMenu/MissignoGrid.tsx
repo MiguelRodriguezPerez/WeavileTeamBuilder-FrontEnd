@@ -24,9 +24,6 @@ export const MissignoGrid = () => {
         asyncWrapper();
     }, [])
 
-    console.log(missignoDTOArr);
-
-
     return (
         <ul className="missigno-grid">
             {

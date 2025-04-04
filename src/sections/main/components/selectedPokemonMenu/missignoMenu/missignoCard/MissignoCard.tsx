@@ -2,9 +2,10 @@
 import { toPascalCase } from '../../../../../../globalHelpers';
 import { MissignoDTO } from '../MissignoDTO';
 import { MissignoTypes } from './MissignoTypes';
-
-import '../../../../styles/missignoMenu/missignoCard.css'
 import { MissignoAbilities } from './MissignoAbilities';
+
+import '../../../../styles/missignoMenu/missignoCard.css';
+import { MissignoStats } from './MissignoStats';
 
 export const MissignoCard = ({ dto }: { dto: MissignoDTO }) => {
     
@@ -19,7 +20,7 @@ export const MissignoCard = ({ dto }: { dto: MissignoDTO }) => {
             <span className='missigno-name'>{toPascalCase(dto.name)}</span>
             <MissignoTypes typeList={dto.type_list}/>
             <MissignoAbilities abilityList={dto.ability_list}/>
-            
+            <MissignoStats dto={dto} />
         </li>
     );
 }

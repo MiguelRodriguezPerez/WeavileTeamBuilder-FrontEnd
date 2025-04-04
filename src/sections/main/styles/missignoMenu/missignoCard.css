@@ -4,6 +4,7 @@
     align-items: end;
 
     margin: 0.5% 0%;
+    cursor: pointer;
 }
 
 /* Las dimensiones de los iconos de pokemón y missignoIcon no coinciden,
@@ -35,7 +36,21 @@ que toque mostrar missignoIcon */
 }
 
 .missigno-ablities-list > span {
-    /* margin-left: 1%; */
     padding: 0% 2%;
     white-space: nowrap;
+}
+
+.missigno-stats {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    margin-left: 4%;
+}
+
+.missigno-stats > span {
+    margin-left: 7px;
+    margin-bottom: -2px;
+}
+
+.missigno-stats > .missigno-num-stat {
+    font-size: 0.9rem;
 }
