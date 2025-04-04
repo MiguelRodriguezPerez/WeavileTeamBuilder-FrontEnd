@@ -12,9 +12,9 @@ export const MissignoMenu = () => {
         <section className="missigno-menu">
             <div className="missigno-header">
                 <h3>Choose a pokemon</h3>
-                <input type="text" onChange={(e) => { setSearch(e.target.value) }} />
+                <input type="text" onChange={(e) => { setSearch( e.target.value ) }} />
             </div>
-            <MissignoGrid />
+            <MissignoGrid search={search}/>
         </section>
     );
 }

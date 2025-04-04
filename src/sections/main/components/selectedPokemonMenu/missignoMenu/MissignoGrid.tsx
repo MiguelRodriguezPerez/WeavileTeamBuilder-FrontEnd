@@ -4,14 +4,14 @@ import { MissignoDTO } from './MissignoDTO';
 
 import '../../../styles/missignoMenu/missignoGrid.css';
 import { MissignoCard } from "./missignoCard/MissignoCard";
+import { useSearchByName } from "../../../hooks/missignoGrid";
 
-export const MissignoGrid = () => {
+export const MissignoGrid = ({ search = '' } : { search : string} ) => {
 
     const [missignoDTOArr, setMissignoDTOArr] = useState<MissignoDTO[]>();
-    
+    const { filteredArr } = useSearchByName(search,missignoDTOArr!);
 
     useEffect(() => {
-        
         const inicio = performance.now();
 
         const asyncWrapper = async () => {
@@ -22,14 +22,24 @@ export const MissignoGrid = () => {
             }
         }
         asyncWrapper();
-    }, [])
+    }, []);
+
+    // useEffect(() => {
+    //     if (search.trim() === '') setFilteredArr(missignoDTOArr);
+    //     else {
+    //         const filtered = filteredArr!.filter(pokemon =>
+    //             pokemon.name.toLowerCase().includes(search.toLowerCase())
+    //         );
+    //         setFilteredArr(filtered);
+    //     }
+    // },[search])
 
     return (
         <ul className="missigno-grid">
             {
-                missignoDTOArr?.length === 0 ? <p>AAAAA</p>
+                filteredArr?.length === 0 ? <p>AAAAA</p>
                     :
-                    missignoDTOArr?.map((missignoDTO) => (
+                    filteredArr?.map((missignoDTO) => (
                         <MissignoCard dto={missignoDTO} key={missignoDTO.id} />
                     ))
             }

@@ -14,7 +14,7 @@ export const MissignoCard = ({ dto }: { dto: MissignoDTO }) => {
             <img 
                 src={ dto.pc_sprite ? 
                     `data:image/jpeg;base64,${dto.pc_sprite}` : 'images/main/missignoMenu/missignoIcon.png' } 
-                className={ dto.pc_sprite ? '' : 'missigno-icon'}
+                className={ dto.pc_sprite ? 'missigno-icon-defined' : 'missigno-icon'}
                 alt={dto.name + '.png'} 
             />
             <span className='missigno-name'>{toPascalCase(dto.name)}</span>

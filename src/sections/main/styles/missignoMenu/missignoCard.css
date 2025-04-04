@@ -1,18 +1,32 @@
 .missigno-card {
-    display: flex;
-    flex-direction: row;
-    align-items: end;
+    display: grid;
+    grid-template-columns: 5% 10% 10% 1fr 1fr;
+    gap: 2%;
+    justify-content: start;
+    align-items: center;
 
-    margin: 0.5% 0%;
+    margin-bottom: 5px;
+    padding: 10px;
     cursor: pointer;
+}
+
+.missigno-card:hover {
+    border: solid 1px  rgb(244, 241, 241);
+    border-radius: 8px;
+}
+
+.missigno-card .missigno-stats {
+    justify-self: end;
 }
 
 /* Las dimensiones de los iconos de pokemón y missignoIcon no coinciden,
 así que para alinearlos modifique los márgenes en caso de 
 que toque mostrar missignoIcon */ 
-.missigno-icon {
-    /* Los márgenes absolutos son intencionales */
-    margin : 10px 12px -5px;
+
+
+.missigno-icon-defined {
+    margin-top: -25px;
+    margin-left: -15px;
 }
 
 .missigno-card > .missigno-name {
