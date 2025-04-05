@@ -1,12 +1,12 @@
 .missigno-card {
     display: grid;
-    grid-template-columns: 5% 10% 10% 1fr 1fr;
+    grid-template-columns: 7% 10% 10% 1fr 1fr;
     gap: 2%;
     justify-content: start;
     align-items: center;
 
-    margin-bottom: 5px;
-    padding: 10px;
+    padding: 0.7%;
+    margin-bottom: 0.5%;
     cursor: pointer;
 }
 
@@ -15,56 +15,34 @@
     border-radius: 8px;
 }
 
-.missigno-card .missigno-stats {
-    justify-self: end;
-}
 
 /* Las dimensiones de los iconos de pokemón y missignoIcon no coinciden,
-así que para alinearlos modifique los márgenes en caso de 
-que toque mostrar missignoIcon */ 
+así que para alinearlos modifique los márgenes. Los márgenes absolutos son intencionales   */ 
 
-
-.missigno-icon-defined {
-    margin-top: -25px;
-    margin-left: -15px;
+.missigno-icon {
+    margin : -5px 15px -5px;
 }
 
-.missigno-card > .missigno-name {
-    color: rgb(244, 241, 241);
+.missigno-icon-defined {
+    margin-top: -20px;
 }
 
 .missigno-types-list {
     display: flex;
-    margin-bottom: 4px;
-    margin-left: 2%;
+    flex-direction: row;
+    gap: 5%;
 }
 
-.missigno-types-list > img {
-    margin: 0% 3%;
-}
-
-.missigno-ablities-list {
-    margin-left: 3%;
+.missigno-abilities-list {
     display: flex;
     flex-direction: row;
-}
-
-.missigno-ablities-list > span {
-    padding: 0% 2%;
-    white-space: nowrap;
+    gap: 5%;
 }
 
 .missigno-stats {
     display: grid;
     grid-template-columns: repeat(6,1fr);
-    margin-left: 4%;
-}
-
-.missigno-stats > span {
-    margin-left: 7px;
-    margin-bottom: -2px;
-}
-
-.missigno-stats > .missigno-num-stat {
-    font-size: 0.9rem;
+    justify-self: end;
+    gap: 5%;
+    margin-right: 10%;
 }

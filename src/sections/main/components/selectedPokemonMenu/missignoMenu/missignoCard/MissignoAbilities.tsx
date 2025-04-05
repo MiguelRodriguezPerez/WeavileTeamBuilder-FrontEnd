@@ -5,7 +5,7 @@ import '../../../../styles/missignoMenu/missignoCard.css'
 
 export const MissignoAbilities = ({ abilityList } : { abilityList : AbilityData[] }) => {
     return (
-        <span className="missigno-ablities-list">
+        <span className="missigno-abilities-list">
             {
                 abilityList.map((ability, index) => (
                     <span key={index}>{parseAbility(ability.name)}</span>
