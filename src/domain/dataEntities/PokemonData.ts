@@ -3,11 +3,10 @@ import { PokemonType } from '../enums';
 
 export interface PokemonData {
 
-    id: number;
     name: string;
 
-    front_default_sprite: Blob; // Sospechoso de fallar
-    pc_sprite: Blob; // Sospechoso de fallar
+    front_default_sprite: string; // Sospechoso de fallar
+    pc_sprite: string; // Sospechoso de fallar
 
     base_hp: number;
     base_attack: number;
@@ -18,7 +17,7 @@ export interface PokemonData {
 
     type_list: PokemonType[];
     ability_list: AbilityData[];
-    move_list: MoveData[];
+    moves: MoveData[];
 
 }
   

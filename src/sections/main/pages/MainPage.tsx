@@ -1,6 +1,6 @@
 import { WeavileHeader } from "../../../ui/components/WeavileHeader";
 import { OptionBanner } from "../components/optionBanner/OptionBanner";
-import { SelectedTeamMemberWrapper } from "../components/selectedPokemonMenu/SelectedTeamMemberWrapper";
+import { SelectedTeamMemberMenuWrapper } from "../components/selectedPokemonMenu/SelectedTeamMemberMenuWrapper";
 import { SelectedTeamBanner } from "../components/selectedTeamBanner/SelectedTeamBanner";
 import { PokemonDataProvider } from "../context/pokemonData/PokemonDataProvider";
 
@@ -11,7 +11,7 @@ export const MainPage = () => {
             <SelectedTeamBanner />
             <OptionBanner />
             <PokemonDataProvider>
-                <SelectedTeamMemberWrapper />
+                <SelectedTeamMemberMenuWrapper />
             </PokemonDataProvider>
 
         </>

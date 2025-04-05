@@ -1,16 +1,16 @@
-
 import { toPascalCase } from '../../../../../../globalHelpers';
 import { MissignoDTO } from '../MissignoDTO';
-import { MissignoTypes } from './MissignoTypes';
-import { MissignoAbilities } from './MissignoAbilities';
+import { MissignoAbilities, MissignoTypes, MissignoStats } from './';
 
 import '../../../../styles/missignoMenu/missignoCard.css';
-import { MissignoStats } from './MissignoStats';
+import { useSelectedPokemonMember } from '../../../../hooks/missignoGrid';
 
 export const MissignoCard = ({ dto }: { dto: MissignoDTO }) => {
+
+    const { updateMember } = useSelectedPokemonMember();
     
     return (
-        <li className='missigno-card'>
+        <li className='missigno-card' onClick={() => updateMember(dto.name)}>
             <img 
                 src={ dto.pc_sprite ? 
                     `data:image/jpeg;base64,${dto.pc_sprite}` : 'images/main/missignoMenu/missignoIcon.png' } 

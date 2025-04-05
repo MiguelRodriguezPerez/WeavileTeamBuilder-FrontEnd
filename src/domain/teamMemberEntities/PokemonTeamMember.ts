@@ -4,11 +4,11 @@ import { NatureData } from "./NatureData";
 
 export interface PokemonTeamMember {
 
-    id: number;
+    id: number;//Haz que se base en la posición del array
     name: string;
 
-    front_default_sprite: Blob; // Sospechoso de fallar
-    pc_sprite: Blob; // Sospechoso de fallar
+    front_default_sprite: string; // Sospechoso de fallar
+    pc_sprite: string; // Sospechoso de fallar
 
     base_hp: number;
     base_attack: number;

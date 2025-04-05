@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getSVPokemonsRequest } from "../../../../../api";
+import { getSVPokemonsRequest } from "../../../../../api/pokemonData";
 import { MissignoDTO } from './MissignoDTO';
 import { MissignoCard } from "./missignoCard/MissignoCard";
 import { useSearchByName } from "../../../hooks/missignoGrid";
@@ -7,10 +7,10 @@ import { useSearchByName } from "../../../hooks/missignoGrid";
 import '../../../styles/missignoMenu/missignoGrid.css';
 
 
-export const MissignoGrid = ({ search = '' } : { search : string} ) => {
+export const MissignoGrid = ({ search = '' }: { search: string }) => {
 
-    const [ missignoDTOArr, setMissignoDTOArr ] = useState<MissignoDTO[]>();
-    const { filteredArr } = useSearchByName( search, missignoDTOArr! );
+    const [missignoDTOArr, setMissignoDTOArr] = useState<MissignoDTO[]>();
+    const { filteredArr } = useSearchByName(search, missignoDTOArr!);
 
     useEffect(() => {
         const inicio = performance.now();

@@ -4,7 +4,7 @@ import { PokemonTeamMember } from "../domain/teamMemberEntities/PokemonTeamMembe
 export interface WeavileState {
 
     /* Equipo seleccionado y función para cambiar el equipo seleccionado */
-    selectedPokemonTeam: PokemonTeam | null
+    selectedPokemonTeam: PokemonTeam | null,
     changeSelectedTeam: (team: PokemonTeam) => void,
     changeSelectedTeamName: (newName: string) => void,
     deleteSelectedTeam: () => void,
