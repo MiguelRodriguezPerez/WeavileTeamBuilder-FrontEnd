@@ -3,7 +3,7 @@ import { getAllTeamsLocalStorage } from "./getAllTeamsLocalStorage";
 
 export const storePokemonTeam = (argTeam: PokemonTeam): PokemonTeam => {
 
-    // Renombrar unamed1, unamed2 ...
+    /* This code is to give the teams a default name */
     if (!argTeam.name || argTeam.name === undefined || argTeam.name === '') {
         const allTeams: PokemonTeam[] = getAllTeamsLocalStorage();
 
@@ -11,12 +11,7 @@ export const storePokemonTeam = (argTeam: PokemonTeam): PokemonTeam => {
         argTeam.name = `Unamed${unamedTeamsNumber + 1}`;
     }
 
-    /* Para poder borrar y manipular los equipos pokemón "persistidos" en el localStorage
-    tienes que poder acceder a ellos de alguna manera emulando el id que tendrían en una base de datos.
-    
-    La manera que se me ocurrio es asignandoles un id númerico y luego usar ese mismo id para determinar
-    su ubicación en el localStorage*/
-
+    /* teams are stored on localStorage using a key between 0 and 14 */
     for (let i: number = 0; i < 15; i++) {
         if (localStorage.getItem(i.toString()) === null) {
             argTeam.id = i;

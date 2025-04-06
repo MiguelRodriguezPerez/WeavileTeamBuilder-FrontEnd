@@ -6,10 +6,13 @@ export const SelectedTeamMemberMenuWrapper = () => {
 
     const selectedPokemon: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember)!;
 
+    console.log(selectedPokemon);
+    
+
     return (
         <>
             {
-                selectedPokemon.id === null ? <MissignoMenu /> : <p>aaaaa</p>
+                selectedPokemon?.name === null ? <MissignoMenu /> : <p>aaaaa</p>
             }
         </>
     );

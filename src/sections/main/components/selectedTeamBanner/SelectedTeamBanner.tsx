@@ -10,34 +10,27 @@ export const SelectedTeamBanner = () => {
 
     const { getDefaultTeam } = useDefaultTeam();
     const selectedTeam: PokemonTeam | null = useWeavileStore((state) => state.selectedPokemonTeam);
-    console.log(selectedTeam?.members);
-
-    const changeSelectedTeam = useWeavileStore((state) => state.changeSelectedTeam);
+    
     // localStorage.clear();
 
-    /* Si el usuario no tiene equipos, se le creará uno de tipo individual por defecto */
+    /* This effect checks if user*/
     useEffect(() => {
-        const asyncEffectWrapper = async () => {
+        const asyncEffectWrapper = async () => {            
             await getDefaultTeam();
         }
-        if (selectedTeam === null || selectedTeam === undefined) asyncEffectWrapper();
-        console.log(selectedTeam);
+        asyncEffectWrapper();
     }, []);
 
     return (
         <section className="selected-team-banner">
-            {/* Por la razón que sea el componente se renderiza antes de que el efecto se dispare,
-            provocando que en caso de que no existan equipos el renderizado de los nodos se adelante al efecto,
-            impidiendo su correcto funcionamiento */}
+            {/* This component renders before useEffect finishes causing to selectedTeam to be undefined
+            That is why all nodes check if selectedTeam is undefined before rendering*/}
             {
                 selectedTeam && <SelectedTeamName />
             }
             {
-                /* Lo mismo con members */
-                selectedTeam?.members
-                /* Si no planeas cambiar de manera dinámica el número de pokemón (el dropdown no cuenta)
-                ni moverlos de posición key={index} es seguro */
-                && selectedTeam.members.map((member, index) => (
+                selectedTeam?.teamMembers
+                && selectedTeam.teamMembers.map((member, index) => (
                     <BannerMember member={member} key={index} />
                 ))
             }

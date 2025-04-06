@@ -8,7 +8,7 @@ export const useSelectedPokemonMember = () => {
 
     const changeSelectedTeam = useWeavileStore(state => state.changeSelectedTeam);
     const changeSelectedPokemon = useWeavileStore(state => state.changeSelectedPokemon);
-    const selectedTeam = useWeavileStore(state => state.selectedPokemonTeam);
+    const selectedTeam = useWeavileStore(state => state.selectedPokemonTeam!);
     const selectedMember = useWeavileStore(state => state.selectedPokemonMember);
 
     const updateMember = async (name: string) => {
@@ -22,17 +22,17 @@ export const useSelectedPokemonMember = () => {
         if (pokemonRequest.status === 200) {
             const newMember: PokemonTeamMember = 
                 await convertPokemonDataToTeamMember(pokemonRequest.data, selectedMemberId);
+
+            /* Para almacenar los cambios en el equipo seleccionado, modificas el array original
+            del equipo seleccionado al que deseas cambiar, lo almacenas en una variable y luego lo usas
+            en el objeto que representa el equipo actualizado. */
+            selectedTeam.teamMembers[selectedMemberId] = newMember;
+            const updatedMembers: PokemonTeamMember[] = selectedTeam.teamMembers;
             
             const updatedTeam: PokemonTeam = {
                 id : selectedTeam!.id,
                 name: selectedTeam!.name,
-                members: [
-                    ...selectedTeam!.members.slice(0,selectedMemberId),
-                    {
-                        ...selectedTeam!.members[selectedMemberId] = newMember
-                    },
-                    ...selectedTeam!.members.slice(selectedMemberId + 1 ,5),
-                ],
+                teamMembers: updatedMembers,
                 teamType: selectedTeam!.teamType,
             }
 
