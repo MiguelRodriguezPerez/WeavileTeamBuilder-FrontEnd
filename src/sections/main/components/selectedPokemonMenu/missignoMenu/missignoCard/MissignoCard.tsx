@@ -1,8 +1,7 @@
 import { toPascalCase } from '../../../../../../globalHelpers';
-import { MissignoDTO } from '../MissignoDTO';
-import { MissignoAbilities, MissignoTypes, MissignoStats } from './';
 import { useSelectedPokemonMember } from '../../../../hooks/missignoGrid';
-import useWeavileStore from '../../../../../../globalContext/WeavileStore';
+import { MissignoDTO } from '../MissignoDTO';
+import { MissignoAbilities, MissignoStats, MissignoTypes } from './';
 
 
 import '../../../../styles/missignoMenu/missignoCard.css';
@@ -10,8 +9,6 @@ import '../../../../styles/missignoMenu/missignoCard.css';
 export const MissignoCard = ({ dto }: { dto: MissignoDTO }) => {
 
     const { updateMember } = useSelectedPokemonMember();
-
-    const selectedTeam = useWeavileStore(state => state.selectedPokemonTeam)
     
     return (
         <li className='missigno-card' onClick={() => updateMember(dto.name)}>

@@ -2,7 +2,7 @@ import { WeavileHeader } from "../../../ui/components/WeavileHeader";
 import { OptionBanner } from "../components/optionBanner/OptionBanner";
 import { SelectedTeamMemberMenuWrapper } from "../components/selectedPokemonMenu/SelectedTeamMemberMenuWrapper";
 import { SelectedTeamBanner } from "../components/selectedTeamBanner/SelectedTeamBanner";
-import { PokemonDataProvider } from "../context/pokemonData/PokemonDataProvider";
+import { SelectedPokemonDataProvider } from "../context/pokemonData/PokemonDataProvider";
 
 export const MainPage = () => {
     return (
@@ -10,9 +10,9 @@ export const MainPage = () => {
             <WeavileHeader />
             <SelectedTeamBanner />
             <OptionBanner />
-            <PokemonDataProvider>
+            <SelectedPokemonDataProvider>
                 <SelectedTeamMemberMenuWrapper />
-            </PokemonDataProvider>
+            </SelectedPokemonDataProvider>
 
         </>
     );

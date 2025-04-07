@@ -10,10 +10,7 @@ export const SelectedTeamBanner = () => {
 
     const { getDefaultTeam } = useDefaultTeam();
     const selectedTeam: PokemonTeam | null = useWeavileStore((state) => state.selectedPokemonTeam);
-    
-    // localStorage.clear();
 
-    /* This effect checks if user*/
     useEffect(() => {
         const asyncEffectWrapper = async () => {            
             await getDefaultTeam();

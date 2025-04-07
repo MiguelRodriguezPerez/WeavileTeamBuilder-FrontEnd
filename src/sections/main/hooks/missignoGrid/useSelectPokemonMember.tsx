@@ -1,7 +1,7 @@
 import { getPokemonByNameRequest } from "../../../../api/pokemonData";
 import { PokemonTeam, PokemonTeamMember } from "../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../globalContext/WeavileStore";
-import { convertPokemonDataToTeamMember } from "../../../../globalHelpers";
+import { convertPokemonDataToTeamMember as convertPokemonDataDTOToTeamMember } from "../../../../globalHelpers";
 import { updateStoredTeam } from "../../helpers/nonLoggedUser/updateStoredTeam";
 
 export const useSelectedPokemonMember = () => {
@@ -13,15 +13,11 @@ export const useSelectedPokemonMember = () => {
 
     const updateMember = async (name: string) => {
         const selectedMemberId: number = selectedMember!.id;
-        console.log(selectedTeam);
-        
         const pokemonRequest = await getPokemonByNameRequest(name);
-        console.log(pokemonRequest.data);
-        
 
         if (pokemonRequest.status === 200) {
             const newMember: PokemonTeamMember = 
-                await convertPokemonDataToTeamMember(pokemonRequest.data, selectedMemberId);
+                await convertPokemonDataDTOToTeamMember(pokemonRequest.data, selectedMemberId);
 
             /* Para almacenar los cambios en el equipo seleccionado, modificas el array original
             del equipo seleccionado al que deseas cambiar, lo almacenas en una variable y luego lo usas

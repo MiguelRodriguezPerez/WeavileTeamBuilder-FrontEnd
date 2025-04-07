@@ -1,8 +1,8 @@
 import { AxiosResponse } from "axios";
-import { PokemonData } from "../../domain/dataEntities";
+import { PokemonDataDTO } from "../../domain/dataEntities";
 import { pokemonDataApi } from "./pokemonDataApi";
 
-export const getPokemonByNameRequest = async (name: string): Promise<AxiosResponse<PokemonData>> => {
+export const getPokemonByNameRequest = async (name: string): Promise<AxiosResponse<PokemonDataDTO>> => {
     const resultado = await pokemonDataApi.get(`/getPokemonByName/${name}`);
     return resultado;
 }

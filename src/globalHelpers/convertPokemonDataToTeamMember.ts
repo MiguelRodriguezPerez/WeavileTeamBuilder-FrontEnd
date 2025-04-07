@@ -1,11 +1,11 @@
 import { getNatureByNameRequest } from "../api/requestNatures/getNatureByNameRequest";
-import { PokemonData } from "../domain/dataEntities";
+import { PokemonDataDTO } from "../domain/dataEntities";
 import { PokemonType } from "../domain/enums";
 import { PokemonTeamMember } from "../domain/teamMemberEntities";
 
 
-export const convertPokemonDataToTeamMember = async(data: PokemonData, position: number): Promise<PokemonTeamMember> => {
-    
+export const convertPokemonDataToTeamMember = async (data: PokemonDataDTO, position: number): Promise<PokemonTeamMember> => {
+
     return {
         id: position,
         name: data.name,
@@ -34,7 +34,7 @@ export const convertPokemonDataToTeamMember = async(data: PokemonData, position:
         special_defense_iv: 0,
         speed_iv: 0,
 
-        pkmn_team_move_list: data.moves,
+        move_list: data.moves,
         ability: data.ability_list[0],
         item: undefined,
         type_list: data.type_list,

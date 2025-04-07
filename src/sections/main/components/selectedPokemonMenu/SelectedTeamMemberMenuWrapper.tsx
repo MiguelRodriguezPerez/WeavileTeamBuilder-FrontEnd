@@ -1,6 +1,8 @@
 import { PokemonTeamMember } from "../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../globalContext/WeavileStore";
 import { MissignoMenu } from "./missignoMenu/MissignoMenu";
+import { TeamMemberMenu } from "./pokemonMenu";
+
 
 export const SelectedTeamMemberMenuWrapper = () => {
 
@@ -12,7 +14,7 @@ export const SelectedTeamMemberMenuWrapper = () => {
     return (
         <>
             {
-                selectedPokemon?.name === null ? <MissignoMenu /> : <p>aaaaa</p>
+                selectedPokemon?.name === null ? <MissignoMenu /> : <TeamMemberMenu/>
             }
         </>
     );

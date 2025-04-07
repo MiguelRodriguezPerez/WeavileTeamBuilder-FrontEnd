@@ -1,7 +1,7 @@
-import { AbilityData, MoveData } from './'
+import { AbilityData, MoveData } from '.'
 import { PokemonType } from '../enums';
 
-export interface PokemonData {
+export interface PokemonDataDTO {
 
     name: string;
 
@@ -20,4 +20,3 @@ export interface PokemonData {
     moves: MoveData[];
 
 }
-  

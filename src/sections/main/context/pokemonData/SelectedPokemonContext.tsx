@@ -1,4 +1,5 @@
 import { createContext } from "react";
-import { SelectedPokemonDataContextType } from "./ContextInterface";
+import { SelectedPokemonContextType } from "./SelectedPokemonContextType";
 
-export const SelectedPokemonDataContext = createContext<SelectedPokemonDataContextType | undefined>(undefined);
+
+export const SelectedPokemonContext = createContext<SelectedPokemonContextType| undefined>(undefined);
