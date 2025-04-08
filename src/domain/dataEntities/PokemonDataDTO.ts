@@ -17,6 +17,6 @@ export interface PokemonDataDTO {
 
     type_list: PokemonType[];
     ability_list: AbilityData[];
-    moves: MoveData[];
+    move_list: MoveData[];
 
 }

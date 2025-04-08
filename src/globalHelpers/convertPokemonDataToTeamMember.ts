@@ -34,7 +34,7 @@ export const convertPokemonDataToTeamMember = async (data: PokemonDataDTO, posit
         special_defense_iv: 0,
         speed_iv: 0,
 
-        move_list: data.moves,
+        move_list: data.move_list,
         ability: data.ability_list[0],
         item: undefined,
         type_list: data.type_list,

@@ -5,7 +5,7 @@ import { SelectedPokemonContext } from "./SelectedPokemonContext";
 
 export const SelectedPokemonDataProvider = ({ children, pokemonName }: { children: ReactNode, pokemonName: string }) => {
 
-  const [ pokemonData, setPokemonData] = useState<PokemonDataDTO | null>(null);
+  const [ pokemonData, setPokemonData ] = useState<PokemonDataDTO | null>(null);
 
   useEffect(() => {
     const asyncWrapper = async (): Promise<void> => {
@@ -16,7 +16,7 @@ export const SelectedPokemonDataProvider = ({ children, pokemonName }: { childre
     asyncWrapper();
     /* Desmonta el efecto por si acaso */
     return () => { }
-  }, [pokemonName])
+  }, [pokemonName]);
 
 
   return (
