@@ -1,0 +1,5 @@
+.team-member-menu {
+    display: grid;
+    grid-template-columns: 25% 72%;
+    gap: 3%;
+}

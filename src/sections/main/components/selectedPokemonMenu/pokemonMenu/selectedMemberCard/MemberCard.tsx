@@ -1,12 +1,12 @@
 import { MemberAbilitiesDropdown, MemberHeader, MemberItem, MemberIvsEvs, MemberMoveList } from ".";
 
+import '../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard.css'
+
 
 export const MemberCard = () => {
-    // ?????
-    // const currentPokemonData = useContext(SelectedPokemonContext)!.currentPokemonData!;
 
     return (
-        <div>
+        <div className="member-card">
             <MemberHeader />
             <MemberItem />
             <MemberAbilitiesDropdown />

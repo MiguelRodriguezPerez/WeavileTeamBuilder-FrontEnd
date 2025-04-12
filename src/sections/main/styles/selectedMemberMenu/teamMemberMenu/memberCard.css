@@ -1,0 +1,12 @@
+.member-card {
+    border: solid 1px rgb(244, 241, 241);
+    border-radius: 8px;
+}
+
+.member-header-card {
+    border: solid 1px red;
+}
+
+.member-header-card > h3{
+    text-align: center;
+}

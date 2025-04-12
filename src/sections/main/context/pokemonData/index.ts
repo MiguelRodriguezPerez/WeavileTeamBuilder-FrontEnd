@@ -1,3 +1,3 @@
 export * from './SelectedPokemonDataProvider';
-export * from './SelectedPokemonContext';
+export * from './SelectedPokemonDataContext';
 export * from './SelectedPokemonContextType';

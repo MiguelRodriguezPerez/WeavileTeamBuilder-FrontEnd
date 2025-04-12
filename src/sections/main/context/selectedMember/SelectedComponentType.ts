@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { JSX, ReactNode } from 'react';
 
 export type SelectedComponentType = {
     selectedComponent: ReactNode,
-    switchComponent : (component: ReactNode) => void,
+    switchComponent : React.Dispatch<React.SetStateAction<JSX.Element>>;
 }

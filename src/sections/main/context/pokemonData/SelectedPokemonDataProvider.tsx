@@ -1,27 +1,31 @@
 import { ReactNode, useEffect, useState } from "react";
 import { getPokemonByNameRequest } from "../../../../api/pokemonData";
 import { PokemonDataDTO } from "../../../../domain/dataEntities";
-import { SelectedPokemonContext } from "./SelectedPokemonContext";
+import useWeavileStore from "../../../../globalContext/WeavileStore";
+import { SelectedPokemonDataContext } from "./SelectedPokemonDataContext";
 
-export const SelectedPokemonDataProvider = ({ children, pokemonName }: { children: ReactNode, pokemonName: string }) => {
+export const SelectedPokemonDataProvider = ({ children }: { children: ReactNode }) => {
 
   const [ pokemonData, setPokemonData ] = useState<PokemonDataDTO | null>(null);
+  const selectedPokemon = useWeavileStore(state => state.selectedPokemonMember!);
 
   useEffect(() => {
     const asyncWrapper = async (): Promise<void> => {
-      const request = await getPokemonByNameRequest(pokemonName);
+      console.log('aaaaaaaaaaaaaaaaaaaa');
+      
+      const request = await getPokemonByNameRequest(selectedPokemon.name);
       if (request.status === 200) setPokemonData(request.data);
     }
 
-    asyncWrapper();
+    if (selectedPokemon && selectedPokemon.name) asyncWrapper();
     /* Desmonta el efecto por si acaso */
-    return () => { }
-  }, [pokemonName]);
+    // return () => { }
+  }, [selectedPokemon]);
 
 
   return (
-    <SelectedPokemonContext.Provider value={{ currentPokemonData: pokemonData }}>
+    <SelectedPokemonDataContext.Provider value={{ currentPokemonData: pokemonData }}>
       {children}
-    </SelectedPokemonContext.Provider>
+    </SelectedPokemonDataContext.Provider>
   )
 }

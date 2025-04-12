@@ -8,8 +8,8 @@ export const MemberMoveList = () => {
     return (
         <ul>
             { /* Pendiente de comprobar campo move_list */
-                selectedMember.move_list.map((move) => (
-                    <li>{move.name}</li>
+                selectedMember?.move_list?.map((move, index) => (
+                    <li key={index}>{move.name}</li>
                 ))
             }
         </ul>

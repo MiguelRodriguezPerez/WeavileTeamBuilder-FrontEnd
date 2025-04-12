@@ -13,12 +13,12 @@ export const MoveCard = ({ move }: { move: MoveData }) => {
                     alt={`${move.move_type.toString()}.png`} />
             </div>
             <div>
-                {/* <h4>Power</h4> TODO: Power */}
                 <h4>Accuracy</h4>
                 <h4>PP</h4>
-
+                <h4>Power</h4>
                 <span>{move.accuracy}</span>
                 <span>{move.description}</span>
+                <span>{move.power}</span>
             </div>
             <div>
                 <p>{move.description}</p>

@@ -1,5 +1,5 @@
 import { PokemonType } from "../../../../../../domain/enums";
-import { assignTypeToPng } from "../../../../helpers/missignoGrid";
+import { assignPokemonTypeToPng } from "../../../../../../globalHelpers/assignPokemonTypeToPng";
 
 import '../../../../styles/missignoMenu/missignoCard.css'
 
@@ -8,7 +8,7 @@ export const MissignoTypes = ({typeList} : {typeList : PokemonType[]}) => {
         <span className="missigno-types-list">
             {
                 typeList.map((type, id) => (
-                    <img src={assignTypeToPng(type)} alt={`${type.toLowerCase()}.png`} key={id} />
+                    <img src={assignPokemonTypeToPng(type)} alt={`${type.toLowerCase()}.png`} key={id} />
                 ))
             }
         </span>

@@ -1,8 +1,7 @@
 import { useState } from "react";
-
-import '../../../styles/selectedMemberMenu/missignoMenu.css'
 import { MissignoGrid } from "./";
 
+import '../../../styles/selectedMemberMenu/missignoMenu.css'
 
 
 export const MissignoMenu = () => {

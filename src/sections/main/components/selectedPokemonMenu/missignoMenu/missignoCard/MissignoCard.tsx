@@ -13,8 +13,7 @@ export const MissignoCard = ({ dto }: { dto: MissignoDTO }) => {
     return (
         <li className='missigno-card' onClick={() => updateMember(dto.name)}>
             <img 
-                src={ dto.pc_sprite ? 
-                    `data:image/jpeg;base64,${dto.pc_sprite}` : 'images/main/missignoMenu/missignoIcon.png' } 
+                src={ dto.pc_sprite ? `data:image/jpeg;base64,${dto.pc_sprite}` : 'images/main/missignoMenu/missignoIcon.png' } 
                 className={ dto.pc_sprite ? 'missigno-icon-defined' : 'missigno-icon'}
                 alt={dto.name + '.png'} 
             />

@@ -6,6 +6,9 @@ import { PokemonTeamMember } from "../domain/teamMemberEntities";
 
 export const convertPokemonDataToTeamMember = async (data: PokemonDataDTO, position: number): Promise<PokemonTeamMember> => {
 
+    console.log(data);
+    
+
     return {
         id: position,
         name: data.name,
@@ -34,7 +37,7 @@ export const convertPokemonDataToTeamMember = async (data: PokemonDataDTO, posit
         special_defense_iv: 0,
         speed_iv: 0,
 
-        move_list: data.move_list,
+        move_list: [],
         ability: data.ability_list[0],
         item: undefined,
         type_list: data.type_list,

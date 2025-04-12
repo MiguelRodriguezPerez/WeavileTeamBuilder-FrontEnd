@@ -4,12 +4,16 @@ import useWeavileStore from "../../../../../../globalContext/WeavileStore";
 export const MemberHeader = () => {
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
+
+    console.log(selectedMember);
+    
   
     return (
-        <header>
-            <h3>{selectedMember.name}</h3>
-            <img src={`data:image/jpeg;base64,${selectedMember.front_default_sprite}`}
+        <header className="member-header-card">
+            <img src={`data:image/png;base64,${selectedMember.front_default_sprite}`}
                 alt={`${selectedMember.name}.png`} />
+            <h3>{selectedMember.name}</h3>
+            
                 {/* TODO: Dropdown Teratypes */}
         </header>
     );

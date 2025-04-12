@@ -13,7 +13,6 @@ export const MainPage = () => {
             <SelectedPokemonDataProvider>
                 <SelectedTeamMemberMenuWrapper />
             </SelectedPokemonDataProvider>
-
         </>
     );
 }
