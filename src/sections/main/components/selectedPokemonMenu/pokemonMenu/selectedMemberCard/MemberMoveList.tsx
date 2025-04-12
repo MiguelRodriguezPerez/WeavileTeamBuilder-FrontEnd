@@ -4,6 +4,7 @@ import useWeavileStore from "../../../../../../globalContext/WeavileStore";
 export const MemberMoveList = () => {
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
+    
 
     return (
         <ul>

@@ -7,9 +7,10 @@ export const MoveCard = ({ move }: { move: MoveData }) => {
         <li>
             <h3>{move.name}</h3>
             <div>
-                <img src={`data:image/jpeg;base64,${assignPokemonTypeToPng(move.pokemon_type)}`}
-                    alt={`${move.pokemon_type.toString()}.png`} />
-                <img src={`data:image/jpeg;base64,${assignMoveTypeToPng(move.move_type)}`} 
+            <img src={assignPokemonTypeToPng(move.pokemon_type)} 
+                alt={`${move.pokemon_type.toString()}.png`} />
+
+                <img src={assignMoveTypeToPng(move.move_type)} 
                     alt={`${move.move_type.toString()}.png`} />
             </div>
             <div>

@@ -11,8 +11,6 @@ export const SelectedPokemonDataProvider = ({ children }: { children: ReactNode 
 
   useEffect(() => {
     const asyncWrapper = async (): Promise<void> => {
-      console.log('aaaaaaaaaaaaaaaaaaaa');
-      
       const request = await getPokemonByNameRequest(selectedPokemon.name);
       if (request.status === 200) setPokemonData(request.data);
     }

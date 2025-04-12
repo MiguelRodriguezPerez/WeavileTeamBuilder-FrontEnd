@@ -3,10 +3,21 @@
     border-radius: 8px;
 }
 
+
 .member-header-card {
-    border: solid 1px red;
+    display: grid;
+    grid-template-columns: 1fr;
+    
+    align-items: center;
+    justify-items: center;
 }
+
 
 .member-header-card > h3{
     text-align: center;
+    font-size: 1.2rem;
+
+    margin: 0;
+    margin-top: -2%;
+    margin-bottom: 2%;
 }
