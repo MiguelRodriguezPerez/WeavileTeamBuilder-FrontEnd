@@ -1,0 +1,28 @@
+.member-moves {
+    margin-top: 5%;
+}
+
+.member-moves > h4 {
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 0px;
+}
+
+.member-moves > ul {
+    list-style-type: none;
+    padding: 0px;
+
+    margin: 0% 10%;
+}
+
+.member-moves > ul > li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+
+    border-bottom: solid 1px rgb(244, 241, 241);
+}
+
+

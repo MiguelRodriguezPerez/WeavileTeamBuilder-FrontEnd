@@ -10,17 +10,18 @@ export const ItemGrid = () => {
     useEffect(() => {
         const asyncWrapper = async () => {
             const itemRequest = await getAllItemsRequest();
+            console.log(itemRequest.data);
+            
             if (itemRequest.status === 200) setItemList(itemRequest.data);
         }
 
         asyncWrapper();
     }, [])
-    
   
     return (
         <ul>
            {
-                itemList.map((item) => (
+                itemList?.map((item) => (
                     <ItemCard item={item} key={item.id}/>
                 ))
            } 

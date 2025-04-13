@@ -2,6 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { PokemonTeamMember } from "../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../globalContext/WeavileStore";
 import { SelectedComponentContext } from "../../../../context/selectedMember/SelectedComponentContext";
+import { ItemGrid } from "../activeComponents/elementGrids";
+
+import '../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberItemAbility.css'
 
 export const MemberItem = () => {
   
@@ -14,9 +17,9 @@ export const MemberItem = () => {
     }, [selectedPokemon.item])
 
     return (
-        <div>
-            <p>Item:</p>
-            <p>{currentItem || 'No item'}</p>
+        <div className="member-item">
+            <p>Item</p>
+            <p onClick={ () => { changeSelectedComponent(<ItemGrid/>) } }>{currentItem || 'No item'}</p>
         </div>
     );
 }

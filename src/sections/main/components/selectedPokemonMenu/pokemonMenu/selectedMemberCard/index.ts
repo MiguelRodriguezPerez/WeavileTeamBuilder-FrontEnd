@@ -1,4 +1,4 @@
-export * from './MemberAbilitiesDropdown';
+export * from './MemberAbility';
 export * from './MemberHeader';
 export * from './MemberItem';
 export * from './MemberIvsEvs';

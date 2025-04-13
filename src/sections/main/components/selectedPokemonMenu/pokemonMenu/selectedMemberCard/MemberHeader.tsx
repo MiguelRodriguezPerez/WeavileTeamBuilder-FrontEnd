@@ -1,6 +1,8 @@
 import { PokemonTeamMember } from "../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../globalContext/WeavileStore";
 
+import '../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberHeaderCard.css'
+
 export const MemberHeader = () => {
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
