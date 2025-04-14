@@ -1,9 +1,10 @@
 .member-card {
     border: solid 1px rgb(244, 241, 241);
     border-radius: 8px;
+    grid-row: 1/3;
 }
 
-.member-card > .member-item-ability {
+.member-card > .member-div{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 5%;

@@ -20,9 +20,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2%;
+    margin-bottom: 10px;
 
-    border-bottom: solid 1px rgb(244, 241, 241);
+    border: solid 1.9px rgb(244, 241, 241);
+    border-radius: 8px;
+    padding-left: 15px;
+
+    cursor: pointer;
+}
+
+.member-moves-move > p{
+    margin: 2px 0px;
+    text-align: start;
+    width: 100%; 
+    /* p por defecto solo ocupa una fracción corta del ancho de li,
+    así que para que ocupe todo y poder alinear el texto hago width 100% */
 }
 
 

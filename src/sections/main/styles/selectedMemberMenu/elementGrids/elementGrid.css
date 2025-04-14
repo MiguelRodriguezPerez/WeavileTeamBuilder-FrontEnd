@@ -1,0 +1,12 @@
+.element-grid {
+    border: solid 1px rgb(244, 241, 241);
+    border-radius: 8px;
+
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.element-grid > *:hover {
+    border-bottom: solid 1px  rgb(244, 241, 241);
+}

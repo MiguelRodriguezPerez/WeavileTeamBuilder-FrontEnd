@@ -11,6 +11,7 @@ export const MemberMoveList = () => {
     const { move_list }: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const changeSelectedComponent = useContext(SelectedComponentContext)!.switchComponent;
 
+    // TODO: Imitar delete move showdown
 
     return (
         <div className="member-moves">
@@ -18,8 +19,8 @@ export const MemberMoveList = () => {
             <ul>
                 {
                     Array.from({ length: 4 }, (_, i) => (
-                        <li key={i} onClick={() => changeSelectedComponent(<MoveDataGrid />)}>
-                            { move_list[i]?.name || '-' }
+                        <li className="member-moves-move" key={i} onClick={() => changeSelectedComponent(<MoveDataGrid />)}>
+                            { <p>{ move_list[i]?.name || '-' }</p> }
                         </li>
                     ))
                 }

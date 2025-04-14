@@ -1,0 +1,32 @@
+.element-grid-header {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 12px;
+    align-items: end;
+}
+
+.element-grid-header > button {
+    margin-left: auto;
+}
+
+.element-grid-header > h3 {
+    margin: 0px;
+    font-size: 1.4rem;
+}
+
+.element-grid-header > button.delete-button {
+    background-color: rgb(235, 15, 15);
+    border: solid 1px transparent;
+    border-radius: 8px;
+    padding: 6px 15px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+button.delete-button > span {
+    margin-right: 12px;
+}
+
+

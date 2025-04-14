@@ -1,26 +1,35 @@
 import { MoveData } from "../../../../../../../domain/dataEntities";
-import { assignMoveTypeToPng, assignPokemonTypeToPng } from "../../../../../../../globalHelpers";
+import { assignMoveTypeToPng, assignPokemonTypeToPng, toPascalCase } from "../../../../../../../globalHelpers";
+
+import '../../../../../styles/selectedMemberMenu/elementCards/moveCard.css'
 
 export const MoveCard = ({ move }: { move: MoveData }) => {
 
     return (
-        <li>
-            <h3>{move.name}</h3>
-            <div>
-            <img src={assignPokemonTypeToPng(move.pokemon_type)} 
-                alt={`${move.pokemon_type.toString()}.png`} />
-
+        <li className="move-card">
+            <h3>{toPascalCase(move.name)}</h3>
+            <div className="moves-img">
+                <img src={assignPokemonTypeToPng(move.pokemon_type)} 
+                    alt={`${move.pokemon_type.toString()}.png`} />
                 <img src={assignMoveTypeToPng(move.move_type)} 
                     alt={`${move.move_type.toString()}.png`} />
             </div>
-            <div>
-                <h4>Accuracy</h4>
-                <h4>PP</h4>
-                <h4>Power</h4>
-                <span>{move.accuracy}</span>
-                <span>{move.description}</span>
-                <span>{move.power}</span>
-            </div>
+            <table>
+               <thead>
+                <tr>
+                    <th>Accuracy</th>
+                    <th>PP</th>
+                    <th>Power</th>
+                </tr>
+               </thead>
+                <tbody>
+                    <tr>
+                        <td>{move.accuracy}</td>
+                        <td>{move.pp}</td>
+                        <td>{move.power}</td>
+                    </tr>
+                </tbody>
+            </table>
             <div>
                 <p>{move.description}</p>
             </div>
