@@ -2,4 +2,7 @@
     display: grid;
     grid-template-columns: 25% 72%;
     gap: 0% 3%;
+
+    /*Discutible, pero había que garantizar el tamaño en diseños responsive*/
+    height: 600px;
 }

@@ -5,8 +5,12 @@
     list-style-type: none;
     padding: 0px;
     margin: 0px;
+
+    overflow-y: auto;
 }
 
 .element-grid > *:hover {
+    /* border? */
     border-bottom: solid 1px  rgb(244, 241, 241);
+    padding-bottom: 7px;
 }

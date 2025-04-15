@@ -5,6 +5,7 @@ import { MissignoCard } from "./missignoCard/MissignoCard";
 import { useSearchByName } from "../../../hooks/missignoGrid";
 
 import '../../../styles/missignoMenu/missignoGrid.css';
+import { WeavileLoading } from "../../../../../ui/components";
 
 
 export const MissignoGrid = ({ search = '' }: { search: string }) => {
@@ -25,6 +26,7 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
         asyncWrapper();
     }, []);
 
+    if(!filteredArr) return <WeavileLoading/>
 
     return (
         <ul className="missigno-grid">
