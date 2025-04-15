@@ -20,9 +20,19 @@ export const SelectedPokemonDataProvider = ({ children }: { children: ReactNode 
     // return () => { }
   }, [selectedPokemon]);
 
+  const changeMoves = (name: string) => {
+    if (!pokemonData) return;
+    setPokemonData(
+      {
+        ...pokemonData,
+        move_list: pokemonData!.move_list.filter(move => move.name.toLowerCase().includes(name))
+      }
+    )
+  }
+
 
   return (
-    <SelectedPokemonDataContext.Provider value={{ currentPokemonData: pokemonData }}>
+    <SelectedPokemonDataContext.Provider value={{ currentPokemonData: pokemonData, changeAvailableMoves: changeMoves }}>
       {children}
     </SelectedPokemonDataContext.Provider>
   )
