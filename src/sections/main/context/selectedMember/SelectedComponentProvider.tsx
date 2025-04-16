@@ -1,15 +1,15 @@
 import { ReactNode, useState } from 'react';
 import { SelectedComponentContext } from './SelectedComponentContext';
-import { MoveDataGrid } from '../../components/selectedPokemonMenu/pokemonMenu/activeComponents/elementGrids/MoveDataGrid';
+import { MoveGrid } from '../../components/selectedPokemonMenu/pokemonMenu/activeComponents/elementGrids/MoveGrid';
 
-export const SelectedComponentProvider = ( { children } : { children: ReactNode } ) => {
+export const SelectedComponentProvider = ({ children }: { children: ReactNode }) => {
 
-    const [ activeComponent, setActiveComponent ] = useState(<MoveDataGrid/>);
+    const [activeComponent, setActiveComponent] = useState(<MoveGrid />);
 
     return (
-        <SelectedComponentContext.Provider 
-            value={{selectedComponent: activeComponent, switchComponent: setActiveComponent}}>
-                {children}
+        <SelectedComponentContext.Provider
+            value={{ selectedComponent: activeComponent, switchComponent: setActiveComponent }}>
+            {children}
         </SelectedComponentContext.Provider>
     )
 }

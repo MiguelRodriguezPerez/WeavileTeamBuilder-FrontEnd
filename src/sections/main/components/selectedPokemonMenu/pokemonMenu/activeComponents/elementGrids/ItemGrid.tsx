@@ -2,29 +2,37 @@ import { useEffect, useState } from "react";
 import { ItemCard } from "../elementCards";
 import { ItemData } from "../../../../../../../domain/dataEntities";
 import { getAllItemsRequest } from "../../../../../../../api/itemData";
+import { WeavileLoading } from "../../../../../../../ui/components";
+
+import '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.css'
+import { ElementHeader } from "../ElementHeader";
 
 export const ItemGrid = () => {
 
-    const [ itemList, setItemList ] = useState<ItemData[]>([]);
+    const [itemList, setItemList] = useState<ItemData[]>([]);
 
     useEffect(() => {
         const asyncWrapper = async () => {
             const itemRequest = await getAllItemsRequest();
-            console.log(itemRequest.data);
-            
+
             if (itemRequest.status === 200) setItemList(itemRequest.data);
         }
 
         asyncWrapper();
     }, [])
-  
+
+    if (itemList.length === 0) return <WeavileLoading />
+
     return (
-        <ul>
-           {
-                itemList?.map((item) => (
-                    <ItemCard item={item} key={item.id}/>
-                ))
-           } 
-        </ul>
+        <>
+            <ElementHeader elementName="Items" />
+            <ul className="element-grid">
+                {
+                    itemList?.map((item) => (
+                        <ItemCard item={item} key={item.id} />
+                    ))
+                }
+            </ul>
+        </>
     );
 }

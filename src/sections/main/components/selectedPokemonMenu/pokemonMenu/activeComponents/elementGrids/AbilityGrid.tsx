@@ -2,18 +2,27 @@ import { useContext } from "react";
 import { AbilityData } from "../../../../../../../domain/dataEntities";
 import { AbilityCard } from "../elementCards";
 import { SelectedPokemonDataContext } from "../../../../../context/pokemonData";
+import { ElementHeader } from "../ElementHeader";
 
-export const AbilityDataGrid = () => {
+import '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.css'
+import { WeavileLoading } from "../../../../../../../ui/components";
 
-    const abilityList: AbilityData[] = useContext(SelectedPokemonDataContext)!.currentPokemonData.ability_list;
+export const AbilityGrid = () => {
+
+    const abilityList: AbilityData[] = useContext(SelectedPokemonDataContext)!.currentPokemonData!.ability_list;
+
+    if (abilityList.length === 0) return <WeavileLoading />
 
     return (
-        <ul>
-            {
-                abilityList.map((ability) => (
-                    <AbilityCard ability={ability} key={ability.id} />
-                ))
-            }
-        </ul>
+        <>
+            <ElementHeader elementName="Abilities" />
+            <ul className="element-grid">
+                {
+                    abilityList.map((ability) => (
+                        <AbilityCard ability={ability} key={ability.id} />
+                    ))
+                }
+            </ul>
+        </>
     );
 }

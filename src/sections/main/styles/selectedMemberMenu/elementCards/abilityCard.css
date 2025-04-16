@@ -1,0 +1,32 @@
+.ability-card {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 15% 1fr;
+
+    justify-items: start;
+    align-items: center;
+    
+    margin: 15px 20px;
+    padding: 0px 10px 15px;
+}
+
+.ability-card > * {
+    margin: 0px;
+}
+
+.ability-card > h4 {
+    font-size: 1.1rem;
+}
+
+/* TeamMemberMenu tiene una altura fija de 600px (discutible). Como las habilidades no ocupan
+dichos 600px tienes que "rellenar" los px restantes para que 
+la lista de habilidades no quede descolocada */
+
+.ability-card:last-of-type {
+    margin-bottom: 100%;
+}
+
+/* No necesitas scroll en el grid de habilidades*/
+.element-grid {
+    overflow-y: hidden !important;
+}

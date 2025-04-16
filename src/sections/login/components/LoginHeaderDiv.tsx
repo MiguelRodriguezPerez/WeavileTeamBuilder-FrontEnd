@@ -1,6 +1,6 @@
 
 import '../styles/loginHeaderDiv.css';
-import '../../../commonStyles/buttons.css';
+import '/styles/buttons.css';
 
 export const LoginHeaderDiv = () => {
     // TODO: Redirect login
