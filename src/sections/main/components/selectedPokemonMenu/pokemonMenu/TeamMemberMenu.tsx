@@ -2,8 +2,10 @@ import { SelectedPokemonDataProvider } from '../../../context/pokemonData/Select
 import { SelectedComponentProvider } from "../../../context/selectedMember/SelectedComponentProvider";
 import { RenderActiveElementGrid } from "./activeComponents/RenderActiveElementGrid";
 import { MemberCard } from "./selectedMemberCard";
+import { DeleteMemberButton } from './DeleteMemberButton';
 
 import '../../../styles/selectedMemberMenu/teamMemberMenu/teamMemberMenu.css'
+
 
 export const TeamMemberMenu = () => {
 
@@ -17,6 +19,7 @@ export const TeamMemberMenu = () => {
                     {/* Por la razón que sea no puedes montar el componente directamente aquí, 
                     hay que hacerlo en uno aparte */}
                     <RenderActiveElementGrid />
+                    <DeleteMemberButton/>
                 </section>
             </SelectedComponentProvider>
         </SelectedPokemonDataProvider>

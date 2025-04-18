@@ -16,7 +16,7 @@ export const AbilityGrid = () => {
     return (
         <>
             <ElementHeader elementName="Abilities" />
-            <ul className="element-grid">
+            <ul className="element-grid ability-grid">
                 {
                     abilityList.map((ability) => (
                         <AbilityCard ability={ability} key={ability.id} />

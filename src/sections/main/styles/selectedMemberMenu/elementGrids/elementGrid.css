@@ -7,6 +7,7 @@
     margin: 0px;
     
     overflow-y: auto;
+    grid-row: 2/4;
 }
 
 .element-grid > *:hover {

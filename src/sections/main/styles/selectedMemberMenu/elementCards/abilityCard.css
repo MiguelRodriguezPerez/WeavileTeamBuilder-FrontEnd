@@ -27,6 +27,6 @@ la lista de habilidades no quede descolocada */
 }
 
 /* No necesitas scroll en el grid de habilidades*/
-.element-grid {
+.ability-grid {
     overflow-y: hidden !important;
 }
