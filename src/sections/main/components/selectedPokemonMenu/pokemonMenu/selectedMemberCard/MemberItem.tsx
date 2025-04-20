@@ -11,11 +11,11 @@ export const MemberItem = () => {
     const changeSelectedComponent = useContext(SelectedComponentContext)!.switchComponent;
     const selectedPokemon: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
 
-    
+
     return (
         <div className="member-item">
             <p>Item</p>
-            <p onClick={() => { changeSelectedComponent(<ItemGrid />) }}>{selectedPokemon.item!.name || 'No item'}</p>
+            <p onClick={() => { changeSelectedComponent(<ItemGrid />) }}>{selectedPokemon.item?.name || 'No item'}</p>
         </div>
     );
 }
