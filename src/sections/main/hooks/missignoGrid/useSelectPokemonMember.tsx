@@ -14,10 +14,7 @@ export const useSelectedPokemonMember = () => {
     const updateMember = async (name: string) => {
         const selectedMemberId: number = selectedMember!.id;
         const pokemonRequest = await getPokemonByNameRequest(name);
-
-        console.log(pokemonRequest.data);
         
-
         if (pokemonRequest.status === 200) {
             const newMember: PokemonTeamMember = 
                 await convertPokemonDataDTOToTeamMember(pokemonRequest.data, selectedMemberId);
