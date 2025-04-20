@@ -1,7 +1,6 @@
 .element-grid-header {
     display: flex;
     flex-direction: row;
-    margin-bottom: 12px;
     margin-top: 0px;
     align-items: end;
 }

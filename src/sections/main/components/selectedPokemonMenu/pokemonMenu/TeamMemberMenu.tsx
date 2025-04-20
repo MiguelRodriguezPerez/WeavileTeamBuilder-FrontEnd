@@ -19,7 +19,7 @@ export const TeamMemberMenu = () => {
                     {/* Por la razón que sea no puedes montar el componente directamente aquí, 
                     hay que hacerlo en uno aparte */}
                     <RenderActiveElementGrid />
-                    <DeleteMemberButton/>
+                    <DeleteMemberButton />
                 </section>
             </SelectedComponentProvider>
         </SelectedPokemonDataProvider>

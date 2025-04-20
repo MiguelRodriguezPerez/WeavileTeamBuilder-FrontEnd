@@ -18,9 +18,8 @@
     font-size: 1.1rem;
 }
 
-/* TeamMemberMenu tiene una altura fija de 600px (discutible). Como las habilidades no ocupan
-dichos 600px tienes que "rellenar" los px restantes para que 
-la lista de habilidades no quede descolocada */
+/* Aún con max-height para el contenedor padre, provoca redistribuciones raras así que 
+dejalo igual*/
 
 .ability-card:last-of-type {
     margin-bottom: 100%;

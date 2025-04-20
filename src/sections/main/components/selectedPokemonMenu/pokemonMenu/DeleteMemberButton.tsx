@@ -1,13 +1,30 @@
-import { Button } from "@mui/material";
+import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-import '../../../styles/selectedMemberMenu/teamMemberMenu/deleteMemberButton.css'
-
 export const DeleteMemberButton = () => {
-  
+
+    /* No preguntes porque, pero intente ponerle estilos usando styled() 
+    para separar el estilo del nodo html y no hubo manera de que mostrara el texto
+    del botón, a pesar de que si era capaz de añadirle los estilos */
+
     return (
-        <div className="delete-member-menu">
-            <Button variant="contained" startIcon={<DeleteIcon/>}>Delete Pokemon</Button>
+        <div>
+            <Button
+                startIcon={<DeleteIcon />}
+                sx={{
+                    backgroundColor: '#da2c1f',
+                    textTransform: 'none',
+                    color: '#ffffff',
+                    padding: '10px 50px',
+                    fontSize: '0.95rem',
+                    borderRadius: '12px',
+                    margin: '0%',
+                    display: 'flex',
+                    justifySelf:'center'
+                }}
+            >
+                Delete Pokemon
+            </Button>
         </div>
     );
 }

@@ -1,8 +1,10 @@
 .team-member-menu {
     display: grid;
     grid-template-columns: 25% 72%;
-    gap: 0% 3%;
+    gap: 3%;
 
-    /*Discutible, pero había que garantizar el tamaño en diseños responsive*/
-    height: 640px;
+    /* Sospechoso de fallar */
+    max-height: 70vh;
+
+    margin-bottom: 5%;
 }
