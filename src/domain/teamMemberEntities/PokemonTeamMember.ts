@@ -4,11 +4,11 @@ import { NatureData } from "./NatureData";
 
 export interface PokemonTeamMember {
 
-    id: number;//Haz que se base en la posición del array
-    name: string;
+    id: number; //Haz que se base en la posición del array
+    name: string | null;
 
-    front_default_sprite: string; // Sospechoso de fallar
-    pc_sprite: string; // Sospechoso de fallar
+    front_default_sprite: string | null; // Sospechoso de fallar
+    pc_sprite: string | null; // Sospechoso de fallar
 
     base_hp: number;
     base_attack: number;
@@ -32,10 +32,10 @@ export interface PokemonTeamMember {
     speed_iv: number;
 
     move_list: MoveData[];
-    ability: AbilityData;
-    item?: ItemData;
-    type_list: PokemonType[];
-    tera_type?: PokemonType;
-    nature: NatureData;
+    ability: AbilityData | null;
+    item: ItemData | null;
+    type_list: PokemonType[] | null;
+    tera_type: PokemonType | null;
+    nature: NatureData | null;
 
 }
