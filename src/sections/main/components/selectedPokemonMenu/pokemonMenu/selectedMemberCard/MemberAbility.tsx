@@ -15,7 +15,7 @@ export const MemberAbility = () => {
     return (
         <div className="member-ability">
             <p>Ability</p>
-            <p onClick={() => { changeSelectedComponent(<AbilityGrid />) }}>{toPascalCase(selectedMember.ability.name)}</p>
+            <p onClick={() => { changeSelectedComponent(<AbilityGrid />) }}>{toPascalCase(selectedMember.ability!.name)}</p>
         </div>
     );
 }

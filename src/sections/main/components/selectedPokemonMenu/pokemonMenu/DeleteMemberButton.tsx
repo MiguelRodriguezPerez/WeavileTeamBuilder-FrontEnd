@@ -3,33 +3,31 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import useWeavileStore from '../../../../../globalContext/WeavileStore';
 import { PokemonTeam, PokemonTeamMember } from '../../../../../domain/teamMemberEntities';
 import { convertMemberToNullMember, updateStoredTeam } from '../../../helpers/nonLoggedUser';
+import { useUpdateTeam } from '../../../hooks/selectedPokemonMenu';
 
 export const DeleteMemberButton = () => {
 
     /* No preguntes porque, pero intente ponerle estilos usando styled() 
     para separar el estilo del nodo html y no hubo manera de que mostrara el texto
     del botón, a pesar de que si era capaz de añadirle los estilos */
+    const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
+    const { updateTeamWrapper } = useUpdateTeam();
 
-    const changeSelectedPokemon = useWeavileStore(state => state.changeSelectedPokemon)
-    const changeSelectedTeam = useWeavileStore(state => state.changeSelectedTeam)
-    const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember)!;
-    const selectedTeam: PokemonTeam = useWeavileStore(state => state.selectedPokemonTeam)!;
-
-    const deleteEvent = () => {
+    const deleteEvent = (): void => {
         const deletedMember: PokemonTeamMember = convertMemberToNullMember(selectedMember);
-        selectedTeam.teamMembers[deletedMember.id] = deletedMember;
+        updateTeamWrapper(deletedMember);
         /* No preguntes porque, pero este objeto es necesario; no puedes cambiar directamente selectedTeam
         y luego pasárselo a la función que actualiza el contexto */
-        const updatedTeam: PokemonTeam = {
-            id : selectedTeam!.id,
-            name: selectedTeam!.name,
-            teamMembers: selectedTeam.teamMembers,
-            teamType: selectedTeam!.teamType,
-        }
+        // const updatedTeam: PokemonTeam = {
+        //     id : selectedTeam!.id,
+        //     name: selectedTeam!.name,
+        //     teamMembers: selectedTeam.teamMembers,
+        //     teamType: selectedTeam!.teamType,
+        // }
 
-        updateStoredTeam(updatedTeam);
-        changeSelectedTeam(updatedTeam);
-        changeSelectedPokemon(deletedMember);
+        // updateStoredTeam(updatedTeam);
+        // changeSelectedTeam(updatedTeam);
+        // changeSelectedPokemon(deletedMember);
     }
 
     return (
