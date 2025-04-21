@@ -17,8 +17,15 @@ export const DeleteMemberButton = () => {
 
     const deleteEvent = () => {
         const deletedMember: PokemonTeamMember = convertMemberToNullMember(selectedMember);
-        let updatedTeam : PokemonTeam = selectedTeam;
-        updatedTeam.teamMembers[deletedMember.id] = deletedMember;
+        selectedTeam.teamMembers[deletedMember.id] = deletedMember;
+        /* No preguntes porque, pero este objeto es necesario; no puedes cambiar directamente selectedTeam
+        y luego pasárselo a la función que actualiza el contexto */
+        const updatedTeam: PokemonTeam = {
+            id : selectedTeam!.id,
+            name: selectedTeam!.name,
+            teamMembers: selectedTeam.teamMembers,
+            teamType: selectedTeam!.teamType,
+        }
 
         updateStoredTeam(updatedTeam);
         changeSelectedTeam(updatedTeam);

@@ -14,7 +14,7 @@ export const BannerMember = ({ member }: { member: PokemonTeamMember }) => {
 
     return (
         <div className='pokemon-banner-element' onClick={ () => changeSelectedPokemon(member) }>
-            <MemberSprite sprite={ member.front_default_sprite }/>
+            <MemberSprite sprite={ member.front_default_sprite ? member.front_default_sprite : undefined }/>
             {/* ?? "-" significa que si la prop inicial (member.name) es null enviará "-" */}
             <MemberName name={ member.name ?? "-" } />
             <MemberAbility ability={ member.ability?.name ?? ""} />

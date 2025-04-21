@@ -11,8 +11,6 @@ export const SelectedTeamBanner = () => {
 
     return (
         <section className="selected-team-banner">
-            {/* This component renders before useEffect finishes causing to selectedTeam to be undefined
-            That is why all nodes check if selectedTeam is undefined before rendering*/}
             {
                 selectedTeam && <SelectedTeamName />
             }
