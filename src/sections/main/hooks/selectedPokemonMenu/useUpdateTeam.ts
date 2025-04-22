@@ -14,16 +14,19 @@ export const useUpdateTeam = () => {
         nunca cambia) y cambiarlo directamente. 
         Luego haces todas las actualizaciones necesarias */
 
-        // const updatedTeam = selectedTeam;
-        // updatedTeam.teamMembers[updatedMember.id] = updatedMember;
         let { teamMembers : membersToUpdate } = selectedTeam;
         membersToUpdate[updatedMember.id] = updatedMember;
 
+        // const updatedTeam: PokemonTeam = {
+        //     id : selectedTeam.id,
+        //     name: selectedTeam.name,
+        //     teamMembers: membersToUpdate,
+        //     teamType: selectedTeam.teamType,
+        // }
+
         const updatedTeam: PokemonTeam = {
-            id : selectedTeam.id,
-            name: selectedTeam.name,
-            teamMembers: membersToUpdate,
-            teamType: selectedTeam.teamType,
+            ...selectedTeam,
+            teamMembers: membersToUpdate
         }
 
         updateStoredTeam(updatedTeam);
