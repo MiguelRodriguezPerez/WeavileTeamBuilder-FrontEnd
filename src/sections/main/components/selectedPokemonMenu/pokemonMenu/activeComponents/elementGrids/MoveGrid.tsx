@@ -19,7 +19,7 @@ export const MoveGrid = () => {
             <ul className="element-grid">
                 {
                     moveList?.map((move) => (
-                        <MoveCard move={move} key={move.id} />
+                        <MoveCard moveProp={move} key={move.id} />
                     ))
                 }
             </ul>

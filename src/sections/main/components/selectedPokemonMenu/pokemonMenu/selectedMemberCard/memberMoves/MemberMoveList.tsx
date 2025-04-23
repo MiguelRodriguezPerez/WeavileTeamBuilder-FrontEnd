@@ -1,20 +1,16 @@
-import { useContext } from "react";
-import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
+import { useState } from "react";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
-import { SelectedComponentContext } from "../../../../../context/selectedMember/SelectedComponentContext";
-import { MoveGrid } from "../../activeComponents/elementGrids";
-
-import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberMoves.css'
 import { MemberMoveInput } from "./MemberMoveInput";
+
+import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberMoves.css';
 
 export const MemberMoveList = () => {
 
-    const { move_list }: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember)!;
-    const changeSelectedComponent = useContext(SelectedComponentContext)!.switchComponent;
+    const move_list = useWeavileStore(state => state.selectedPokemonMember!.move_list);
+    const [ selectedIndex, setSelectedIndex ] = useState<number | null>(null);
+
     console.log(move_list);
-
-
-    // TODO: Imitar delete move showdown
+    // isSelected(i === selectedIndex)
 
     return (
         <div className="member-moves">
@@ -22,8 +18,13 @@ export const MemberMoveList = () => {
             <ul>
                 {
                     Array.from({ length: 4 }, (_, i) => (
-                        <li className="member-moves-move" key={i} onClick={() => changeSelectedComponent(<MoveGrid />)}>
-                            {<MemberMoveInput moveName={move_list[i]?.name ?? ''} moveIndex={i} />}
+                        <li 
+                            className={`member-moves-move ${selectedIndex === i && 'selected-move'}`} 
+                            key={i} 
+                            onClick={ () => setSelectedIndex(i)}>
+                            {
+                                <MemberMoveInput moveName={move_list[i]?.name ?? ''} moveIndex={i} />
+                            }
                         </li>
                     ))
                 }

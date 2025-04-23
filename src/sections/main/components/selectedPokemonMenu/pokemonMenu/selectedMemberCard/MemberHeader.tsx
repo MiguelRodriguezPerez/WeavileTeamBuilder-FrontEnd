@@ -7,12 +7,15 @@ import '../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberHe
 export const MemberHeader = () => {
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
-  
+    console.log(selectedMember);
+    
+
+
     return (
         <header className="member-header-card">
             <img src={`data:image/png;base64,${selectedMember.front_default_sprite}`}
                 alt={`${selectedMember.name}.png`} />
-            <h3>{toPascalCase(selectedMember.name)}</h3>
+            <h3>{toPascalCase(selectedMember.name!)}</h3>
             
                 {/* TODO: Dropdown Teratypes */}
         </header>
