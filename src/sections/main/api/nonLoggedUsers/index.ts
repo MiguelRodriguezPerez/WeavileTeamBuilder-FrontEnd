@@ -1,2 +1,2 @@
-export * from './PokemonTeamApi'
-export * from './createNewTeamRequest'
+export * from './createNewTeamRequest';
+export * from './PokemonTeamApi';

@@ -2,6 +2,7 @@
     background-image: url('../../../../images/main/pokeballbackgrounddef.png');
     background-repeat: no-repeat;
     background-position: center; /* Centra la imagen */
+    background-size: contain;
 }
 
 .selected-pokemon-sprite > img.heading-pokemon-sprite {

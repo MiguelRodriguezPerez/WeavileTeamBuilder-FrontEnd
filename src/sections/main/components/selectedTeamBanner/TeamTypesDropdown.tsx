@@ -2,7 +2,7 @@ import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import { TeamType } from "../../../../domain/enums/TeamType";
 import useWeavileStore from "../../../../globalContext/WeavileStore";
 import { createNewTeamRequest } from "../../api/nonLoggedUsers";
-import { deletePokemonTeam, storePokemonTeam } from "../../helpers/nonLoggedUser";
+import { deletePokemonTeam, storeFirstPokemonTeam } from "../../helpers/nonLoggedUser";
 
 
 export const TeamTypesDropdown = () => {
@@ -26,7 +26,7 @@ export const TeamTypesDropdown = () => {
             deleteSelectedTeam();
 
             const newTeam = await createNewTeamRequest(selectedTeamType);
-            storePokemonTeam(newTeam.data);
+            storeFirstPokemonTeam(newTeam.data);
             updateSelectedTeam(newTeam.data);
         }
     }
@@ -39,7 +39,7 @@ export const TeamTypesDropdown = () => {
         >
             {// Filtrar solo las claves que corresponden a los nombres, no los índices numéricos
                 Object.keys(TeamType)
-                    .filter((key) => isNaN(Number(key))) 
+                    .filter((key) => isNaN(Number(key)))
                     .map((key) => (
                         <MenuItem value={key} key={key}>
                             {key}

@@ -1,0 +1,15 @@
+.member-ivs-evs-nature {
+    background-color: #EDEBEB;
+    color:black;
+
+    border-radius: 23px;
+    border: solid 1px transparent;
+
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    cursor: pointer;
+
+    padding: 2% 15%;
+    margin: 5% 0%;
+}

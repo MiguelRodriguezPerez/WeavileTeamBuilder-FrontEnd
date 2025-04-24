@@ -1,5 +1,5 @@
 import '../../styles/optionBanner/optionBanner.css'
-import '/src/commonStyles/buttons.css'
+import '/styles/buttons.css'
 import { ShareLink } from './ShareLink';
 
 export const OptionBanner = () => {

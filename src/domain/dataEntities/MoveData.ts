@@ -7,6 +7,7 @@ export interface MoveData {
     move_type: MoveType; 
     pokemon_type: PokemonType; 
     accuracy: number;
+    power: number;
     description: string;
     pp: number;
     

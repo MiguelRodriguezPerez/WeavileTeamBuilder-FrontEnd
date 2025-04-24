@@ -1,0 +1,10 @@
+.team-member-menu {
+    display: grid;
+    grid-template-columns: 25% 72%;
+    gap: 3%;
+
+    /* Sospechoso de fallar */
+    max-height: 70vh;
+
+    margin-bottom: 5%;
+}

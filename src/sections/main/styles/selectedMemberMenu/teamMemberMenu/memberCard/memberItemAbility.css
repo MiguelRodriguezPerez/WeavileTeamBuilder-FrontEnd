@@ -1,0 +1,19 @@
+.member-item, .member-ability {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.member-item p, .member-ability p {
+    margin: 0px;
+}
+
+.member-item > p + p, .member-ability > p + p {
+    border: solid 1px white;
+    border-radius: 23px;
+
+    margin: 3% 0%;
+    padding: 5px 5%;
+
+    cursor: pointer;
+}
