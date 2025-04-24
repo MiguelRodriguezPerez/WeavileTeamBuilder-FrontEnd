@@ -31,7 +31,9 @@ export interface PokemonTeamMember {
     special_defense_iv: number;
     speed_iv: number;
 
-    move_list: MoveData[];
+    /* Al borrar movimientos en el cliente tienes que permitir 
+    que los elementos del array puedan ser null */
+    move_list: ( MoveData | null )[]; 
     ability: AbilityData | null;
     item: ItemData | null;
     type_list: PokemonType[] | null;

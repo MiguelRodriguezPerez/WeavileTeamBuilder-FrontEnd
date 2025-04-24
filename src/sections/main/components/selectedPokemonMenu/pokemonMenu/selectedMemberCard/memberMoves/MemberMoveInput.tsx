@@ -4,13 +4,27 @@ import { SelectedMoveMemberContext } from "../../../../../context/selectedMember
 import { MoveGrid } from "../../activeComponents";
 import { toPascalCase } from "../../../../../../../globalHelpers";
 
-export const MemberMoveInput = ({ moveName, moveIndex } : { moveName : string , moveIndex: number }) => {
+import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberMoves.css';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
+import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
+import { MoveData } from "../../../../../../../domain/dataEntities";
+import { useUpdateTeam } from "../../../../../hooks/selectedPokemonMenu";
+import { PokemonTeam } from '../../../../../../../domain/teamMemberEntities/PokemonTeam';
 
-    /* Plantea el edge case de que un usuario deje mal tecleado un nombre de movimiento
-    Si no existe borralo. Si existe en pascalCase ponlo */
 
-    // TODO: Implementar delete move con trash icon
+/* isSelectedClassName es un valor booleano que sirve para decidir si se le aplica una clase css
+a un nodo. La idea es poner un borde azul sobre el input seleccionado. 
+Estoy convencido de que existe una manera más eficiente de hacerlo */
 
+export const MemberMoveInput = ({ moveName, moveIndex } : 
+    { moveName : string , moveIndex: number}) => {
+
+    /* Decide más adelante si vas a permitir que el usuario pueda escribir en el input o no */
+    // TODO: Outline deleteIcon red
+
+    const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
+    const { updateTeamWrapper } = useUpdateTeam();
     const changeSelectedMove = useContext(SelectedMoveMemberContext)?.changeSelectedMove;
     const changeSelectedComponent = useContext(SelectedComponentContext)!.switchComponent;
     const [ moveNameState, setMoveNameState ] = useState<string>(moveName);
@@ -21,14 +35,32 @@ export const MemberMoveInput = ({ moveName, moveIndex } : { moveName : string , 
         setMoveNameState(toPascalCase(moveName));
     }, [moveName]);
       
-    const onClickWrapper = () => {
+    const onClickEvent = () => {
         changeSelectedMove!(moveIndex);
         changeSelectedComponent(<MoveGrid />)
     }
+
+    const removeMove = () => {
+        let updatedMember = selectedMember;
+        updatedMember.move_list[moveIndex] = null;
+
+        updateTeamWrapper(updatedMember);
+    }
   
     return (
-        <input type="text" value={ moveNameState } 
-            onChange={ (event) => { setMoveNameState(event.target.value) } }
-            onClick={ onClickWrapper } />
+        <li className={`member-moves-li`}>
+            <input type="text" readOnly
+                value={ moveNameState } 
+                onChange={ (event) => { setMoveNameState(event.target.value) } }
+                onClick={ onClickEvent } 
+            />       
+            <DeleteIcon 
+                onClick={removeMove}
+                sx={{
+                    marginTop : '5px',
+                    color: 'red[500]'
+                }}
+            />
+        </li>
     );
 }
