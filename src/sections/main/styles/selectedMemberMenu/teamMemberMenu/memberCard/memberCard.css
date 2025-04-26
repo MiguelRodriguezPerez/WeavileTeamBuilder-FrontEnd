@@ -6,12 +6,4 @@
     padding: 0% 5%;
 }
 
-.member-card > .member-div{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5%;
-    justify-items: center;
-    margin: 2% 0%;
-}
-
 

@@ -1,0 +1,7 @@
+.member-ivs-evs-nature-type-coverage-div{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5%;
+    justify-items: center;
+    margin: 5% 0%;
+}
