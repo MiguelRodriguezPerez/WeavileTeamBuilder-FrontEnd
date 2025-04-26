@@ -1,16 +1,15 @@
 import { useContext, useEffect, useState } from "react";
-import { SelectedComponentContext } from "../../../../../context/selectedMember/SelectedComponentContext";
-import { SelectedMoveMemberContext } from "../../../../../context/selectedMemberMove";
-import { MoveGrid } from "../../activeComponents";
 import { toPascalCase } from "../../../../../../../globalHelpers";
 
-import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberMoves.css';
+import { SelectedMoveMemberContext } from "../../../../../context/selectedMemberMove";
+import { MoveGrid } from "../../activeComponents";
+
 import DeleteIcon from '@mui/icons-material/Delete';
 import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
-import { MoveData } from "../../../../../../../domain/dataEntities";
 import { useUpdateTeam } from "../../../../../hooks/selectedPokemonMenu";
-import { PokemonTeam } from '../../../../../../../domain/teamMemberEntities/PokemonTeam';
+import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberMoves.css';
+import { SelectedComponentContext } from "../../../../../context/selectedMenuComponent/SelectedComponentContext";
 
 
 /* isSelectedClassName es un valor booleano que sirve para decidir si se le aplica una clase css
@@ -26,7 +25,7 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const { updateTeamWrapper } = useUpdateTeam();
     const changeSelectedMove = useContext(SelectedMoveMemberContext)?.changeSelectedMove;
-    const changeSelectedComponent = useContext(SelectedComponentContext)!.switchComponent;
+    const changeSelectedComponent = useContext(SelectedComponentContext)!.changeElementType;
     const [ moveNameState, setMoveNameState ] = useState<string>(moveName);
 
     /* Parece rídiculo, pero es necesario por si la lista de nodos se vuelve a montar con nuevos moveName,
@@ -37,7 +36,7 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
       
     const onClickEvent = () => {
         changeSelectedMove!(moveIndex);
-        changeSelectedComponent(<MoveGrid />)
+        changeSelectedComponent('move')
     }
 
     const removeMove = () => {
