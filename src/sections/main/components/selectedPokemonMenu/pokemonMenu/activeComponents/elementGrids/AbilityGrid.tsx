@@ -1,11 +1,10 @@
 import { useContext } from "react";
 import { AbilityData } from "../../../../../../../domain/dataEntities";
-import { AbilityCard } from "../elementCards";
 import { SelectedPokemonDataContext } from "../../../../../context/pokemonData";
-import { ElementHeader } from "../ElementHeader";
+import { AbilityCard } from "../elementCards";
 
-import '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.css'
 import { WeavileLoading } from "../../../../../../../ui/components";
+import '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.css';
 
 export const AbilityGrid = () => {
 
@@ -15,7 +14,6 @@ export const AbilityGrid = () => {
 
     return (
         <>
-            <ElementHeader elementName="Abilities" />
             <ul className="element-grid ability-grid">
                 {
                     abilityList.map((ability) => (

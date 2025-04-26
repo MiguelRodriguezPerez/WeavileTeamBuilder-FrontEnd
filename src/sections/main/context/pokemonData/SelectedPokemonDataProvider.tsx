@@ -11,13 +11,11 @@ export const SelectedPokemonDataProvider = ({ children }: { children: ReactNode 
 
   useEffect(() => {
     const asyncWrapper = async (): Promise<void> => {
-      const request = await getPokemonByNameRequest(selectedPokemon.name);
+      const request = await getPokemonByNameRequest(selectedPokemon.name!);
       if (request.status === 200) setPokemonData(request.data);
     }
 
     if (selectedPokemon && selectedPokemon.name) asyncWrapper();
-    /* Desmonta el efecto por si acaso */
-    // return () => { }
   }, [selectedPokemon]);
 
   const changeMoves = (name: string) => {
