@@ -3,5 +3,5 @@ import { SelectedComponentContext } from "../../../../context/selectedMenuCompon
 
 export const RenderActiveElementGrid = () => {
     const componenteActivo = useContext(SelectedComponentContext)!.selectedComponent;
-    return <>{componenteActivo}</>;
+    return <>{ componenteActivo }</>;
 }
