@@ -2,8 +2,6 @@ import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntitie
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 
 export const TypeCoverageTable = () => {
-
-  
     return (
         <section>
             <div>
