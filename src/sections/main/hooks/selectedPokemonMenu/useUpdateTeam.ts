@@ -9,31 +9,26 @@ export const useUpdateTeam = () => {
     const updateSelectedTeam = useWeavileStore(state => state.changeSelectedTeam)!;
 
     const updateTeamWrapper = (updatedMember: PokemonTeamMember): PokemonTeam => {
-        /* Te pegaste un tiro en el pie usando spread operator. Lo más fácil es acceder al equipo actual,
-        seleccionar su miembro por índice (Recuerda que el id representa su posición en el equipo y que 
-        nunca cambia) y cambiarlo directamente. 
-        Luego haces todas las actualizaciones necesarias */
+        /* Recuerda que el id de un miembro representa su posición en el equipo (0,1,2 ..) */
 
-        let { teamMembers : membersToUpdate } = selectedTeam;
-        membersToUpdate[updatedMember.id] = updatedMember;
+        /* Para garantizar que zustand provoque el rerenderizado de los componentes que usan su contexto,
+        tienes que pasarle un nuevo objeto a las funciones que modifican el contexto de zustand.
+        
+        Esto se traduce en que tienes que crear*/
 
-        // const updatedTeam: PokemonTeam = {
-        //     id : selectedTeam.id,
-        //     name: selectedTeam.name,
-        //     teamMembers: membersToUpdate,
-        //     teamType: selectedTeam.teamType,
-        // }
+        const updatedMembers = [...selectedTeam.teamMembers];
+        updatedMembers[updatedMember.id] = updatedMember;
 
         const updatedTeam: PokemonTeam = {
             ...selectedTeam,
-            teamMembers: membersToUpdate
-        }
+            teamMembers: updatedMembers
+        };
 
         updateStoredTeam(updatedTeam);
         updateSelectedTeam(updatedTeam);
         updateSelectedPokemon(updatedMember);
 
-        return selectedTeam;
+        return updatedTeam;
     }
 
     return {

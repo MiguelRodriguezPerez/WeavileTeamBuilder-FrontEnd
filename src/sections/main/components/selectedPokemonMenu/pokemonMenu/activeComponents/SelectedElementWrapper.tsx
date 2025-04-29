@@ -1,6 +1,11 @@
 import { ReactNode, useEffect, useState } from "react";
 import { ElementHeader } from "./ElementHeader";
 import { AbilityGrid, ItemGrid, MoveGrid } from "./elementGrids";
+import { TypeCoverageTable } from "./typeCoverage/TypeCoverageTable";
+
+/* NOTA: Por la razón que sea, si al estado le pasas  setActiveComponents(TypeCoverageTable)
+en vez de setActiveComponents(<TypeCoverageTable/>) dara el error de que estas llamando a un hook
+fuera del comienzo de la declaración de un componente */
 
 export const SelectedElementWrapper = ({ elementType } : { elementType: string }) => {
 
@@ -41,7 +46,18 @@ export const SelectedElementWrapper = ({ elementType } : { elementType: string }
                     </>
                 )
                 break;
+
+            case (elementType === 'membertypecoverage') :
+                setActiveComponents(<TypeCoverageTable/>);
+                break;
+
+            default:
+                console.error('SelectedElementWrapper error. Active component ' + elementType +
+                    ' is not handled by SelectedElementWrapper switch'
+                );
+                break;
             }
+            
     }, [elementType])
   
     return (

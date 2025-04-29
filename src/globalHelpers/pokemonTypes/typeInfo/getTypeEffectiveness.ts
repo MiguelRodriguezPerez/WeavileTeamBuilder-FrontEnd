@@ -1,4 +1,4 @@
-import { PokemonType } from "../../../../domain/enums";
+import { PokemonType } from "../../../domain/enums";
 
 
 export const getTypeEffectiveness = (type: PokemonType): PokemonType[] => {
@@ -25,7 +25,7 @@ export const getTypeEffectiveness = (type: PokemonType): PokemonType[] => {
         [PokemonType.GROUND]: [PokemonType.FIRE, PokemonType.ELECTRIC, PokemonType.POISON, PokemonType.ROCK, PokemonType.STEEL],
         [PokemonType.FLYING]: [PokemonType.GRASS, PokemonType.FIGHTING, PokemonType.BUG],
         [PokemonType.STEEL]: [PokemonType.ICE, PokemonType.ROCK, PokemonType.FAIRY],
-        [PokemonType.STELLAR]: [], 
+        [PokemonType.STELLAR]: [],
     };
 
     return effectivenessMap[type];

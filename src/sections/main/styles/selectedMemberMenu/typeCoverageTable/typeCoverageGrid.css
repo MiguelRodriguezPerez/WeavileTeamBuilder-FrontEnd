@@ -1,0 +1,9 @@
+.type-coverage-grid {
+    padding: 0px;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-items: start;
+    width: 50%;
+    gap: 3% 0%;
+}

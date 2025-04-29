@@ -1,4 +1,4 @@
-import { PokemonType } from "../../../../domain/enums";
+import { PokemonType } from "../../../domain/enums";
 
 
 export const getTypeInmunities = (type: PokemonType): PokemonType[] => {

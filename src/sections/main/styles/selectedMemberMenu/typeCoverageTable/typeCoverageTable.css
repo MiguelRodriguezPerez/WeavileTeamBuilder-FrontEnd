@@ -1,0 +1,9 @@
+.type-coverage-table {
+    grid-row: 1/4;
+}
+
+.type-coverage-table > h1 {
+    margin: 0px;
+    font-size: 1.3rem;
+}
+
