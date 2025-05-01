@@ -19,6 +19,5 @@ export enum PokemonType {
     FLYING = "FLYING",
     STEEL = "STEEL",
     STELLAR = "STELLAR"
-
 }
   

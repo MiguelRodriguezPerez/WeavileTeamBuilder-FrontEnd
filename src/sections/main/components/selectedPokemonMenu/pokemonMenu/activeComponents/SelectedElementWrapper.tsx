@@ -1,18 +1,18 @@
 import { ReactNode, useEffect, useState } from "react";
 import { ElementHeader } from "./ElementHeader";
 import { AbilityGrid, ItemGrid, MoveGrid } from "./elementGrids";
-import { TypeCoverageTable } from "./typeCoverage/TypeCoverageTable";
+import { MemberTypeSummary } from "./memberTypeSummary/MemberTypeSummary";
 
 /* NOTA: Por la razón que sea, si al estado le pasas  setActiveComponents(TypeCoverageTable)
 en vez de setActiveComponents(<TypeCoverageTable/>) dara el error de que estas llamando a un hook
 fuera del comienzo de la declaración de un componente */
 
-export const SelectedElementWrapper = ({ elementType } : { elementType: string }) => {
+export const SelectedElementWrapper = ({ elementType }: { elementType: string }) => {
 
-    const [ activeComponents, setActiveComponents ] = useState<ReactNode>(
+    const [activeComponents, setActiveComponents] = useState<ReactNode>(
         <>
-            <ElementHeader elementName="Moves"/>
-            <MoveGrid/>
+            <ElementHeader elementName="Moves" />
+            <MoveGrid />
         </>
     );
 
@@ -21,34 +21,34 @@ export const SelectedElementWrapper = ({ elementType } : { elementType: string }
         no dará error */
         elementType = elementType.toLowerCase();
 
-        switch(true) {
-            case (elementType === 'move') :
+        switch (true) {
+            case (elementType === 'move'):
                 setActiveComponents(
                     <>
-                        <ElementHeader elementName="Moves"/>
-                        <MoveGrid/>
+                        <ElementHeader elementName="Moves" />
+                        <MoveGrid />
                     </>
                 )
                 break;
-            case (elementType === 'item') :
+            case (elementType === 'item'):
                 setActiveComponents(
                     <>
-                        <ElementHeader elementName="Items"/>
-                        <ItemGrid/>
+                        <ElementHeader elementName="Items" />
+                        <ItemGrid />
                     </>
                 )
                 break;
-            case (elementType === 'ability') :
+            case (elementType === 'ability'):
                 setActiveComponents(
                     <>
-                        <ElementHeader elementName="Ability"/>
-                        <AbilityGrid/>
+                        <ElementHeader elementName="Ability" />
+                        <AbilityGrid />
                     </>
                 )
                 break;
 
-            case (elementType === 'membertypecoverage') :
-                setActiveComponents(<TypeCoverageTable/>);
+            case (elementType === 'membertypecoverage'):
+                setActiveComponents(<MemberTypeSummary />);
                 break;
 
             default:
@@ -56,13 +56,13 @@ export const SelectedElementWrapper = ({ elementType } : { elementType: string }
                     ' is not handled by SelectedElementWrapper switch'
                 );
                 break;
-            }
-            
+        }
+
     }, [elementType])
-  
+
     return (
         <>
-            { activeComponents }
+            {activeComponents}
         </>
     );
 }
