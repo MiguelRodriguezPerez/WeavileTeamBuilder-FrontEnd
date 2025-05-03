@@ -1,2 +1,3 @@
-export * from './MemberTypeGrid';
+export * from './memberTypeSummaryChildren';
 export * from './MemberTypeSummary';
+export * from './TypeGrid';

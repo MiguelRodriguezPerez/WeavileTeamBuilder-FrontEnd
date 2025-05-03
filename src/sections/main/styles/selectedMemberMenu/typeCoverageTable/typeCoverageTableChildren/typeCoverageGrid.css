@@ -1,0 +1,18 @@
+.type-coverage-div > h5 {
+    margin: 0px;
+}
+
+.type-coverage-grid {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-items: start;
+    gap: 3% 0%;
+
+    border-top: solid 1px rgb(244, 241, 241);
+    padding: 0px;
+    padding-top: 10px;
+
+    margin: 1% 0%;
+}
+

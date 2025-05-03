@@ -18,6 +18,7 @@ export enum PokemonType {
     GROUND = "GROUND",
     FLYING = "FLYING",
     STEEL = "STEEL",
-    STELLAR = "STELLAR"
+
 }
+/* No tengas en cuenta STELLAR */
   
