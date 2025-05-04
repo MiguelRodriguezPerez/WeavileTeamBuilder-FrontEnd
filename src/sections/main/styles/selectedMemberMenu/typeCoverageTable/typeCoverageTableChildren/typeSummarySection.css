@@ -13,8 +13,7 @@
     font-size: 1.2rem;
 }
 
-.type-summary-section> p {
-    margin: 0px;
-    margin-top: 1%;
-    font-size: 1.1rem;
+.type-summary-div> p {
+    margin: 2% 0%;
+    font-size: 1.05rem;
 }

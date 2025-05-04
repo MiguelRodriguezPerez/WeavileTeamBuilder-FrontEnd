@@ -6,6 +6,7 @@ import { MoveCoverage, TypeSummary } from "./memberTypeSummaryChildren";
 import '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTable.css';
 
 
+
 export const MemberTypeSummary = () => {
 
     const selectedPokemon: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
@@ -15,7 +16,8 @@ export const MemberTypeSummary = () => {
             <h3>{ toPascalCase(selectedPokemon.name!) } type summary</h3>
             <MoveCoverage/>
             <TypeSummary/>
-            {/* TODO: Coberturas en equipo*/}
+            <MoveCoverage/>
+            {/* Funciona porque type-coverage-table grid-row 1/6 */}
         </section>
     );
 }

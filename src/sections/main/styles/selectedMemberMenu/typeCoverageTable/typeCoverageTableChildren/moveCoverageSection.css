@@ -2,8 +2,6 @@
     display: grid;
     grid-template-columns: 1fr;
     justify-content: start;
-
-    margin-top: 2%;
 }
 
 .move-coverage-section > h4 {

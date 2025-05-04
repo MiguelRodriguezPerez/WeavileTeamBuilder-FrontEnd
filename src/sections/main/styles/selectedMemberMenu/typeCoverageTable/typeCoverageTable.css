@@ -1,9 +1,22 @@
 .type-coverage-table {
-    grid-row: 1/4;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3%;
+    
+    align-content: start;
+
+    grid-row: 1 / 6;
 }
 
 .type-coverage-table > h3 {
     margin: 0px;
     font-size: 1.3rem;
+}
+
+.type-coverage-table > .move-coverage-section, 
+.type-coverage-table > .type-summary-section {
+    border: solid 1px rgb(244, 241, 241);
+    border-radius: 8px;
+    padding: 1.5%;
 }
 

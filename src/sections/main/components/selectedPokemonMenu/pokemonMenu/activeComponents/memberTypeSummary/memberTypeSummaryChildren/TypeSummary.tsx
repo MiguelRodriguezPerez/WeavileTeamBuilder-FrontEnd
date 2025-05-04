@@ -1,9 +1,10 @@
 import { PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
-import { getMemberInmunities, getMemberNeutralities, getMemberResistances, getMemberWeakness } from "../../../../../../../../globalHelpers/pokemonTypes/memberTypeInteractions";
+import { getMemberInmunities, getMemberNeutralities, getMemberResistances } from "../../../../../../../../globalHelpers/pokemonTypes/memberTypeInteractions";
+import { MemberTypeGrid } from "./MemberTypeGrid";
+import { WeaknessTypeGrid } from "./WeaknessTypeGrid";
 
 import '../../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/typeSummarySection.css';
-import { MemberTypeGrid } from "./MemberTypeGrid";
 
 export const TypeSummary = () => {
 
@@ -14,8 +15,7 @@ export const TypeSummary = () => {
     return (
         <section className="type-summary-section">
             <h4>Member type summary: </h4>
-            <MemberTypeGrid paragraph={pokemonName + ' is weak against'}
-                typeList={ getMemberWeakness(pokemonTypes) }/>
+            <WeaknessTypeGrid pokemonName={ pokemonName }/>
             <MemberTypeGrid paragraph={pokemonName + ' resists'}
                 typeList={ getMemberResistances(pokemonTypes) }/>
             <MemberTypeGrid paragraph={pokemonName + ' is neutral against'}
