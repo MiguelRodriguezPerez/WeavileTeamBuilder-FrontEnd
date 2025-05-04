@@ -20,7 +20,7 @@ export const getMemberWeakness = ( typeArr: PokemonType[] ): PokemonType[]  => {
             resultado = resultado.filter( type => !currentTypeResistances.includes(type) )
         });
 
-        return resultado;
+        return [...new Set(resultado)];
     }
  
 }

@@ -17,7 +17,7 @@ export const getMemberResistances = ( typeArr: PokemonType[] ): PokemonType[]  =
             resultado = resultado.filter( type1 => !currentTypeWeakness.includes(type1));
         });
 
-        return resultado;
+        return [...new Set(resultado)];
     }
  
 }

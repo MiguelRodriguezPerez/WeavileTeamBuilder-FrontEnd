@@ -7,9 +7,6 @@ export const getMemberNeutralities = (typeArr: PokemonType[]) => {
  
     let resultado: PokemonType[] = Object.values(PokemonType);
 
-    console.log(resultado);
-    
-
     let tiposCombinados: PokemonType[] = [
         ...getMemberInmunities(typeArr),
         ...getMemberResistances(typeArr),
@@ -19,6 +16,6 @@ export const getMemberNeutralities = (typeArr: PokemonType[]) => {
     resultado = resultado.filter(type => !tiposCombinados.includes(type));
 
 
-    return resultado;
+    return [...new Set(resultado)];
 
 }

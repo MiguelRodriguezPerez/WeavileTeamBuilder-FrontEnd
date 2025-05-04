@@ -8,6 +8,6 @@ export const getMemberInmunities = ( typeArr: PokemonType[] ): PokemonType[] => 
         resultado.push( ...getTypeInmunities(type) );
     });
 
-    return resultado;
+    return [...new Set(resultado)];
  
 }
