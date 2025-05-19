@@ -1,6 +1,5 @@
-import { MemberHeader, MemberMoveList } from ".";
+import { MemberHeader, MemberMoveList, MemberTypeCoverageIvsEvsNatureDiv } from ".";
 import { MemberItemAbilityDiv } from "./memberItemAbility/MemberItemAbilityDiv";
-import { MemberTypeCoverageIvsEvsNatureDiv } from "./memberTypeCoverageIvsEvsNature";
 
 import '../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberCard.css';
 

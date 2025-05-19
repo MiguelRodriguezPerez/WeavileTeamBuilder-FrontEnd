@@ -2,6 +2,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { ElementHeader } from "./ElementHeader";
 import { AbilityGrid, ItemGrid, MoveGrid } from "./elementGrids";
 import { MemberTypeSummary } from "./memberTypeSummary/MemberTypeSummary";
+import { MemberIvsEvsNature } from "./ivsEvsNatureMenu";
 
 /* NOTA: Por la razón que sea, si al estado le pasas  setActiveComponents(TypeCoverageTable)
 en vez de setActiveComponents(<TypeCoverageTable/>) dara el error de que estas llamando a un hook
@@ -49,6 +50,10 @@ export const SelectedElementWrapper = ({ elementType }: { elementType: string })
 
             case (elementType === 'membertypecoverage'):
                 setActiveComponents(<MemberTypeSummary />);
+                break;
+
+            case (elementType === 'memberivsevsnature'):
+                setActiveComponents(<MemberIvsEvsNature />);
                 break;
 
             default:
