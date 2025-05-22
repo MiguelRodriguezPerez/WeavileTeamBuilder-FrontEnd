@@ -31,7 +31,7 @@ export const DeleteMemberButton = () => {
     }
 
     return (
-        <div>
+        <div className='delete-button-div'>
             <Button
                 onClick={ deleteEvent }
                 startIcon={<DeleteIcon />}

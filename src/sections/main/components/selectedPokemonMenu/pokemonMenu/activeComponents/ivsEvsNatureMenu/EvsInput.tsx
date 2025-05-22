@@ -3,10 +3,13 @@ import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntitie
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { useUpdateTeam } from "../../../../../hooks/selectedPokemonMenu";
 
+import '../../../../../styles/selectedMemberMenu/memberIvsEvsNature/inputEvIv.css'
+
 export const EvsInput = ({ statName } :  { statName: string }) => {
 
-    const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const evKey = statName.replace('base_', '') + '_ev';
+
+    const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const [ evValue, setEvValue ] = useState(selectedMember[evKey]);
     const { updateTeamWrapper } = useUpdateTeam();
 
@@ -17,14 +20,16 @@ export const EvsInput = ({ statName } :  { statName: string }) => {
                 ...selectedMember,
                 [evKey] : newValue
             }
+
             updateTeamWrapper(updatedMember);
+            setEvValue(newValue);
         }
 
-        setEvValue(newValue);
     }
 
     return (
-        <input value={evValue}
+        <input value={evValue} 
+            className="input-ev-iv"
             onChange={(e) => { eventWrapper(e.target.value) } }/>
     );
 }

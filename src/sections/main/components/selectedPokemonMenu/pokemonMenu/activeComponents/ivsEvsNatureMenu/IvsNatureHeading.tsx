@@ -1,15 +1,12 @@
+import '../../../../../styles/selectedMemberMenu/memberIvsEvsNature/ivsNatureHeading.css'
+
 export const IvsNatureHeading = () => {
   
     return (
-        <thead>
-            <tr>
-                <th></th>
-                <th>Stats</th>
-                <th>Evs</th>
-                <th></th>
-                <th>Ivs</th>
-                <th></th>
-            </tr>
-        </thead>
+        <header className='ivs-nature-heading'>
+            <h3>Stats</h3>
+            <h3>Ivs</h3>
+            <h3>Evs</h3>
+        </header>
     );
 }

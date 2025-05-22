@@ -1,0 +1,9 @@
+.input-ev-iv {
+    background-color: transparent;
+    border: solid 1px white;
+    border-radius: 8px;
+    max-width: 60%;
+    margin: 0% 5%;
+    text-align: end;
+    padding-right: 10%;
+}
