@@ -1,4 +1,4 @@
-import '../../../../../styles/selectedMemberMenu/memberIvsEvsNature/ivsNatureHeading.css'
+import '../../../../../../styles/selectedMemberMenu/memberIvsEvsNature/ivsNatureHeading.css'
 
 export const IvsNatureHeading = () => {
   
