@@ -20,7 +20,7 @@ export const SelectedTeamBanner = () => {
                     <BannerMember member={member} key={index} />
                 ))
             }
-            <TeamTypesDropdown />
+            {/* <TeamTypesDropdown /> */}
         </section>
     );
 }

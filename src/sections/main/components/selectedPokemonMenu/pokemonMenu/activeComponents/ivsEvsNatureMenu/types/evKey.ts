@@ -8,3 +8,5 @@ export type EvKey = keyof Pick<PokemonTeamMember,
   'special_defense_ev' |
   'speed_ev'
 >;
+
+

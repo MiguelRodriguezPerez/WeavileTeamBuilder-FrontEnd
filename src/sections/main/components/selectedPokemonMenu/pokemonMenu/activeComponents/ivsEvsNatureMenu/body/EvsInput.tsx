@@ -40,8 +40,11 @@ export const EvsInput = ({ statName }: { statName: string }) => {
     }
 
     return (
-        <input value={evValue}
-            className="input-ev-iv"
-            onChange={(e) => { eventWrapper(e.target.value) }} />
+        <div>
+            <input value={evValue}
+                className="input-ev-iv"
+                onChange={(e) => { eventWrapper(e.target.value) }} 
+            />
+        </div>
     );
 }

@@ -1,6 +1,6 @@
 export const TotalStat = () => {
   
     return (
-        4
+        <div>4</div>
     );
 }

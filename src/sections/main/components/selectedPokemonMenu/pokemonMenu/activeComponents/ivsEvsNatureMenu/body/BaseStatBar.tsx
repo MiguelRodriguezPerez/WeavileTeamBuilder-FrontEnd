@@ -6,7 +6,9 @@ import '../../../../../../styles/selectedMemberMenu/memberIvsEvsNature/baseStatB
 export const BaseStatBar = ({ value }: { value: number }) => {
 
     return (
-        <span style={{ width: `${getStatBarWidth(value)}%` }}
+        <div>
+            <span style={{ width: `${getStatBarWidth(value)}%` }}
             className="base-stat-bar"></span>
+        </div>
     );
 }

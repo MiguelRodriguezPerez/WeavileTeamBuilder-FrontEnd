@@ -36,7 +36,8 @@ export const EvsSliderWrapper = ({ statName } : { statName: string }) => {
 
 
     return (
-        <Slider
+        <div>
+            <Slider
             size="small"
             value={evValue}
             min={0}
@@ -44,6 +45,7 @@ export const EvsSliderWrapper = ({ statName } : { statName: string }) => {
             step={1}
             onChange={ changeEvent }
         />
+        </div>
 
     );
 }

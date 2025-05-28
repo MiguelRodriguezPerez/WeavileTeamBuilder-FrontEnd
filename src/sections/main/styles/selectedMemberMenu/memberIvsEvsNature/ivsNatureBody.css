@@ -3,7 +3,7 @@ ol.ivs-nature-list {
     padding: 0px;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2% 0%;
+    gap: 2% 30px;
 }
 
 li.ivs-nature-element {

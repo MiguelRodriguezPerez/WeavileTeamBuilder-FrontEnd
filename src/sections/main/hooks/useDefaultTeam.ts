@@ -40,7 +40,7 @@ export const useDefaultTeam = () => {
         
         if (result !== null) return result;
         else {
-            const response = await createNewTeamRequest(TeamType.INDIVIDUAL); // Server side works fine
+            const response = await createNewTeamRequest(); // Server side works fine
             if (response.status === 201) {
                 const firstTeam: PokemonTeam = storeFirstPokemonTeam(response.data);
                 changeSelectedTeam(firstTeam);
