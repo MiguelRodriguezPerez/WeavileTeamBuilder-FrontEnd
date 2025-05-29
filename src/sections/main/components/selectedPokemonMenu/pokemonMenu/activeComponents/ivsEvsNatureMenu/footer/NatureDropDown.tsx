@@ -1,4 +1,4 @@
-import { MenuItem, Select } from "@mui/material";
+import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import { NatureData, PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
 import { useEffect, useState } from "react";
@@ -17,15 +17,60 @@ export const NatureDropDown = () => {
 
         asyncWrapper();
     }, []);
+
+    const changeNatureEvent = (event: SelectChangeEvent): void => {
+        console.log(event.target.value);
+        
+    }
   
     return (
         <Select
-            label='Nature'
-            value={getNatureTextDisplay(selectedMember.nature!)}
+            value={selectedMember.nature?.name || ''}
+            sx={{
+                    color: "white",
+                    '.MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'rgb(244, 241, 241);',
+                    },
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: 'rgb(244, 241, 241);',
+                    },
+                    '&. MuiList-root' : {
+                        padding: 0,
+                    },
+                    width:'50%',
+                    justifySelf: 'end'
+            }}
+            MenuProps={{
+                sx: {
+                    "&& .Mui-selected": {
+                        backgroundColor: "#28282d",
+                    },
+                    "&& .MuiMenuItem-root": {
+                        backgroundColor: "#28282d"
+                    },
+                    "&& .hover": {
+                        backgroundColor: "#28282d"
+                    },
+                    "&& .MuiMenu-list": {
+                        padding: 0
+                    }
+                },
+        }}
         >
             {
                 natureList !== null &&
-                natureList.map((nature) => ( <MenuItem value={ getNatureTextDisplay(nature)}>{ getNatureTextDisplay(nature) }</MenuItem> ))
+                natureList.map((nature) => 
+                    ( <MenuItem 
+                        key={nature.name}
+                        value={nature.name}
+                        sx={{
+                            "& .MuiPaper-root": {
+                                backgroundColor: "#28282d"
+                            }
+
+                        }}>
+                        { getNatureTextDisplay(nature) }
+                    </MenuItem> ))
             }
         </Select>
     );

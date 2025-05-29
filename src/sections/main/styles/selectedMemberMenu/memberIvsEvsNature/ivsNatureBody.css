@@ -1,17 +1,24 @@
 ol.ivs-nature-list {
     list-style-type: none;
-    padding: 0px;
+
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 2% 30px;
+    grid-template-columns: 100%;
+    gap: 0%;
+
+    margin: 0px;
+    padding: 20px 5px;
+
+    border-top: solid 1px rgb(244, 241, 241);
+    border-bottom: solid 1px rgb(244, 241, 241);
 }
 
 li.ivs-nature-element {
     display: grid;
     grid-template-columns: 15% 5% 20% 10% 20% 10% 10%;
     align-items: center;
-
-    gap: 0 2%;
+    gap: 0% 2%;
+    
+    margin-bottom: 5px;
 }
 
 

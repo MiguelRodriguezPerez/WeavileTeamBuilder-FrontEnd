@@ -5,6 +5,7 @@ import useWeavileStore from "../../../../../../../../globalContext/WeavileStore"
 import { AvailableEvsNumberContext } from "../../../../../../context/ivsEvsNatureMenu";
 import { EvKey } from "../types";
 import { useUpdateTeam } from "../../../../../../hooks/selectedPokemonMenu";
+import { isAbsolute } from "path";
 
 export const EvsSliderWrapper = ({ statName } : { statName: string }) => {
 
