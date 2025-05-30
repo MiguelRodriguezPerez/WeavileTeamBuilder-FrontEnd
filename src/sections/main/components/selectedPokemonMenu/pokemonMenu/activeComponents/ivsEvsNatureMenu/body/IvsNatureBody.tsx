@@ -3,7 +3,7 @@ import { PokemonTeamMember } from "../../../../../../../../domain/teamMemberEnti
 import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
 import { SelectedPokemonDataContext } from "../../../../../../context/pokemonData";
 import { getPokemonStats, parseStat } from "../../../../../../helpers/memberIvsEvsNature";
-import { TotalStat } from "../TotalStat";
+import { TotalStat } from "./TotalStat";
 import { BaseStatBar } from "./BaseStatBar";
 import { EvsInput } from "./EvsInput";
 import { EvsSliderWrapper } from "./EvsSliderWrapper";
@@ -13,7 +13,6 @@ import '../../../../../../styles/selectedMemberMenu/memberIvsEvsNature/ivsNature
 
 export const IvsNatureBody = () => {
 
-    const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const { currentPokemonData } = useContext(SelectedPokemonDataContext)!;
 
     return (
@@ -28,7 +27,7 @@ export const IvsNatureBody = () => {
                         <EvsInput statName={statName} />
                         <EvsSliderWrapper statName={statName} />
                         <IvsInput statName={statName} />
-                        <TotalStat />
+                        <TotalStat statName={statName}/>
                     </li>
                 ))
             }

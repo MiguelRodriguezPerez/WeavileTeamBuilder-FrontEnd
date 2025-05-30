@@ -42,7 +42,7 @@ export const EvsSliderWrapper = ({ statName } : { statName: string }) => {
             size="small"
             value={evValue}
             min={0}
-            max={255}
+            max={252}
             step={1}
             onChange={ changeEvent }
         />

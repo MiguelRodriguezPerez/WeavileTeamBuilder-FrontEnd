@@ -14,7 +14,7 @@ export const AvailableEvsNumberProvider = ( { children } : { children: ReactNode
     },[]);
 
     const validateEvsInput = (newValue: number): boolean => {
-        return (newValue >= 0 && newValue <= 255 && newValue <= remainingEvs);
+        return (newValue >= 0 && newValue <= 252 && newValue <= remainingEvs);
     }
 
     /* Esta función solo debería llamarse después de llamarse a validateEvsInput y asegurarse

@@ -1,14 +1,17 @@
 import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
+import { useEffect, useState } from "react";
+import { getAllNaturesRequest } from "../../../../../../../../api/requestNatures";
 import { NatureData, PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
-import { useEffect, useState } from "react";
-import { getAllNaturesRequest, getNatureByNameRequest } from "../../../../../../../../api/requestNatures";
 import { getNatureTextDisplay } from "../../../../../../helpers/memberIvsEvsNature";
+import { useUpdateTeam } from "../../../../../../hooks/selectedPokemonMenu";
 
 export const NatureDropDown = () => {
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
-    const [ natureList, setNatureList ] = useState<NatureData[] | null>(null);
+    const { updateTeamWrapper } = useUpdateTeam();
+
+    const [ natureList, setNatureList ] = useState<NatureData[]>([]);
     useEffect(() => {
         const asyncWrapper = async() => {
             const resultado = await getAllNaturesRequest();
@@ -18,14 +21,25 @@ export const NatureDropDown = () => {
         asyncWrapper();
     }, []);
 
+    console.log(natureList);
+    
+
     const changeNatureEvent = (event: SelectChangeEvent): void => {
-        console.log(event.target.value);
-        
+        const updatedNatureString: string = event.target.value;
+        const updatedNature: NatureData = natureList.filter( (nature) => nature.name === updatedNatureString)[0];
+
+        const updatedMember: PokemonTeamMember = {
+            ...selectedMember,
+            nature : updatedNature,
+        }
+        updateTeamWrapper(updatedMember);
     }
-  
+  // atk bien truncar,  hp también
     return (
-        <Select
-            value={selectedMember.nature?.name || ''}
+        natureList && natureList.length > 0 && 
+            <Select
+            value={ selectedMember.nature!.name }
+            onChange={ changeNatureEvent }
             sx={{
                     color: "white",
                     '.MuiOutlinedInput-notchedOutline': {
@@ -37,7 +51,7 @@ export const NatureDropDown = () => {
                     '&. MuiList-root' : {
                         padding: 0,
                     },
-                    width:'50%',
+                    width: '90%',
                     justifySelf: 'end'
             }}
             MenuProps={{

@@ -5,4 +5,4 @@ export * from './body/IvsInput';
 export * from './body/IvsNatureBody';
 export * from './header/IvsNatureHeading';
 export * from './MemberIvsEvsNature';
-export * from './TotalStat';
+export * from './body/TotalStat';
