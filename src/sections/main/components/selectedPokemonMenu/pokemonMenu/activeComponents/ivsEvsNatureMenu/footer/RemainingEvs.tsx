@@ -8,7 +8,6 @@ export const RemainingEvs = () => {
     const { remainingEvs } = useContext(AvailableEvsNumberContext)!;
   
     return (
-        remainingEvs &&
-        <p className="remaining-evs">Remaining evs: { remainingEvs }</p>
+        <p className="remaining-evs">{`Remaining evs: ${remainingEvs}`}</p>
     );
 }

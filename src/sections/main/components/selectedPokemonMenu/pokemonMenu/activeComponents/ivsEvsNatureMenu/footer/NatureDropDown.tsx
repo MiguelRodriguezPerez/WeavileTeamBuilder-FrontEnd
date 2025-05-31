@@ -21,9 +21,6 @@ export const NatureDropDown = () => {
         asyncWrapper();
     }, []);
 
-    console.log(natureList);
-    
-
     const changeNatureEvent = (event: SelectChangeEvent): void => {
         const updatedNatureString: string = event.target.value;
         const updatedNature: NatureData = natureList.filter( (nature) => nature.name === updatedNatureString)[0];

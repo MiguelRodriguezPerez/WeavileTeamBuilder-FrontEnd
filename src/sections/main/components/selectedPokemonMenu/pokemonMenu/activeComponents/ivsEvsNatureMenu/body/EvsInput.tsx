@@ -25,7 +25,7 @@ export const EvsInput = ({ statName }: { statName: string }) => {
         como valor '' es porque se ha borrado el input por completo y lo interpretará como 0 */
         const newValue = valueString === '' ? 0 : parseInt(valueString);
 
-        if (validateEvsInput(newValue)) {
+        if (validateEvsInput(evValue, newValue)) {
             updateRemainingEvs(evValue, newValue);
             const updatedMember = {
                 ...selectedMember,

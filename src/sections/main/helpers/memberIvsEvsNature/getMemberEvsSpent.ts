@@ -1,7 +1,6 @@
 import { PokemonTeamMember } from "../../../../domain/teamMemberEntities";
 
-export const getMemberEvsSpent = ( member: PokemonTeamMember) => {
- 
+export const getMemberEvsSpent = (member: PokemonTeamMember): number => {
     let resultado: number = 0;
 
     Object.entries(member)

@@ -13,22 +13,17 @@ export const calculatePokemonStats = (member: PokemonTeamMember) => {
         final_speed: 0,
     };
     
-
-    
     for(let resultadoStat in resultado) {
         const baseMemberKey: string = resultadoStat.replace('final','base') ;
         const ivMemberKey: string = resultadoStat.replace('final_','').concat('_iv');
         const evMemberKey: string = resultadoStat.replace('final_','').concat('_ev');
-        
 
         resultado[resultadoStat] = Math.trunc(
             (2 * member[baseMemberKey] + member[ivMemberKey] + (member[evMemberKey] / 4)) + 5
         );
         
     }
-    console.log(resultado);
     
-
     resultado.final_hp = resultado.final_hp - 5 + 100 + 10;
 
     const { nature } = member;
@@ -43,5 +38,4 @@ export const calculatePokemonStats = (member: PokemonTeamMember) => {
     }
 
     return resultado;
-
 }

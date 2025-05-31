@@ -14,14 +14,9 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
     const { filteredArr } = useSearchByName(search, missignoDTOArr!);
 
     useEffect(() => {
-        const inicio = performance.now();
-
         const asyncWrapper = async () => {
             const request = await getSVPokemonsRequest();
-            if (request.status === 200) {
-                setMissignoDTOArr(request.data);
-                console.log(performance.now() - inicio / 1000);
-            }
+            if (request.status === 200) setMissignoDTOArr(request.data); 
         }
         asyncWrapper();
     }, []);

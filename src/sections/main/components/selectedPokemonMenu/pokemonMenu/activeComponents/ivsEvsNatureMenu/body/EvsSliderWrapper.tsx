@@ -3,9 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
 import { AvailableEvsNumberContext } from "../../../../../../context/ivsEvsNatureMenu";
-import { EvKey } from "../types";
 import { useUpdateTeam } from "../../../../../../hooks/selectedPokemonMenu";
-import { isAbsolute } from "path";
+import { EvKey } from "../types";
 
 export const EvsSliderWrapper = ({ statName } : { statName: string }) => {
 
@@ -13,6 +12,7 @@ export const EvsSliderWrapper = ({ statName } : { statName: string }) => {
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const { validateEvsInput, updateRemainingEvs } = useContext(AvailableEvsNumberContext)!;
     const { updateTeamWrapper } = useUpdateTeam();
+    
     /* Mientras no recibe el valor real será 0 */
     const [ evValue, setEvValue ] = useState<number>(selectedMember[evKey] ?? 0);
     useEffect(() => {
@@ -21,8 +21,8 @@ export const EvsSliderWrapper = ({ statName } : { statName: string }) => {
     [selectedMember]);
     
 
-    const changeEvent = (event: Event , newValue: number): void => {
-        if (validateEvsInput(newValue)) {
+    const changeEvent = (event: Event , newValue: number): void => {        
+        if (validateEvsInput(evValue, newValue)) {
             updateRemainingEvs(evValue, newValue);
             const updatedMember = {
                 ...selectedMember,
@@ -32,7 +32,6 @@ export const EvsSliderWrapper = ({ statName } : { statName: string }) => {
             updateTeamWrapper(updatedMember);
             setEvValue(newValue);
         }
-        
     }
 
 
@@ -40,10 +39,10 @@ export const EvsSliderWrapper = ({ statName } : { statName: string }) => {
         <div>
             <Slider
             size="small"
-            value={evValue}
-            min={0}
-            max={252}
-            step={1}
+            value={ evValue }
+            min={ 0 }
+            max={ 252 }
+            step={ 1 }
             onChange={ changeEvent }
         />
         </div>

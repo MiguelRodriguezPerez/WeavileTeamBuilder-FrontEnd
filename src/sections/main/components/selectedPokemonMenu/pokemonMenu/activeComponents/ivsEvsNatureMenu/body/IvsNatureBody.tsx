@@ -23,7 +23,7 @@ export const IvsNatureBody = () => {
                     <li className="ivs-nature-element" key={statName}>
                         <div>{parseStat(statName)}</div>
                         <div className="ivs-value-stat">{value}</div>
-                        <BaseStatBar value={value} />
+                        <BaseStatBar statName={statName} />
                         <EvsInput statName={statName} />
                         <EvsSliderWrapper statName={statName} />
                         <IvsInput statName={statName} />

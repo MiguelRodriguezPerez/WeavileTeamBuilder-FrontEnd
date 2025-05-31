@@ -34,8 +34,6 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
     const removeMove = () => {
         let updatedMember = selectedMember;
         updatedMember.move_list[moveIndex] = null;
-        console.log(updateTeamWrapper(updatedMember));
-        
     }
   
     return (
