@@ -1,10 +1,12 @@
-import { PokemonTeamMember } from "../domain/teamMemberEntities";
+import { CalculatedStats, PokemonTeamMember } from "../domain/teamMemberEntities";
+import { PokemonTeamMemberKey } from "../domain/types";
+import { CalculatedStatsKey } from '../domain/types/CalculatedStatsKey';
 
 // Asume que todos los pokemón están al nivel 100
 
 export const calculatePokemonStats = (member: PokemonTeamMember) => {
  
-    let resultado = {
+    let resultado: CalculatedStats = {
         final_hp: 0,
         final_attack: 0,
         final_defense: 0,
@@ -18,8 +20,10 @@ export const calculatePokemonStats = (member: PokemonTeamMember) => {
         const ivMemberKey: string = resultadoStat.replace('final_','').concat('_iv');
         const evMemberKey: string = resultadoStat.replace('final_','').concat('_ev');
 
-        resultado[resultadoStat] = Math.trunc(
-            (2 * member[baseMemberKey] + member[ivMemberKey] + (member[evMemberKey] / 4)) + 5
+        resultado[resultadoStat as CalculatedStatsKey] = Math.trunc(
+            (2 * member[baseMemberKey as PokemonTeamMemberKey] 
+                + member[ivMemberKey as PokemonTeamMemberKey] 
+                + (member[evMemberKey as PokemonTeamMemberKey] / 4)) + 5
         );
         
     }
@@ -30,11 +34,11 @@ export const calculatePokemonStats = (member: PokemonTeamMember) => {
 
     if(nature.increased_stat !== '') {
         let natureKey: string = 'final_' + nature.increased_stat
-        resultado[natureKey] = resultado[natureKey] * 1.1;
+        resultado[natureKey as CalculatedStatsKey] = resultado[natureKey as CalculatedStatsKey] * 1.1;
 
 
         natureKey = 'final_' + nature.decreased_stat
-        resultado[natureKey] = resultado[natureKey] / 1.1;
+        resultado[natureKey as CalculatedStatsKey] = resultado[natureKey as CalculatedStatsKey] / 1.1;
     }
 
     return resultado;
