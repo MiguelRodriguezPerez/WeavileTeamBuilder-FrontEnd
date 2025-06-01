@@ -1,0 +1,11 @@
+.team-list-card {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+.team-list-card > .team-name {
+    grid-column: 1/7;
+    margin-bottom: 5px;
+}
