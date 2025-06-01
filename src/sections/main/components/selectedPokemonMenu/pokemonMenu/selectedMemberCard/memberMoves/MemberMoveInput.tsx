@@ -1,21 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { SelectedComponentContext } from "../../../../../context/selectedMember/SelectedComponentContext";
-import { SelectedMoveMemberContext } from "../../../../../context/selectedMemberMove";
-import { MoveGrid } from "../../activeComponents";
 import { toPascalCase } from "../../../../../../../globalHelpers";
-
-import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberMoves.css';
+import { SelectedMoveMemberContext } from "../../../../../context/selectedMemberMove";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
-import { MoveData } from "../../../../../../../domain/dataEntities";
+import { SelectedComponentContext } from "../../../../../context/selectedMenuComponent/SelectedComponentContext";
 import { useUpdateTeam } from "../../../../../hooks/selectedPokemonMenu";
-import { PokemonTeam } from '../../../../../../../domain/teamMemberEntities/PokemonTeam';
-
-
-/* isSelectedClassName es un valor booleano que sirve para decidir si se le aplica una clase css
-a un nodo. La idea es poner un borde azul sobre el input seleccionado. 
-Estoy convencido de que existe una manera más eficiente de hacerlo */
+import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberMoves.css';
 
 export const MemberMoveInput = ({ moveName, moveIndex } : 
     { moveName : string , moveIndex: number}) => {
@@ -26,7 +17,7 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const { updateTeamWrapper } = useUpdateTeam();
     const changeSelectedMove = useContext(SelectedMoveMemberContext)?.changeSelectedMove;
-    const changeSelectedComponent = useContext(SelectedComponentContext)!.switchComponent;
+    const changeSelectedComponent = useContext(SelectedComponentContext)!.changeElementType;
     const [ moveNameState, setMoveNameState ] = useState<string>(moveName);
 
     /* Parece rídiculo, pero es necesario por si la lista de nodos se vuelve a montar con nuevos moveName,
@@ -35,16 +26,14 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
         setMoveNameState(toPascalCase(moveName));
     }, [moveName]);
       
-    const onClickEvent = () => {
+    const inputClickEvent = () => {
         changeSelectedMove!(moveIndex);
-        changeSelectedComponent(<MoveGrid />)
+        changeSelectedComponent('move')
     }
 
     const removeMove = () => {
         let updatedMember = selectedMember;
         updatedMember.move_list[moveIndex] = null;
-
-        updateTeamWrapper(updatedMember);
     }
   
     return (
@@ -52,10 +41,10 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
             <input type="text" readOnly
                 value={ moveNameState } 
                 onChange={ (event) => { setMoveNameState(event.target.value) } }
-                onClick={ onClickEvent } 
+                onClick={ inputClickEvent } 
             />       
             <DeleteIcon 
-                onClick={removeMove}
+                onClick={ removeMove }
                 sx={{
                     marginTop : '5px',
                     color: 'red[500]'

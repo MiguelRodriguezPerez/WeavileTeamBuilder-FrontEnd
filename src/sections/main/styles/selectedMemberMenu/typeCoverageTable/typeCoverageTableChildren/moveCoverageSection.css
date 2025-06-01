@@ -1,0 +1,20 @@
+.move-coverage-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: start;
+}
+
+.move-coverage-section > h4 {
+    margin: 0px;
+    font-size: 1.2rem;
+}
+
+.move-coverage-section > p {
+    margin: 0px;
+    margin-top: 1%;
+    font-size: 1.1rem;
+}
+
+.move-coverage-section > .type-coverage-grid {
+    width: 50%;
+}

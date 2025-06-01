@@ -5,8 +5,6 @@ import { PokemonTeamMember } from "../domain/teamMemberEntities";
 
 
 export const convertPokemonDataToTeamMember = async (data: PokemonDataDTO, position: number): Promise<PokemonTeamMember> => {
-
-    console.log(data);
     
 
     return {
@@ -30,16 +28,16 @@ export const convertPokemonDataToTeamMember = async (data: PokemonDataDTO, posit
         special_defense_ev: 0,
         speed_ev: 0,
 
-        hp_iv: 0,
-        attack_iv: 0,
-        defense_iv: 0,
-        special_attack_iv: 0,
-        special_defense_iv: 0,
-        speed_iv: 0,
+        hp_iv: 31,
+        attack_iv: 31,
+        defense_iv: 31,
+        special_attack_iv: 31,
+        special_defense_iv: 31,
+        speed_iv: 31,
 
         move_list: [],
         ability: data.ability_list[0],
-        item: undefined,
+        item: null,
         type_list: data.type_list,
         tera_type: PokemonType.NORMAL,
         nature: (await getNatureByNameRequest('hardy')).data,

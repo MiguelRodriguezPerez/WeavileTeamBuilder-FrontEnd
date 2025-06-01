@@ -38,6 +38,6 @@ export interface PokemonTeamMember {
     item: ItemData | null;
     type_list: PokemonType[] | null;
     tera_type: PokemonType | null;
-    nature: NatureData | null;
+    nature: NatureData;
 
 }

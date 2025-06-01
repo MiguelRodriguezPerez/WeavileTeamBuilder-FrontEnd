@@ -7,9 +7,6 @@ import '../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberHe
 export const MemberHeader = () => {
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
-    console.log(selectedMember);
-    
-
 
     return (
         <header className="member-header-card">

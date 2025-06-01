@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
-import { ItemCard } from "../elementCards";
-import { ItemData } from "../../../../../../../domain/dataEntities";
 import { getAllItemsRequest } from "../../../../../../../api/itemData";
+import { ItemData } from "../../../../../../../domain/dataEntities";
 import { WeavileLoading } from "../../../../../../../ui/components";
+import { ItemCard } from "../elementCards";
 
-import '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.css'
-import { ElementHeader } from "../ElementHeader";
+import '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.css';
+
 
 export const ItemGrid = () => {
 
-    const [itemList, setItemList] = useState<ItemData[]>([]);
+    const [ itemList, setItemList ] = useState<ItemData[]>([]);
 
     useEffect(() => {
         const asyncWrapper = async () => {
             const itemRequest = await getAllItemsRequest();
-
             if (itemRequest.status === 200) setItemList(itemRequest.data);
         }
 
@@ -25,7 +24,6 @@ export const ItemGrid = () => {
 
     return (
         <>
-            <ElementHeader elementName="Items" />
             <ul className="element-grid">
                 {
                     itemList?.map((item) => (
