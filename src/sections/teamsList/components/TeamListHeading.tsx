@@ -1,8 +1,14 @@
 import '../styles/teamListHeading.css'
+import '../../../globalStyles/blackFont.css'
 
 export const TeamListHeading = () => {
   
     return (
-        <h3 className='team-list-heading'>Current teams</h3>
+        <header className='team-list-heading'>
+            <h3>Current teams</h3>
+            <div>
+                <button className='weavile-button'>Create new team</button>
+            </div>
+        </header>
     );
 }

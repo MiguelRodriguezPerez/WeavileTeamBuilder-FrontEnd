@@ -1,4 +1,4 @@
 export * from './TeamList';
-export * from './TeamListCard';
+export * from './teamListCard/TeamCard';
 export * from './TeamListHeading';
 export * from './TeamListWrapper';

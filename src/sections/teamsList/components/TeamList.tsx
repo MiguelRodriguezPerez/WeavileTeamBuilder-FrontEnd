@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { PokemonTeam } from "../../../domain/teamMemberEntities";
 import { getAllTeamsLocalStorage } from "../../main/helpers/nonLoggedUser";
-import { TeamListCard } from "./TeamListCard";
+import { TeamCard } from "./teamListCard/TeamCard";
 
 import '../styles/teamList.css'
 
@@ -16,7 +16,7 @@ export const TeamList = () => {
     return (
         <ul className="team-list">
             {
-                teamList.map((team) => (<TeamListCard team={team} key={team.id} />))
+                teamList.map((team) => (<TeamCard team={team} key={team.id} />))
             }
         </ul>
     );
