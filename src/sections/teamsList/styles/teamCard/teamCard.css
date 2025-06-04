@@ -1,7 +1,7 @@
 .team-card {
     border: solid 1px rgb(244, 241, 241);
     border-radius: 8px;
-    padding: 8px;
+    padding: 7px;
 
     cursor: pointer;
 }

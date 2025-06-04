@@ -1,7 +1,6 @@
 import { WeavileHeader } from "../../../ui/components";
-import { OptionBanner } from "../../main/components/optionBanner/OptionBanner";
 import { SelectedTeamBanner } from "../../main/components/selectedTeamBanner/SelectedTeamBanner";
-import { TeamListWrapper } from "../components";
+import { TeamListOptionBanner, TeamListWrapper } from "../components";
 
 export const TeamsListPage = () => {
 
@@ -9,7 +8,7 @@ export const TeamsListPage = () => {
         <>
             <WeavileHeader />
             <SelectedTeamBanner />
-            <OptionBanner />
+            <TeamListOptionBanner/>
             <TeamListWrapper/>
         </>
     );

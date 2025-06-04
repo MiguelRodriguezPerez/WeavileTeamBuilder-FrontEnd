@@ -1,17 +1,22 @@
 import { useEffect, useState } from "react";
 import { PokemonTeam } from "../../../domain/teamMemberEntities";
-import { getAllTeamsLocalStorage } from "../../main/helpers/nonLoggedUser";
+import { getAllTeamsLocalStorage } from "../../../globalHelpers/pokemonTeams/nonLoggedUsers";
 import { TeamCard } from "./teamListCard/TeamCard";
 
 import '../styles/teamList.css'
+import useWeavileStore from "../../../globalContext/WeavileStore";
 
 export const TeamList = () => {
 
-    const [teamList, setTeamList] = useState<PokemonTeam[]>([]);
+    const selectedTeam = useWeavileStore(state => state.selectedPokemonTeam);
+    const [ teamList, setTeamList ] = useState<PokemonTeam[]>([]);
+
+    /* Para garantizar que teamList muestre los equipos actualizados usas como dependencia el equipo seleccionado,
+    ya que al crear o borrar un equipo siempre se cambia el equipo seleccionado del contexto */
 
     useEffect(() => {
         setTeamList(getAllTeamsLocalStorage());
-    }, [])
+    }, [ selectedTeam ])
 
     return (
         <ul className="team-list">

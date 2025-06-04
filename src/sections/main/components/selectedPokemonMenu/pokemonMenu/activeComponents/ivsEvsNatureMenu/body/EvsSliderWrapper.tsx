@@ -3,8 +3,9 @@ import { useContext, useEffect, useState } from "react";
 import { PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
 import { AvailableEvsNumberContext } from "../../../../../../context/ivsEvsNatureMenu";
-import { useUpdateTeam } from "../../../../../../hooks/selectedPokemonMenu";
+
 import { EvKey } from "../types";
+import { useUpdateTeam } from "../../../../../../../../globalHooks/pokemonTeams";
 
 export const EvsSliderWrapper = ({ statName } : { statName: string }) => {
 

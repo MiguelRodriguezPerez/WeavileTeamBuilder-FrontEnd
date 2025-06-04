@@ -1,12 +1,12 @@
 import { TeamList } from "./TeamList";
-import { TeamListHeading } from "./TeamListHeading";
+import { TeamListHeading } from "./teamListHeading/TeamListHeading";
 
 export const TeamListWrapper = () => {
-  
+
     return (
         <section>
-            <TeamListHeading/>
-            <TeamList/>
+            <TeamListHeading />
+            <TeamList />
         </section>
     );
 }
