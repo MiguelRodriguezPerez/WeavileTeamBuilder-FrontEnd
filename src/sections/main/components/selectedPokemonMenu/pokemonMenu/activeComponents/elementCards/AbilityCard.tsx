@@ -2,7 +2,9 @@ import { AbilityData } from "../../../../../../../domain/dataEntities";
 import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { toPascalCase } from "../../../../../../../globalHelpers";
-import { useUpdateTeam } from "../../../../../hooks/selectedPokemonMenu";
+import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
+
+
 
 import '../../../../../styles/selectedMemberMenu/elementCards/abilityCard.css'
 

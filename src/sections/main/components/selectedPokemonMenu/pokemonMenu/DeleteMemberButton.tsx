@@ -1,9 +1,11 @@
-import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Button from '@mui/material/Button';
+import { PokemonTeamMember } from '../../../../../domain/teamMemberEntities';
 import useWeavileStore from '../../../../../globalContext/WeavileStore';
-import { PokemonTeam, PokemonTeamMember } from '../../../../../domain/teamMemberEntities';
-import { convertMemberToNullMember, updateStoredTeam } from '../../../helpers/nonLoggedUser';
-import { useUpdateTeam } from '../../../hooks/selectedPokemonMenu';
+import { convertMemberToNullMember } from '../../../../../globalHelpers/pokemonTeams/nonLoggedUsers';
+import { useUpdateTeam } from '../../../../../globalHooks/pokemonTeams';
+
+
 
 export const DeleteMemberButton = () => {
 

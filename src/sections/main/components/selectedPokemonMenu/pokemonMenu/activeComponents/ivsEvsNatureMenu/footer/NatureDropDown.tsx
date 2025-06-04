@@ -4,7 +4,8 @@ import { getAllNaturesRequest } from "../../../../../../../../api/requestNatures
 import { NatureData, PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
 import { getNatureTextDisplay } from "../../../../../../helpers/memberIvsEvsNature";
-import { useUpdateTeam } from "../../../../../../hooks/selectedPokemonMenu";
+import { useUpdateTeam } from "../../../../../../../../globalHooks/pokemonTeams";
+
 
 export const NatureDropDown = () => {
 

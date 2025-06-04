@@ -5,8 +5,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { SelectedComponentContext } from "../../../../../context/selectedMenuComponent/SelectedComponentContext";
-import { useUpdateTeam } from "../../../../../hooks/selectedPokemonMenu";
+
 import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberMoves.css';
+import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
 
 export const MemberMoveInput = ({ moveName, moveIndex } : 
     { moveName : string , moveIndex: number}) => {

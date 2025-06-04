@@ -2,11 +2,12 @@ import { useContext } from "react";
 import { MoveData } from "../../../../../../../domain/dataEntities";
 import { assignMoveTypeToPng, assignPokemonTypeToPng, toPascalCase } from "../../../../../../../globalHelpers";
 import { SelectedMoveMemberContext } from "../../../../../context/selectedMemberMove";
-import { useUpdateTeam } from "../../../../../hooks/selectedPokemonMenu";
+
 import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 
 import '../../../../../styles/selectedMemberMenu/elementCards/moveCard.css'
+import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
 
 export const MoveCard = ({ moveProp }: { moveProp: MoveData }) => {
 

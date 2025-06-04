@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
-import { useUpdateTeam } from "../../../../../../hooks/selectedPokemonMenu";
+
 import { IvKey } from "../types";
 
 import '../../../../../../styles/selectedMemberMenu/memberIvsEvsNature/inputEvIv.css';
+import { useUpdateTeam } from "../../../../../../../../globalHooks/pokemonTeams";
 
 
 export const IvsInput = ({ statName }: { statName: string }) => {

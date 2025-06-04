@@ -2,7 +2,7 @@ import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import { TeamType } from "../../../../domain/enums/TeamType";
 import useWeavileStore from "../../../../globalContext/WeavileStore";
 import { createNewTeamRequest } from "../../api/nonLoggedUsers";
-import { deletePokemonTeam, storeFirstPokemonTeam } from "../../helpers/nonLoggedUser";
+import { deletePokemonTeam, storeFirstPokemonTeam } from "../../../../globalHelpers/pokemonTeams/nonLoggedUsers";
 
 
 export const TeamTypesDropdown = () => {
@@ -25,7 +25,7 @@ export const TeamTypesDropdown = () => {
             deletePokemonTeam(current_team_type!);
             deleteSelectedTeam();
 
-            const newTeam = await createNewTeamRequest(selectedTeamType);
+            const newTeam = await createNewTeamRequest();
             storeFirstPokemonTeam(newTeam.data);
             updateSelectedTeam(newTeam.data);
         }

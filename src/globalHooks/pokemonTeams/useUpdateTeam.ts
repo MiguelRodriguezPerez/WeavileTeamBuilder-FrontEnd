@@ -1,6 +1,7 @@
-import { PokemonTeam, PokemonTeamMember } from "../../../../domain/teamMemberEntities";
-import useWeavileStore from "../../../../globalContext/WeavileStore";
-import { updateStoredTeam } from "../../helpers/nonLoggedUser";
+import { PokemonTeam, PokemonTeamMember } from "../../domain/teamMemberEntities";
+import useWeavileStore from "../../globalContext/WeavileStore";
+import { updateStoredTeam } from "../../globalHelpers/pokemonTeams/nonLoggedUsers";
+
 
 export const useUpdateTeam = () => {
 
@@ -31,7 +32,19 @@ export const useUpdateTeam = () => {
         return updatedTeam;
     }
 
+    const updateTeamNameWrapper = (newName: string): PokemonTeam => {
+        const updatedTeam: PokemonTeam = {
+            ...selectedTeam,
+            name: newName,
+        };
+
+        updateStoredTeam(updatedTeam);
+        updateSelectedTeam(updatedTeam);
+
+        return updatedTeam;
+    }
+
     return {
-        updateTeamWrapper
+        updateTeamWrapper, updateTeamNameWrapper
     }
 }
