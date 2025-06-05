@@ -1,12 +1,11 @@
 import { PokemonType } from "../../../domain/enums";
 
+export function getTypeEffectiveness(type: PokemonType): PokemonType[];
+export function getTypeEffectiveness(types: PokemonType[]): PokemonType[];
 
-export const getTypeEffectiveness = (type: PokemonType): PokemonType[] => {
-
-    /* Parece muy complicado, pero es el equivalente de un HashMap en java.
-    La clave es un tipo y sus valores son las eficacias de ese tipo */
-    const effectivenessMap: Record<PokemonType, PokemonType[]> = {
-
+export function getTypeEffectiveness(typeOrTypes: PokemonType | PokemonType[]): PokemonType[] {
+    
+    const effectivenessMap: Partial<Record<PokemonType, PokemonType[]>> = {
         [PokemonType.FIRE]: [PokemonType.GRASS, PokemonType.ICE, PokemonType.BUG, PokemonType.STEEL],
         [PokemonType.WATER]: [PokemonType.FIRE, PokemonType.ROCK, PokemonType.GROUND],
         [PokemonType.GRASS]: [PokemonType.WATER, PokemonType.ROCK, PokemonType.GROUND],
@@ -25,8 +24,11 @@ export const getTypeEffectiveness = (type: PokemonType): PokemonType[] => {
         [PokemonType.GROUND]: [PokemonType.FIRE, PokemonType.ELECTRIC, PokemonType.POISON, PokemonType.ROCK, PokemonType.STEEL],
         [PokemonType.FLYING]: [PokemonType.GRASS, PokemonType.FIGHTING, PokemonType.BUG],
         [PokemonType.STEEL]: [PokemonType.ICE, PokemonType.ROCK, PokemonType.FAIRY],
-        [PokemonType.STELLAR]: [],
     };
 
-    return effectivenessMap[type];
+    if (Array.isArray(typeOrTypes)) {
+        const allEffectives = typeOrTypes.flatMap(type => effectivenessMap[type] || []);
+        return Array.from(new Set(allEffectives));
+    } else return effectivenessMap[typeOrTypes] || [];
+    
 }

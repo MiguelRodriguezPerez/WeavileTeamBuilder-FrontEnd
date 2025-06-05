@@ -1,6 +1,9 @@
 import { PokemonType } from "../../../domain/enums";
 
-export const getTypeResistances = (type: PokemonType): PokemonType[] => {
+export function getTypeResistances(type: PokemonType): PokemonType[];
+export function getTypeResistances(types: PokemonType[]): PokemonType[];
+
+export function getTypeResistances(typeOrTypes: PokemonType | PokemonType[]): PokemonType[] {
 
   /* Parece muy complicado, pero es el equivalente de un HashMap en java.
   La clave es un tipo y sus valores son las resistencias de ese tipo */
@@ -24,10 +27,14 @@ export const getTypeResistances = (type: PokemonType): PokemonType[] => {
     [PokemonType.GROUND]: [PokemonType.POISON, PokemonType.ROCK],
     [PokemonType.FLYING]: [PokemonType.GRASS, PokemonType.FIGHTING, PokemonType.BUG],
     [PokemonType.STEEL]: [PokemonType.NORMAL, PokemonType.GRASS, PokemonType.ICE, PokemonType.FLYING, PokemonType.PSYCHIC, PokemonType.BUG, PokemonType.ROCK, PokemonType.DRAGON, PokemonType.STEEL, PokemonType.FAIRY],
-    [PokemonType.STELLAR]: [],
+    
 
   };
 
-  return resistanceMap[type];
+  if(Array.isArray(typeOrTypes)) {
+    const resultado = typeOrTypes.flatMap(type => resistanceMap[type]);
+    return Array.from(resultado);
+  }
+  else return resistanceMap[typeOrTypes] || [];
 
 }

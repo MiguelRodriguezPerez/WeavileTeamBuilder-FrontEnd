@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { SelectedComponentContext } from '../../../../context/selectedMenuComponent/SelectedComponentContext';
+import { SelectedComponentContext } from '.././../../../../context/selectedMenuComponent/SelectedComponentContext';
 
-import '../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberTypeCoverageIvsEvsNature/memberTypeCoverageIvsEvsNatureCard.css';
-import '../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberTypeCoverageIvsEvsNature/memberTypeCoverageIvsEvsNatureDiv.css';
+import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberTypeCoverageIvsEvsNature/memberTypeCoverageIvsEvsNatureCard.css';
+import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberTypeCoverageIvsEvsNature/memberTypeCoverageIvsEvsNatureDiv.css';
 
 export const MemberTypeCoverageIvsEvsNatureDiv = () => {
 

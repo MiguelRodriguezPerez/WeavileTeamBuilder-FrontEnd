@@ -1,8 +1,8 @@
-import { PokemonTeamMember } from "../../../../../../domain/teamMemberEntities";
-import useWeavileStore from "../../../../../../globalContext/WeavileStore";
-import { toPascalCase } from "../../../../../../globalHelpers";
+import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
+import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
+import { toPascalCase } from "../../../../../../../globalHelpers";
 
-import '../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberHeaderCard.css'
+import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberHeaderCard.css'
 
 export const MemberHeader = () => {
 

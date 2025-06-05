@@ -1,9 +1,9 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
-import { PokemonTeamMember } from '../../../../../domain/teamMemberEntities';
-import useWeavileStore from '../../../../../globalContext/WeavileStore';
-import { convertMemberToNullMember } from '../../../../../globalHelpers/pokemonTeams/nonLoggedUsers';
-import { useUpdateTeam } from '../../../../../globalHooks/pokemonTeams';
+import { PokemonTeamMember } from '../../../../../../../domain/teamMemberEntities';
+import useWeavileStore from '../../../../../../../globalContext/WeavileStore';
+import { convertMemberToNullMember } from '../../../../../../../globalHelpers/pokemonTeams/nonLoggedUsers';
+import { useUpdateTeam } from '../../../../../../../globalHooks/pokemonTeams';
 
 
 
@@ -25,7 +25,7 @@ export const DeleteMemberButton = () => {
     return (
         <div className='delete-button-div'>
             <Button
-                onClick={ deleteEvent }
+                onClick={deleteEvent}
                 startIcon={<DeleteIcon />}
                 sx={{
                     backgroundColor: '#da2c1f',
@@ -36,7 +36,7 @@ export const DeleteMemberButton = () => {
                     borderRadius: '12px',
                     margin: '0%',
                     display: 'flex',
-                    justifySelf:'center'
+                    justifySelf: 'center'
                 }}
             >
                 Delete Pokemon

@@ -1,3 +1,3 @@
 export * from './memberTypeSummaryChildren';
 export * from './MemberTypeSummary';
-export * from './TypeGrid';
+export * from './PokemonTypeGrid';

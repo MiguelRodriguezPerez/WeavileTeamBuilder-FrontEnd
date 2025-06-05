@@ -1,15 +1,16 @@
 import { SelectedPokemonDataProvider } from '../../../context/pokemonData/SelectedPokemonDataProvider';
 import { SelectedComponentProvider } from "../../../context/selectedMenuComponent/SelectedComponentProvider";
 import { RenderActiveElementGrid } from "./activeComponents/RenderActiveElementGrid";
-import { MemberCard } from "./selectedMemberCard";
-import { DeleteMemberButton } from './DeleteMemberButton';
+
+import { DeleteMemberButton } from './selectedMemberCard/memberCard/DeleteMemberButton';
 import { SelectedMoveMemberProvider } from '../../../context/selectedMemberMove';
 
 import '../../../styles/selectedMemberMenu/teamMemberMenu/teamMemberMenu.css'
+import { MemberCard } from './selectedMemberCard/memberCard';
 
 
 export const TeamMemberMenu = () => {
-    
+
 
     return (
         // Contexto para los datos del pokemón seleccionado
