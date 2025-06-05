@@ -1,5 +1,6 @@
 export * from './assignMoveTypeToPng';
 export * from './assignPokemonTypeToPng';
+export * from './calculatePokemonStats';
 export * from './convertPokemonDataToTeamMember';
 export * from './parseAbility';
 export * from './toPascalCase';

@@ -5,7 +5,7 @@ export const MemberSprite = ({ sprite } : { sprite: string | undefined }) => {
 
     return (
         <div className='selected-pokemon-sprite'>
-            <img src={ sprite ? `data:image/jpeg;base64,${sprite}` : "/images/main/missigno.png" } className='heading-pokemon-sprite' />
+            <img src={ sprite ? `data:image/jpeg;base64,${sprite}` : "/images/main/missignoTeamBanner.png" } className='heading-pokemon-sprite' />
         </div>
     );
 }

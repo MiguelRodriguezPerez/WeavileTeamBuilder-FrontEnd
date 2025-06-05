@@ -1,0 +1,12 @@
+.ivs-nature-heading {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+
+    padding-bottom: 5px;
+}
+
+.ivs-nature-heading > h3 {
+    margin: 0%;
+    font-size: 1.2rem;
+}

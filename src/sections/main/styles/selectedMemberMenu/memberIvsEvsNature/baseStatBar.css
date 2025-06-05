@@ -1,0 +1,6 @@
+.base-stat-bar {
+    display: block;
+    background-color: rgb(244, 241, 241);
+    height: 5px;
+    border-radius: 8px;
+}

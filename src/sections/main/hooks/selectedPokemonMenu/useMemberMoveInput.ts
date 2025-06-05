@@ -3,9 +3,10 @@ import { PokemonTeamMember } from "../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../globalContext/WeavileStore";
 import { SelectedMoveMemberContext } from "../../context/selectedMemberMove";
 import { SelectedComponentContext } from "../../context/selectedMenuComponent/SelectedComponentContext";
-import { useUpdateTeam } from "./useUpdateTeam";
+
 
 import { toPascalCase } from "../../../../globalHelpers";
+import { useUpdateTeam } from "../../../../globalHooks/pokemonTeams";
 
 export const useMemberMoveInput = ({ moveName, moveIndex }: { moveName: string | null, moveIndex: number }) => {
 

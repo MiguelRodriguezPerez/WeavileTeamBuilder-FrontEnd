@@ -2,7 +2,7 @@ import { getPokemonByNameRequest } from "../../../../api/pokemonData";
 import { PokemonTeam, PokemonTeamMember } from "../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../globalContext/WeavileStore";
 import { convertPokemonDataToTeamMember as convertPokemonDataDTOToTeamMember } from "../../../../globalHelpers";
-import { updateStoredTeam } from "../../helpers/nonLoggedUser/updateStoredTeam";
+import { updateStoredTeam } from "../../../../globalHelpers/pokemonTeams/nonLoggedUsers";
 
 export const useSelectedPokemonMember = () => {
 

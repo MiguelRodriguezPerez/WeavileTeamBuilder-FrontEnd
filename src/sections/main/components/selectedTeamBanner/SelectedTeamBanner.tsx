@@ -1,6 +1,6 @@
 import { PokemonTeam } from '../../../../domain/teamMemberEntities';
 import useWeavileStore from '../../../../globalContext/WeavileStore';
-import { BannerMember, SelectedTeamName, TeamTypesDropdown } from './';
+import { BannerMember, SelectedTeamName } from './';
 
 import '../../styles/selectedTeamBanner.css';
 
@@ -20,7 +20,7 @@ export const SelectedTeamBanner = () => {
                     <BannerMember member={member} key={index} />
                 ))
             }
-            <TeamTypesDropdown />
+            {/* <TeamTypesDropdown /> */}
         </section>
     );
 }

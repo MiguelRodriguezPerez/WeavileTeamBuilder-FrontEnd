@@ -1,9 +1,11 @@
-import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Button from '@mui/material/Button';
+import { PokemonTeamMember } from '../../../../../domain/teamMemberEntities';
 import useWeavileStore from '../../../../../globalContext/WeavileStore';
-import { PokemonTeam, PokemonTeamMember } from '../../../../../domain/teamMemberEntities';
-import { convertMemberToNullMember, updateStoredTeam } from '../../../helpers/nonLoggedUser';
-import { useUpdateTeam } from '../../../hooks/selectedPokemonMenu';
+import { convertMemberToNullMember } from '../../../../../globalHelpers/pokemonTeams/nonLoggedUsers';
+import { useUpdateTeam } from '../../../../../globalHooks/pokemonTeams';
+
+
 
 export const DeleteMemberButton = () => {
 
@@ -18,20 +20,10 @@ export const DeleteMemberButton = () => {
         updateTeamWrapper(deletedMember);
         /* No preguntes porque, pero este objeto es necesario; no puedes cambiar directamente selectedTeam
         y luego pasárselo a la función que actualiza el contexto */
-        // const updatedTeam: PokemonTeam = {
-        //     id : selectedTeam!.id,
-        //     name: selectedTeam!.name,
-        //     teamMembers: selectedTeam.teamMembers,
-        //     teamType: selectedTeam!.teamType,
-        // }
-
-        // updateStoredTeam(updatedTeam);
-        // changeSelectedTeam(updatedTeam);
-        // changeSelectedPokemon(deletedMember);
     }
 
     return (
-        <div>
+        <div className='delete-button-div'>
             <Button
                 onClick={ deleteEvent }
                 startIcon={<DeleteIcon />}

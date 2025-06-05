@@ -1,0 +1,13 @@
+.team-card-header {
+    display: grid;
+    grid-template-columns: 90% 1fr;
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 10px;
+}
+
+.team-card-header > h4 {
+    margin: 0px;
+    margin-left: 10%;
+    font-size: 1.03rem;
+}
