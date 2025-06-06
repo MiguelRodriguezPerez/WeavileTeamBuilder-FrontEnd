@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
-
 import { EvKey } from "../types";
 import { AvailableEvsNumberContext } from "../../../../../../context/ivsEvsNatureMenu";
+import { useUpdateTeam } from "../../../../../../../../globalHooks/pokemonTeams";
 
 import '../../../../../../styles/selectedMemberMenu/memberIvsEvsNature/inputEvIv.css'
-import { useUpdateTeam } from "../../../../../../../../globalHooks/pokemonTeams";
+
 
 export const EvsInput = ({ statName }: { statName: string }) => {
     /* Cada render manipulara el string de la estadística para poder acceder al campo _ev deseado.

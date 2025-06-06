@@ -1,10 +1,10 @@
-import { PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
-import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
-import { getMemberInmunities, getMemberNeutralities, getMemberResistances } from "../../../../../../../../globalHelpers/pokemonTypes/memberTypeInteractions";
+import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
+import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
+import { getMemberInmunities, getMemberNeutralities, getMemberResistances } from "../../../../../../../globalHelpers/pokemonTypes/memberTypeInteractions";
 import { MemberTypeGrid } from "./MemberTypeGrid";
 import { WeaknessTypeGrid } from "./WeaknessTypeGrid";
 
-import '../../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/typeSummarySection.css';
+import '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/typeSummarySection.css';
 
 export const TypeSummary = () => {
 
@@ -15,15 +15,15 @@ export const TypeSummary = () => {
     return (
         <section className="type-summary-section">
             <h4>Member type summary: </h4>
-            <WeaknessTypeGrid pokemonName={ pokemonName }/>
+            <WeaknessTypeGrid pokemonName={pokemonName} />
             <MemberTypeGrid paragraph={pokemonName + ' resists'}
-                typeList={ getMemberResistances(pokemonTypes) }/>
+                typeList={getMemberResistances(pokemonTypes)} />
             <MemberTypeGrid paragraph={pokemonName + ' is neutral against'}
-                typeList={ getMemberNeutralities(pokemonTypes) }/>
+                typeList={getMemberNeutralities(pokemonTypes)} />
             {
                 getMemberInmunities(pokemonTypes).length > 0
                 && <MemberTypeGrid paragraph={pokemonName + ' is inmune to '}
-                typeList={ getMemberInmunities(pokemonTypes) }/>
+                    typeList={getMemberInmunities(pokemonTypes)} />
             }
         </section>
     );

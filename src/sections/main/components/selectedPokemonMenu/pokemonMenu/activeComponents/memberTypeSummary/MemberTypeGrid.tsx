@@ -1,5 +1,5 @@
-import { PokemonType } from "../../../../../../../../domain/enums";
-import { PokemonTypeGrid } from "../PokemonTypeGrid";
+import { PokemonType } from "../../../../../../../domain/enums";
+import { PokemonTypeGrid } from "./PokemonTypeGrid";
 
 export const MemberTypeGrid = ({ paragraph, typeList }: { paragraph: string, typeList: PokemonType[] }) => {
 
