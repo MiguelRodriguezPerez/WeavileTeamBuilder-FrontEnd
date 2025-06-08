@@ -4,11 +4,9 @@ import { MemberAbility } from './MemberAbility';
 import { MemberName } from './MemberName';
 import { MemberSprite } from './MemberSprite';
 import useWeavileStore from '../../../../../globalContext/WeavileStore';
-
-
 import { useLocation, useNavigate } from 'react-router';
 
-import '../../../styles/selectedPokemon.css';
+import styles from '../../../styles/selectedTeamBanner/selectedMember/bannerMember.module.css';
 
 
 export const BannerMember = ({ member }: { member: PokemonTeamMember }) => {
@@ -23,11 +21,12 @@ export const BannerMember = ({ member }: { member: PokemonTeamMember }) => {
         /* Necesitas esta chapuza porque si el usuario está en la lista de equipos y hace click en un pokemón del banner
         quieres que lo redirija a la página principal, la que manipula el equipo ya seleccionado */
         if (pathname === '/teamsList') navigate('/');
+        // pokemon-banner-element
     }
 
     return (
-        <div className='pokemon-banner-element' onClick={ onClickWrapper }>
-            <MemberSprite memberId={ member.id } sprite={ member.front_default_sprite ? member.front_default_sprite : undefined }/>
+        <div className={ styles['banner-member'] } onClick={ onClickWrapper }>
+            <MemberSprite member={ member }/>
             {/* ?? "-" significa que si la prop inicial (member.name) es null enviará "-" */}
             <MemberName name={ member.name ?? "-" } />
             <MemberAbility ability={ member.ability?.name ?? ""} />
