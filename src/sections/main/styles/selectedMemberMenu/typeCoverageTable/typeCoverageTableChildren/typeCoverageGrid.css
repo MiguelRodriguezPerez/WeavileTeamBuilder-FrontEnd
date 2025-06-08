@@ -5,7 +5,7 @@
 .type-coverage-grid {
     list-style-type: none;
     display: grid;
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(6 ,1fr);
     justify-items: center;
     gap: 3% 0%;
 

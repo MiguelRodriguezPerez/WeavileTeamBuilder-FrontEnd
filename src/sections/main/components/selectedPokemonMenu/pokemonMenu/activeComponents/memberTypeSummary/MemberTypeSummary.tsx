@@ -1,11 +1,10 @@
 import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { toPascalCase } from "../../../../../../../globalHelpers";
-import { MoveCoverage, TypeSummary } from "./memberTypeSummaryChildren";
+import { MoveCoverage, TypeSummary } from "./";
+import { PartnerCoverages } from "./partnerCoverages";
 
 import '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTable.css';
-
-
 
 export const MemberTypeSummary = () => {
 
@@ -14,9 +13,9 @@ export const MemberTypeSummary = () => {
     return (
         <section className="type-coverage-table">
             <h3>{ toPascalCase(selectedPokemon.name!) } type summary</h3>
-            <MoveCoverage/>
-            <TypeSummary/>
-            <MoveCoverage/>
+            <MoveCoverage />
+            <TypeSummary />
+            <PartnerCoverages/>
             {/* Funciona porque type-coverage-table grid-row 1/6 */}
         </section>
     );

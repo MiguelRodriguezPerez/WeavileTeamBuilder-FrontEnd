@@ -5,19 +5,24 @@ export const getMemberResistances = ( typeArr: PokemonType[] ): PokemonType[]  =
  
     if ( typeArr.length === 1 ) return getTypeResistances( typeArr[0] );
     else {
-        let resultado: PokemonType[] = [];
+        let weaknessList: PokemonType[] = [];
+        let resistancesList: PokemonType[] = [];
 
         typeArr.forEach(type => {
-            resultado.push(...getTypeResistances(type));
+            resistancesList = [
+                ...resistancesList,
+                ...getTypeResistances(type)
+            ]
+
+            weaknessList = [
+                ...weaknessList,
+                ...getTypeWeaknesses(type)
+            ]
         });
 
-        typeArr.forEach(type => {
-            /* Te podrías haber ahorrado esta variable, pero sería muy confuso de entender */
-            const currentTypeWeakness: PokemonType[] = getTypeWeaknesses(type);
-            resultado = resultado.filter( type1 => !currentTypeWeakness.includes(type1));
-        });
+        resistancesList = resistancesList.filter(resistanceType => !weaknessList.includes(resistanceType))
 
-        return [...new Set(resultado)];
+        return [...new Set(resistancesList)];
     }
  
 }

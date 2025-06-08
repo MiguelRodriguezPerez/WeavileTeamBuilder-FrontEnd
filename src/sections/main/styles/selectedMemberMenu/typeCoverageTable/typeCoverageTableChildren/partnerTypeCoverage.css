@@ -1,0 +1,49 @@
+.partner-type-coverages-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0% 3%;
+}
+
+.partner-coverages {
+    border: solid 1px rgb(244, 241, 241);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.partner-coverages > h4 {
+    font-size: 1.1rem;
+    border-bottom: solid 1px rgb(244, 241, 241);
+
+    margin: 0px;
+    padding-bottom: 10px;
+}
+
+.partner-coverage-list {
+    list-style-type: none;
+    padding: 0px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0% 2%;
+
+}
+
+.partner-coverage-entry {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    align-items: center;
+}
+
+
+.partner-coverage-types {
+    padding: 0px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.partner-coverage-types > img {
+    margin-top: 12px;
+}
