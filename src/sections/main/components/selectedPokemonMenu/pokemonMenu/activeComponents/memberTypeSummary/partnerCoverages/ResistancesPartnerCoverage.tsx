@@ -5,6 +5,9 @@ import useWeavileStore from "../../../../../../../../globalContext/WeavileStore"
 import { assignPokemonTypeToPng } from "../../../../../../../../globalHelpers";
 import { getWeaknessCoveredToTeamMembers } from "../../../../../../helpers/teamTypeCoverages/getWeaknessCoveredToTeamMembers";
 
+import '../../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/partnerTypeCoverage.css';
+
+
 
 export const ResistancesPartnerCoverage = () => {
 
@@ -19,22 +22,22 @@ export const ResistancesPartnerCoverage = () => {
     }, [selectedMember, selectedTeam]);
 
     return (
-        <section>
-            <h4> {selectedMember.name} is covering: </h4>
-            <ul>
-                {
-                    mapToRender &&
-                    [...mapToRender.entries()].map(([member, types]) => (
-                        <li key={member.name}>
-                            <img src={`data:image/jpeg;base64,${member.pc_sprite}`} />
-                            <ul>
-                                {
-                                    types.map((type) => (<img key={type} src={assignPokemonTypeToPng(type)} />))
-                                }
-                            </ul>
-                        </li>
-                    ))
-                }
+       <section className="partner-coverages">
+            <h4>{selectedMember.name} is covering </h4>
+            <ul className="partner-coverage-list">
+            {
+                mapToRender &&
+                [...mapToRender.entries()].map(([member, types]) => (
+                <li key={member.name} className="partner-coverage-entry">
+                    <img src={`data:image/jpeg;base64,${member.pc_sprite}`}/>
+                    <ul className="partner-coverage-types">
+                        {
+                            types.map((type) => ( <img key={type} src={assignPokemonTypeToPng(type)} />))
+                        }
+                    </ul>
+                </li>
+                ))
+            }
             </ul>
         </section>
     );

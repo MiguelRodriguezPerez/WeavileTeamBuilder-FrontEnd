@@ -2,14 +2,9 @@ import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntitie
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { toPascalCase } from "../../../../../../../globalHelpers";
 import { MoveCoverage, TypeSummary } from "./";
-import { PartnerCoverages, WeaknessPartnerCoverage } from "./partnerCoverages";
-
-
+import { PartnerCoverages } from "./partnerCoverages";
 
 import '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTable.css';
-
-
-
 
 export const MemberTypeSummary = () => {
 

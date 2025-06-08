@@ -9,24 +9,22 @@ export const WeaknessPartnerCoverage = () => {
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const selectedTeam: PokemonTeam = useWeavileStore(state => state.selectedPokemonTeam!);
-    const [mapToRender, setMapToRender] = useState<Map<PokemonTeamMember, PokemonType[]>>();
+    const [ mapToRender, setMapToRender ] = useState<Map<PokemonTeamMember, PokemonType[]>>();
 
     useEffect(() => {
         setMapToRender(getWeaknessCoveredByTeamMembers(selectedMember, selectedTeam));
-        console.log(mapToRender);
-
     }, [selectedMember, selectedTeam]);
 
     return (
-        <section>
-            <h4> {selectedMember.name} weakness are covered by: </h4>
-            <ul>
+        <section className="partner-coverages">
+            <h4> {selectedMember.name} weakness are covered by </h4>
+            <ul className="partner-coverage-list">
                 {
                     mapToRender &&
                     [...mapToRender.entries()].map(([member, types]) => (
-                        <li key={member.name}>
+                        <li key={member.name} className="partner-coverage-entry">
                             <img src={`data:image/jpeg;base64,${member.pc_sprite}`} />
-                            <ul>
+                            <ul className="partner-coverage-types">
                                 {
                                     types.map((type) => (<img key={type} src={assignPokemonTypeToPng(type)} />))
                                 }
