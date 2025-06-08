@@ -7,3 +7,9 @@
     margin: 5% 15%;
     padding: 1.5%;
 }
+
+@media screen and (max-width: 700px) {
+    .banner-member-name {
+        margin: 5% 7%;
+    }
+}

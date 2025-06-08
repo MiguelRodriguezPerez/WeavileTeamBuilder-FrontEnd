@@ -2,24 +2,3 @@
     display: grid;
     grid-template-columns: 1fr;
 }
-
-.banner-element > .banner-pokemon-name {
-    text-align: center;
-
-    background-color: #e1dede;
-    color: #26262a;
-    border-radius: 14px;
-    margin: 5% 15%;
-    padding: 1.5%;
-
-}
-
-.pokemon-banner-element > .pokemon-ability {
-    color: #e1dede;
-    text-align: center;
-}
-
-.member-selected {
-    filter: drop-shadow(0 0 4px #007bff);
-    image-rendering: auto; 
-}
