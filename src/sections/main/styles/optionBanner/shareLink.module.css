@@ -1,4 +1,5 @@
 .share-link {
+    margin-left: auto;
     display: grid;
     grid-template-columns: 80% 20%;
 }
@@ -23,3 +24,9 @@
     border-radius: 0px 8px 8px 0px;
 }
 
+
+@media screen and (max-width: 700px) {
+    .share-link {
+        width: 40%;
+    }
+}

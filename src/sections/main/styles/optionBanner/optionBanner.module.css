@@ -1,0 +1,7 @@
+.option-banner {
+    display: flex;
+    flex-direction: row;
+
+    border-bottom: solid 1px whitesmoke;
+    padding-bottom: 2vh;
+}

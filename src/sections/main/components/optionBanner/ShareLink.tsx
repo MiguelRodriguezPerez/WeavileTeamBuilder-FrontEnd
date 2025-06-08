@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import '../../styles/optionBanner/shareLink.css'
+import styles from '../../styles/optionBanner/shareLink.module.css'
 
 export const ShareLink = () => {
 
@@ -13,7 +13,7 @@ export const ShareLink = () => {
     }
 
     return (
-        <div className="share-link">
+        <div className={ styles['share-link'] }>
             <input type="text" readOnly={ true } value={ linkText } />
             <input type="image" onClick={ copyLinkToClipBoard } 
                 src="/images/main/optionBanner/copy_icon.png" alt="copy.png" />
