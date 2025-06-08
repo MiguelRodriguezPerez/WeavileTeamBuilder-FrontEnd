@@ -20,7 +20,7 @@ export const SelectedTeamName = () => {
     }
 
     return (
-        <input type="text" value={ stateName } 
+        <input type="text" value={ stateName } name="team-name"
             onChange={ (e) => changeWrapper(e.target.value) } className="selected-team-name"/>
     );
 }

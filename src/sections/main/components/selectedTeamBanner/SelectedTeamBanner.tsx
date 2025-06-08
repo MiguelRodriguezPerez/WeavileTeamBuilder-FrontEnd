@@ -12,15 +12,18 @@ export const SelectedTeamBanner = () => {
     return (
         <section className="selected-team-banner">
             {
-                selectedTeam && <SelectedTeamName />
-            }
-            {
-                selectedTeam?.teamMembers
-                && selectedTeam.teamMembers.map((member, index) => (
-                    <BannerMember member={member} key={index} />
-                ))
-            }
-            {/* <TeamTypesDropdown /> */}
+                selectedTeam && (
+                    <>
+                        <SelectedTeamName />
+                        { 
+                            selectedTeam.teamMembers.map((member, index) => (
+                                <BannerMember member={member} key={index} />
+                            ))
+                        }
+                        {/* <TeamTypesDropdown /> */}
+                    </>
+                )}
         </section>
+
     );
 }
