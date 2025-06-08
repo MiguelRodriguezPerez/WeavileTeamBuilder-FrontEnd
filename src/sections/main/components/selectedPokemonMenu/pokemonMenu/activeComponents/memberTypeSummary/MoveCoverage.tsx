@@ -11,9 +11,11 @@ export const MoveCoverage = () => {
 
     return (
         <section className="move-coverage-section">
-            <h4>Member move coverage</h4>
-            <p>{ selectedPokemon.name! + ' moves are effective against' }</p>
-            <PokemonTypeGrid typeList={getPokemonCoveredTypes(selectedPokemon)} />
+            <div className="move-coverage-paragraph">
+                <h4>Member move coverage</h4>
+                <p>{ selectedPokemon.name! + ' moves are effective against' }</p>
+            </div>
+            <PokemonTypeGrid typeList={ getPokemonCoveredTypes(selectedPokemon) } />
         </section>
     );
 }
