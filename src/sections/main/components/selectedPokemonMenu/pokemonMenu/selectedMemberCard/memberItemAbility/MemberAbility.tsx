@@ -4,8 +4,8 @@ import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { toPascalCase } from "../../../../../../../globalHelpers";
 import { SelectedComponentContext } from "../../../../../context/selectedMenuComponent/SelectedComponentContext";
 
-import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberButtonCard.css';
-import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberItemAbility/memberItemAbilityCard.css';
+import cardStyle from '../../../../../styles/selectedMemberMenu/memberCard/memberCard.module.css';
+import abilityStyle from '../../../../../styles/selectedMemberMenu/memberCard/memberItemAbility/memberItemAbilityCard.module.css';
 
 export const MemberAbility = () => {
 
@@ -13,9 +13,9 @@ export const MemberAbility = () => {
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
 
     return (
-        <div className="member-ability">
+        <div className={abilityStyle['member-ability']}>
             <p>Ability</p>
-            <p className="member-card-button"
+            <p className={ cardStyle['member-card'] }
                 onClick={() => changeElementType('ability') }>{toPascalCase(selectedMember.ability!.name)}</p>
         </div>
     );

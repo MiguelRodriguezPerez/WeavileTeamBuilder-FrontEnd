@@ -5,9 +5,9 @@ import { SelectedMoveMemberContext } from "../../../../../context/selectedMember
 
 import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
-
-import '../../../../../styles/selectedMemberMenu/elementCards/moveCard.css'
 import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
+
+import styles from '../../../../../styles/selectedMemberMenu/elementCards/moveCard.module.css'
 
 export const MoveCard = ({ moveProp }: { moveProp: MoveData }) => {
 
@@ -42,9 +42,9 @@ export const MoveCard = ({ moveProp }: { moveProp: MoveData }) => {
     }
 
     return (
-        <li className="move-card" onClick={ onClickWrapper }>
+        <li className={styles['move-card']} onClick={ onClickWrapper }>
             <h3>{toPascalCase(moveProp.name)}</h3>
-            <div className="moves-img">
+            <div className={styles['move-img']}>
                 <img src={ assignPokemonTypeToPng(moveProp.pokemon_type) } 
                     alt={ `${moveProp.pokemon_type.toString()}.png` } />
                 <img src={ assignMoveTypeToPng(moveProp.move_type) } 

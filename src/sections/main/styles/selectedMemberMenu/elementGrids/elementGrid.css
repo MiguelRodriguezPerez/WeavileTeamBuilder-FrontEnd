@@ -15,3 +15,13 @@
     border-bottom: solid 1px  rgb(244, 241, 241);
     padding-bottom: 7px;
 }
+
+
+@media screen and (max-width: 1400px) {
+    
+    .element-grid {
+        grid-row: initial;
+        overflow-y: initial;
+    }
+    
+}

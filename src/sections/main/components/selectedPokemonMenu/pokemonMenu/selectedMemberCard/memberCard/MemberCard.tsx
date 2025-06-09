@@ -3,12 +3,12 @@ import { MemberMoveList } from '../memberMoves';
 import { MemberHeader } from './MemberHeader';
 import { MemberTypeCoverageIvsEvsNatureDiv } from './MemberTypeCoverageIvsEvsNatureDiv';
 
-import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberCard.css';
+import styles from '../../../../../styles/selectedMemberMenu/memberCard/memberCard.module.css';
 
 export const MemberCard = () => {
 
     return (
-        <div className="member-card">
+        <div className={styles['member-card']}>
             <MemberHeader />
             <MemberItemAbilityDiv />
             <MemberMoveList />

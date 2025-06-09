@@ -5,6 +5,8 @@ import useWeavileStore from '../../../../../../../globalContext/WeavileStore';
 import { convertMemberToNullMember } from '../../../../../../../globalHelpers/pokemonTeams/nonLoggedUsers';
 import { useUpdateTeam } from '../../../../../../../globalHooks/pokemonTeams';
 
+import styles from '../../../../../styles/selectedMemberMenu/teamMemberMenu.module.css'
+
 
 
 export const DeleteMemberButton = () => {
@@ -23,7 +25,7 @@ export const DeleteMemberButton = () => {
     }
 
     return (
-        <div className='delete-button-div'>
+        <div className={ styles['delete-button-div'] }>
             <Button
                 onClick={deleteEvent}
                 startIcon={<DeleteIcon />}

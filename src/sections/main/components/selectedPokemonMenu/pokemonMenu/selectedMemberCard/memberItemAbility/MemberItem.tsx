@@ -3,8 +3,9 @@ import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { toPascalCase } from "../../../../../../../globalHelpers";
 import { SelectedComponentContext } from "../../../../../context/selectedMenuComponent/SelectedComponentContext";
 
-import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberItemAbility/memberItemAbilityCard.css';
-import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberButtonCard.css';
+import cardStyle from '../../../../../styles/selectedMemberMenu/memberCard/memberCard.module.css';
+import itemStyle from '../../../../../styles/selectedMemberMenu/memberCard/memberItemAbility/memberItemAbilityCard.module.css';
+
 
 export const MemberItem = () => {
 
@@ -12,9 +13,9 @@ export const MemberItem = () => {
     const { item } = useWeavileStore(state => state.selectedPokemonMember!);
 
     return (
-        <div className="member-item">
+        <div className={itemStyle['member-item']}>
             <p>Item</p>
-            <p onClick={ () => changeElementType('item') } className="member-card-button">
+            <p onClick={ () => changeElementType('item') } className={cardStyle['member-card']}>
                 {item ? toPascalCase(item.name) : 'No item'}
             </p>
         </div>
