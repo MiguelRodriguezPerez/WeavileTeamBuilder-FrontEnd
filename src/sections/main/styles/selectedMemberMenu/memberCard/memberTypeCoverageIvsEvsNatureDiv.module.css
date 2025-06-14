@@ -43,3 +43,15 @@ button.member-ivs-evs-nature {
 
     
 }
+
+@media screen and (max-width: 700px) {
+    
+    .member-ivs-evs-nature-type-coverage-div {
+        grid-template-columns: 1fr;
+    }
+
+    .member-ivs-evs-nature, .member-type-coverage {
+        margin: 1%;
+    }
+    
+}
