@@ -6,8 +6,8 @@
     padding: 0px;
     margin: 0px;
     
+    max-height: 60vh;
     overflow-y: auto;
-    grid-row: 2/4;
 }
 
 .element-grid > *:hover {
@@ -22,6 +22,7 @@
     .element-grid {
         grid-row: initial;
         overflow-y: initial;
+        max-height: none;
     }
     
 }

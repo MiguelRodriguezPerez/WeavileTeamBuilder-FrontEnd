@@ -1,9 +1,9 @@
-import '../../../../styles/selectedMemberMenu/elementGrids/elementGridHeader.css'
+import styles from '../../../../styles/selectedMemberMenu/elementGrids/elementGridHeader.module.css'
 
 export const ElementHeader = ({ elementName } : { elementName : string }) => {
 
     return (
-        <header className="element-grid-header">
+        <header className={ styles['element-grid-header']}>
             <h3>{ elementName }</h3>
             {/* <button className='delete-button'>
                 <span>Delete Pokemon</span>

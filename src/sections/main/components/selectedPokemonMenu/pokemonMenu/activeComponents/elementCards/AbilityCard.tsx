@@ -6,7 +6,7 @@ import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
 
 
 
-import '../../../../../styles/selectedMemberMenu/elementCards/abilityCard.css'
+import styles from '../../../../../styles/selectedMemberMenu/elementCards/abilityCard.module.css'
 
 export const AbilityCard = ({ abilityProp }: { abilityProp: AbilityData }) => {
 
@@ -26,7 +26,7 @@ export const AbilityCard = ({ abilityProp }: { abilityProp: AbilityData }) => {
     }
 
     return (
-        <li key={abilityProp.id} className="ability-card" onClick={changeAbilityEvent}>
+        <li key={abilityProp.id} className={styles['ability-card']} onClick={changeAbilityEvent}>
             <h4>{toPascalCase(abilityProp.name)}</h4>
             <p>{abilityProp.description}</p>
         </li>

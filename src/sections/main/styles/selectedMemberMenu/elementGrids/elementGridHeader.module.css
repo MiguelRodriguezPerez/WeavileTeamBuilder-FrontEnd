@@ -3,6 +3,7 @@
     flex-direction: row;
     margin-top: 0px;
     align-items: end;
+    margin-bottom: 12px;
 }
 
 .element-grid-header > button {
@@ -30,8 +31,10 @@ button.delete-button > span {
 }
 
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 700px) {
     
-    
+    .element-grid-header {
+        margin-top: 15px;
+    }
     
 }

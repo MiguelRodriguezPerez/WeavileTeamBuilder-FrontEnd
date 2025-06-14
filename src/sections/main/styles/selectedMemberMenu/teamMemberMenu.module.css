@@ -19,11 +19,15 @@
     
     .team-member-menu {
         grid-template-columns: 1fr;
+        grid-template-rows: repeat(5,auto);
+        max-height: none;
+        gap: 0%;
     }
 
     .delete-button-div {
         grid-column: initial;
         grid-row: 2/3;
+        margin-top: 3%;
     }
     
 }

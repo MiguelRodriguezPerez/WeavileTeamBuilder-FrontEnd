@@ -23,10 +23,28 @@
 dejalo igual*/
 
 .ability-card:last-of-type {
-    margin-bottom: 100%;
+    margin-bottom: auto;
 }
 
 /* No necesitas scroll en el grid de habilidades*/
-.ability-grid {
+/* .ability-grid {
     overflow-y: hidden !important;
+} */
+
+@media screen and (max-width: 1400px) {
+    
+    .ability-card {
+        grid-template-columns: 25% 1fr;
+    }
+    
+}
+
+@media screen and (max-width: 700px) {
+    
+    .ability-card {
+        grid-template-columns: 35% 1fr;
+        gap: 3%;
+        margin: 10px;
+    }
+    
 }

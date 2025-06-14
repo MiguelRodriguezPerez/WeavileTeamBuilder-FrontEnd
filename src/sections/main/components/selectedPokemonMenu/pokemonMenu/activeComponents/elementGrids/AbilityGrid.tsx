@@ -2,9 +2,10 @@ import { useContext } from "react";
 import { AbilityData } from "../../../../../../../domain/dataEntities";
 import { SelectedPokemonDataContext } from "../../../../../context/pokemonData";
 import { AbilityCard } from "../elementCards";
-
 import { WeavileLoading } from "../../../../../../../ui/components";
-import '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.css';
+
+import styles from '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.module.css';
+import { ElementHeader } from "../ElementHeader";
 
 export const AbilityGrid = () => {
 
@@ -13,14 +14,18 @@ export const AbilityGrid = () => {
     if (abilityList.length === 0) return <WeavileLoading />
 
     return (
-        <>
-            <ul className="element-grid ability-grid">
+        <div style={{
+            display:'grid',
+            gridTemplateColumns:'1fr'
+        }}>
+            <ElementHeader elementName="Abilities"/>
+            <ul className={ styles['element-grid'] }>
                 {
                     abilityList.map((ability) => (
                         <AbilityCard abilityProp={ability} key={ability.id} />
                     ))
                 }
             </ul>
-        </>
+        </div>
     );
 }

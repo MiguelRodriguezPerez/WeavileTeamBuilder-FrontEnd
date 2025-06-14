@@ -14,3 +14,13 @@
     margin: 0% 50%;
     grid-row: 2/4;
 }
+
+@media screen and (max-width: 1400px) {
+    
+    .weavile-loading {
+        grid-row: 4/5;
+        justify-self: center;
+        margin: 0px auto;
+    }
+    
+}

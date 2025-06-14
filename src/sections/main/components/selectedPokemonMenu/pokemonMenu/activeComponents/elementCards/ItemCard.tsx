@@ -5,7 +5,7 @@ import { toPascalCase } from "../../../../../../../globalHelpers";
 import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
 
 
-import '../../../../../styles/selectedMemberMenu/elementCards/itemCard.css';
+import styles from '../../../../../styles/selectedMemberMenu/elementCards/itemCard.module.css';
 
 export const ItemCard = ({ item } : { item: ItemData }) => {
 
@@ -22,11 +22,11 @@ export const ItemCard = ({ item } : { item: ItemData }) => {
     }
   
     return (
-        <li key={ item.id } className="item-card" onClick={onClickWrapper}>
+        <li key={ item.id }  className={styles['item-card']} onClick={onClickWrapper}>
             <img src={`data:image/jpeg;base64,${item.image_sprite}`} 
                 alt={`${item.name}.png`} />
             <h4>{toPascalCase(item.name)}</h4>
-            <p>{item.description}</p>
+            <p className={styles['item-description']}>{item.description}</p>
         </li>
     );
 }
