@@ -28,16 +28,17 @@ button.member-ivs-evs-nature {
 @media screen and (max-width: 1400px) {
     
     .member-ivs-evs-nature-type-coverage-div {
-        gap: 0%;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5%;
         justify-items: center;
-        margin-right: 5%;
-        margin: 4% 0%;
+        margin: 5% 0%;
+
     }
 
     .member-ivs-evs-nature, .member-type-coverage {
-        width: 90%;
-        padding-top: 8px;
-        padding-bottom: 8px;
+        width: 100%;
     }
 
     
