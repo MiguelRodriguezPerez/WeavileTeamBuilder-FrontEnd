@@ -19,7 +19,6 @@
     
     .team-member-menu {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(5,auto);
         max-height: none;
         gap: 0%;
     }
