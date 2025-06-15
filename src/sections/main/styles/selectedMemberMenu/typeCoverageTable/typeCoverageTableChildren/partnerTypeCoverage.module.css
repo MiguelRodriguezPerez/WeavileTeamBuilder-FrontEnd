@@ -7,7 +7,7 @@
 .partner-coverages {
     border: solid 1px rgb(244, 241, 241);
     border-radius: 8px;
-    padding: 15px;
+    padding: 3%;
 }
 
 .partner-coverages > h4 {
@@ -53,10 +53,27 @@
     .partner-type-coverages-table {
         grid-template-columns: 1fr;
         gap: 2% 0%;
+        margin-top: 10px;
     }
 
     .partner-coverage-entry {
         grid-template-columns: 25% 1fr;
+    }
+    
+}
+
+@media screen and (max-width: 700px) {
+    
+    .partner-coverage-list {
+        grid-template-columns: 1fr;
+    }
+
+    .partner-coverage-entry {
+        grid-template-columns: 20% 1fr;
+    }
+
+    .partner-coverage-types {
+        grid-template-columns: repeat(4, 1fr);
     }
     
 }

@@ -27,3 +27,11 @@
     }
     
 }
+
+@media screen and (max-width: 700px) {
+    
+    .move-coverage-section {
+        grid-template-columns: 1fr;
+    }
+    
+}
