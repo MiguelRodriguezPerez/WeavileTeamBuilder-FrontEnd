@@ -9,3 +9,11 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 3% 1%;
 }
+
+@media screen and (max-width: 1400px) {
+    
+    .team-list {
+        grid-template-columns: 1fr;
+    }
+    
+}

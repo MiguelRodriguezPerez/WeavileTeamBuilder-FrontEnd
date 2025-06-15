@@ -3,7 +3,7 @@ import { PokemonTeam } from "../../../domain/teamMemberEntities";
 import { getAllTeamsLocalStorage } from "../../../globalHelpers/pokemonTeams/nonLoggedUsers";
 import { TeamCard } from "./teamListCard/TeamCard";
 
-import '../styles/teamList.css'
+import styles from '../styles/teamList.module.css'
 import useWeavileStore from "../../../globalContext/WeavileStore";
 
 export const TeamList = () => {
@@ -19,7 +19,7 @@ export const TeamList = () => {
     }, [ selectedTeam ])
 
     return (
-        <ul className="team-list">
+        <ul className={ styles['team-list'] }>
             {
                 teamList.map((team) => (<TeamCard team={team} key={team.id} />))
             }
