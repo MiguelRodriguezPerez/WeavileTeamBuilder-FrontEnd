@@ -14,10 +14,7 @@ export const AbilityGrid = () => {
     if (abilityList.length === 0) return <WeavileLoading />
 
     return (
-        <div style={{
-            display:'grid',
-            gridTemplateColumns:'1fr'
-        }}>
+        <div>
             <ElementHeader elementName="Abilities"/>
             <ul className={ styles['element-grid'] }>
                 {

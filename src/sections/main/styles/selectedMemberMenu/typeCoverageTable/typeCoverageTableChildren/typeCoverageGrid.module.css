@@ -26,3 +26,27 @@
 
     transition: 0.2s;
 }
+
+/* Lo siento mucho, de verdad */
+
+.member-type-coverage-grid {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(6 ,1fr);
+    justify-items: center;
+    gap: 3% 0%;
+
+    border-left: solid 1px rgb(244, 241, 241);
+    padding: 0px;
+    padding-top: 10px;
+
+    margin: 1% 0%;
+}
+
+@media screen and (max-width: 1400px) {
+    
+    .type-coverage-grid, .member-type-coverage-grid {
+        grid-template-columns: repeat(5 ,1fr);
+    }
+    
+}

@@ -18,3 +18,12 @@
     border-top: 0px;
     border-left: solid 1px rgb(244, 241, 241);
 }
+
+
+@media screen and (max-width: 1400px) {
+    
+    .move-coverage-paragraph {
+        padding-right: 3%;
+    }
+    
+}

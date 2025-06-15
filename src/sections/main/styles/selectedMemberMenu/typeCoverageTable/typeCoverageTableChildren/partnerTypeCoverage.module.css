@@ -47,3 +47,16 @@
 .partner-coverage-types > img {
     margin-top: 12px;
 }
+
+@media screen and (max-width: 1400px) {
+    
+    .partner-type-coverages-table {
+        grid-template-columns: 1fr;
+        gap: 2% 0%;
+    }
+
+    .partner-coverage-entry {
+        grid-template-columns: 25% 1fr;
+    }
+    
+}

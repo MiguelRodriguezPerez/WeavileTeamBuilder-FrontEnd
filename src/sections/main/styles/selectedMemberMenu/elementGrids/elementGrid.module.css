@@ -11,7 +11,6 @@
 }
 
 .element-grid > *:hover {
-    /* border? */
     border-bottom: solid 1px  rgb(244, 241, 241);
     padding-bottom: 7px;
 }
@@ -21,7 +20,7 @@
     
     .element-grid {
         grid-row: initial;
-        overflow-y: initial;
+        overflow-y: unset;
         max-height: none;
     }
     

@@ -5,6 +5,8 @@ import useWeavileStore from "../../../../../../../../globalContext/WeavileStore"
 import { assignPokemonTypeToPng } from "../../../../../../../../globalHelpers";
 import { getWeaknessCoveredByTeamMembers } from "../../../../../../helpers/teamTypeCoverages/getWeaknessCoveredByTeamMembers";
 
+import styles from '../../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/partnerTypeCoverage.module.css';
+
 export const WeaknessPartnerCoverage = () => {
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
@@ -16,17 +18,17 @@ export const WeaknessPartnerCoverage = () => {
     }, [selectedMember, selectedTeam]);
 
     return (
-        <section className="partner-coverages">
+        <section className={ styles['partner-coverages'] }>
             <h4> {selectedMember.name} weakness are covered by </h4>
-            <ul className="partner-coverage-list">
+            <ul className={ styles['partner-coverage-list'] }>
                 {
                     mapToRender &&
                     [...mapToRender.entries()].map(([member, types]) => (
-                        <li key={member.name} className="partner-coverage-entry">
+                        <li key={member.name} className={ styles['partner-coverage-entry'] }>
                             <img src={`data:image/jpeg;base64,${member.pc_sprite}`} />
-                            <ul className="partner-coverage-types">
+                            <ul className={ styles['partner-coverage-types'] }>
                                 {
-                                    types.map((type) => (<img key={type} src={assignPokemonTypeToPng(type)} />))
+                                    types.map((type,index) => (<img key={index} src={assignPokemonTypeToPng(type)} />))
                                 }
                             </ul>
                         </li>
