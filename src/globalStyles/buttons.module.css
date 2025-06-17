@@ -1,4 +1,4 @@
-.weavile-button {
+.weavile-button, .weavile-button-outlined {
     padding: 10px 15px;
     border-radius: 8px;
     background-color: rgb(237, 235, 235);
@@ -15,7 +15,7 @@
 }
 
 @media screen and (max-width: 700px) {
-    .weavile-button {
+    .weavile-button, .weavile-button-outlined {
         padding: 5px 10px;
     }
 }
