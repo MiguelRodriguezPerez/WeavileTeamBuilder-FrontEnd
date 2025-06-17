@@ -6,7 +6,7 @@ import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntitie
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { SelectedComponentContext } from "../../../../../context/selectedMenuComponent/SelectedComponentContext";
 
-import '../../../../../styles/selectedMemberMenu/teamMemberMenu/memberCard/memberMoves.css';
+import '../../../../../styles/selectedMemberMenu/memberCard/memberMoves.css';
 import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
 
 export const MemberMoveInput = ({ moveName, moveIndex } : 

@@ -1,0 +1,14 @@
+.missigno-grid {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-content: center;
+}
+
+@media screen and (max-width: 1400px) {
+    .missigno-grid {
+        gap: 15px 0%;
+    }
+}

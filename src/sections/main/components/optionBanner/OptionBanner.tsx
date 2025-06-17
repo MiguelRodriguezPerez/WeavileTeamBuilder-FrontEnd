@@ -1,13 +1,13 @@
-import { OptionButton } from './OptionButton';
+import { ChangeTeamButton } from './ChangeTeamButton';
 import { ShareLink } from './ShareLink';
 
-import '../../styles/optionBanner/optionBanner.css'
+import style from '../../styles/optionBanner/optionBanner.module.css'
 
 export const OptionBanner = () => {
     return (
-        <section className='option-banner'>
-            <OptionButton/>
-            <ShareLink/>
+        <section className={style['option-banner']}>
+            <ChangeTeamButton />
+            <ShareLink />
         </section>
     );
 }

@@ -5,9 +5,9 @@ import { SelectedMoveMemberContext } from "../../../../../context/selectedMember
 
 import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
-
-import '../../../../../styles/selectedMemberMenu/elementCards/moveCard.css'
 import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
+
+import styles from '../../../../../styles/selectedMemberMenu/elementCards/moveCard.module.css'
 
 export const MoveCard = ({ moveProp }: { moveProp: MoveData }) => {
 
@@ -42,31 +42,24 @@ export const MoveCard = ({ moveProp }: { moveProp: MoveData }) => {
     }
 
     return (
-        <li className="move-card" onClick={ onClickWrapper }>
-            <h3>{toPascalCase(moveProp.name)}</h3>
-            <div className="moves-img">
+        <li className={styles['move-card']} onClick={ onClickWrapper }>
+            <h3 className={styles['move-heading']}>{toPascalCase(moveProp.name)}</h3>
+            <div className={styles['move-img']}>
                 <img src={ assignPokemonTypeToPng(moveProp.pokemon_type) } 
                     alt={ `${moveProp.pokemon_type.toString()}.png` } />
                 <img src={ assignMoveTypeToPng(moveProp.move_type) } 
                     alt={ `${moveProp.move_type.toString()}.png` } />
             </div>
-            <table>
-               <thead>
-                <tr>
-                    <th>Accuracy</th>
-                    <th>PP</th>
-                    <th>Power</th>
-                </tr>
-               </thead>
-                <tbody>
-                    <tr>
-                        <td>{ moveProp.accuracy }</td>
-                        <td>{ moveProp.pp }</td>
-                        <td>{ moveProp.power }</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div>
+            <div className={ styles['move-values'] }>
+                <div>Accuracy</div>
+                <div>PP</div>
+                <div>Power</div>
+
+                <div>{moveProp.accuracy}</div>
+                <div>{moveProp.pp}</div>
+                <div>{moveProp.power}</div>
+            </div>
+            <div className={ styles['move-description']}>
                 <p>{ moveProp.description }</p>
             </div>
         </li>

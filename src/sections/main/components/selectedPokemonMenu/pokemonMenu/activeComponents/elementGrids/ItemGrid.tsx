@@ -3,8 +3,10 @@ import { getAllItemsRequest } from "../../../../../../../api/itemData";
 import { ItemData } from "../../../../../../../domain/dataEntities";
 import { WeavileLoading } from "../../../../../../../ui/components";
 import { ItemCard } from "../elementCards";
+import { ElementHeader } from "../ElementHeader";
 
-import '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.css';
+import styles from '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.module.css';
+
 
 
 export const ItemGrid = () => {
@@ -23,14 +25,15 @@ export const ItemGrid = () => {
     if (itemList.length === 0) return <WeavileLoading />
 
     return (
-        <>
-            <ul className="element-grid">
+        <div>
+            <ElementHeader elementName="Items" />
+            <ul className={ styles['element-grid'] }>
                 {
                     itemList?.map((item) => (
                         <ItemCard item={item} key={item.id} />
                     ))
                 }
             </ul>
-        </>
+        </div>
     );
 }

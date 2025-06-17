@@ -1,0 +1,27 @@
+.missigno-header-h3 {
+    margin-bottom: 1%;
+
+    color: rgb(244, 241, 241);
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
+.missigno-header-input {
+    background-color: transparent;
+    border: solid 1px white;
+    border-radius: 8px;
+    padding: 5px 8px;
+    width: 225px;
+
+    color:white;
+}
+
+@media screen and (max-width: 700px) {
+    .missigno-header-h3 { 
+        font-size: 1.3rem;
+    }
+
+    .missigno-header-input {
+        padding: 3px 5px;
+    }
+}

@@ -1,0 +1,21 @@
+.weavile-button, .weavile-button-outlined {
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: rgb(237, 235, 235);
+    cursor: pointer;
+    border: 0px;
+    white-space: nowrap;
+    color: #28282D;
+}
+
+.weavile-button-outlined {
+    border: solid 1px rgb(220, 217, 217);
+    background-color: transparent;
+    color:rgb(237, 235, 235);
+}
+
+@media screen and (max-width: 700px) {
+    .weavile-button, .weavile-button-outlined {
+        padding: 5px 10px;
+    }
+}

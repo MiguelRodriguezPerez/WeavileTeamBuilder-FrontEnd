@@ -4,7 +4,7 @@ import { MissignoDTO } from './MissignoDTO';
 import { MissignoCard } from "./missignoCard/MissignoCard";
 import { useSearchByName } from "../../../hooks/missignoGrid";
 
-import '../../../styles/missignoMenu/missignoGrid.css';
+import styles from '../../../styles/missignoMenu/missignoGrid.module.css';
 import { WeavileLoading } from "../../../../../ui/components";
 
 
@@ -24,7 +24,7 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
     if(!filteredArr) return <WeavileLoading/>
 
     return (
-        <ul className="missigno-grid">
+        <ul className={ styles['missigno-grid'] }>
             {
                 filteredArr?.length === 0 ? <p>AAAAA</p>
                     :

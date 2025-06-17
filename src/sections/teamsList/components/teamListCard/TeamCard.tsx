@@ -4,7 +4,7 @@ import { TeamSpritesList } from './TeamSpritesList';
 import useWeavileStore from '../../../../globalContext/WeavileStore';
 import { useNavigate } from 'react-router';
 
-import '../../styles/teamCard/teamCard.css'
+import styles from '../../styles/teamCard/teamCard.module.css'
 
 export const TeamCard = ({ team }: { team: PokemonTeam }) => {
 
@@ -18,7 +18,7 @@ export const TeamCard = ({ team }: { team: PokemonTeam }) => {
     }
 
     return (
-        <li className='team-card'>
+        <li className={ styles['team-card'] }>
             <TeamCardHeader team={ team } />
             <TeamSpritesList team={ team } />
         </li>

@@ -1,0 +1,28 @@
+.weavile-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 1% 2vw !important;
+}
+
+.login-header-div > button {
+    margin: 3%;
+}
+
+@media screen and (max-width: 1400px) {
+    
+    .weavile-logo {
+        width: 10vw;
+    }
+
+}
+
+
+@media screen and (max-width: 700px) {
+    
+    .weavile-logo {
+        width: 15vw;
+    }
+    
+}

@@ -1,11 +1,11 @@
-import '../../styles/teamListHeading.css'
 import { CreateNewTeamButton } from './CreateNewTeamButton';
 
+import styles from '../../styles/teamListHeading.module.css'
 
 export const TeamListHeading = () => {
   
     return (
-        <header className='team-list-heading'>
+        <header className={ styles['team-list-heading'] }>
             <h3>Current teams</h3>
             <div>
                 <CreateNewTeamButton/>

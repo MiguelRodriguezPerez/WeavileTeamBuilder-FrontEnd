@@ -4,7 +4,7 @@ import { getMemberInmunities, getMemberNeutralities, getMemberResistances } from
 import { MemberTypeGrid } from "./MemberTypeGrid";
 import { WeaknessTypeGrid } from "./WeaknessTypeGrid";
 
-import '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/typeSummarySection.css';
+import styles from '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/typeSummarySection.module.css';
 
 export const TypeSummary = () => {
 
@@ -13,7 +13,7 @@ export const TypeSummary = () => {
     const pokemonTypes = selectedPokemon.type_list!;
 
     return (
-        <section className="type-summary-section">
+        <section className={ styles['type-summary-section'] }>
             <h4>Member type summary: </h4>
             <WeaknessTypeGrid pokemonName={pokemonName} />
             <MemberTypeGrid paragraph={pokemonName + ' resists'}

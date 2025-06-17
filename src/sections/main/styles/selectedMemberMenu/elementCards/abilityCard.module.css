@@ -1,0 +1,50 @@
+.ability-card {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 15% 1fr;
+
+    justify-items: start;
+    align-items: center;
+    
+    margin: 15px 20px;
+    padding: 0px 10px 15px;
+    cursor: pointer;
+}
+
+.ability-card > * {
+    margin: 0px;
+}
+
+.ability-card > h4 {
+    font-size: 1.1rem;
+}
+
+/* Aún con max-height para el contenedor padre, provoca redistribuciones raras así que 
+dejalo igual*/
+
+.ability-card:last-of-type {
+    margin-bottom: auto;
+}
+
+/* No necesitas scroll en el grid de habilidades*/
+/* .ability-grid {
+    overflow-y: hidden !important;
+} */
+
+@media screen and (max-width: 1400px) {
+    
+    .ability-card {
+        grid-template-columns: 25% 1fr;
+    }
+    
+}
+
+@media screen and (max-width: 700px) {
+    
+    .ability-card {
+        grid-template-columns: 35% 1fr;
+        gap: 3%;
+        margin: 10px;
+    }
+    
+}

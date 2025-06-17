@@ -1,18 +1,28 @@
+import { useWindowSize } from "react-use";
+import { PokemonTeamMember } from "../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../globalContext/WeavileStore";
 
-export const MemberSprite = ({ sprite, memberId } : { sprite: string | undefined, memberId: number }) => {
+import styles from '../../../styles/selectedTeamBanner/selectedMember/bannerMemberSprite.module.css'
+import { useChooseSpriteToRender } from "../../../hooks/selectedTeamBanner/useChooseSpriteToRender";
+import { useMemo } from "react";
+
+export const MemberSprite = ({ member } : { member: PokemonTeamMember }) => {
 
     const selectedMember = useWeavileStore(state => state.selectedPokemonMember)!;
-
-    /* Para mostrar el sprite la debes convertir en una url temporal
-    que pueda usar el atributo src de img */
+    const { width } = useWindowSize();
+    const { chooseSpriteToRender } = useChooseSpriteToRender(member);
+    const spriteToRender: string = useMemo(() => chooseSpriteToRender(),[selectedMember, width]);
 
     return (
-        <div className="selected-pokemon-sprite">
-            <img
-                src={sprite ? `data:image/jpeg;base64,${sprite}` : "/images/main/missignoTeamBanner.png"}
-                className={`heading-pokemon-sprite ${memberId === selectedMember.id ? 'member-selected' : ''}`}
-            />
+        <div className={styles['selected-member-sprite']}>
+            <img 
+                src={ spriteToRender } 
+                className={`${styles['heading-pokemon-sprite']} 
+                    ${ member.id === selectedMember.id ? styles['selected-member'] : ''}`}
+                /* TODO: Encontrar una solución seria */
+                style={ spriteToRender.includes('missignoPhone') ? { paddingBottom: '0px' } : undefined }
+
+            alt= {member ? member.name + '.png' : 'missigno.png'} />
         </div>
     );
 
