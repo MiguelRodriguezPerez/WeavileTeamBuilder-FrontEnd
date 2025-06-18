@@ -5,6 +5,7 @@ import styles from  '../../../styles/missignoMenu/missignoMenu.module.css'
 
 
 export const MissignoMenu = () => {
+    
     const [ search, setSearch ] = useState<string>('');
 
     return (

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { MissignoDTO } from "../../components/selectedPokemonMenu/missignoMenu/MissignoDTO";
 
 export const useSearchByName = (pokemonName:string, originalDTOArray: MissignoDTO[]) => {
+    
     const [filteredArr, setFilteredArr] = useState<MissignoDTO[]>(originalDTOArray);
-
 
     useEffect(() => {
         if (pokemonName.trim() === '') setFilteredArr(originalDTOArray);
