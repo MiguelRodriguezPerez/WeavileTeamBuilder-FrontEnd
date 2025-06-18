@@ -9,6 +9,8 @@
     margin-top: 15px;
 }
 
+/* Evita que el segundo hijo de team-member-menu rompa el orden del layout.
+Sin es*/
 .team-member-menu > * {
     min-width: 0;
     min-height: 0;
