@@ -1,0 +1,15 @@
+.team-info-card p, .team-info-card h3 {
+    margin: 0px;
+}
+
+.team-info-card {
+    display: grid;
+    grid-template-columns: 17% 1fr 1fr 1fr;
+    gap: 0%;
+
+    border: solid 1px rgb(220, 217, 217);
+    border-radius: 8px;
+
+    padding: 15px;
+    cursor: pointer;
+}

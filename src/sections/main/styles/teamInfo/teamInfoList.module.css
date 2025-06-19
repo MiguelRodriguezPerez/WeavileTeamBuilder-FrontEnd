@@ -1,0 +1,8 @@
+.team-info-list {
+    list-style-type: none;
+    padding: 0px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3% 1%;
+}
