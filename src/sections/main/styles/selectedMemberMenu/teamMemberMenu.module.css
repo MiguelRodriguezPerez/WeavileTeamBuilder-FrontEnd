@@ -22,7 +22,7 @@ Sin es*/
     margin-top: 20px;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1600px) {
     
     .team-member-menu {
         grid-template-columns: 1fr;

@@ -5,15 +5,12 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { SelectedComponentContext } from "../../../../../context/selectedMenuComponent/SelectedComponentContext";
-
-import '../../../../../styles/selectedMemberMenu/memberCard/memberMoves.css';
 import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
 
-export const MemberMoveInput = ({ moveName, moveIndex } : 
-    { moveName : string , moveIndex: number}) => {
+import '../../../../../styles/selectedMemberMenu/memberCard/memberMoves.css';
 
-    /* Decide más adelante si vas a permitir que el usuario pueda escribir en el input o no */
-    // TODO: Outline deleteIcon red
+export const MemberMoveInput = ({ moveName, moveIndex } : 
+    { moveName : string , moveIndex: number }) => {
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const { updateTeamWrapper } = useUpdateTeam();
@@ -24,7 +21,7 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
     /* Parece rídiculo, pero es necesario por si la lista de nodos se vuelve a montar con nuevos moveName,
     porque por la razón que sea useState no es capaz de hacerlo por si solo */
     useEffect(() => {
-        setMoveNameState(toPascalCase(moveName));
+        setMoveNameState(toPascalCase(moveName)!);
     }, [moveName]);
       
     const inputClickEvent = () => {
@@ -48,7 +45,6 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
                 onClick={ removeMove }
                 sx={{
                     marginTop : '5px',
-                    color: 'red[500]'
                 }}
             />
         </li>
