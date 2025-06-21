@@ -1,0 +1,18 @@
+.team-info-sprite {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.pokemon-type-list {
+    list-style-type: none;
+    padding: 0px;
+    margin-top: 5px;
+
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    gap: 5px;
+}

@@ -1,0 +1,13 @@
+.team-info-move-list {
+    padding: 0px 20px;
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-items: start;
+    gap: 2px;
+}
+
+.team-info-move-list > li {
+    border-bottom: solid 1px rgb(244, 241, 241);
+}

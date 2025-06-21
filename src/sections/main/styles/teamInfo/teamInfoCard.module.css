@@ -1,10 +1,14 @@
-.team-info-card p, .team-info-card h3 {
+.team-info-card p, .team-info-card h3{
     margin: 0px;
+}
+
+.team-info-card h3 {
+    font-size: 1.03rem;
 }
 
 .team-info-card {
     display: grid;
-    grid-template-columns: 17% 1fr 1fr 1fr;
+    grid-template-columns: 18% 25% 1fr 1fr;
     gap: 0%;
 
     border: solid 1px rgb(220, 217, 217);
@@ -13,3 +17,4 @@
     padding: 15px;
     cursor: pointer;
 }
+

@@ -7,11 +7,11 @@ export const TeamInfoIvsEvsChanges = ({ member } : { member: PokemonTeamMember }
         <div>
             <div>
                 <h3>Evs</h3>
-                <p>{ getAlteredEvs(member).join() }</p>
+                <p>{ getAlteredEvs(member) }</p>
             </div>
             <div>
                 <h3>Ivs</h3>
-                <p>{ getAlteredIvs(member).join() }</p>
+                <p>{ getAlteredIvs(member) }</p>
             </div>
         </div>
     );
