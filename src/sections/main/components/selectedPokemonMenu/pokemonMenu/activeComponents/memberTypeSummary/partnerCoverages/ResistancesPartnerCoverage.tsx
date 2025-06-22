@@ -5,7 +5,7 @@ import useWeavileStore from "../../../../../../../../globalContext/WeavileStore"
 import { assignPokemonTypeToPng } from "../../../../../../../../globalHelpers";
 import { getWeaknessCoveredToTeamMembers } from "../../../../../../helpers/teamTypeCoverages/getWeaknessCoveredToTeamMembers";
 
-import '../../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/partnerTypeCoverage.css';
+import styles from '../../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/partnerTypeCoverage.module.css';
 
 
 
@@ -13,7 +13,7 @@ export const ResistancesPartnerCoverage = () => {
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const selectedTeam: PokemonTeam = useWeavileStore(state => state.selectedPokemonTeam!);
-    const [mapToRender, setMapToRender] = useState<Map<PokemonTeamMember, PokemonType[]>>();
+    const [ mapToRender, setMapToRender ] = useState<Map<PokemonTeamMember, PokemonType[]>>();
 
     useEffect(() => {
         setMapToRender(getWeaknessCoveredToTeamMembers(selectedMember, selectedTeam));
@@ -22,17 +22,17 @@ export const ResistancesPartnerCoverage = () => {
     }, [selectedMember, selectedTeam]);
 
     return (
-       <section className="partner-coverages">
+       <section className={ styles['partner-coverages'] }>
             <h4>{selectedMember.name} is covering </h4>
-            <ul className="partner-coverage-list">
+            <ul className={ styles['partner-coverage-list'] }>
             {
                 mapToRender &&
                 [...mapToRender.entries()].map(([member, types]) => (
-                <li key={member.name} className="partner-coverage-entry">
+                <li key={member.name} className={ styles['partner-coverage-entry'] }>
                     <img src={`data:image/jpeg;base64,${member.pc_sprite}`}/>
-                    <ul className="partner-coverage-types">
+                    <ul className={ styles['partner-coverage-types'] }>
                         {
-                            types.map((type) => ( <img key={type} src={assignPokemonTypeToPng(type)} />))
+                            types.map((type,index) => ( <img key={ index } src={assignPokemonTypeToPng(type)} />))
                         }
                     </ul>
                 </li>

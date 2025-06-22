@@ -4,9 +4,9 @@ import { RenderActiveElementGrid } from "./activeComponents/RenderActiveElementG
 
 import { DeleteMemberButton } from './selectedMemberCard/memberCard/DeleteMemberButton';
 import { SelectedMoveMemberProvider } from '../../../context/selectedMemberMove';
-
-import '../../../styles/selectedMemberMenu/teamMemberMenu/teamMemberMenu.css'
 import { MemberCard } from './selectedMemberCard/memberCard';
+
+import styles from '../../../styles/selectedMemberMenu/teamMemberMenu.module.css'
 
 
 export const TeamMemberMenu = () => {
@@ -19,7 +19,7 @@ export const TeamMemberMenu = () => {
             <SelectedComponentProvider>
                 {/* Contexto para cambiar el índice del movimiento que selecciono el usuario */}
                 <SelectedMoveMemberProvider>
-                    <section className='team-member-menu'>
+                    <section className={ styles['team-member-menu'] }>
                         <MemberCard />
                         {/* No puedes usar un valor del contexto antes de que el contexto se renderice
                         por eso necesitas RenderActiveElementGrid*/}

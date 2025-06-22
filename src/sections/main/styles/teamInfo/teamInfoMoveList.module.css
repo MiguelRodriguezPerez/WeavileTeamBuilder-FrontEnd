@@ -1,0 +1,32 @@
+.team-info-move-list {
+    padding: 0px 20px;
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-items: start;
+    gap: 2px;
+}
+
+.team-info-move-list > li {
+    border-bottom: solid 1px rgb(244, 241, 241);
+}
+
+@media screen and (max-width: 700px) {
+    
+    .team-info-move-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 0px;
+        margin-bottom: 10px;
+    }
+
+    .team-info-move-list > * {
+        width: 95%;
+    }
+
+    .team-info-move-list > h3:first-child {
+        grid-column: 1/3;
+    }
+    
+}

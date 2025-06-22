@@ -1,12 +1,11 @@
-import { CreateNewTeamButton } from '../teamListHeading/CreateNewTeamButton';
 import { ShareLink } from '../../../main/components/optionBanner';
-
-import '../../../main/styles/optionBanner/optionBanner.css'
 import { HomeButton } from './HomeButton';
+
+import styles from '../../../main/styles/optionBanner/optionBanner.module.css';
 
 export const TeamListOptionBanner = () => {
     return (
-        <section className='option-banner'>
+        <section className={styles['option-banner']}>
             <HomeButton />
             <ShareLink />
         </section>

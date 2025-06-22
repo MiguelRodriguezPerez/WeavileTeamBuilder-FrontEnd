@@ -26,26 +26,18 @@ export const SelectedElementWrapper = ({ elementType }: { elementType: string })
             case (elementType === 'move'):
                 setActiveComponents(
                     <>
-                        <ElementHeader elementName="Moves" />
+                        
                         <MoveGrid />
                     </>
                 )
                 break;
             case (elementType === 'item'):
                 setActiveComponents(
-                    <>
-                        <ElementHeader elementName="Items" />
-                        <ItemGrid />
-                    </>
+                    <ItemGrid />
                 )
                 break;
             case (elementType === 'ability'):
-                setActiveComponents(
-                    <>
-                        <ElementHeader elementName="Ability" />
-                        <AbilityGrid />
-                    </>
-                )
+                setActiveComponents(<AbilityGrid />);
                 break;
 
             case (elementType === 'membertypecoverage'):

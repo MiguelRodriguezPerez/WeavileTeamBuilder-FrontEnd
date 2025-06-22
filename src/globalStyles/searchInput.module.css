@@ -1,0 +1,15 @@
+.search-input {
+    background-color: transparent;
+    border: 0px;
+    border-bottom: solid 1px white;
+    padding: 5px 3px;
+    width: 225px;
+
+    margin-bottom: 15px;
+
+    color:white;
+}
+
+.search-input::placeholder {
+    color: rgb(185, 183, 183);
+}

@@ -4,6 +4,9 @@ import { assignPokemonTypeToPng } from "../../../../../../../globalHelpers";
 import { getMemberWeakness } from '../../../../../../../globalHelpers/pokemonTypes/memberTypeInteractions/getMemberWeakness';
 import { useWeaknessTypeGrid } from "../../../../../hooks/selectedPokemonMenu";
 
+import styles from '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/typeSummarySection.module.css';
+import typeGridStyles from '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/typeCoverageGrid.module.css';
+
 export const WeaknessTypeGrid = ({ pokemonName }: { pokemonName: string }) => {
 
     const { type_list: memberTypeList }: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
@@ -13,9 +16,9 @@ export const WeaknessTypeGrid = ({ pokemonName }: { pokemonName: string }) => {
 
     return (
         <>
-            <div className="type-summary-div">
+            <div className={ styles['type-summary-div'] }>
                 <p>{pokemonName + ' is weak against'}</p>
-                <ul className='type-coverage-grid'>
+                <ul className={ typeGridStyles['type-coverage-grid'] }>
                     {
                         getMemberWeakness(memberTypeList!).map((type) => (
                             <li key={type} >
@@ -26,7 +29,7 @@ export const WeaknessTypeGrid = ({ pokemonName }: { pokemonName: string }) => {
                                 además de asegurar que la imagen ocupe todo el div y este con display block 
                                 para asegurar que la sombra se aplique correctamente*/}
                                 <div className={getCoveredWeakness().includes(type) ?
-                                    'type-is-covered'
+                                    typeGridStyles['type-is-covered']
                                     :
                                     ''
                                 }>

@@ -4,16 +4,16 @@ import { MissignoDTO } from '../MissignoDTO';
 import { MissignoAbilities, MissignoSprite, MissignoStats, MissignoTypes } from './';
 
 
-import '../../../../styles/missignoMenu/missignoCard.css';
+import styles from '../../../../styles/missignoMenu/missignoCard.module.css';
 
 export const MissignoCard = ({ dto }: { dto: MissignoDTO }) => {
 
     const { updateMember } = useSelectedPokemonMember();
     
     return (
-        <li className='missigno-card' onClick={() => updateMember(dto.name)}>
+        <li className={styles['missigno-card']} onClick={ () => updateMember(dto.name) }>
             <MissignoSprite dto={ dto }/>
-            <span className='missigno-name'>{toPascalCase(dto.name)}</span>
+            <span className={styles['missigno-name']}>{toPascalCase(dto.name)}</span>
             <MissignoTypes typeList={dto.type_list}/>
             <MissignoAbilities abilityList={dto.ability_list}/>
             <MissignoStats dto={dto} />

@@ -1,0 +1,130 @@
+.missigno-card {
+    display: grid;
+    grid-template-columns: 7% 10% 10% 1fr 1fr;
+    gap: 2%;
+    justify-content: start;
+    align-items: center;
+
+    padding: 0.7%;
+    cursor: pointer;
+}
+
+.missigno-card:hover {
+    border: solid 1px  rgb(244, 241, 241);
+    border-radius: 8px;
+}
+
+/* Las dimensiones de los iconos de pokemón y missignoIcon no coinciden,
+así que para alinearlos modifique los márgenes. Los márgenes absolutos son intencionales   */ 
+
+.missigno-icon {
+    margin : -5px 15px -5px;
+}
+
+.missigno-icon-defined {
+    margin-top: -20px;
+}
+
+.missigno-types-list {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+}
+
+.missigno-abilities-list {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+}
+
+.missigno-stats {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    justify-self: end;
+    gap: 5%;
+    margin-right: 10%;
+}
+
+@media screen and (max-width: 1400px) {
+
+    .missigno-types-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-items: center;
+        gap: 5px;
+    }
+
+
+    .missigno-abilities-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+        line-height: 1;
+        text-align: center;
+    }
+
+    .missigno-card:hover {
+        border: 0px
+    }
+
+    .missigno-card {
+        padding: 0px;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+    
+    .missigno-card {
+        width: 100%;
+        grid-template-columns: 18% 1fr 1fr;
+        justify-content: center;
+        gap: 5px 0%;
+
+        margin: 7px 0px;
+    }
+
+
+    .missigno-sprite {
+        grid-row: 1/5;
+    }
+
+    .missigno-stats, .missigno-abilities-list  {
+        grid-column: 2/4;
+        justify-self: start;
+    }
+
+    .missigno-abilities-list {
+        display: flex;
+        flex-direction: row;
+        justify-items: start;
+    }
+
+    .missigno-stats {
+        gap: 0% 5%;
+        margin-right: 0px;
+    }
+
+
+    .missigno-types-list {
+        display: flex;
+        flex-direction: row;
+        justify-items: right;
+    }
+
+
+    .missigno-name {
+        font-size: 1.1rem;
+    }
+
+    .missigno-icon-defined {
+        margin: 0px;
+    }
+
+    .missigno-icon {
+        margin: 0px;
+        margin-left: 20%;
+    }
+}

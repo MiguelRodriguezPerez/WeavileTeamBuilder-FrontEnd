@@ -1,14 +1,14 @@
 import { PokemonTeam } from "../../../../domain/teamMemberEntities";
 import { useTeamCardRedirectEvent } from "../../hooks/teamCard";
 
-import '../../styles/teamSpritesList.css'
+import styles from '../../styles/teamSpritesList.module.css'
 
 export const TeamSpritesList = ({ team } : { team: PokemonTeam }) => {
   
     const { teamCardRedirectEvent } = useTeamCardRedirectEvent(team);
 
     return (
-        <ul className="team-sprites-list" onClick={ teamCardRedirectEvent }>
+        <ul className={ styles['team-sprites-list'] } onClick={ teamCardRedirectEvent }>
             {
                 team.teamMembers.map((member, index) =>
                 (

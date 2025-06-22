@@ -1,0 +1,79 @@
+.partner-type-coverages-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0% 3%;
+}
+
+.partner-coverages {
+    border: solid 1px rgb(244, 241, 241);
+    border-radius: 8px;
+    padding: 3%;
+}
+
+.partner-coverages > h4 {
+    font-size: 1.1rem;
+    border-bottom: solid 1px rgb(244, 241, 241);
+
+    margin: 0px;
+    padding-bottom: 10px;
+}
+
+.partner-coverage-list {
+    list-style-type: none;
+    padding: 0px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0% 2%;
+
+}
+
+.partner-coverage-entry {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    align-items: center;
+}
+
+
+.partner-coverage-types {
+    padding: 0px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.partner-coverage-types > img {
+    margin-top: 12px;
+}
+
+@media screen and (max-width: 1400px) {
+    
+    .partner-type-coverages-table {
+        grid-template-columns: 1fr;
+        gap: 2% 0%;
+        margin-top: 10px;
+    }
+
+    .partner-coverage-entry {
+        grid-template-columns: 25% 1fr;
+    }
+    
+}
+
+@media screen and (max-width: 700px) {
+    
+    .partner-coverage-list {
+        grid-template-columns: 1fr;
+    }
+
+    .partner-coverage-entry {
+        grid-template-columns: 20% 1fr;
+    }
+
+    .partner-coverage-types {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+}

@@ -1,0 +1,16 @@
+.team-info-item-ability {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-left: 20px;
+}
+
+.item-div {
+    display: grid;
+    grid-template-columns: 23% 1fr;
+}
+
+.item-div > h3 {
+    grid-column: 1/3;
+}

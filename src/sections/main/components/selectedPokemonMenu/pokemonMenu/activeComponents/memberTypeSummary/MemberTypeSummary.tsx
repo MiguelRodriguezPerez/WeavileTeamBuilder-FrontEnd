@@ -4,14 +4,14 @@ import { toPascalCase } from "../../../../../../../globalHelpers";
 import { MoveCoverage, TypeSummary } from "./";
 import { PartnerCoverages } from "./partnerCoverages";
 
-import '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTable.css';
+import styles from '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTable.module.css';
 
 export const MemberTypeSummary = () => {
 
     const selectedPokemon: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
 
     return (
-        <section className="type-coverage-table">
+        <section className={ styles['type-coverage-table'] }>
             <h3>{ toPascalCase(selectedPokemon.name!) } type summary</h3>
             <MoveCoverage />
             <TypeSummary />

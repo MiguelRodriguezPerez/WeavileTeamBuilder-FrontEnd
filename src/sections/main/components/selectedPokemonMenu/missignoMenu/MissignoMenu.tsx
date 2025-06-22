@@ -1,19 +1,22 @@
 import { useState } from "react";
 import { MissignoGrid } from "./";
 
-import '../../../styles/missignoMenu/missignoMenu.css'
+import styles from  '../../../styles/missignoMenu/missignoMenu.module.css'
+import searchInputStyle from '../../../../../globalStyles/searchInput.module.css'
+import { SearchInput } from "../pokemonMenu";
 
 
 export const MissignoMenu = () => {
-    const [search, setSearch] = useState<string>('');
+    
+    const [ search, setSearch ] = useState<string>('');
 
     return (
-        <section className="missigno-menu">
-            <div className="missigno-header">
-                <h3>Choose a pokemon</h3>
-                <input type="text" onChange={(e) => { setSearch( e.target.value ) }} />
+        <section>
+            <div>
+                <h3 className={ styles['missigno-header-h3'] }>Choose a pokemon</h3>
+                <SearchInput propSearch={ search } setPropSearch={ setSearch }/>
             </div>
-            <MissignoGrid search={search}/>
+            <MissignoGrid search={ search }/>
         </section>
     );
 }

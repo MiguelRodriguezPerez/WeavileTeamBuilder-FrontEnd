@@ -1,8 +1,8 @@
-import '../styles/weavileLoading.css'
+import styles from '../styles/weavileLoading.module.css'
 
 export const WeavileLoading = () => {
   
     return (
-        <img className='weavile-loading' src="/images/ui/loadingPokeball.png" alt="loadingPokeball.png" />
+        <img className={ styles['weavile-loading'] } src="/images/ui/loadingPokeball.png" alt="loadingPokeball.png" />
     );
 }

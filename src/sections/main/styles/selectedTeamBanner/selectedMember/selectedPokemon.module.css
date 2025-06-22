@@ -1,0 +1,15 @@
+
+.selected-pokemon-sprite > img.heading-pokemon-sprite {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+}
+
+.pokemon-banner-element {
+    cursor: pointer;
+}
+
+.member-selected {
+    filter: drop-shadow(0 0 4px #007bff);
+    image-rendering: auto; 
+}

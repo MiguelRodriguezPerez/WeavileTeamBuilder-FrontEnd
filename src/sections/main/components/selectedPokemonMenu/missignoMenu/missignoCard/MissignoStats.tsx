@@ -1,10 +1,10 @@
 import { MissignoDTO } from "../MissignoDTO";
 
-import '../../../../styles/missignoMenu/missignoCard.css';
+import styles from '../../../../styles/missignoMenu/missignoCard.module.css';
 
 export const MissignoStats = ({ dto } : { dto : MissignoDTO }) => {
     return (
-        <div className="missigno-stats">
+        <div className={styles['missigno-stats']} >
             <span>HP</span>
             <span>Atk</span>
             <span>Def</span>
