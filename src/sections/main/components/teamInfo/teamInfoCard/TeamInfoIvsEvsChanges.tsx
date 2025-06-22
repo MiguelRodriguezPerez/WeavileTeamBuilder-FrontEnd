@@ -4,10 +4,10 @@ import { getAlteredEvs, getAlteredIvs } from "../../../helpers/teamInfo";
 export const TeamInfoIvsEvsChanges = ({ member } : { member: PokemonTeamMember }) => {
   
     return (
-        <div>
+        <div className="team-info-ivs-evs">
             <div>
                 <h3>Evs</h3>
-                <p>{ getAlteredEvs(member) }</p>
+                <p>{ getAlteredEvs(member) ?? 'No evs' }</p>
             </div>
             <div>
                 <h3>Ivs</h3>

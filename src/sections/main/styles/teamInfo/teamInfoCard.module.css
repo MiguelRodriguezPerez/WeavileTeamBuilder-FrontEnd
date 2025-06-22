@@ -18,3 +18,16 @@
     cursor: pointer;
 }
 
+
+@media screen and (max-width: 700px) {
+    
+    .team-info-card {
+        grid-template-columns: 35% 1fr;
+        padding: 15px 20px;
+    }
+
+    .team-info-card > :nth-child(3), .team-info-card > :last-child {
+        grid-column: 1/3;
+    }
+    
+}

@@ -7,7 +7,9 @@ export const CurrentTeamInfoButton = () => {
     const navigate = useNavigate();
 
     return (
-        <button className={ buttonStyle['weavile-button-outlined'] }
-            onClick={() => navigate('/currentTeamInfo')}>{'Member List'}</button>
+        <div>
+            <button className={ buttonStyle['weavile-button-outlined'] }
+                onClick={() => navigate('/currentTeamInfo')}>{'Member List'}</button>
+        </div>
     );
 }

@@ -3,7 +3,19 @@
     padding: 0px;
 
     display: grid;
+    /* Si usas unidades relativas para calcular el gap, provocarás que el ancho de las columnas (en este caso 50% 50%)
+    combinado con el porcentaje del gap supere el 100% de su ancho, sobresaliendose a otros componentes hermanos.
+    Por la razón que sea con unidades absolutas no pasa */
     grid-template-columns: 1fr 1fr;
-    gap: 3% 1%;
+    gap: 15px;
 
+}
+
+@media screen and (max-width: 1400px) {
+    
+    .team-info-list {
+        grid-template-columns: 1fr;
+        gap: 15px 0px;
+    }
+    
 }

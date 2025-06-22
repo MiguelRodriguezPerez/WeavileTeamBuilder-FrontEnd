@@ -7,7 +7,9 @@ export const ChangeTeamButton = () => {
     const navigate = useNavigate();
 
     return (
-        <button className={buttonStyle['weavile-button']}
-            onClick={() => navigate('/teamsList')}>{'Change Team'}</button>
+        <div>
+            <button className={buttonStyle['weavile-button']}
+                onClick={() => navigate('/teamsList')}>{'Change Team'}</button>
+        </div>
     );
 }
