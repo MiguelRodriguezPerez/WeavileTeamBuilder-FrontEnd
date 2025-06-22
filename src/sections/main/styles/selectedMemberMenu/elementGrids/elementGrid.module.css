@@ -6,8 +6,7 @@
     padding: 0px;
     margin: 0px;
     
-    /* No se porque funciona */
-    max-height: 53vh;
+    max-height: 500px;
     overflow-y: auto;
 }
 
