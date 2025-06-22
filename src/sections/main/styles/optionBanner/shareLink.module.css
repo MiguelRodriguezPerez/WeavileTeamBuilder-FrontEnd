@@ -27,6 +27,7 @@
 
 @media screen and (max-width: 700px) {
     .share-link {
-        width: 40%;
+        margin-top: 10px;
+        /* grid-column:  2/3; */
     }
 }

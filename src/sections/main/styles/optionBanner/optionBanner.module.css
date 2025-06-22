@@ -3,5 +3,18 @@
     flex-direction: row;
 
     border-bottom: solid 1px whitesmoke;
-    padding-bottom: 2vh;
+    padding-bottom: 15px;
+    gap: 0% 1%;
+}
+
+@media screen and (max-width: 700px) {
+    
+    .option-banner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .option-banner > div:nth-child(2) {
+        justify-self: end;
+    }
 }

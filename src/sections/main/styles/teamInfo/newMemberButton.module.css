@@ -1,0 +1,24 @@
+.new-member-button-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.new-member-button-div > button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    padding: 15px 35px;
+}
+
+.new-member-button-div span {
+    color: black;
+}
+
+.new-member-button-div img {
+    height: 14px;
+}
+

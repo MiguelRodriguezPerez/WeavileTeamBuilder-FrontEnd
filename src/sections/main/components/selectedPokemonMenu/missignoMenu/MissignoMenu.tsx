@@ -2,6 +2,8 @@ import { useState } from "react";
 import { MissignoGrid } from "./";
 
 import styles from  '../../../styles/missignoMenu/missignoMenu.module.css'
+import searchInputStyle from '../../../../../globalStyles/searchInput.module.css'
+import { SearchInput } from "../pokemonMenu";
 
 
 export const MissignoMenu = () => {
@@ -12,9 +14,7 @@ export const MissignoMenu = () => {
         <section>
             <div>
                 <h3 className={ styles['missigno-header-h3'] }>Choose a pokemon</h3>
-                <input type="text"  
-                    className={ styles['missigno-header-input'] }
-                    onChange={(e) => { setSearch( e.target.value ) }} />
+                <SearchInput propSearch={ search } setPropSearch={ setSearch }/>
             </div>
             <MissignoGrid search={ search }/>
         </section>

@@ -14,7 +14,6 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const { updateTeamWrapper } = useUpdateTeam();
-    const changeSelectedMove = useContext(SelectedMoveMemberContext)?.changeSelectedMove;
     const changeSelectedComponent = useContext(SelectedComponentContext)!.changeElementType;
     const [ moveNameState, setMoveNameState ] = useState<string>(moveName);
 
@@ -25,7 +24,7 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
     }, [moveName]);
       
     const inputClickEvent = () => {
-        changeSelectedMove!(moveIndex);
+        
         changeSelectedComponent('move')
     }
 

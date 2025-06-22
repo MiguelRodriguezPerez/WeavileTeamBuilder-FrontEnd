@@ -18,10 +18,9 @@ export const BannerMember = ({ member }: { member: PokemonTeamMember }) => {
 
     const onClickWrapper = () => {
         changeSelectedPokemon(member);
-        /* Necesitas esta chapuza porque si el usuario está en la lista de equipos y hace click en un pokemón del banner
-        quieres que lo redirija a la página principal, la que manipula el equipo ya seleccionado */
-        if (pathname === '/teamsList') navigate('/');
-        // pokemon-banner-element
+        /* Necesitas esta chapuza porque si el usuario no esta en la página principal (la que permite manipular 
+        el equipo seleccionado) tienes que redirigirlo a dicha página */
+        if (pathname !== '/') navigate('/');
     }
 
     return (
