@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import missignoStyles from  '../../../../styles/missignoMenu/missignoMenu.module.css';
+import searchInputStyle from '../../../../../../globalStyles/searchInput.module.css'
 
 export const SearchInput = (
     { propSearch, setPropSearch } 
@@ -21,7 +21,8 @@ export const SearchInput = (
             type="text"
             value={ searchText }
             onChange={ (e) => eventWrapper( e.target.value ) } 
-            className={ missignoStyles['missigno-header-input'] } 
+            className={ searchInputStyle['search-input'] } 
+            placeholder="Type your search here"
         />
     );
 }
