@@ -7,7 +7,8 @@ import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { SelectedComponentContext } from "../../../../../context/selectedMenuComponent/SelectedComponentContext";
 import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
 
-import '../../../../../styles/selectedMemberMenu/memberCard/memberMoves.css';
+import styles from '../../../../../styles/selectedMemberMenu/memberCard/memberMoves.module.css';
+import { MoveData } from "../../../../../../../domain/dataEntities";
 
 export const MemberMoveInput = ({ moveName, moveIndex } : 
     { moveName : string , moveIndex: number }) => {
@@ -15,29 +16,31 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const { updateTeamWrapper } = useUpdateTeam();
     const changeSelectedComponent = useContext(SelectedComponentContext)!.changeElementType;
-    const [ moveNameState, setMoveNameState ] = useState<string>(moveName);
+    const changeSelectedMove = useContext(SelectedMoveMemberContext)!.changeSelectedMove;
 
     /* Parece rídiculo, pero es necesario por si la lista de nodos se vuelve a montar con nuevos moveName,
     porque por la razón que sea useState no es capaz de hacerlo por si solo */
-    useEffect(() => {
-        setMoveNameState(toPascalCase(moveName)!);
-    }, [moveName]);
-      
     const inputClickEvent = () => {
-        
+        changeSelectedMove!(moveIndex);
         changeSelectedComponent('move')
     }
 
     const removeMove = () => {
-        let updatedMember = selectedMember;
-        updatedMember.move_list[moveIndex] = null;
+        const updatedMoveList: (MoveData | null)[]  = [ ...selectedMember.move_list ];
+        updatedMoveList[moveIndex] = null;
+
+        const updatedMember = {
+            ...selectedMember,
+            move_list: updatedMoveList
+        }
+
+        updateTeamWrapper(updatedMember);
     }
   
     return (
-        <li className={`member-moves-li`}>
+        <li className={ styles['member-moves-li']}>
             <input type="text" readOnly
-                value={ moveNameState } 
-                onChange={ (event) => { setMoveNameState(event.target.value) } }
+                value={ toPascalCase(moveName) } 
                 onClick={ inputClickEvent } 
             />       
             <DeleteIcon 
