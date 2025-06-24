@@ -10,7 +10,7 @@ import { WeavileLoading } from "../../../../../ui/components";
 
 export const MissignoGrid = ({ search = '' }: { search: string }) => {
 
-    const [missignoDTOArr, setMissignoDTOArr] = useState<MissignoDTO[]>();
+    const [ missignoDTOArr, setMissignoDTOArr ] = useState<MissignoDTO[]>();
     const { filteredArr } = useSearchByName(search, missignoDTOArr!);
 
     useEffect(() => {

@@ -6,9 +6,10 @@ export const useSearchByName = (pokemonName:string, originalDTOArray: MissignoDT
     const [filteredArr, setFilteredArr] = useState<MissignoDTO[]>(originalDTOArray);
 
     useEffect(() => {
+        
         if (pokemonName.trim() === '') setFilteredArr(originalDTOArray);
         else {
-            const filtered = filteredArr!.filter(pokemon =>
+            const filtered = originalDTOArray.filter(pokemon =>
                 pokemon.name.toLowerCase().includes(pokemonName.toLowerCase())
             );
             setFilteredArr(filtered);
