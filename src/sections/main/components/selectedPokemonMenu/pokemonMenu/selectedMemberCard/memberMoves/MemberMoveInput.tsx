@@ -8,6 +8,7 @@ import { SelectedComponentContext } from "../../../../../context/selectedMenuCom
 import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
 
 import styles from'../../../../../styles/selectedMemberMenu/memberCard/memberMoves.module.css';
+import { MoveData } from "../../../../../../../domain/dataEntities";
 
 
 export const MemberMoveInput = ({ moveName, moveIndex } : 
@@ -38,11 +39,7 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
     }
   
     return (
-<<<<<<< HEAD
-        <li className={ styles['member-moves-li']}>
-=======
         <li className={styles['member-moves-li']}>
->>>>>>> responsive-modules-css
             <input type="text" readOnly
                 value={ toPascalCase(moveName) } 
                 onClick={ inputClickEvent } 
