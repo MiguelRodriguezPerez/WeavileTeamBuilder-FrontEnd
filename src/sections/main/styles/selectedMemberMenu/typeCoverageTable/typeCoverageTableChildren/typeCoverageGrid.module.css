@@ -30,6 +30,8 @@
 /* Lo siento mucho, de verdad */
 
 .member-type-coverage-grid {
+
+
     list-style-type: none;
     display: grid;
     grid-template-columns: repeat(6 ,1fr);

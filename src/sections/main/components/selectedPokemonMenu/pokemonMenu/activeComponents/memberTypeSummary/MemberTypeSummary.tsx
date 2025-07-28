@@ -16,7 +16,6 @@ export const MemberTypeSummary = () => {
             <MoveCoverage />
             <TypeSummary />
             <PartnerCoverages/>
-            {/* Funciona porque type-coverage-table grid-row 1/6 */}
         </section>
     );
 }

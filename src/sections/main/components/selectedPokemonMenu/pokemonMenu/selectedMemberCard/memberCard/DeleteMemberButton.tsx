@@ -5,7 +5,7 @@ import useWeavileStore from '../../../../../../../globalContext/WeavileStore';
 import { convertMemberToNullMember } from '../../../../../../../globalHelpers/pokemonTeams/nonLoggedUsers';
 import { useUpdateTeam } from '../../../../../../../globalHooks/pokemonTeams';
 
-import styles from '../../../../../styles/selectedMemberMenu/teamMemberMenu.module.css'
+import styles from '../../../../../styles/selectedMemberMenu/memberCard/deleteButtonDiv.module.css'
 
 
 

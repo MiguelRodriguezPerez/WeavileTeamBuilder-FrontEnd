@@ -1,38 +1,19 @@
 .team-member-menu {
     display: grid;
     grid-template-columns: 25% 72%;
-    grid-template-rows: auto auto 1fr;
-    gap: 0% 3%;
+    gap: 3%;
 
     /* Sospechoso de fallar */
     margin-top: 15px;
 }
 
-/* Evita que el segundo hijo de team-member-menu rompa el orden del layout.
-Sin es*/
-.team-member-menu > * {
-    min-width: 0;
-    min-height: 0;
-}
-
-.delete-button-div {
-    grid-column: 1/2;
-    grid-row: 3/4;
-    margin-top: 20px;
-}
 
 @media screen and (max-width: 1600px) {
     
     .team-member-menu {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         max-height: none;
-        gap: 0%;
-    }
-
-    .delete-button-div {
-        grid-column: initial;
-        grid-row: 2/3;
-        margin-top: 25px;
     }
     
 }

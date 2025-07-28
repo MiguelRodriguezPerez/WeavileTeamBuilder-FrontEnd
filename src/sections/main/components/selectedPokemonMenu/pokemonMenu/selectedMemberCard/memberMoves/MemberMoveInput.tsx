@@ -7,8 +7,8 @@ import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { SelectedComponentContext } from "../../../../../context/selectedMenuComponent/SelectedComponentContext";
 import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
 
-import styles from '../../../../../styles/selectedMemberMenu/memberCard/memberMoves.module.css';
-import { MoveData } from "../../../../../../../domain/dataEntities";
+import styles from'../../../../../styles/selectedMemberMenu/memberCard/memberMoves.module.css';
+
 
 export const MemberMoveInput = ({ moveName, moveIndex } : 
     { moveName : string , moveIndex: number }) => {
@@ -38,7 +38,11 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
     }
   
     return (
+<<<<<<< HEAD
         <li className={ styles['member-moves-li']}>
+=======
+        <li className={styles['member-moves-li']}>
+>>>>>>> responsive-modules-css
             <input type="text" readOnly
                 value={ toPascalCase(moveName) } 
                 onClick={ inputClickEvent } 

@@ -1,12 +1,12 @@
 import { NatureDropDown } from "./NatureDropDown";
 import { RemainingEvs } from "./RemainingEvs";
 
-import '../../../../../../styles/selectedMemberMenu/memberIvsEvsNature/ivsNatureFooter.css'
+import styles from '../../../../../../styles/selectedMemberMenu/memberIvsEvsNature/ivsNatureFooter.module.css'
 
 export const IvsNatureFooter = () => {
   
     return (
-        <footer className="ivs-nature-footer">
+        <footer className={styles['ivs-nature-footer']}>
             <RemainingEvs/>
             <NatureDropDown/>
         </footer>

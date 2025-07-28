@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import { useCreateTeam } from "../../../../globalHooks/pokemonTeams";
 
-import '../../../../globalStyles/buttons.css';
+import styles from '../../../../globalStyles/buttons.module.css'
 
 export const CreateNewTeamButton = () => {
   
@@ -14,7 +14,7 @@ export const CreateNewTeamButton = () => {
     }
 
     return (
-        <button className='weavile-button' 
+        <button className={styles['weavile-button']}
             onClick={ createNewTeamButtonEvent }>{ 'Create New Team' }</button>
     );
 }

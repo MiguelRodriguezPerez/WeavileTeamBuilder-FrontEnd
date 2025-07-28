@@ -4,7 +4,7 @@ import useWeavileStore from "../../../../../../../../globalContext/WeavileStore"
 
 import { IvKey } from "../types";
 
-import '../../../../../../styles/selectedMemberMenu/memberIvsEvsNature/inputEvIv.css';
+import styles from '../../../../../../styles/selectedMemberMenu/memberIvsEvsNature/inputEvIv.module.css';
 import { useUpdateTeam } from "../../../../../../../../globalHooks/pokemonTeams";
 
 
@@ -34,11 +34,11 @@ export const IvsInput = ({ statName }: { statName: string }) => {
     }
 
     return (
-        <div className="iv-input-div">
+        <div className={styles['iv-input-div']}>
             <input 
                 type="number"
                 value={ivValue} 
-                className="input-ev-iv"
+                className={styles['input-ev-iv']}
                 onChange={(e) => { eventWrapper(e.target.value) }} 
             />
             <img src="/images/main/ivsEvsMenu/arrow-upwards.png" onClick={() => arrowEvent(ivValue + 1)} />

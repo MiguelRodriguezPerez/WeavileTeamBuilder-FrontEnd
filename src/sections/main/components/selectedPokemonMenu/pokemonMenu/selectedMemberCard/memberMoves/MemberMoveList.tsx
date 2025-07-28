@@ -8,7 +8,7 @@ export const MemberMoveList = () => {
     const move_list = useWeavileStore(state => state.selectedPokemonMember!.move_list);
 
     return (
-        <div className={ styles['member-moves'] }>
+        <div className={styles['member-moves']}>
             <h4>Moves</h4>
             <ul>
                 {
