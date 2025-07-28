@@ -5,9 +5,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { SelectedComponentContext } from "../../../../../context/selectedMenuComponent/SelectedComponentContext";
-
-import '../../../../../styles/selectedMemberMenu/memberCard/memberMoves.css';
 import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
+
+import styles from'../../../../../styles/selectedMemberMenu/memberCard/memberMoves.module.css';
+
 
 export const MemberMoveInput = ({ moveName, moveIndex } : 
     { moveName : string , moveIndex: number}) => {
@@ -38,7 +39,7 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
     }
   
     return (
-        <li className={`member-moves-li`}>
+        <li className={styles['member-moves-li']}>
             <input type="text" readOnly
                 value={ moveNameState } 
                 onChange={ (event) => { setMoveNameState(event.target.value) } }

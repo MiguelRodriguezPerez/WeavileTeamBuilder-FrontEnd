@@ -5,8 +5,12 @@
     list-style-type: none;
     padding: 0px;
     margin: 0px;
+
+    /*Este max-height sirve para limitar la altura de MoveGrid, ItemGrid...
+    Idealmente el .element-grid se extendería a lo alto de su nodo padre
+    el cúal debería compartir altura con MemberCard pero no se como lograrlo */
     
-    max-height: 60vh;
+    max-height: 535px;
     overflow-y: auto;
 }
 
@@ -19,9 +23,7 @@
 @media screen and (max-width: 1400px) {
     
     .element-grid {
-        grid-row: initial;
-        overflow-y: unset;
-        max-height: none;
+        max-height: 235px;
     }
     
 }

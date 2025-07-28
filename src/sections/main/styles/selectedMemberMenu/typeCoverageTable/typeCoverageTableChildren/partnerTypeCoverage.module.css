@@ -51,8 +51,8 @@
 @media screen and (max-width: 1400px) {
     
     .partner-type-coverages-table {
-        grid-template-columns: 1fr;
-        gap: 2% 0%;
+        display: flex;
+        flex-direction: column;
         margin-top: 10px;
     }
 

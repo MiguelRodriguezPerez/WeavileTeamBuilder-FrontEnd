@@ -5,7 +5,7 @@ import { EvKey } from "../types";
 import { AvailableEvsNumberContext } from "../../../../../../context/ivsEvsNatureMenu";
 import { useUpdateTeam } from "../../../../../../../../globalHooks/pokemonTeams";
 
-import '../../../../../../styles/selectedMemberMenu/memberIvsEvsNature/inputEvIv.css'
+import styles from '../../../../../../styles/selectedMemberMenu/memberIvsEvsNature/inputEvIv.module.css'
 
 
 export const EvsInput = ({ statName }: { statName: string }) => {
@@ -43,7 +43,7 @@ export const EvsInput = ({ statName }: { statName: string }) => {
     return (
         <div>
             <input value={evValue}
-                className="input-ev-iv"
+                className={styles['input-ev-iv']}
                 onChange={(e) => { eventWrapper(e.target.value) }} 
             />
         </div>

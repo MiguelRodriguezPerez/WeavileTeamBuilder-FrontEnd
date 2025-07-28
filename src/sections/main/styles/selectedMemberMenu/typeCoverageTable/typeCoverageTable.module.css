@@ -4,12 +4,11 @@
     gap: 3%;
     
     align-content: start;
-
-    grid-row: 1 / 6;
 }
 
 .type-coverage-table > h3 {
     margin: 0px;
+    margin-bottom: 15px;
     font-size: 1.3rem;
 }
 
@@ -21,9 +20,15 @@
 }
 
 @media screen and (max-width: 1400px) {
-    
+
     .type-coverage-table {
-        grid-row: auto;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .type-coverage-table > h3 {
+        text-align: center;
     }
     
 }

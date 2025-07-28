@@ -1,6 +1,6 @@
 .member-header-card {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     
     align-items: center;
     justify-items: center;

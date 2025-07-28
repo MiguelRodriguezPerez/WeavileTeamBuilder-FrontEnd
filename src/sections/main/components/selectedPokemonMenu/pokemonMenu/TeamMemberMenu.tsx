@@ -24,7 +24,6 @@ export const TeamMemberMenu = () => {
                         {/* No puedes usar un valor del contexto antes de que el contexto se renderice
                         por eso necesitas RenderActiveElementGrid*/}
                         <RenderActiveElementGrid />
-                        <DeleteMemberButton />
                     </section>
                 </SelectedMoveMemberProvider>
             </SelectedComponentProvider>

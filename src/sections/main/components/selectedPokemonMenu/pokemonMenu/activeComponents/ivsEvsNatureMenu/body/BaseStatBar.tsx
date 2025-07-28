@@ -4,7 +4,7 @@ import useWeavileStore from "../../../../../../../../globalContext/WeavileStore"
 import { getStatBarWidth } from "../../../../../../helpers/memberIvsEvsNature"
 import { calculatePokemonStats } from "../../../../../../../../globalHelpers";
 
-import '../../../../../../styles/selectedMemberMenu/memberIvsEvsNature/baseStatBar.css'
+import styles from '../../../../../../styles/selectedMemberMenu/memberIvsEvsNature/baseStatBar.module.css'
 
 export const BaseStatBar = ({ statName }: { statName: string }) => {
 
@@ -19,7 +19,7 @@ export const BaseStatBar = ({ statName }: { statName: string }) => {
     return (
         <div>
             <span style={{ width: `${ getStatBarWidth(barValue) }%` }}
-            className="base-stat-bar"></span>
+            className={styles['base-stat-bar']}></span>
         </div>
     );
 }
