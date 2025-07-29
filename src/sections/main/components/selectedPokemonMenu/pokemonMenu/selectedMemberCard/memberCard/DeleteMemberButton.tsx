@@ -4,8 +4,10 @@ import { PokemonTeamMember } from '../../../../../../../domain/teamMemberEntitie
 import useWeavileStore from '../../../../../../../globalContext/WeavileStore';
 import { convertMemberToNullMember } from '../../../../../../../globalHelpers/pokemonTeams/nonLoggedUsers';
 import { useUpdateTeam } from '../../../../../../../globalHooks/pokemonTeams';
+import { removeMemberDataCache } from '../../../../../../../localStorage/pokemonData/removeMemberDataCache';
 
 import styles from '../../../../../styles/selectedMemberMenu/memberCard/deleteButtonDiv.module.css'
+
 
 
 
@@ -20,6 +22,7 @@ export const DeleteMemberButton = () => {
     const deleteEvent = (): void => {
         const deletedMember: PokemonTeamMember = convertMemberToNullMember(selectedMember);
         updateTeamWrapper(deletedMember);
+        removeMemberDataCache(selectedMember.id);
         /* No preguntes porque, pero este objeto es necesario; no puedes cambiar directamente selectedTeam
         y luego pasárselo a la función que actualiza el contexto */
     }

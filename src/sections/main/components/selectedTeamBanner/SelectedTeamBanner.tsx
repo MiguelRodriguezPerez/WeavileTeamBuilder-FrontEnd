@@ -7,7 +7,6 @@ import styles from '../../styles/selectedTeamBanner/selectedTeamBanner.module.cs
 
 export const SelectedTeamBanner = () => {
 
-
     const selectedTeam: PokemonTeam | null = useWeavileStore((state) => state.selectedPokemonTeam);
 
     return (
