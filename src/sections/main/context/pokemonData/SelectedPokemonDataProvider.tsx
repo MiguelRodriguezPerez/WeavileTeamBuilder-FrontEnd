@@ -13,6 +13,7 @@ export const SelectedPokemonDataProvider = ({ children }: { children: ReactNode 
 
 
   useEffect(() => {
+    // ESTA FUNCIÓN ES ASÍNCRONA
     generateTeamDataCache(selectedTeam);
   }, [selectedTeam])
 
@@ -20,17 +21,6 @@ export const SelectedPokemonDataProvider = ({ children }: { children: ReactNode 
     setPokemonData(getPokemonDataCache(selectedPokemon.id))
   }, [selectedPokemon]);
 
-  
-
-  // const changeMoves = (name: string) => {
-  //   if (!pokemonData) return;
-  //   setPokemonData(
-  //     {
-  //       ...pokemonData,
-  //       move_list: pokemonData!.move_list.filter(move => move.name.toLowerCase().includes(name))
-  //     }
-  //   )
-  // }
 
 
   return (
