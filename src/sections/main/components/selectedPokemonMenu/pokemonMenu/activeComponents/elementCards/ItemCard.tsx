@@ -22,7 +22,7 @@ export const ItemCard = ({ item } : { item: ItemData }) => {
     }
   
     return (
-        <li key={ item.id }  className={styles['item-card']} onClick={onClickWrapper}>
+        <li key={ item.name }  className={styles['item-card']} onClick={onClickWrapper}>
             <img src={`data:image/jpeg;base64,${item.image_sprite}`} 
                 alt={`${item.name}.png`} />
             <h4>{toPascalCase(item.name)}</h4>

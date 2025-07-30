@@ -4,9 +4,9 @@ import { PokemonTeamMember } from '../../../../../../../domain/teamMemberEntitie
 import useWeavileStore from '../../../../../../../globalContext/WeavileStore';
 import { convertMemberToNullMember } from '../../../../../../../globalHelpers/pokemonTeams/nonLoggedUsers';
 import { useUpdateTeam } from '../../../../../../../globalHooks/pokemonTeams';
-import { removeMemberDataCache } from '../../../../../../../localStorage/pokemonData/removeMemberDataCache';
+import { QueryClient } from '@tanstack/react-query';
 
-import styles from '../../../../../styles/selectedMemberMenu/memberCard/deleteButtonDiv.module.css'
+import styles from '../../../../../styles/selectedMemberMenu/memberCard/deleteButtonDiv.module.css';
 
 
 
@@ -18,13 +18,15 @@ export const DeleteMemberButton = () => {
     del botón, a pesar de que si era capaz de añadirle los estilos */
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const { updateTeamWrapper } = useUpdateTeam();
+    const queryClient = new QueryClient();
 
     const deleteEvent = (): void => {
         const deletedMember: PokemonTeamMember = convertMemberToNullMember(selectedMember);
+        queryClient.removeQueries({
+            queryKey: [ 'pokemon', selectedMember.name ]
+        });
+
         updateTeamWrapper(deletedMember);
-        removeMemberDataCache(selectedMember.id);
-        /* No preguntes porque, pero este objeto es necesario; no puedes cambiar directamente selectedTeam
-        y luego pasárselo a la función que actualiza el contexto */
     }
 
     return (

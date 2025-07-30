@@ -1,5 +1,6 @@
 import { PokemonDataCache } from "../../../../api/pokemonData";
 
 export type SelectedPokemonContextType = {
-    currentPokemonData: PokemonDataCache | null;
+    currentPokemonData: PokemonDataCache | undefined;
+    isLoading: boolean;
 }

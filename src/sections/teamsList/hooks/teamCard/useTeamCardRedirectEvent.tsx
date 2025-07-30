@@ -9,7 +9,6 @@ export const useTeamCardRedirectEvent = (team: PokemonTeam) => {
     const navigate = useNavigate();
 
     const teamCardRedirectEvent = () => {
-        console.log('aaaaaaaaaa');
         
         changeSelectedTeam(team);
         changeSelectedPokemon(team.teamMembers[0]);

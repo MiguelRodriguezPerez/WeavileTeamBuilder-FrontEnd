@@ -1,31 +1,24 @@
-import { ReactNode, useEffect, useState } from "react";
-import { PokemonDataCache } from "../../../../api/pokemonData";
-import { PokemonTeam } from "../../../../domain/teamMemberEntities";
+import { useQuery } from "@tanstack/react-query";
+import { ReactNode } from "react";
+import { getPokemonByNameRequest } from "../../../../api/pokemonData";
 import useWeavileStore from "../../../../globalContext/WeavileStore";
-import { generateTeamDataCache, getPokemonDataCache } from "../../../../localStorage/pokemonData";
 import { SelectedPokemonDataContext } from "./SelectedPokemonDataContext";
 
 export const SelectedPokemonDataProvider = ({ children }: { children: ReactNode }) => {
 
-  const [ pokemonData, setPokemonData ] = useState<PokemonDataCache | null>(null);
-  const selectedTeam: PokemonTeam = useWeavileStore((state) => state.selectedPokemonTeam)!;
   const selectedPokemon = useWeavileStore(state => state.selectedPokemonMember!);
 
-
-  useEffect(() => {
-    // ESTA FUNCIÓN ES ASÍNCRONA
-    generateTeamDataCache(selectedTeam);
-  }, [selectedTeam])
-
-  useEffect(() => {
-    setPokemonData(getPokemonDataCache(selectedPokemon.id))
-  }, [selectedPokemon]);
-
-
+  const { data, isLoading } = useQuery({
+    queryFn: () => getPokemonByNameRequest(selectedPokemon.name!),
+    queryKey: ['pokemon', selectedPokemon.name],
+    enabled: selectedPokemon.name !== null,
+    staleTime: 30 * 60 * 1000, // 30 minutos de duración
+  });
+  
 
   return (
-    <SelectedPokemonDataContext.Provider value={{ currentPokemonData: pokemonData }}>
-      {children}
+    <SelectedPokemonDataContext.Provider value={{ currentPokemonData: data?.data , isLoading }}>
+      { children }
     </SelectedPokemonDataContext.Provider>
   )
 }
