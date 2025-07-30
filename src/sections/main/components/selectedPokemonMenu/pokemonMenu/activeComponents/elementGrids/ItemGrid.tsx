@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getAllItemsRequest } from "../../../../../../../api/itemData";
-import { ItemData } from "../../../../../../../domain/dataEntities";
 import { WeavileLoading } from "../../../../../../../ui/components";
 import { ItemCard } from "../elementCards";
 import { ElementHeader } from "../ElementHeader";
 import { SearchInput } from "../SearchInput";
-
-import styles from '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.module.css';
 import { useQuery } from "@tanstack/react-query";
+
+import styles from '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.module.css'
 
 export const ItemGrid = () => {
 

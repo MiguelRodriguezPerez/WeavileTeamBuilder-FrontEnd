@@ -11,21 +11,20 @@ export const MoveGrid = () => {
   const { currentPokemonData } = useContext(SelectedPokemonDataContext)!;
   const [ searchInput, setSearchInput ] = useState('');
 
-  // if (!currentPokemonData?.move_list) return <WeavileLoading />;
+  if (!currentPokemonData?.move_list) return <WeavileLoading />;
 
   return (
     <div>
       <ElementHeader elementName="Moves" />
       <SearchInput propSearch={searchInput} setPropSearch={setSearchInput} />
       <ul className={styles['element-grid']}>
-        {/* {
+        {
           currentPokemonData.move_list
             .filter(move => move.name.toLowerCase().includes(searchInput.toLowerCase()))
             .map((move) => (
               <MoveCard moveProp={move} key={move.id} />
             ))
-        } */}
-        aaaaaa
+        }
       </ul>
     </div>
   );
