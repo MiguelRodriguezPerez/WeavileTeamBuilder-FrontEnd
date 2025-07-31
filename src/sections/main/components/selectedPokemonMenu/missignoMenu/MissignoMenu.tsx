@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { MissignoGrid } from "./";
 
-import styles from  '../../../styles/missignoMenu/missignoMenu.module.css'
-import searchInputStyle from '../../../../../globalStyles/searchInput.module.css'
+import styles from '../../../styles/missignoMenu/missignoMenu.module.css';
 import { SearchInput } from "../pokemonMenu";
 
 
