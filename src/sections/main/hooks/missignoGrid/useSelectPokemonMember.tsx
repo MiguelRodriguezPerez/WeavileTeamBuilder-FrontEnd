@@ -20,8 +20,6 @@ export const useSelectedPokemonMember = () => {
             const newMember: PokemonTeamMember = 
                 await convertPokemonDataDTOToTeamMember(pokemonRequest.data, selectedMemberId);
 
-            updateMemberDataCache(selectedMemberId, pokemonRequest.data);
-
             /* Para almacenar los cambios en el equipo seleccionado, modificas el array original
             del equipo seleccionado al que deseas cambiar, lo almacenas en una variable y luego lo usas
             en el objeto que representa el equipo actualizado. */

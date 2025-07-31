@@ -1,17 +1,28 @@
 import { useEffect, useState } from "react";
 import { getSVPokemonsRequest } from "../../../../../api/pokemonData";
+import { useSearchByName } from "../../../hooks/missignoGrid";
 import { MissignoDTO } from './MissignoDTO';
 import { MissignoCard } from "./missignoCard/MissignoCard";
-import { useSearchByName } from "../../../hooks/missignoGrid";
 
-import styles from '../../../styles/missignoMenu/missignoGrid.module.css';
+import { useQueryClient } from "@tanstack/react-query";
 import { WeavileLoading } from "../../../../../ui/components";
+import styles from '../../../styles/missignoMenu/missignoGrid.module.css';
+import { PokemonTeam } from "../../../../../domain/teamMemberEntities";
+import useWeavileStore from "../../../../../globalContext/WeavileStore";
 
 
 export const MissignoGrid = ({ search = '' }: { search: string }) => {
 
     const [ missignoDTOArr, setMissignoDTOArr ] = useState<MissignoDTO[]>();
     const { filteredArr } = useSearchByName(search, missignoDTOArr!);
+
+    const queryClient = useQueryClient();
+
+    const selectedTeam: PokemonTeam | null = useWeavileStore((state) => state.selectedPokemonTeam);
+    const allQueries = queryClient.getQueryCache().getAll();
+        allQueries.forEach(query => {
+        console.log('Query key:', query.queryKey);
+    });
 
     useEffect(() => {
         const asyncWrapper = async () => {

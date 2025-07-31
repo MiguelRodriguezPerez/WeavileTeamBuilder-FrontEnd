@@ -11,7 +11,10 @@ export const MoveGrid = () => {
   const { currentPokemonData } = useContext(SelectedPokemonDataContext)!;
   const [ searchInput, setSearchInput ] = useState('');
 
-  if (!currentPokemonData?.move_list) return <WeavileLoading />;
+  if (!currentPokemonData) {
+    console.log('BIEEEN');
+    return <WeavileLoading />;
+  }
 
   return (
     <div>
