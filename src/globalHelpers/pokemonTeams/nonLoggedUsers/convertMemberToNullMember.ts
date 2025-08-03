@@ -1,4 +1,4 @@
-import { PokemonTeamMember } from "../../../../domain/teamMemberEntities"
+import { PokemonTeamMember } from "../../../domain/teamMemberEntities"
 
 export const convertMemberToNullMember = (member: PokemonTeamMember):PokemonTeamMember => {
     

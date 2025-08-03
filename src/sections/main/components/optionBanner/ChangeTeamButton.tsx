@@ -8,7 +8,7 @@ export const ChangeTeamButton = () => {
 
     return (
         <div>
-            <button className={buttonStyle['weavile-button']}
+            <button className={ buttonStyle['weavile-button'] }
                 onClick={() => navigate('/teamsList')}>{'Change Team'}</button>
         </div>
     );

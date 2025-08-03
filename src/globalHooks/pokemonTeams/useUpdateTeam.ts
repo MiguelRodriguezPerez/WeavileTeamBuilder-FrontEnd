@@ -13,9 +13,7 @@ export const useUpdateTeam = () => {
         /* Recuerda que el id de un miembro representa su posición en el equipo (0,1,2 ..) */
 
         /* Para garantizar que zustand provoque el rerenderizado de los componentes que usan su contexto,
-        tienes que pasarle un nuevo objeto a las funciones que modifican el contexto de zustand.
-        
-        Esto se traduce en que tienes que crear*/
+        tienes que pasarle un nuevo objeto a las funciones que modifican el contexto de zustand.*/
 
         const updatedMembers = [...selectedTeam.teamMembers];
         updatedMembers[updatedMember.id] = updatedMember;
