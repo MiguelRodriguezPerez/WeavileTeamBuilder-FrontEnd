@@ -25,7 +25,7 @@ export const MoveGrid = () => {
           currentPokemonData.move_list
             .filter(move => move.name.toLowerCase().includes(searchInput.toLowerCase()))
             .map((move) => (
-              <MoveCard moveProp={move} key={move.id} />
+              <MoveCard moveProp={move} key={ move.name } />
             ))
         }
       </ul>

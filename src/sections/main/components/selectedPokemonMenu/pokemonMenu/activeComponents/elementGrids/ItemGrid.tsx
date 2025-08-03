@@ -10,25 +10,14 @@ import styles from '../../../../../styles/selectedMemberMenu/elementGrids/elemen
 
 export const ItemGrid = () => {
 
-    // const [ itemList, setItemList ] = useState<ItemData[]>([]);
     const [ searchInput, setSearchInput ] = useState('');
 
     const { data , isLoading } = useQuery({
         queryFn: getAllItemsRequest,
         queryKey: ['itemList']
-    })
+    });
 
-    
-
-    // useEffect(() => {
-    //     const asyncWrapper = async () => {
-    //         const itemRequest = await getAllItemsRequest();
-    //         if (itemRequest.status === 200) setItemList(itemRequest.data);
-    //     }
-    //     asyncWrapper();
-    // }, [])
-
-    if (isLoading) return <WeavileLoading />
+    if ( isLoading ) return <WeavileLoading />
 
     return (
         <div>
@@ -39,7 +28,7 @@ export const ItemGrid = () => {
 
                     data!.data.filter(item => item.name.includes(searchInput.toLowerCase()))
                         .map((item) => (
-                        <ItemCard item={item} key={item.id} />
+                        <ItemCard item={item} key={item.name} />
                     ))
                 }
             </ul>
