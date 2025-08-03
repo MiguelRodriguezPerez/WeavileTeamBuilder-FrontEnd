@@ -1,9 +1,9 @@
-import { AbilityData } from "../../../../../../domain/dataEntities";
+import { AbilityDto } from "../../../../../../domain/dataEntities";
 import { parseAbility } from "../../../../../../globalHelpers/parseAbility";
 
 import styles from '../../../../styles/missignoMenu/missignoCard.module.css';
 
-export const MissignoAbilities = ({ abilityList } : { abilityList : AbilityData[] }) => {
+export const MissignoAbilities = ({ abilityList }: { abilityList: AbilityDto[] }) => {
     return (
         <span className={styles['missigno-abilities-list']}>
             {
@@ -15,7 +15,7 @@ export const MissignoAbilities = ({ abilityList } : { abilityList : AbilityData[
                         style={
                             (abilityList.length === 3 && index === 1) ? { gridRow: '1/3' } : undefined
                         }>{parseAbility(ability.name)}</span>
-                )) 
+                ))
             }
         </span>
     );

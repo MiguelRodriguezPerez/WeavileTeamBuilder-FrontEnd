@@ -1,4 +1,4 @@
 export * from './CalculatedStats';
-export * from './NatureData';
+export * from './NatureDto';
 export * from './PokemonTeam';
 export * from './PokemonTeamMember';

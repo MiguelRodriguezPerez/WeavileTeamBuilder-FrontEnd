@@ -1,7 +1,6 @@
 
-export interface AbilityData {
+export interface AbilityDto {
 
-    id: number;
     name: string;
     description: string;
 

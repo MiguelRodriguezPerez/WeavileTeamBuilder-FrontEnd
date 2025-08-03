@@ -1,4 +1,4 @@
-import { AbilityData, MoveData } from '.'
+import { AbilityDto, MoveDto } from '.'
 import { PokemonType } from '../enums';
 
 export interface PokemonDataDTO {
@@ -16,7 +16,7 @@ export interface PokemonDataDTO {
     base_speed: number;
 
     type_list: PokemonType[];
-    ability_list: AbilityData[];
-    move_list: MoveData[];
+    ability_list: AbilityDto[];
+    move_list: MoveDto[];
 
 }

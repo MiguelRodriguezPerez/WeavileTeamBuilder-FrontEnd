@@ -1,4 +1,4 @@
-import { AbilityData } from "../../../../../domain/dataEntities";
+import { AbilityDto } from "../../../../../domain/dataEntities";
 import { PokemonType } from "../../../../../domain/enums";
 
 /* La razón de ser de esta clase es recibir cada pokemonData del servidor
@@ -19,6 +19,6 @@ export interface MissignoDTO {
     base_speed: number;
 
     type_list: PokemonType[];
-    ability_list: AbilityData[];
-        
+    ability_list: AbilityDto[];
+
 }

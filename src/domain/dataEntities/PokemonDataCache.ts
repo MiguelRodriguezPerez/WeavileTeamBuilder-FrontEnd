@@ -1,9 +1,9 @@
-import { AbilityData, MoveData } from ".";
+import { AbilityDto, MoveDto } from ".";
 
 export interface PokemonDataCache {
 
     name: string,
-    move_list: MoveData[],
-    ability_list: AbilityData[]
+    move_list: MoveDto[],
+    ability_list: AbilityDto[]
 
 }

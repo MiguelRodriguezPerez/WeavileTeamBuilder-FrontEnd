@@ -7,12 +7,12 @@ import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { SelectedComponentContext } from "../../../../../context/selectedMenuComponent/SelectedComponentContext";
 import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
 
-import styles from'../../../../../styles/selectedMemberMenu/memberCard/memberMoves.module.css';
-import { MoveData } from "../../../../../../../domain/dataEntities";
+import styles from '../../../../../styles/selectedMemberMenu/memberCard/memberMoves.module.css';
+import { MoveDto } from "../../../../../../../domain/dataEntities";
 
 
-export const MemberMoveInput = ({ moveName, moveIndex } : 
-    { moveName : string , moveIndex: number }) => {
+export const MemberMoveInput = ({ moveName, moveIndex }:
+    { moveName: string, moveIndex: number }) => {
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const { updateTeamWrapper } = useUpdateTeam();
@@ -27,7 +27,7 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
     }
 
     const removeMove = () => {
-        const updatedMoveList: (MoveData | null)[]  = [ ...selectedMember.move_list ];
+        const updatedMoveList: (MoveDto | null)[] = [...selectedMember.move_list];
         updatedMoveList[moveIndex] = null;
 
         const updatedMember = {
@@ -37,17 +37,17 @@ export const MemberMoveInput = ({ moveName, moveIndex } :
 
         updateTeamWrapper(updatedMember);
     }
-  
+
     return (
         <li className={styles['member-moves-li']}>
             <input type="text" readOnly
-                value={ toPascalCase(moveName) } 
-                onClick={ inputClickEvent } 
-            />       
-            <DeleteIcon 
-                onClick={ removeMove }
+                value={toPascalCase(moveName)}
+                onClick={inputClickEvent}
+            />
+            <DeleteIcon
+                onClick={removeMove}
                 sx={{
-                    marginTop : '5px',
+                    marginTop: '5px',
                 }}
             />
         </li>
