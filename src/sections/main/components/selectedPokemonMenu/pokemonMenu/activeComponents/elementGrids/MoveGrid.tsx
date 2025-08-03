@@ -4,17 +4,15 @@ import { SelectedPokemonDataContext } from "../../../../../context/pokemonData";
 import { MoveCard } from "../elementCards";
 import { ElementHeader } from "../ElementHeader";
 
-import styles from '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.module.css';
 import { SearchInput } from "../SearchInput";
+
+import styles from '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.module.css';
 
 export const MoveGrid = () => {
   const { currentPokemonData } = useContext(SelectedPokemonDataContext)!;
   const [ searchInput, setSearchInput ] = useState('');
 
-  if (!currentPokemonData) {
-    console.log('BIEEEN');
-    return <WeavileLoading />;
-  }
+  if ( !currentPokemonData ) return <WeavileLoading />;
 
   return (
     <div>

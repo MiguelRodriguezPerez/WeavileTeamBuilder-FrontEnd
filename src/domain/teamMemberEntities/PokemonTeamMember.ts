@@ -1,6 +1,6 @@
-import { AbilityData, ItemData, MoveData } from "../dataEntities";
+import { AbilityDto, ItemDto, MoveDto } from "../dataEntities";
 import { PokemonType } from "../enums";
-import { NatureData } from "./NatureData";
+import { NatureDto } from "./NatureDto";
 
 export interface PokemonTeamMember {
 
@@ -33,11 +33,11 @@ export interface PokemonTeamMember {
 
     /* Al borrar movimientos en el cliente tienes que permitir 
     que los elementos del array puedan ser null */
-    move_list: ( MoveData | null )[]; 
-    ability: AbilityData | null;
-    item: ItemData | null;
+    move_list: (MoveDto | null)[];
+    ability: AbilityDto | null;
+    item: ItemDto | null;
     type_list: PokemonType[] | null;
     tera_type: PokemonType | null;
-    nature: NatureData;
+    nature: NatureDto;
 
 }

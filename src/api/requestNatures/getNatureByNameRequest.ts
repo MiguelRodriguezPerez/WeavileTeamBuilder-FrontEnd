@@ -1,8 +1,8 @@
 import { AxiosResponse } from "axios";
 import { natureDataApi } from "./natureDataApi"
-import { NatureData } from "../../domain/teamMemberEntities";
+import { NatureDto } from "../../domain/teamMemberEntities";
 
-export const getNatureByNameRequest = async (name: string): Promise<AxiosResponse<NatureData>> => {
+export const getNatureByNameRequest = async (name: string): Promise<AxiosResponse<NatureDto>> => {
 
     const resultado = await natureDataApi.get(`/getNatureByName/${name}`);
     return resultado;

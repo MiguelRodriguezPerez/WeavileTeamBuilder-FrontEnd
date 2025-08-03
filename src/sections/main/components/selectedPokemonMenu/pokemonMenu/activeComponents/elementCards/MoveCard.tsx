@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { MoveData } from "../../../../../../../domain/dataEntities";
+import { MoveDto } from "../../../../../../../domain/dataEntities";
 import { assignMoveTypeToPng, assignPokemonTypeToPng, toPascalCase } from "../../../../../../../globalHelpers";
 import { SelectedMoveMemberContext } from "../../../../../context/selectedMemberMove";
 
@@ -9,14 +9,14 @@ import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
 
 import styles from '../../../../../styles/selectedMemberMenu/elementCards/moveCard.module.css'
 
-export const MoveCard = ({ moveProp }: { moveProp: MoveData }) => {
+export const MoveCard = ({ moveProp }: { moveProp: MoveDto }) => {
 
     const { updateTeamWrapper } = useUpdateTeam();
-    const selectedMember : PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember)!;
-    const selectedMemberMove: number | undefined =  useContext(SelectedMoveMemberContext)?.selectedMove;
+    const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember)!;
+    const selectedMemberMove: number | undefined = useContext(SelectedMoveMemberContext)?.selectedMove;
 
     const onClickWrapper = (): void => {
-        const moveListToUpdate: MoveData[] = selectedMember.move_list;
+        const moveListToUpdate: MoveDto[] = selectedMember.move_list;
 
         if (selectedMemberMove !== undefined) {
             moveListToUpdate[selectedMemberMove!] = moveProp;
@@ -29,7 +29,7 @@ export const MoveCard = ({ moveProp }: { moveProp: MoveData }) => {
                 if (move === undefined || move === null) {
                     moveListToUpdate[i] = moveProp;
                     break;
-                }  
+                }
             }
         }
 
@@ -42,15 +42,15 @@ export const MoveCard = ({ moveProp }: { moveProp: MoveData }) => {
     }
 
     return (
-        <li className={styles['move-card']} onClick={ onClickWrapper }>
+        <li className={styles['move-card']} onClick={onClickWrapper}>
             <h3 className={styles['move-heading']}>{toPascalCase(moveProp.name)}</h3>
             <div className={styles['move-img']}>
-                <img src={ assignPokemonTypeToPng(moveProp.pokemon_type) } 
-                    alt={ `${moveProp.pokemon_type.toString()}.png` } />
-                <img src={ assignMoveTypeToPng(moveProp.move_type) } 
-                    alt={ `${moveProp.move_type.toString()}.png` } />
+                <img src={assignPokemonTypeToPng(moveProp.pokemon_type)}
+                    alt={`${moveProp.pokemon_type.toString()}.png`} />
+                <img src={assignMoveTypeToPng(moveProp.move_type)}
+                    alt={`${moveProp.move_type.toString()}.png`} />
             </div>
-            <div className={ styles['move-values'] }>
+            <div className={styles['move-values']}>
                 <div>Accuracy</div>
                 <div>PP</div>
                 <div>Power</div>
@@ -59,8 +59,8 @@ export const MoveCard = ({ moveProp }: { moveProp: MoveData }) => {
                 <div>{moveProp.pp}</div>
                 <div>{moveProp.power}</div>
             </div>
-            <div className={ styles['move-description']}>
-                <p>{ moveProp.description }</p>
+            <div className={styles['move-description']}>
+                <p>{moveProp.description}</p>
             </div>
         </li>
     );

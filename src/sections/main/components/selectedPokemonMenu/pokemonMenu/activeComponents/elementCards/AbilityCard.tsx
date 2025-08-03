@@ -1,4 +1,4 @@
-import { AbilityData } from "../../../../../../../domain/dataEntities";
+import { AbilityDto } from "../../../../../../../domain/dataEntities";
 import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { toPascalCase } from "../../../../../../../globalHelpers";
@@ -8,7 +8,7 @@ import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
 
 import styles from '../../../../../styles/selectedMemberMenu/elementCards/abilityCard.module.css'
 
-export const AbilityCard = ({ abilityProp }: { abilityProp: AbilityData }) => {
+export const AbilityCard = ({ abilityProp }: { abilityProp: AbilityDto }) => {
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
 
