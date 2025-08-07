@@ -9,11 +9,11 @@ import { SearchInput } from "../SearchInput";
 import styles from '../../../../../styles/selectedMemberMenu/elementGrids/elementGrid.module.css';
 
 export const MoveGrid = () => {
-  const { currentPokemonData } = useContext(SelectedPokemonDataContext)!;
+  const { currentPokemonData, isLoading } = useContext(SelectedPokemonDataContext)!;
   const [ searchInput, setSearchInput ] = useState('');
 
-  if ( !currentPokemonData ) return <WeavileLoading />;
-
+  if ( !currentPokemonData || isLoading ) return <WeavileLoading />;
+  
   return (
     <div>
       <ElementHeader elementName="Moves" />

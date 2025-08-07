@@ -7,7 +7,7 @@ export const WeavileHeader = () => {
     return (
         <header className={ styles['weavile-header'] }>
             <WeavileLogo />
-            <LoginHeaderDiv/>
+            {/* <LoginHeaderDiv/> */}
         </header>
     );
 }
