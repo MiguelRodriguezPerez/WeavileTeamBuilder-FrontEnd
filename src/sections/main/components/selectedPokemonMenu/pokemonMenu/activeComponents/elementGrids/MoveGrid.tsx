@@ -13,12 +13,7 @@ export const MoveGrid = () => {
   const [ searchInput, setSearchInput ] = useState('');
 
   if ( !currentPokemonData || isLoading ) return <WeavileLoading />;
-
-  console.log(`${import.meta.env.VITE_SERVER_URL}/pokemonData`);
   
-  console.log(currentPokemonData);
-  
-
   return (
     <div>
       <ElementHeader elementName="Moves" />

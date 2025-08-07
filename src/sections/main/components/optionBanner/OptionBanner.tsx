@@ -9,7 +9,7 @@ export const OptionBanner = () => {
         <section className={style['option-banner']}>
             <CurrentTeamInfoButton/>
             <ChangeTeamButton />
-            <ShareLink />
+            {/* <ShareLink /> */}
         </section>
     );
 }
