@@ -5,9 +5,16 @@ import { MemberTypeCoverageIvsEvsNatureDiv } from './MemberTypeCoverageIvsEvsNat
 import { DeleteMemberButton } from './DeleteMemberButton';
 
 import styles from '../../../../../styles/selectedMemberMenu/memberCard/memberCard.module.css';
+import { useContext, useRef } from 'react';
+import { useDetectClickOutsideEvent } from '../../../../../../../globalHooks/general';
+import { SelectedComponentContext } from '../../../../../context/selectedMenuComponent/SelectedComponentContext';
 
 
 export const MemberCard = () => {
+
+    const wrapperRef = useRef(null);
+    const { } = useContext(SelectedComponentContext)!
+    useDetectClickOutsideEvent(wrapperRef)
 
     return (
         <section className={styles['member-card-wrapper']}>
