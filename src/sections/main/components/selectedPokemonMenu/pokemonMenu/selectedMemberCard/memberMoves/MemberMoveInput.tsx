@@ -6,9 +6,13 @@ import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntitie
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
 import { SelectedComponentContext } from "../../../../../context/selectedMenuComponent/SelectedComponentContext";
 import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
+import { MoveDto } from "../../../../../../../domain/dataEntities";
 
 import styles from '../../../../../styles/selectedMemberMenu/memberCard/memberMoves.module.css';
-import { MoveDto } from "../../../../../../../domain/dataEntities";
+import selectedStyle from '../../../../../../../globalStyles/selectedElement.module.css';
+import clsx from 'clsx';
+import { MemberCardChildContext, MemberCardChildEnum } from "../../../../../context/memberCardChild";
+
 
 
 export const MemberMoveInput = ({ moveName, moveIndex }:
@@ -16,14 +20,17 @@ export const MemberMoveInput = ({ moveName, moveIndex }:
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const { updateTeamWrapper } = useUpdateTeam();
-    const changeSelectedComponent = useContext(SelectedComponentContext)!.changeElementType;
-    const changeSelectedMove = useContext(SelectedMoveMemberContext)!.changeSelectedMove;
+    const { changeElementType } = useContext(SelectedComponentContext)!;
+    const { selectedMove, changeSelectedMove } = useContext(SelectedMoveMemberContext)!;
+
+    const { selectedChildEnum, setSelectedChildEnum } = useContext(MemberCardChildContext)!;
 
     /* Parece rídiculo, pero es necesario por si la lista de nodos se vuelve a montar con nuevos moveName,
     porque por la razón que sea useState no es capaz de hacerlo por si solo */
     const inputClickEvent = () => {
-        changeSelectedMove!(moveIndex);
-        changeSelectedComponent('move')
+        changeSelectedMove(moveIndex);
+        changeElementType('move');
+        setSelectedChildEnum(MemberCardChildEnum.MemberMove);
     }
 
     const removeMove = () => {
@@ -41,8 +48,15 @@ export const MemberMoveInput = ({ moveName, moveIndex }:
     return (
         <li className={styles['member-moves-li']}>
             <input type="text" readOnly
-                value={toPascalCase(moveName)}
-                onClick={inputClickEvent}
+                value={ toPascalCase(moveName) }
+                onClick={ inputClickEvent }
+                className={
+                    clsx (
+                        selectedChildEnum === MemberCardChildEnum.MemberMove
+                        && selectedMove === moveIndex
+                        && selectedStyle['selected-element']
+                    )
+                }
             />
             <DeleteIcon
                 onClick={removeMove}
