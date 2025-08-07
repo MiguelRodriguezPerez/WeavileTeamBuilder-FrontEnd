@@ -1,25 +1,21 @@
-import { MemberCardChildProvider } from '../../../../../context/memberCardChild';
 import { MemberItemAbilityDiv } from '../memberItemAbility';
 import { MemberMoveList } from '../memberMoves';
 import { DeleteMemberButton } from './DeleteMemberButton';
 import { MemberHeader } from './MemberHeader';
 import { MemberTypeCoverageIvsEvsNatureDiv } from './MemberTypeCoverageIvsEvsNatureDiv';
+import { useDetectClickOutsideEvent } from '../../../../../hooks/selectedPokemonMenu';
+import { useRef } from 'react';
 
 import styles from '../../../../../styles/selectedMemberMenu/memberCard/memberCard.module.css';
-import { useContext, useRef } from 'react';
-import { useDetectClickOutsideEvent } from '../../../../../../../globalHooks/general';
-import { SelectedComponentContext } from '../../../../../context/selectedMenuComponent/SelectedComponentContext';
 
 
 export const MemberCard = () => {
 
     const wrapperRef = useRef(null);
-    const { } = useContext(SelectedComponentContext)!
-    useDetectClickOutsideEvent(wrapperRef)
+    useDetectClickOutsideEvent(wrapperRef);
 
     return (
-        <MemberCardChildProvider>
-            <section className={styles['member-card-wrapper']}>
+            <section ref={ wrapperRef } className={styles['member-card-wrapper']}>
                 <div className={styles['member-card']}>
                     <MemberHeader />
                     <MemberItemAbilityDiv />
@@ -28,6 +24,5 @@ export const MemberCard = () => {
                 </div>
                 <DeleteMemberButton />
             </section>
-        </MemberCardChildProvider>
     );
 }

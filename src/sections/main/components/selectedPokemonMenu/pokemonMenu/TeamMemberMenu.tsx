@@ -7,6 +7,7 @@ import { SelectedMoveMemberProvider } from '../../../context/selectedMemberMove'
 import { MemberCard } from './selectedMemberCard/memberCard';
 
 import styles from '../../../styles/selectedMemberMenu/teamMemberMenu.module.css'
+import { MemberCardChildProvider } from '../../../context/memberCardChild';
 
 
 export const TeamMemberMenu = () => {
@@ -20,7 +21,10 @@ export const TeamMemberMenu = () => {
                 {/* Contexto para cambiar el índice del movimiento que selecciono el usuario */}
                 <SelectedMoveMemberProvider>
                     <section className={ styles['team-member-menu'] }>
-                        <MemberCard />
+                        {/* Contexto para aplicar la sombra azul al campo del pokemón seleccionado */}
+                        <MemberCardChildProvider>
+                            <MemberCard />
+                        </MemberCardChildProvider>
                         {/* No puedes usar un valor del contexto antes de que el contexto se renderice
                         por eso necesitas RenderActiveElementGrid*/}
                         <RenderActiveElementGrid />

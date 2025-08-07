@@ -15,10 +15,6 @@ export const SelectedPokemonDataProvider = ({ children }: { children: ReactNode 
     staleTime: 30 * 60 * 1000, // 30 minutos de duración
   });
 
-  console.log(data?.data);
-  
-  
-
   return (
     <SelectedPokemonDataContext.Provider value={{ currentPokemonData: data?.data , isLoading }}>
       { children }
