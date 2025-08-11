@@ -1,5 +1,4 @@
 import { WeavileLogo } from './WeavileLogo';
-import { LoginHeaderDiv } from '../../sections/login/components/LoginHeaderDiv';
 
 import styles from '../styles/weavileHeader.module.css';
 

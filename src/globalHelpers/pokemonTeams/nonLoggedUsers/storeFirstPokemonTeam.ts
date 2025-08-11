@@ -1,4 +1,5 @@
-import { PokemonTeam } from '../../../../domain/teamMemberEntities/PokemonTeam';
+import { PokemonTeam } from "../../../domain/teamMemberEntities";
+
 
 export const storeFirstPokemonTeam = (argTeam: PokemonTeam): PokemonTeam => {
     argTeam.name = 'Unamed0';

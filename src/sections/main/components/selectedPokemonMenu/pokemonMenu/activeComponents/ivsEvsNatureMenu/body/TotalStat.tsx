@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
-import { PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
+import { CalculatedStats, PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
 import { calculatePokemonStats } from "../../../../../../../../globalHelpers";
 
 export const TotalStat = ({ statName } : { statName: string }) => {
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
-
+    const statKey = statName = statName.replace('base_','final_') as keyof CalculatedStats;
     const [ statValue, setStatValue ] = useState<number>(0);
+    
     useEffect(() => {
-        statName = statName.replace('base_','final_');
-        
-        setStatValue(Math.trunc(calculatePokemonStats(selectedMember)[statName]));
+        setStatValue(Math.trunc(calculatePokemonStats(selectedMember)[statKey]));
     },[selectedMember])
   
     return (

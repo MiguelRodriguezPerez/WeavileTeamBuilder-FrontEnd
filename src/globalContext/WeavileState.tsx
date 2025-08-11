@@ -9,7 +9,7 @@ export interface WeavileState {
     deleteSelectedTeam: () => void,
 
     /* Pokemón seleccionado y función para cambiar el pokemón seleccionado */
-    selectedPokemonMember: PokemonTeamMember,
+    selectedPokemonMember: PokemonTeamMember | null,
     changeSelectedPokemon: (pokemon: PokemonTeamMember | null) => void,
 
 }

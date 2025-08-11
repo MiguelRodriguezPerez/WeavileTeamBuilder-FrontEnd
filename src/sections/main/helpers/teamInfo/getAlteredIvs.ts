@@ -1,5 +1,4 @@
 import { PokemonTeamMember } from "../../../../domain/teamMemberEntities";
-import { toPascalCase } from "../../../../globalHelpers";
 import { getShowdownStatAbbreviation } from "../../../../globalHelpers/parsingHelpers";
 
 export const getAlteredIvs = (member: PokemonTeamMember): string => {

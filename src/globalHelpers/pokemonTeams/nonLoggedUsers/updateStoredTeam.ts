@@ -1,4 +1,5 @@
-import { PokemonTeam } from "../../../../domain/teamMemberEntities";
+import { PokemonTeam } from "../../../domain/teamMemberEntities";
+
 
 export const updateStoredTeam = (updatedTeam: PokemonTeam): PokemonTeam => {
 

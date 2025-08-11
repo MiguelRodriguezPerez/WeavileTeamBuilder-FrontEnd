@@ -1,10 +1,10 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
+import { useQueryClient } from '@tanstack/react-query';
 import { PokemonTeamMember } from '../../../../../../../domain/teamMemberEntities';
 import useWeavileStore from '../../../../../../../globalContext/WeavileStore';
 import { convertMemberToNullMember } from '../../../../../../../globalHelpers/pokemonTeams/nonLoggedUsers';
 import { useUpdateTeam } from '../../../../../../../globalHooks/pokemonTeams';
-import { QueryClient, useQueryClient } from '@tanstack/react-query';
 
 import styles from '../../../../../styles/selectedMemberMenu/memberCard/deleteButtonDiv.module.css';
 

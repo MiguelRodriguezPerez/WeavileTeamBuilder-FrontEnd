@@ -16,7 +16,7 @@ export const MoveCard = ({ moveProp }: { moveProp: MoveDto }) => {
     const selectedMemberMove: number | undefined = useContext(SelectedMoveMemberContext)?.selectedMove;
 
     const onClickWrapper = (): void => {
-        const moveListToUpdate: MoveDto[] = selectedMember.move_list;
+        const moveListToUpdate: (MoveDto | null)[] = selectedMember.move_list;
 
         if (selectedMemberMove !== undefined) {
             moveListToUpdate[selectedMemberMove!] = moveProp;
