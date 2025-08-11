@@ -22,7 +22,7 @@ export const EvsSliderWrapper = ({ statName } : { statName: string }) => {
     [selectedMember]);
     
 
-    const changeEvent = (event: Event , newValue: number): void => {        
+    const changeEvent = (_event: Event , newValue: number): void => {        
         if (validateEvsInput(evValue, newValue)) {
             updateRemainingEvs(evValue, newValue);
             const updatedMember = {

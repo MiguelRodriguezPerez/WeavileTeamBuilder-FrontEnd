@@ -5,7 +5,7 @@ export const getMemberEvsSpent = (member: PokemonTeamMember): number => {
 
     Object.entries(member)
         .filter(([ key ]) => key.endsWith('_ev'))
-        .map(([key,value]) => resultado += value);
+        .map(([_key,value]) => resultado += value);
  
     return resultado;
 }

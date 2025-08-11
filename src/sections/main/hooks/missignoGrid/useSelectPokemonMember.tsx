@@ -3,7 +3,6 @@ import { PokemonTeam, PokemonTeamMember } from "../../../../domain/teamMemberEnt
 import useWeavileStore from "../../../../globalContext/WeavileStore";
 import { convertPokemonDataToTeamMember as convertPokemonDataDTOToTeamMember } from "../../../../globalHelpers";
 import { updateStoredTeam } from "../../../../globalHelpers/pokemonTeams/nonLoggedUsers";
-import { updateMemberDataCache } from '../../../../localStorage/pokemonData/updateMemberDataCache';
 
 export const useSelectedPokemonMember = () => {
 

@@ -1,17 +1,17 @@
-import { useContext, useEffect, useState } from "react";
-import { toPascalCase } from "../../../../../../../globalHelpers";
-import { SelectedMoveMemberContext } from "../../../../../context/selectedMemberMove";
+import { useContext } from "react";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { MoveDto } from "../../../../../../../domain/dataEntities";
 import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
-import { SelectedComponentContext } from "../../../../../context/selectedMenuComponent/SelectedComponentContext";
+import { toPascalCase } from "../../../../../../../globalHelpers";
 import { useUpdateTeam } from "../../../../../../../globalHooks/pokemonTeams";
-import { MoveDto } from "../../../../../../../domain/dataEntities";
-
-import styles from '../../../../../styles/selectedMemberMenu/memberCard/memberMoves.module.css';
-import selectedStyle from '../../../../../../../globalStyles/selectedElement.module.css';
-import clsx from 'clsx';
+import { SelectedMoveMemberContext } from "../../../../../context/selectedMemberMove";
+import { SelectedComponentContext } from "../../../../../context/selectedMenuComponent/SelectedComponentContext";
 import { MemberCardChildContext, MemberCardChildEnum } from "../../../../../context/memberCardChild";
+
+import clsx from 'clsx';
+import selectedStyle from '../../../../../../../globalStyles/selectedElement.module.css';
+import styles from '../../../../../styles/selectedMemberMenu/memberCard/memberMoves.module.css';
 
 
 

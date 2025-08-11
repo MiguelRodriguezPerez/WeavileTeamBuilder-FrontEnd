@@ -1,5 +1,4 @@
 import { AxiosResponse } from "axios";
-import { TeamType } from '../../../../domain/enums/TeamType';
 import { PokemonTeam } from "../../../../domain/teamMemberEntities/PokemonTeam";
 import { PokemonTeamApi } from "./PokemonTeamApi";
 

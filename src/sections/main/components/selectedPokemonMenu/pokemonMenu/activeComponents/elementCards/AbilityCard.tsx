@@ -26,7 +26,7 @@ export const AbilityCard = ({ abilityProp }: { abilityProp: AbilityDto }) => {
     }
 
     return (
-        <li key={abilityProp.id} className={styles['ability-card']} onClick={changeAbilityEvent}>
+        <li key={ abilityProp.name } className={styles['ability-card']} onClick={changeAbilityEvent}>
             <h4>{toPascalCase(abilityProp.name)}</h4>
             <p>{abilityProp.description}</p>
         </li>

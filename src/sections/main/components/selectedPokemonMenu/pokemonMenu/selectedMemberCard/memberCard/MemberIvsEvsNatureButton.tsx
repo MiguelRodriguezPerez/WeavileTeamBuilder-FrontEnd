@@ -1,10 +1,9 @@
 import { useContext } from 'react';
+import { MemberCardChildContext } from '../../../../../context/memberCardChild';
 import { SelectedComponentContext } from '../../../../../context/selectedMenuComponent/SelectedComponentContext';
-import { MemberCardChildContext, MemberCardChildEnum } from '../../../../../context/memberCardChild';
 
-import styles from '../../../../../styles/selectedMemberMenu/memberCard/memberTypeCoverageIvsEvsNatureDiv.module.css';
-import selectedStyle from '../../../../../../../globalStyles/selectedElement.module.css';
 import clsx from 'clsx';
+import styles from '../../../../../styles/selectedMemberMenu/memberCard/memberTypeCoverageIvsEvsNatureDiv.module.css';
 
 export const MemberIvsEvsNatureButton = () => {
 

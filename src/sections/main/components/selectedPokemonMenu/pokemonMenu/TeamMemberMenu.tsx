@@ -1,13 +1,11 @@
 import { SelectedPokemonDataProvider } from '../../../context/pokemonData/SelectedPokemonDataProvider';
 import { SelectedComponentProvider } from "../../../context/selectedMenuComponent/SelectedComponentProvider";
 import { RenderActiveElementGrid } from "./activeComponents/RenderActiveElementGrid";
-
-import { DeleteMemberButton } from './selectedMemberCard/memberCard/DeleteMemberButton';
 import { SelectedMoveMemberProvider } from '../../../context/selectedMemberMove';
 import { MemberCard } from './selectedMemberCard/memberCard';
-
-import styles from '../../../styles/selectedMemberMenu/teamMemberMenu.module.css'
 import { MemberCardChildProvider } from '../../../context/memberCardChild';
+
+import styles from '../../../styles/selectedMemberMenu/teamMemberMenu.module.css';
 
 
 export const TeamMemberMenu = () => {

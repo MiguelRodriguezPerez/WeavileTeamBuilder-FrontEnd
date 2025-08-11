@@ -1,19 +1,19 @@
-import { useContext } from "react";
-import { SelectedPokemonDataContext } from "../../../../../../context/pokemonData";
 import { getPokemonStats, parseStat } from "../../../../../../helpers/memberIvsEvsNature";
 import { BaseStatBar, EvsInput, EvsSliderWrapper, IvsInput, TotalStat } from "./";
+import { PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
 
+import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
 import styles from '../../../../../../styles/selectedMemberMenu/memberIvsEvsNature/ivsNatureBody.module.css';
 
 export const IvsNatureBody = () => {
 
-    const { currentPokemonData } = useContext(SelectedPokemonDataContext)!;
+    const selectedMember: PokemonTeamMember =  useWeavileStore(state => state.selectedPokemonMember)!
 
     return (
         <ol className={styles['ivs-nature-list']}>
             {
-                currentPokemonData &&
-                Object.entries(getPokemonStats(currentPokemonData!)).map(([statName, value]) => (
+                selectedMember &&
+                Object.entries(getPokemonStats(selectedMember)).map(([statName, value]) => (
                     <li className={styles['ivs-nature-element']} key={statName}>
                         <div>{parseStat(statName)}</div>
                         <div>{value}</div>

@@ -1,6 +1,6 @@
-import { PokemonDataDTO } from "../../../../domain/dataEntities";
+import { PokemonTeamMember } from "../../../../domain/teamMemberEntities";
 
-export const getPokemonStats = (data: PokemonDataDTO) => {
+export const getPokemonStats = (data: PokemonTeamMember) => {
     return {
       base_hp: data.base_hp,
       base_attack: data.base_attack,

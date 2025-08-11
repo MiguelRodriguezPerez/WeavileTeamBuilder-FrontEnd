@@ -1,5 +1,4 @@
 import { PokemonType } from "../../../domain/enums";
-import { getTypeInmunities, getTypeResistances, getTypeWeaknesses } from "../typeInfo";
 import { getMemberInmunities, getMemberResistances, getMemberWeakness } from "./";
 
 
