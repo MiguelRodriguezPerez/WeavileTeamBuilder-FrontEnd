@@ -6,14 +6,15 @@ import { SelectedPokemonDataContext } from "./SelectedPokemonDataContext";
 
 export const SelectedPokemonDataProvider = ({ children }: { children: ReactNode }) => {
 
-  const selectedPokemon = useWeavileStore(state => state.selectedPokemonMember!);
+  const selectedPokemon = useWeavileStore(state => state.selectedPokemonMember);
 
   const { data, isLoading } = useQuery({
-    queryFn: () => getPokemonByNameRequest(selectedPokemon.name!),
-    queryKey: [ 'pokemon', selectedPokemon.name ],
+    queryFn: () => getPokemonByNameRequest(selectedPokemon?.name!),
     enabled: !!selectedPokemon?.name,
+    queryKey: [ 'pokemon', selectedPokemon?.name ],
     staleTime: 30 * 60 * 1000, // 30 minutos de duración
   });
+
 
   return (
     <SelectedPokemonDataContext.Provider value={{ currentPokemonData: data?.data , isLoading }}>

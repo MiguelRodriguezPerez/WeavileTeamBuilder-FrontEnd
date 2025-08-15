@@ -13,6 +13,10 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
         queryFn: getSVPokemonsRequest,
     });
 
+    /* Endpoint correcto. Tienes que depurar el lado servidor */
+    // console.log(`${import.meta.env.VITE_SERVER_URL}`);
+    
+
     /* No soy capaz de explicar porque, pero originalmente usabas únicamente la variable isLoading para definir
     si mostrabas el icono de cargar datos o no. Probablemente tenga que ver que el persistor de la cache 
     es asíncrono */
@@ -21,6 +25,7 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
     return (
         <ul className={ styles['missigno-grid'] }>
             {
+                data.data &&
                 filterMissignoGrid(data!.data, search)
                     .map((pokemon) => (
                         <MissignoCard dto={pokemon} key={pokemon.name} />
