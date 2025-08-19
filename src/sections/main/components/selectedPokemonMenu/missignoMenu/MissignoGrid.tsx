@@ -4,6 +4,7 @@ import { WeavileLoading } from "../../../../../ui/components";
 import { filterMissignoGrid } from "../../../helpers/missigno";
 import styles from '../../../styles/missignoMenu/missignoGrid.module.css';
 import { MissignoCard } from "./missignoCard/MissignoCard";
+import { sortAlphabetically } from "../../../../../globalHelpers/entities";
 
 
 export const MissignoGrid = ({ search = '' }: { search: string }) => {
@@ -12,9 +13,6 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
         queryKey: ['missignoGrid'],
         queryFn: getSVPokemonsRequest,
     });
-
-    /* Endpoint correcto. Tienes que depurar el lado servidor */
-    // console.log(`${import.meta.env.VITE_SERVER_URL}`);
     
 
     /* No soy capaz de explicar porque, pero originalmente usabas únicamente la variable isLoading para definir
@@ -26,7 +24,7 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
         <ul className={ styles['missigno-grid'] }>
             {
                 data.data &&
-                filterMissignoGrid(data!.data, search)
+                sortAlphabetically( filterMissignoGrid(data!.data, search) )
                     .map((pokemon) => (
                         <MissignoCard dto={pokemon} key={pokemon.name} />
                 ))
