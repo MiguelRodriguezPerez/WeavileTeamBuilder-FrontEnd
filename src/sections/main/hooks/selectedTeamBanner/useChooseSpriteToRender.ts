@@ -12,7 +12,7 @@ export const useChooseSpriteToRender = (member: PokemonTeamMember) => {
                 : 
                 `data:image/jpeg;base64,${ member.pc_sprite }`;
         } 
-        else return (width > 700) ? '/images/main/missignoTeamBanner.png' : '/images/main/selectedTeamBanner/missignoPhoneIcon.png';
+        else return (width > 700) ? '/images/main/selectedTeamBanner/missignoTeamBanner.png' : '/images/main/selectedTeamBanner/missignoPhoneIcon.png';
     }
 
     return {
