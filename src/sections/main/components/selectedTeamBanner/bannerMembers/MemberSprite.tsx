@@ -11,7 +11,7 @@ export const MemberSprite = ({ member } : { member: PokemonTeamMember }) => {
 
     const selectedMember = useWeavileStore(state => state.selectedPokemonMember)!;
     const { width } = useWindowSize();
-    const { chooseSpriteToRender } = useChooseSpriteToRender(member);
+    const { chooseSpriteToRender, chooseHeightToRender, chooseWidthToRender } = useChooseSpriteToRender(member);
     const spriteToRender: string = useMemo(() => chooseSpriteToRender(),[selectedMember, width]);
 
     return (
@@ -24,6 +24,8 @@ export const MemberSprite = ({ member } : { member: PokemonTeamMember }) => {
                     ) }
                 /* TODO: Encontrar una solución seria */
                 style={ spriteToRender.includes('missignoPhone') ? { paddingBottom: '0px' } : undefined }
+                height={ chooseHeightToRender() }
+                width={ chooseWidthToRender() }
 
             alt= {member ? member.name + '.png' : 'missigno.png'} />
         </div>
