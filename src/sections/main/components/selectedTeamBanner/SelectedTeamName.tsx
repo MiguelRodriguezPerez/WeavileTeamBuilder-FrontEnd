@@ -18,9 +18,12 @@ export const SelectedTeamName = () => {
 
     return (
         <div className={ styles['selected-team-name-div'] }>
-            <input  className={ styles['selected-team-name-input'] }
-             type="text" value={ stateName } name="team-name"
-                onChange={ (e) => changeWrapper(e.target.value) } />
+            <input  
+                className={ styles['selected-team-name-input'] }
+                type="text" value={ stateName } name="team-name"
+                onChange={ (e) => changeWrapper(e.target.value) } 
+                aria-label="team-name"    
+            />
         </div>  
     );
 }
