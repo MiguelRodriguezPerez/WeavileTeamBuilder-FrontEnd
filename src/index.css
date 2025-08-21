@@ -1,9 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&family=Roboto&family=Tajawal:wght@500&display=swap');
+@font-face {
+  font-family: "WeavileFont";
+  src: url("./assets/fonts/Tajawal/Tajawal-Medium.ttf") format("truetype");
+}
 
-*{
-    font-family: "Tajawal";
+* {
+    font-family: "WeavileFont";
     font-size: 20px;
     font-weight: normal;
+    font-style: normal;
     color: rgb(244, 241, 241);
     outline: none;
 }
