@@ -11,7 +11,7 @@ export const MemberSprite = ({ member } : { member: PokemonTeamMember }) => {
 
     const selectedMember = useWeavileStore(state => state.selectedPokemonMember)!;
     const { width } = useWindowSize();
-    const { chooseSpriteToRender, chooseHeightToRender, chooseWidthToRender } = useChooseSpriteToRender(member);
+    const { chooseSpriteToRender, chooseHeightAndWidthToRender } = useChooseSpriteToRender(member);
     const spriteToRender: string = useMemo(() => chooseSpriteToRender(),[selectedMember, width]);
 
     return (
@@ -22,10 +22,9 @@ export const MemberSprite = ({ member } : { member: PokemonTeamMember }) => {
                         styles["heading-pokemon-sprite"],
                         member.id === selectedMember.id && styles["selected-member"]
                     ) }
-                /* TODO: Encontrar una solución seria */
-                style={ spriteToRender.includes('missignoPhone') ? { paddingBottom: '0px' } : undefined }
-                height={ chooseHeightToRender() }
-                width={ chooseWidthToRender() }
+
+                height={ chooseHeightAndWidthToRender() }
+                width={ chooseHeightAndWidthToRender() }
 
             alt= {member ? member.name + '.png' : 'missigno.png'} />
         </div>

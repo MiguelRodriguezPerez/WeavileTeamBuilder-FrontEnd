@@ -1,9 +1,9 @@
 import { PokemonType } from "../../../../../../domain/enums";
-import { assignPokemonTypeToPng } from "../../../../../../globalHelpers/assignPokemonTypeToPng";
+import { assignPokemonTypeToPng } from "../../../../../../globalHelpers";
 
 import styles from '../../../../styles/missignoMenu/missignoCard.module.css';
 
-export const MissignoTypes = ({typeList} : {typeList : PokemonType[]}) => {
+export const MissignoTypes = ({ typeList } : { typeList : PokemonType[] }) => {
     return (
         <span className={styles['missigno-types-list']}>
             {

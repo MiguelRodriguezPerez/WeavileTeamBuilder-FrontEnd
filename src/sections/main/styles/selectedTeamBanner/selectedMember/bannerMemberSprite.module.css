@@ -18,7 +18,9 @@
 
 
 @media screen and (max-width: 700px) {
-    .heading-pokemon-sprite{
-        padding-bottom: 15px;
+    
+    .selected-member-sprite {
+        grid-row: 1/3;
     }
+    
 }

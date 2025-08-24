@@ -8,8 +8,8 @@ export const TeamsListPage = () => {
         <>
             <WeavileHeader />
             <SelectedTeamBanner />
-            <TeamListOptionBanner/>
-            <TeamListWrapper/>
+            <TeamListOptionBanner />
+            <TeamListWrapper />
         </>
     );
 }

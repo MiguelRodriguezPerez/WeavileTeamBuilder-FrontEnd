@@ -2,3 +2,15 @@
     display: grid;
     grid-template-columns: 1fr;
 }
+
+@media screen and (max-width: 700px) {
+    
+    .banner-member {
+        grid-template-columns: 40% 1fr;
+    }
+
+    .banner-member > .selected-member-sprite {
+        grid-row: 1/3;
+    }
+    
+}

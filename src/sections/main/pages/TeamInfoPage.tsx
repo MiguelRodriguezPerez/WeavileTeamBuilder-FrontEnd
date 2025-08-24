@@ -10,9 +10,9 @@ export const TeamInfoPage = () => {
             <WeavileHeader />
             <SelectedTeamBanner />
             <OptionBanner />
-            <TeamInfoList/>
-            <NewMemberButton/>
+            <TeamInfoList />
+            <NewMemberButton />
         </>
     );
-    
+
 }

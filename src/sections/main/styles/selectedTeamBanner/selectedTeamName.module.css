@@ -18,7 +18,9 @@
 
 @media screen and (max-width: 1400px) {
     .selected-team-name-div {
-        grid-column: 1/4;
+        grid-column: auto;
+
+        margin-bottom: 0px;
     }
 }
 
