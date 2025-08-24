@@ -11,7 +11,7 @@ export const MissignoMenu = () => {
 
     return (
         <section>
-            <div>
+            <div className={ styles['missigno-search-div'] }>
                 <h3 className={ styles['missigno-header-h3'] }>Choose a pokemon</h3>
                 <SearchInput propSearch={ search } setPropSearch={ setSearch }/>
             </div>

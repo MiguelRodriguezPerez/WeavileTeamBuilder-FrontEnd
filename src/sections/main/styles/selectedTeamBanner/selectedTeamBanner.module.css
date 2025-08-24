@@ -9,6 +9,7 @@
   
   .selected-team-banner {
     grid-template-columns: repeat(3,1fr);
+    margin-bottom: 25px;
   }
   
 }
@@ -18,7 +19,6 @@
   .selected-team-banner {
     grid-template-columns: 1fr 1fr;
     gap: 15px 10px;
-    margin-bottom: 25px;
   }
   
 }
