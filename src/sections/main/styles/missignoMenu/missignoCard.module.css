@@ -32,10 +32,6 @@ así que para alinearlos modifique los márgenes. Los márgenes absolutos son in
 }
 
 .missigno-abilities-list {
-    /* display: flex;
-    flex-direction: row;
-    gap: 5%; */
-
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0% 14px;
@@ -63,10 +59,6 @@ así que para alinearlos modifique los márgenes. Los márgenes absolutos son in
     .missigno-abilities-list {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        align-items: center;
-        justify-items: center;
-        line-height: 1;
-        text-align: center;
     }
 
     .missigno-card:hover {
@@ -90,6 +82,10 @@ así que para alinearlos modifique los márgenes. Los márgenes absolutos son in
         margin: 7px 0px;
     }
 
+    .missigno-abilities-list {
+        grid-template-columns: 1fr 1fr;
+        justify-content: start;
+    }
 
     .missigno-sprite {
         grid-row: 1/5;
@@ -98,12 +94,6 @@ así que para alinearlos modifique los márgenes. Los márgenes absolutos son in
     .missigno-stats, .missigno-abilities-list  {
         grid-column: 2/4;
         justify-self: start;
-    }
-
-    .missigno-abilities-list {
-        display: flex;
-        flex-direction: row;
-        justify-items: start;
     }
 
     .missigno-stats {
