@@ -5,11 +5,20 @@
   grid-template-columns: repeat(6, 1fr);
 }
 
-
 @media screen and (max-width: 1400px) {
+  
   .selected-team-banner {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 15px;
-    margin-bottom: 30px;
+    grid-template-columns: repeat(3,1fr);
   }
+  
+}
+
+@media screen and (max-width: 700px) {
+  
+  .selected-team-banner {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 10px;
+    margin-bottom: 25px;
+  }
+  
 }

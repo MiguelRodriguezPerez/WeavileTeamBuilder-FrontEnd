@@ -17,10 +17,18 @@
 }
 
 @media screen and (max-width: 1400px) {
+    
     .selected-team-name-div {
-        grid-column: auto;
+        grid-column: 1/4;
+        margin-bottom: 25px;
+    }
+    
+}
 
-        margin-bottom: 0px;
+@media screen and (max-width: 700px) {
+    .selected-team-name-div {
+        grid-column: 1/3;
+        
     }
 }
 

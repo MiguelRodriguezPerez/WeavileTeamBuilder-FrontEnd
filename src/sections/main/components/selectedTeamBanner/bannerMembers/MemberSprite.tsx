@@ -26,7 +26,7 @@ export const MemberSprite = ({ member } : { member: PokemonTeamMember }) => {
                 height={ chooseHeightAndWidthToRender() }
                 width={ chooseHeightAndWidthToRender() }
 
-            alt= {member ? member.name + '.png' : 'missigno.png'} />
+            alt= { member ? member.name + '.png' : 'missigno.png' } />
         </div>
     );
 
