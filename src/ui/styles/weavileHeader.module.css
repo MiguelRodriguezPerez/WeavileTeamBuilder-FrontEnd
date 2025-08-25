@@ -10,13 +10,3 @@
 .login-header-div > button {
     margin: 3%;
 }
-
-
-
-@media screen and (max-width: 700px) {
-    
-    .weavile-logo {
-        width: 15vw;
-    }
-    
-}

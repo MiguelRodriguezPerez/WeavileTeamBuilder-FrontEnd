@@ -7,7 +7,12 @@ export const HomeButton = () => {
     const navigate = useNavigate();
 
     return (
-        <button className={styles['weavile-button']}
-            onClick={ () => navigate('/') }>{ 'Home' }</button>
+        <div>
+            <button 
+                className={styles['weavile-button']}
+                onClick={ () => navigate('/') }
+                style={{ padding: '8px 35px'}}
+                >{ 'Home' }</button>
+        </div>
     );
 }

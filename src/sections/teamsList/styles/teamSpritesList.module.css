@@ -1,4 +1,4 @@
-ul.team-sprites-list{
+ul.team-sprites-list {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     justify-items: center;
@@ -7,4 +7,12 @@ ul.team-sprites-list{
     padding: 0px;
     margin: 0px;
     list-style-type: none;
+}
+
+@media screen and (max-width: 700px) {
+    
+    ul.team-sprites-list {
+        grid-template-columns: repeat(3,1fr);
+    }
+    
 }

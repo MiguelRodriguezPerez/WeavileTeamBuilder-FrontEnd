@@ -42,9 +42,13 @@ dejalo igual*/
 @media screen and (max-width: 700px) {
     
     .ability-card {
-        grid-template-columns: 35% 1fr;
-        gap: 3%;
-        margin: 10px;
+        grid-template-columns: 1fr;
+        gap: 5px;
+        border-bottom: solid 1px white;
+    }
+
+    .ability-card:last-child {
+        border-bottom: none;
     }
     
 }

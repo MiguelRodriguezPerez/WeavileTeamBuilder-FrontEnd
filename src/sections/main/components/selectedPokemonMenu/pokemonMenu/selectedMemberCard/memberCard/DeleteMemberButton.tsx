@@ -7,6 +7,7 @@ import { convertMemberToNullMember } from '../../../../../../../globalHelpers/po
 import { useUpdateTeam } from '../../../../../../../globalHooks/pokemonTeams';
 
 import styles from '../../../../../styles/selectedMemberMenu/memberCard/deleteButtonDiv.module.css';
+import { useWindowSize } from 'react-use';
 
 export const DeleteMemberButton = () => {
 
@@ -16,6 +17,7 @@ export const DeleteMemberButton = () => {
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const { updateTeamWrapper } = useUpdateTeam();
     const queryClient = useQueryClient();
+    const { width } = useWindowSize();
 
     const deleteEvent = (): void => {
         const deletedMember: PokemonTeamMember = convertMemberToNullMember(selectedMember);
@@ -38,7 +40,7 @@ export const DeleteMemberButton = () => {
                     backgroundColor: '#da2c1f',
                     textTransform: 'none',
                     color: '#ffffff',
-                    padding: '10px 50px',
+                    padding: width > 700 ? '10px 50px' : '5px 25px',
                     fontSize: '0.95rem',
                     borderRadius: '12px',
                     margin: '0%',
