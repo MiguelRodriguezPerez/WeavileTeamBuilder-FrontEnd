@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { PokemonTypeEnum } from "../../../../../../../../domain/enums";
 import { PokemonTeam, PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
-import { assignPokemonTypeToPng } from "../../../../../../../../globalHelpers";
+import { assignPokemonTypeEnumToPng, assignPokemonTypeToPng } from "../../../../../../../../globalHelpers";
 import { getWeaknessCoveredToTeamMembers } from "../../../../../../helpers/teamTypeCoverages/getWeaknessCoveredToTeamMembers";
 
 import styles from '../../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/partnerTypeCoverage.module.css';
@@ -14,11 +14,11 @@ export const ResistancesPartnerCoverage = () => {
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const selectedTeam: PokemonTeam = useWeavileStore(state => state.selectedPokemonTeam!);
     const [mapToRender, setMapToRender] = useState<Map<PokemonTeamMember, PokemonTypeEnum[]>>();
+    console.log(getWeaknessCoveredToTeamMembers(selectedMember, selectedTeam));
+    
 
     useEffect(() => {
         setMapToRender(getWeaknessCoveredToTeamMembers(selectedMember, selectedTeam));
-        console.log(mapToRender);
-
     }, [selectedMember, selectedTeam]);
 
     return (
@@ -32,7 +32,7 @@ export const ResistancesPartnerCoverage = () => {
                             <img src={`data:image/jpeg;base64,${member.pc_sprite}`} />
                             <ul className={styles['partner-coverage-types']}>
                                 {
-                                    types.map((type, index) => (<img key={index} src={assignPokemonTypeToPng(type)} />))
+                                    types.map((type, index) => (<img key={index} src={assignPokemonTypeEnumToPng(type)} />))
                                 }
                             </ul>
                         </li>

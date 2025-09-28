@@ -1,6 +1,5 @@
 import { PokemonTypeEnum } from "../../../../domain/enums";
 import { PokemonTeam, PokemonTeamMember } from "../../../../domain/teamMemberEntities";
-import { getPokemonTypeEnumFromEntity } from "../../../../globalHelpers/pokemonTypes/memberTypeCoverage";
 import { getMemberInmunities, getMemberResistances, getMemberWeakness } from "../../../../globalHelpers/pokemonTypes/memberTypeInteractions";
 
 
@@ -17,13 +16,17 @@ export const getWeaknessCoveredToTeamMembers = (member: PokemonTeamMember, team:
       ),
     ];
 
+  console.log(memberResistances);
+  
 
   for (const teammate of team.teamMembers) {
-    if (teammate === member) continue; // No te compares contigo mismo
-
-    const coveredWeaknesses = getMemberWeakness(member.type_list!)
-      .filter(weaknessType => memberResistances.includes(weaknessType));
-
+    if (teammate.name === member.name || teammate.name === null) continue; // No te compares contigo mismo
+    
+    const coveredWeaknesses = getMemberWeakness(teammate.type_list!).filter(weaknessType =>
+      memberResistances.includes(weaknessType)
+    );
+  
+    
     if (coveredWeaknesses.length > 0) result.set(teammate, coveredWeaknesses);
   }
 
