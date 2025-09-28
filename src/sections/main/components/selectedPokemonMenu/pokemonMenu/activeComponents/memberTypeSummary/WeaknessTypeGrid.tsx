@@ -1,11 +1,11 @@
 import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
-import { assignPokemonTypeEnumToPng, assignPokemonTypeToPng } from "../../../../../../../globalHelpers";
+import { assignPokemonTypeEnumToPng } from "../../../../../../../globalHelpers";
 import { getMemberWeakness } from '../../../../../../../globalHelpers/pokemonTypes/memberTypeInteractions/getMemberWeakness';
 import { useWeaknessTypeGrid } from "../../../../../hooks/selectedPokemonMenu";
 
-import styles from '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/typeSummarySection.module.css';
 import typeGridStyles from '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/typeCoverageGrid.module.css';
+import styles from '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/typeSummarySection.module.css';
 
 export const WeaknessTypeGrid = ({ pokemonName }: { pokemonName: string }) => {
 

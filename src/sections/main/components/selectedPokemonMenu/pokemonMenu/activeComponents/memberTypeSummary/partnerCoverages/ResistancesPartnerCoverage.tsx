@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { PokemonTypeEnum } from "../../../../../../../../domain/enums";
 import { PokemonTeam, PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
-import { assignPokemonTypeEnumToPng, assignPokemonTypeToPng } from "../../../../../../../../globalHelpers";
+import { assignPokemonTypeEnumToPng } from "../../../../../../../../globalHelpers";
 import { getWeaknessCoveredToTeamMembers } from "../../../../../../helpers/teamTypeCoverages/getWeaknessCoveredToTeamMembers";
 
 import styles from '../../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/partnerTypeCoverage.module.css';

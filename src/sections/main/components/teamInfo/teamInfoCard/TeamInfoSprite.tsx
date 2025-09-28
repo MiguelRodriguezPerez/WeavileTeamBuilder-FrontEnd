@@ -17,9 +17,9 @@ export const TeamInfoSprite = ({ member }: { member: PokemonTeamMember }) => {
                     <h3>{toPascalCase(member.name!)}</h3>
                     <ul className={styles['pokemon-type-list']}>
                         {
-                            member.type_list!.map((type) => (
-                                <li key={type} >
-                                    <img src={assignPokemonTypeToPng(type)} alt={type} />
+                            member.type_list!.map((type, index) => (
+                                <li key={index} >
+                                    <img src={assignPokemonTypeToPng(type)} alt={type.nombre} />
                                 </li>
                             ))
                         }

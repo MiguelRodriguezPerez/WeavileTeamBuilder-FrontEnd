@@ -1,6 +1,5 @@
 import { PokemonType } from "../../../domain/dataEntities/PokemonType";
 import { PokemonTypeEnum } from "../../../domain/enums";
-import { getPokemonTypeEnumFromEntity } from "../memberTypeCoverage";
 import { getMemberInmunities, getMemberResistances, getMemberWeakness } from "./";
 
 

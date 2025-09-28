@@ -5,7 +5,6 @@ import { MemberTypeGrid } from "./MemberTypeGrid";
 import { WeaknessTypeGrid } from "./WeaknessTypeGrid";
 
 import styles from '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/typeSummarySection.module.css';
-import { getPokemonTypeEnumFromEntity } from "../../../../../../../globalHelpers/pokemonTypes/memberTypeCoverage";
 
 export const TypeSummary = () => {
 
