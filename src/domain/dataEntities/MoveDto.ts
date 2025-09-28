@@ -1,4 +1,5 @@
-import { MoveType, PokemonType } from "../enums";
+import { MoveType } from "../enums";
+import { PokemonType } from "./PokemonType";
 
 export interface MoveDto {
 

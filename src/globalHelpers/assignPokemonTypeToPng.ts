@@ -1,5 +1,5 @@
-import { PokemonType } from "../domain/enums";
+import { PokemonType } from "../domain/dataEntities/PokemonType";
 
 export const assignPokemonTypeToPng = (type: PokemonType): string => {
-    return `images/main/pokemonTypeIcons/${type.toLowerCase()}.png`;
+    return `images/main/pokemonTypeIcons/${type.nombre.toLowerCase()}.png`;
 }

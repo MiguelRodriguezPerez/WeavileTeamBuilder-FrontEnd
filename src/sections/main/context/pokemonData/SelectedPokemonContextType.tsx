@@ -1,6 +1,6 @@
-import { PokemonDataCache } from "../../../../api/pokemonData";
+import { PokemonDataDTO } from "../../../../domain/dataEntities";
 
 export type SelectedPokemonContextType = {
-    currentPokemonData: PokemonDataCache | undefined;
+    currentPokemonData: PokemonDataDTO | undefined;
     isLoading: boolean;
 }

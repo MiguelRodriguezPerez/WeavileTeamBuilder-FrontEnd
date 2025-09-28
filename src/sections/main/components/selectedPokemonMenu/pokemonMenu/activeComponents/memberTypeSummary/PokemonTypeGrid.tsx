@@ -1,9 +1,9 @@
-import { PokemonType } from '../../../../../../../domain/enums/PokemonType';
-import { assignPokemonTypeToPng } from '../../../../../../../globalHelpers';
+import { PokemonTypeEnum } from '../../../../../../../domain/enums/PokemonTypeEnum';
+import { assignPokemonTypeEnumToPng } from '../../../../../../../globalHelpers';
 
 import styles from '../../../../../styles/selectedMemberMenu/typeCoverageTable/typeCoverageTableChildren/typeCoverageGrid.module.css';
 
-export const PokemonTypeGrid = ({ typeList }: { typeList: PokemonType[] }) => {
+export const PokemonTypeGrid = ({ typeList }: { typeList: PokemonTypeEnum[] }) => {
 
     return (
         <ul className={styles['type-coverage-grid']}>
@@ -13,7 +13,7 @@ export const PokemonTypeGrid = ({ typeList }: { typeList: PokemonType[] }) => {
                     :
                     typeList.map((type) => (
                         <li key={type} >
-                            <img src={assignPokemonTypeToPng(type)} />
+                            <img src={assignPokemonTypeEnumToPng(type)} />
                         </li>
                     ))
             }

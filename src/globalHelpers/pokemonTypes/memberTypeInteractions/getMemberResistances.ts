@@ -1,12 +1,15 @@
-import { PokemonType } from "../../../domain/enums";
+import { PokemonType } from "../../../domain/dataEntities/PokemonType";
+import { PokemonTypeEnum } from "../../../domain/enums";
+import { getPokemonTypeEnumFromEntity } from "../memberTypeCoverage";
 import { getTypeResistances, getTypeWeaknesses } from "../typeInfo";
 
-export const getMemberResistances = ( typeArr: PokemonType[] ): PokemonType[]  => {
- 
-    if ( typeArr.length === 1 ) return getTypeResistances( typeArr[0] );
+export const getMemberResistances = (entityTypeArr: PokemonType[]): PokemonTypeEnum[] => {
+    let typeArr = entityTypeArr.map(type => getPokemonTypeEnumFromEntity(type));
+
+    if (typeArr.length === 1) return getTypeResistances(typeArr[0]);
     else {
-        let weaknessList: PokemonType[] = [];
-        let resistancesList: PokemonType[] = [];
+        let weaknessList: PokemonTypeEnum[] = [];
+        let resistancesList: PokemonTypeEnum[] = [];
 
         typeArr.forEach(type => {
             resistancesList = [
@@ -24,5 +27,5 @@ export const getMemberResistances = ( typeArr: PokemonType[] ): PokemonType[]  =
 
         return [...new Set(resistancesList)];
     }
- 
+
 }

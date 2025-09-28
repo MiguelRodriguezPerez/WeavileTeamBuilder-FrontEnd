@@ -1,10 +1,10 @@
 import { getNatureByNameRequest } from "../api/requestNatures/getNatureByNameRequest";
 import { PokemonDataDTO } from "../domain/dataEntities";
-import { PokemonType } from "../domain/enums";
 import { PokemonTeamMember } from "../domain/teamMemberEntities";
 
 
 export const convertPokemonDataToTeamMember = async (data: PokemonDataDTO, position: number): Promise<PokemonTeamMember> => {
+    console.log(data);
     
 
     return {
@@ -39,7 +39,7 @@ export const convertPokemonDataToTeamMember = async (data: PokemonDataDTO, posit
         ability: data.ability_list[0],
         item: null,
         type_list: data.type_list,
-        tera_type: PokemonType.NORMAL,
+        tera_type: null,
         nature: (await getNatureByNameRequest('hardy')).data,
     };
 };

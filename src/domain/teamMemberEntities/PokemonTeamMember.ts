@@ -1,5 +1,5 @@
 import { AbilityDto, ItemDto, MoveDto } from "../dataEntities";
-import { PokemonType } from "../enums";
+import { PokemonType } from "../dataEntities/PokemonType";
 import { NatureDto } from "./NatureDto";
 
 export interface PokemonTeamMember {

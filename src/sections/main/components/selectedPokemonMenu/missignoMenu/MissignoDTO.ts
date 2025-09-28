@@ -1,5 +1,5 @@
 import { AbilityDto } from "../../../../../domain/dataEntities";
-import { PokemonType } from "../../../../../domain/enums";
+import { PokemonType } from "../../../../../domain/dataEntities/PokemonType";
 
 /* La razón de ser de esta clase es recibir cada pokemonData del servidor
 y mostrarlo en MissignoGrid sin cargar la lista de movimientos. Recuerda que 
