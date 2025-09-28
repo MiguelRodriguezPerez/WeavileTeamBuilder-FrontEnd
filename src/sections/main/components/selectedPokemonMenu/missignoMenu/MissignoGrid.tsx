@@ -27,8 +27,8 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
             {
                 data.data &&
                 filterMissignoGrid(data!.data, search)
-                    .map((pokemon) => (
-                        <MissignoCard dto={pokemon} key={pokemon.name} />
+                    .map((pokemon, index) => (
+                        <MissignoCard dto={pokemon} key={index} />
                 ))
             }
         </ul>

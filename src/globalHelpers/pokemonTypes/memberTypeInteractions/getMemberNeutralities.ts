@@ -1,15 +1,18 @@
-import { PokemonType } from "../../../domain/enums";
+import { PokemonType } from "../../../domain/dataEntities/PokemonType";
+import { PokemonTypeEnum } from "../../../domain/enums";
+import { getPokemonTypeEnumFromEntity } from "../memberTypeCoverage";
 import { getMemberInmunities, getMemberResistances, getMemberWeakness } from "./";
 
 
-export const getMemberNeutralities = (typeArr: PokemonType[]) => {
- 
-    let resultado: PokemonType[] = Object.values(PokemonType);
+export const getMemberNeutralities = (entityTypeArr: PokemonType[]) => {
 
-    let tiposCombinados: PokemonType[] = [
-        ...getMemberInmunities(typeArr),
-        ...getMemberResistances(typeArr),
-        ...getMemberWeakness(typeArr),
+
+    let resultado: PokemonTypeEnum[] = Object.values(PokemonTypeEnum);
+
+    let tiposCombinados: PokemonTypeEnum[] = [
+        ...getMemberInmunities(entityTypeArr),
+        ...getMemberResistances(entityTypeArr),
+        ...getMemberWeakness(entityTypeArr),
     ];
 
     resultado = resultado.filter(type => !tiposCombinados.includes(type));

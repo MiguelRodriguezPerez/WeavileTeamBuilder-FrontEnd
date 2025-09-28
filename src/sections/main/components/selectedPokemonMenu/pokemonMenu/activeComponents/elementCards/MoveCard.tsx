@@ -46,7 +46,7 @@ export const MoveCard = ({ moveProp }: { moveProp: MoveDto }) => {
             <h3 className={styles['move-heading']}>{toPascalCase(moveProp.name)}</h3>
             <div className={styles['move-img']}>
                 <img src={assignPokemonTypeToPng(moveProp.pokemon_type)}
-                    alt={`${moveProp.pokemon_type.toString()}.png`} />
+                    alt={`${moveProp.pokemon_type}.png`} />
                 <img src={assignMoveTypeToPng(moveProp.move_type)}
                     alt={`${moveProp.move_type.toString()}.png`} />
             </div>

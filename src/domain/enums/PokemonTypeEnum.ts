@@ -1,5 +1,5 @@
-export enum PokemonType {
-    
+export enum PokemonTypeEnum {
+
     FIRE = "FIRE",
     WATER = "WATER",
     GRASS = "GRASS",
@@ -21,4 +21,3 @@ export enum PokemonType {
 
 }
 /* No tengas en cuenta STELLAR */
-  

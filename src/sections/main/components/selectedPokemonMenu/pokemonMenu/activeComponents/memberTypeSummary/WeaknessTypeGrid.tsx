@@ -1,6 +1,6 @@
 import { PokemonTeamMember } from "../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../globalContext/WeavileStore";
-import { assignPokemonTypeToPng } from "../../../../../../../globalHelpers";
+import { assignPokemonTypeEnumToPng, assignPokemonTypeToPng } from "../../../../../../../globalHelpers";
 import { getMemberWeakness } from '../../../../../../../globalHelpers/pokemonTypes/memberTypeInteractions/getMemberWeakness';
 import { useWeaknessTypeGrid } from "../../../../../hooks/selectedPokemonMenu";
 
@@ -16,9 +16,9 @@ export const WeaknessTypeGrid = ({ pokemonName }: { pokemonName: string }) => {
 
     return (
         <>
-            <div className={ styles['type-summary-div'] }>
+            <div className={styles['type-summary-div']}>
                 <p>{pokemonName + ' is weak against'}</p>
-                <ul className={ typeGridStyles['type-coverage-grid'] }>
+                <ul className={typeGridStyles['type-coverage-grid']}>
                     {
                         getMemberWeakness(memberTypeList!).map((type) => (
                             <li key={type} >
@@ -33,7 +33,7 @@ export const WeaknessTypeGrid = ({ pokemonName }: { pokemonName: string }) => {
                                     :
                                     ''
                                 }>
-                                    <img src={assignPokemonTypeToPng(type)}
+                                    <img src={assignPokemonTypeEnumToPng(type)}
                                         style={{
                                             width: '100%',
                                             height: '100%',

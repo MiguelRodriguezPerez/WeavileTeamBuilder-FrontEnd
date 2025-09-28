@@ -1,3 +1,3 @@
 export * from './MoveType';
-export * from './PokemonType';
+export * from './PokemonTypeEnum';
 export * from './TeamType';

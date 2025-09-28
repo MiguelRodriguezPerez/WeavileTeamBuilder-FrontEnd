@@ -1,4 +1,4 @@
-import { PokemonType } from "../../../../domain/enums";
+import { PokemonTypeEnum } from "../../../../domain/enums";
 import { PokemonTeam, PokemonTeamMember } from "../../../../domain/teamMemberEntities";
 import { getMemberInmunities, getMemberResistances, getMemberWeakness } from "../../../../globalHelpers/pokemonTypes/memberTypeInteractions";
 
@@ -8,22 +8,22 @@ de uno son las resistencias o inmunidades de otro */
 /* Este método devuelve un map con los miembros que cubren al miembro a cubrir, 
 así como los tipos que le cubren */
 
-export const getWeaknessCoveredByTeamMembers = (member: PokemonTeamMember, team: PokemonTeam): Map<PokemonTeamMember, PokemonType[]> => {
+export const getWeaknessCoveredByTeamMembers = (member: PokemonTeamMember, team: PokemonTeam): Map<PokemonTeamMember, PokemonTypeEnum[]> => {
 
   const memberWeaknesses = getMemberWeakness(member.type_list!);
-  const result = new Map<PokemonTeamMember, PokemonType[]>();
+  const result = new Map<PokemonTeamMember, PokemonTypeEnum[]>();
 
   for (const teammate of team.teamMembers) {
-        if (teammate === member) continue; // Evitar compararse consigo mismo
+    if (teammate === member || teammate.type_list === undefined) continue; // Evitar compararse consigo mismo
+    
+    const resistances = getMemberResistances(teammate.type_list!);
+    const immunities = getMemberInmunities(teammate.type_list!);
 
-        const resistances = getMemberResistances(teammate.type_list!);
-        const immunities = getMemberInmunities(teammate.type_list!);
+    const covers = [...resistances, ...immunities].filter(type =>
+      memberWeaknesses.includes(type)
+    );
 
-        const covers = [...resistances, ...immunities].filter(type =>
-        memberWeaknesses.includes(type)
-        );
-
-        if (covers.length > 0) result.set(teammate, covers);
+    if (covers.length > 0) result.set(teammate, covers);
   }
 
   return result;

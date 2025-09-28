@@ -1,5 +1,5 @@
-import { AbilityDto, MoveDto } from '.'
-import { PokemonType } from '../enums';
+import { AbilityDto, MoveDto } from '.';
+import { PokemonType } from './PokemonType';
 
 export interface PokemonDataDTO {
 
