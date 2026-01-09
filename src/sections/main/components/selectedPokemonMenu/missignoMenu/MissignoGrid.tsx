@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getSVPokemonsRequest } from "../../../../../api/pokemonData";
+import { PokemonDataApiFactory } from "../../../../../../api/requests/pokemonDataApi";
 import { WeavileLoading } from "../../../../../ui/components";
 import { filterMissignoGrid } from "../../../helpers/missigno";
 import styles from '../../../styles/missignoMenu/missignoGrid.module.css';
@@ -8,9 +8,11 @@ import { MissignoCard } from "./missignoCard/MissignoCard";
 
 export const MissignoGrid = ({ search = '' }: { search: string }) => {
 
+    const pokemonDataApi = PokemonDataApiFactory();
+
     const { data, isLoading } = useQuery({
         queryKey: ['missignoGrid'],
-        queryFn: getSVPokemonsRequest,
+        queryFn: () => pokemonDataApi.allSVPokemon().then(res => res.data),
     });
 
     /* Endpoint correcto. Tienes que depurar el lado servidor */
@@ -25,11 +27,12 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
     return (
         <ul className={ styles['missigno-grid'] }>
             {
-                data.data &&
-                filterMissignoGrid(data!.data, search)
+                data &&
+                filterMissignoGrid(data, search)
                     .map((pokemon, index) => (
                         <MissignoCard dto={pokemon} key={index} />
                 ))
+                    
             }
         </ul>
     );
