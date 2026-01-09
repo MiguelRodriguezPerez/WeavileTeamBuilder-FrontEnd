@@ -79,7 +79,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/PokemonData"
+                  $ref: "#/components/schemas/MissignoDto"
   /natureData/getNatureByName/{name}:
     get:
       tags:
@@ -442,6 +442,52 @@ components:
         sprite:
           type: string
           format: byte
+    AbilityDto:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    MissignoDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        base_hp:
+          type: integer
+          format: int32
+        base_attack:
+          type: integer
+          format: int32
+        base_defense:
+          type: integer
+          format: int32
+        base_special_attack:
+          type: integer
+          format: int32
+        base_special_defense:
+          type: integer
+          format: int32
+        base_speed:
+          type: integer
+          format: int32
+        pc_sprite:
+          type: string
+          format: byte
+        type_list:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: "#/components/schemas/PokemonType"
+        ability_list:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: "#/components/schemas/AbilityDto"
     ItemDto:
       type: object
       properties:

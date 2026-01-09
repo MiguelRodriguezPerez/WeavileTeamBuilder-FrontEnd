@@ -1,11 +1,13 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { getPokemonByNameRequest } from "../../../../api/pokemonData";
+
+import { PokemonDataApiFactory } from '../../../../../api/requests/pokemonDataApi';
 import { PokemonTeam } from "../../../../domain/teamMemberEntities";
 import { toPascalCase } from '../../../../globalHelpers';
 
 export const useUpdateTeamCache = () => {
 
     const queryClient = useQueryClient();
+    const pokemonDataApi = PokemonDataApiFactory();
 
     /* El objetivo de esta función es que al cambiar de equipo se borre la cache de los miembros que no coinciden entre
     los dos equipos, así como solicitar la cache de los miembros del nuevo equipo que no coincidan con los del antiguo  */
@@ -41,7 +43,7 @@ export const useUpdateTeamCache = () => {
             namesToRequest.map(name =>
                 queryClient.prefetchQuery({
                     queryKey: ['pokemon', name],
-                    queryFn: () => getPokemonByNameRequest(name),
+                    queryFn: () => pokemonDataApi.getPokemonByName(name).then(res => res.data),
                     staleTime: 30 * 60 * 1000
                 })
             )

@@ -1,4 +1,4 @@
-import { getPokemonByNameRequest } from "../../../../api/pokemonData";
+import { PokemonDataApiFactory } from "../../../../../api/requests/pokemonDataApi";
 import { PokemonTeam, PokemonTeamMember } from "../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../globalContext/WeavileStore";
 import { convertPokemonDataToTeamMember as convertPokemonDataDTOToTeamMember } from "../../../../globalHelpers";
@@ -6,40 +6,43 @@ import { updateStoredTeam } from "../../../../globalHelpers/pokemonTeams/nonLogg
 
 export const useSelectedPokemonMember = () => {
 
+    const pokemonDataApi = PokemonDataApiFactory();
     const changeSelectedTeam = useWeavileStore(state => state.changeSelectedTeam);
     const changeSelectedPokemon = useWeavileStore(state => state.changeSelectedPokemon);
     const selectedTeam = useWeavileStore(state => state.selectedPokemonTeam!);
     const selectedMember = useWeavileStore(state => state.selectedPokemonMember);
 
     const updateMember = async (name: string) => {
-        const selectedMemberId: number = selectedMember!.id;
-        const pokemonRequest = await getPokemonByNameRequest(name);
-        
-        if (pokemonRequest.status === 200) {
-            const newMember: PokemonTeamMember = 
-                await convertPokemonDataDTOToTeamMember(pokemonRequest.data, selectedMemberId);
-
-            /* Para almacenar los cambios en el equipo seleccionado, modificas el array original
-            del equipo seleccionado al que deseas cambiar, lo almacenas en una variable y luego lo usas
-            en el objeto que representa el equipo actualizado. */
-            selectedTeam.teamMembers[selectedMemberId] = newMember;
-            const updatedMembers: PokemonTeamMember[] = selectedTeam.teamMembers;
+        try {
+            const selectedMemberId: number = selectedMember!.id;
             
-            const updatedTeam: PokemonTeam = {
-                id : selectedTeam!.id,
-                name: selectedTeam!.name,
-                teamMembers: updatedMembers,
-                teamType: selectedTeam!.teamType,
-            }
+            const response = await pokemonDataApi.getPokemonByName(name);
+            /* Este tipo es void y aun así funciona en await convertPokemonDataDTOToTeamMember.
+            No entiendo nada */
+            const pokemonData: void = response.data;
+            
+            if (response.status === 200 && pokemonData) {
+                const newMember: PokemonTeamMember = await convertPokemonDataDTOToTeamMember(
+                    pokemonData, 
+                    selectedMemberId
+                );
 
-            updateStoredTeam(updatedTeam);
-            changeSelectedTeam(updatedTeam);
-            changeSelectedPokemon(newMember);
+                const updatedMembers = [...selectedTeam.teamMembers];
+                updatedMembers[selectedMemberId] = newMember;
+                
+                const updatedTeam: PokemonTeam = {
+                    ...selectedTeam,
+                    teamMembers: updatedMembers,
+                }
+
+                updateStoredTeam(updatedTeam);
+                changeSelectedTeam(updatedTeam);
+                changeSelectedPokemon(newMember);
+            }
+        } catch (error) {
+            console.error("Error al obtener el Pokemon:", error);
         }
     }
 
-
-    return {
-        updateMember
-    }
+    return { updateMember }
 }
