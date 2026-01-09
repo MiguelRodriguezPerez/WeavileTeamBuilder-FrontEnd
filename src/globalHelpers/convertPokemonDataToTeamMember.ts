@@ -1,11 +1,11 @@
-import { getNatureByNameRequest } from "../api/requestNatures/getNatureByNameRequest";
+import { NatureApiFactory } from '../../api/requests/natureApi';
 import { PokemonDataDTO } from "../domain/dataEntities";
 import { PokemonTeamMember } from "../domain/teamMemberEntities";
 
 
 export const convertPokemonDataToTeamMember = async (data: PokemonDataDTO, position: number): Promise<PokemonTeamMember> => {
-    console.log(data);
-    
+
+    const natureApi = NatureApiFactory();
 
     return {
         id: position,
@@ -40,6 +40,6 @@ export const convertPokemonDataToTeamMember = async (data: PokemonDataDTO, posit
         item: null,
         type_list: data.type_list,
         tera_type: null,
-        nature: (await getNatureByNameRequest('hardy')).data,
+        nature: (await natureApi.getNatureByName('hardy')).data,
     };
 };

@@ -1,1 +1,1 @@
-export * from './useSelectPokemonMember';
+export * from './useAddNewPokemonMember';

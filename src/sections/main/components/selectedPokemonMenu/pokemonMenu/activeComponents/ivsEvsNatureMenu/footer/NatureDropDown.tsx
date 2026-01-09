@@ -1,30 +1,29 @@
 import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
-import { useEffect, useState } from "react";
-import { getAllNaturesRequest } from "../../../../../../../../api/requestNatures";
+import { useQuery } from "@tanstack/react-query";
 import { NatureDto, PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
-import { getNatureTextDisplay } from "../../../../../../helpers/memberIvsEvsNature";
 import { useUpdateTeam } from "../../../../../../../../globalHooks/pokemonTeams";
+import { getNatureTextDisplay } from "../../../../../../helpers/memberIvsEvsNature";
+import { natureDataApi } from '../../../../../../../../api/requestNatures/natureDataApi';
+import { NatureApiFactory } from "../../../../../../../../../api/requests/natureApi";
 
 
 export const NatureDropDown = () => {
 
     const selectedMember: PokemonTeamMember = useWeavileStore(state => state.selectedPokemonMember!);
     const { updateTeamWrapper } = useUpdateTeam();
+    const natureApi = NatureApiFactory();
 
-    const [natureList, setNatureList] = useState<NatureDto[]>([]);
-    useEffect(() => {
-        const asyncWrapper = async () => {
-            const resultado = await getAllNaturesRequest();
-            if (resultado.status === 200) setNatureList(resultado.data);
-        }
-
-        asyncWrapper();
-    }, []);
+    const { data, isLoading } = useQuery({
+        queryKey: ['natureList'],
+        queryFn: () => natureApi.getAllNatures().then(res => res.data)
+    })
 
     const changeNatureEvent = (event: SelectChangeEvent): void => {
         const updatedNatureString: string = event.target.value;
-        const updatedNature: NatureDto = natureList.filter((nature) => nature.name === updatedNatureString)[0];
+        if (!updatedNatureString) return;
+
+        const updatedNature: NatureDto = data!.filter((nature) => nature.name === updatedNatureString)[0];
 
         const updatedMember: PokemonTeamMember = {
             ...selectedMember,
@@ -34,7 +33,7 @@ export const NatureDropDown = () => {
     }
     // atk bien truncar,  hp también
     return (
-        natureList && natureList.length > 0 &&
+        !isLoading && data &&
         <Select
             value={selectedMember.nature!.name}
             onChange={changeNatureEvent}
@@ -70,8 +69,8 @@ export const NatureDropDown = () => {
             }}
         >
             {
-                natureList !== null &&
-                natureList.map((nature) =>
+                data !== null &&
+                data.map((nature) =>
                 (<MenuItem
                     key={nature.name}
                     value={nature.name}
