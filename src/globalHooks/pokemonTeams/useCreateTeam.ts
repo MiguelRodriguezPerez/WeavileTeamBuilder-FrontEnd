@@ -1,11 +1,13 @@
 import { PokemonTeam } from "../../domain/teamMemberEntities";
 import useWeavileStore from "../../globalContext/WeavileStore";
-import { createNewTeamRequest } from "../../sections/main/api/nonLoggedUsers";
+
 import { storeFirstPokemonTeam, storePokemonTeam } from "../../globalHelpers/pokemonTeams/nonLoggedUsers";
+import { PokemonTeamApiFactory } from '../../../api/requests/teamApi';
 
 
 export const useCreateTeam = () => {
  
+    const teamApi = PokemonTeamApiFactory();
     const changeSelectedTeam = useWeavileStore((state) => state.changeSelectedTeam);     
     const changeSelectedMember = useWeavileStore((state) => state.changeSelectedPokemon);
 
@@ -14,7 +16,7 @@ export const useCreateTeam = () => {
     Recuerda la race condition del modo estricto */
 
     const createFirstTeam = async(): Promise<PokemonTeam> => {
-            const response = await createNewTeamRequest(); // Server side works fine
+            const response = await teamApi.createNewTeam(); // Server side works fine
 
             if (response.status === 201) {
                 const firstTeam: PokemonTeam = storeFirstPokemonTeam(response.data);
@@ -27,7 +29,7 @@ export const useCreateTeam = () => {
         };
 
         const createTeam = async(): Promise<PokemonTeam> => {
-            const response = await createNewTeamRequest(); // Server side works fine
+            const response = await teamApi.createNewTeam(); // Server side works fine
 
             if (response.status === 201) {
                 const firstTeam: PokemonTeam = storePokemonTeam(response.data);
