@@ -30,6 +30,7 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
                     .map((pokemon, index) => (
                         <MissignoCard dto={pokemon} key={index} />
                 ))
+                    
             }
         </ul>
     );

@@ -6,3 +6,5 @@ export const pokemonDataApi: AxiosInstance = axios.create({
         "Content-Type": 'application/json'
     }
 })
+
+
