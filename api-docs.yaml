@@ -10,7 +10,7 @@ tags:
   description: Endpoints related to item data
 - name: Nature
   description: Endpoints related to pokemon natures
-- name: CRUD Pokemon Teams
+- name: PokemonTeam
   description: Endpoints related to Pokemon Teams CRUD actions
 - name: Pokemon Data
   description: Endpoints to return all relevant data about pokemon
@@ -18,7 +18,7 @@ paths:
   /nonLoggedUsers/pokemonTeam/createNewTeam:
     post:
       tags:
-      - CRUD Pokemon Teams
+      - PokemonTeam
       summary: Create a new pokemon team
       description: Requests to create a new pokemon team. Will retrieve an empty team
         if succesfull

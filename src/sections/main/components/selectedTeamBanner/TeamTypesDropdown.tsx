@@ -1,11 +1,13 @@
 import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import { TeamType } from "../../../../domain/enums/TeamType";
 import useWeavileStore from "../../../../globalContext/WeavileStore";
-import { createNewTeamRequest } from "../../api/nonLoggedUsers";
 import { deletePokemonTeam, storeFirstPokemonTeam } from "../../../../globalHelpers/pokemonTeams/nonLoggedUsers";
+import { PokemonTeamApi, PokemonTeamApiFactory } from "../../../../../api/requests/teamApi";
 
 
 export const TeamTypesDropdown = () => {
+
+    const pokemonTeamApi = PokemonTeamApiFactory();
 
     /* Se pueden declarar en una sola línea pero no conseguí que shallow funcionará */
     const current_team_type = useWeavileStore((state) => state.selectedPokemonTeam);
@@ -25,7 +27,7 @@ export const TeamTypesDropdown = () => {
             deletePokemonTeam(current_team_type!);
             deleteSelectedTeam();
 
-            const newTeam = await createNewTeamRequest();
+            const newTeam = await pokemonTeamApi.createNewTeam();
             storeFirstPokemonTeam(newTeam.data);
             updateSelectedTeam(newTeam.data);
         }

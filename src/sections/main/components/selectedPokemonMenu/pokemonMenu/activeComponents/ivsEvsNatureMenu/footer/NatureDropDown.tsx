@@ -1,11 +1,10 @@
 import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
+import { NatureApiFactory } from "../../../../../../../../../api/requests/natureApi";
 import { NatureDto, PokemonTeamMember } from "../../../../../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../../../../../globalContext/WeavileStore";
 import { useUpdateTeam } from "../../../../../../../../globalHooks/pokemonTeams";
 import { getNatureTextDisplay } from "../../../../../../helpers/memberIvsEvsNature";
-import { natureDataApi } from '../../../../../../../../api/requestNatures/natureDataApi';
-import { NatureApiFactory } from "../../../../../../../../../api/requests/natureApi";
 
 
 export const NatureDropDown = () => {
