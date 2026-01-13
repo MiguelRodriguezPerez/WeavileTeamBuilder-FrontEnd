@@ -3,8 +3,8 @@ import globalAxios from 'axios';
 import type { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, createRequestFunction, setSearchParams, toPathString } from '../common';
 import type { RequestArgs } from '../base';
+import { DUMMY_BASE_URL, createRequestFunction, setSearchParams, toPathString } from '../common';
 // @ts-ignore
 import { PokemonTeam } from '../../src/domain/teamMemberEntities/PokemonTeam';
 import { BASE_PATH, BaseAPI, operationServerMap } from '../base';
