@@ -1,6 +1,6 @@
 @font-face {
   font-family: "WeavileFont";
-  font-display: swap;
+  font-display: block;
   src: url("./assets/fonts/Tajawal/Tajawal-Medium.ttf") format("truetype");
 }
 
@@ -34,6 +34,8 @@ body {
   #root > *{
       margin-left: 1vw;
       margin-right: 1vw;
+
+      font-size: 18px;
   }
 
 }

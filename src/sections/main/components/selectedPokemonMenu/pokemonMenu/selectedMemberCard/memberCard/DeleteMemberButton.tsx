@@ -38,7 +38,7 @@ export const DeleteMemberButton = () => {
                     backgroundColor: '#da2c1f',
                     textTransform: 'none',
                     color: '#ffffff',
-                    padding: '10px 50px',
+                    padding: '10px',
                     fontSize: '0.95rem',
                     borderRadius: '12px',
                     margin: '0%',
