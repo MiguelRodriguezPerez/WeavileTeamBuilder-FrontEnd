@@ -19,7 +19,6 @@
     .member-item > p + p, .member-ability > p + p {
         margin: 3% auto;
         padding: 5px 1%;
-        width: 75%;
         
     }
     
