@@ -5,6 +5,7 @@ import useWeavileStore from "../../../../globalContext/WeavileStore";
 import { deletePokemonTeam, storeFirstPokemonTeam } from "../../../../globalHelpers/pokemonTeams/nonLoggedUsers";
 
 
+
 export const TeamTypesDropdown = () => {
 
     const pokemonTeamApi = PokemonTeamApiFactory();

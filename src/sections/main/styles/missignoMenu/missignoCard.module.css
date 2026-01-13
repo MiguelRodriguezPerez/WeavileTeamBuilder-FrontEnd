@@ -9,6 +9,8 @@
     cursor: pointer;
 }
 
+
+
 .missigno-card:hover {
     border: solid 1px  rgb(244, 241, 241);
     border-radius: 8px;
@@ -17,13 +19,15 @@
 /* Las dimensiones de los iconos de pokemón y missignoIcon no coinciden,
 así que para alinearlos modifique los márgenes. Los márgenes absolutos son intencionales   */ 
 
-.missigno-icon {
-    margin : -5px 15px -5px;
-}
 
 .missigno-icon-defined {
     margin-top: -20px;
 }
+
+.missigno-icon-undefined {
+    margin-left: 10px;
+}
+
 
 .missigno-types-list {
     display: flex;
@@ -119,9 +123,14 @@ así que para alinearlos modifique los márgenes. Los márgenes absolutos son in
         font-size: 1.1rem;
     }
 
-    .missigno-icon-defined {
-        margin: 0px;
+    .missigno-icon-undefined{
+        margin-left: 0px;
     }
+
+    .missigno-icon-defined {
+        margin-left: -10px;
+    }
+
 
     .missigno-icon {
         margin: 0px;
