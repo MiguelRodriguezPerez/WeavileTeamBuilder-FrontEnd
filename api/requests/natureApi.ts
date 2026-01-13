@@ -7,7 +7,7 @@ import type { RequestArgs } from './base';
 import { DUMMY_BASE_URL, assertParamExists, createRequestFunction, setSearchParams, toPathString } from '../common';
 // @ts-ignore
 import { NatureDto } from '../../src/domain/teamMemberEntities/NatureDto';
-import { BASE_PATH, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, BaseAPI, operationServerMap } from '../base';
 
 /**
  * NatureApi - axios parameter creator

@@ -10,5 +10,17 @@
 @media screen and (max-width: 1400px) {
     .missigno-grid {
         gap: 15px 0%;
-    }
+
+        margin-left: -5vw;
+  }    
+}
+
+@media screen and (max-width: 700px) {
+    
+    .missigno-grid {
+        gap: 15px 0%;
+
+        margin-left: 0vw;
+  }  
+    
 }

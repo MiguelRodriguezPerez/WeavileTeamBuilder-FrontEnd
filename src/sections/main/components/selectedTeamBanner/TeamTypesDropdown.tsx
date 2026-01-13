@@ -2,7 +2,7 @@ import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import { TeamType } from "../../../../domain/enums/TeamType";
 import useWeavileStore from "../../../../globalContext/WeavileStore";
 import { deletePokemonTeam, storeFirstPokemonTeam } from "../../../../globalHelpers/pokemonTeams/nonLoggedUsers";
-import { PokemonTeamApi, PokemonTeamApiFactory } from "../../../../../api/requests/teamApi";
+import { PokemonTeamApiFactory } from "../../../../../api/requests/teamApi";
 
 
 export const TeamTypesDropdown = () => {

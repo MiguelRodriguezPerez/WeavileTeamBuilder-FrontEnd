@@ -7,7 +7,7 @@ import { DUMMY_BASE_URL, createRequestFunction, setSearchParams, toPathString } 
 import type { RequestArgs } from '../base';
 // @ts-ignore
 import { PokemonTeam } from '../../src/domain/teamMemberEntities/PokemonTeam';
-import { BASE_PATH, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, BaseAPI, operationServerMap } from '../base';
 
 
 /**
