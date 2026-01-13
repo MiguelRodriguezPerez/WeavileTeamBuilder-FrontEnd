@@ -16,6 +16,6 @@
 
 @media screen and (max-width: 700px) {
     .weavile-button, .weavile-button-outlined {
-        padding: 5px 10px;
+        padding: 10px 10px 5px;
     }
 }
