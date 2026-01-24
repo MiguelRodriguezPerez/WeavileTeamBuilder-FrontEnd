@@ -22,8 +22,8 @@ export const PokemonDataApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        allSVPokemon: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/pokemonData/allSVPokemon`;
+        allPokemon: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/pokemonData/allMissignoGridPokemonDto`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -96,7 +96,7 @@ export const PokemonDataApiFp = function(configuration?: Configuration) {
          * @throws {RequiredError}
          */
         async allSVPokemon(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MissignoDTO>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.allSVPokemon(options);
+            const localVarAxiosArgs = await localVarAxiosParamCreator.allPokemon(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PokemonDataApi.allSVPokemon']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);

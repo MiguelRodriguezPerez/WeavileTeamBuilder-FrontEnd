@@ -8,11 +8,11 @@ export const MissignoTypes = ({ typeList }: { typeList: PokemonType[] }) => {
         <span className={styles['missigno-types-list']}>
             {
                 typeList.map((type, index) => (
-                   <img 
-                    src={ getImgSrcFromBase64(type.sprite) } 
-                    alt={`${type.nombre.toLowerCase()}.png`} 
-                    key={index} 
-                />
+                    <img
+                        src={getImgSrcFromBase64(type.sprite)}
+                        alt={`${type.name.toLowerCase()}.png`}
+                        key={index}
+                    />
                 ))
             }
         </span>
