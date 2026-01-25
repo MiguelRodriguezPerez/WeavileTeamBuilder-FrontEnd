@@ -3,6 +3,7 @@ import { PokemonType } from './PokemonType';
 
 export interface PokemonDataDTO {
 
+    id: number;
     name: string;
 
     front_default_sprite: string; // Sospechoso de fallar
