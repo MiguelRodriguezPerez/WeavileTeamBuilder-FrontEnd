@@ -1,4 +1,4 @@
-# PokemonType
+# ItemData
 
 
 ## Properties
@@ -6,18 +6,20 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [optional] [default to undefined]
+**image_sprite** | **string** |  | [optional] [default to undefined]
 **name** | **string** |  | [optional] [default to undefined]
-**sprite** | **string** |  | [optional] [default to undefined]
+**description** | **string** |  | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { PokemonType } from './api';
+import { ItemData } from './api';
 
-const instance: PokemonType = {
+const instance: ItemData = {
     id,
+    image_sprite,
     name,
-    sprite,
+    description,
 };
 ```
 

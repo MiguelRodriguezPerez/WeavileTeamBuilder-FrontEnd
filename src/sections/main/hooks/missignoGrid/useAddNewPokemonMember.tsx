@@ -12,11 +12,11 @@ export const useAddNewPokemonMember = () => {
     const selectedTeam = useWeavileStore(state => state.selectedPokemonTeam!);
     const selectedMember = useWeavileStore(state => state.selectedPokemonMember);
 
-    const updateMember = async (name: string) => {
+    const updateMember = async (pokemonDataId: number) => {
         try {
             const selectedMemberId: number = selectedMember!.id;
 
-            const response = await pokemonDataApi.getPokemonByName(name);
+            const response = await pokemonDataApi.getPokemonDataById(pokemonDataId);
             /* Este tipo es void y aun así funciona en await convertPokemonDataDTOToTeamMember.
             No entiendo nada */
             const pokemonData: void = response.data;

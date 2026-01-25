@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [optional] [default to undefined]
-**name** | **string** |  | [optional] [default to undefined]
+**nombre** | **string** |  | [optional] [default to undefined]
 **sprite** | **string** |  | [optional] [default to undefined]
 
 ## Example
@@ -16,7 +16,7 @@ import { PokemonType } from './api';
 
 const instance: PokemonType = {
     id,
-    name,
+    nombre,
     sprite,
 };
 ```

@@ -3,26 +3,25 @@ import globalAxios from 'axios';
 import type { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import type { RequestArgs } from '../base';
+import type { RequestArgs } from './base';
 import { DUMMY_BASE_URL, assertParamExists, createRequestFunction, setSearchParams, toPathString } from '../common';
 // @ts-ignore
-import { ItemDto } from '../../src/domain/dataEntities';
+import { NatureDto } from '../../src/domain/teamMemberEntities/NatureDto';
 import { BASE_PATH, BaseAPI, operationServerMap } from '../base';
 
-
 /**
- * ItemApi - axios parameter creator
+ * NatureApi - axios parameter creator
  */
-export const ItemApiAxiosParamCreator = function (configuration?: Configuration) {
+export const NatureApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Returns a list with all items
-         * @summary Get all items
+         * Get a list with all pokemon natures
+         * @summary Get all natures
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllItems: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/itemData/allItems`;
+        getAllNatures: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/natureData/getAllNatures`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -46,17 +45,17 @@ export const ItemApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Returns an item using an string as parameter
-         * @summary Get item by name
-         * @param {string} itemName The item name to search
+         * Returns a nature based on string parameter
+         * @summary Get a nature by name parameter
+         * @param {string} name 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemByName: async (itemName: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'itemName' is not null or undefined
-            assertParamExists('getItemByName', 'itemName', itemName)
-            const localVarPath = `/itemData/getItemByName/{itemName}`
-                .replace(`{${"itemName"}}`, encodeURIComponent(String(itemName)));
+        getNatureByName: async (name: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('getNatureByName', 'name', name)
+            const localVarPath = `/natureData/getNatureByName/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -83,89 +82,89 @@ export const ItemApiAxiosParamCreator = function (configuration?: Configuration)
 };
 
 /**
- * ItemApi - functional programming interface
+ * NatureApi - functional programming interface
  */
-export const ItemApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ItemApiAxiosParamCreator(configuration)
+export const NatureApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = NatureApiAxiosParamCreator(configuration)
     return {
         /**
-         * Returns a list with all items
-         * @summary Get all items
+         * Get a list with all pokemon natures
+         * @summary Get all natures
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllItems(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ItemDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllItems(options);
+        async getAllNatures(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NatureDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllNatures(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ItemApi.getAllItems']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NatureApi.getAllNatures']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Returns an item using an string as parameter
-         * @summary Get item by name
-         * @param {string} itemName The item name to search
+         * Returns a nature based on string parameter
+         * @summary Get a nature by name parameter
+         * @param {string} name 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getItemByName(itemName: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ItemDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getItemByName(itemName, options);
+        async getNatureByName(name: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NatureDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNatureByName(name, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ItemApi.getItemByName']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NatureApi.getNatureByName']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * ItemApi - factory interface
+ * NatureApi - factory interface
  */
-export const ItemApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ItemApiFp(configuration)
+export const NatureApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = NatureApiFp(configuration)
     return {
         /**
-         * Returns a list with all items
-         * @summary Get all items
+         * Get a list with all pokemon natures
+         * @summary Get all natures
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAllItems(options?: RawAxiosRequestConfig): AxiosPromise<Array<ItemDto>> {
-            return localVarFp.getAllItems(options).then((request) => request(axios, basePath));
+        getAllNatures(options?: RawAxiosRequestConfig): AxiosPromise<Array<NatureDto>> {
+            return localVarFp.getAllNatures(options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns an item using an string as parameter
-         * @summary Get item by name
-         * @param {string} itemName The item name to search
+         * Returns a nature based on string parameter
+         * @summary Get a nature by name parameter
+         * @param {string} name 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getItemByName(itemName: string, options?: RawAxiosRequestConfig): AxiosPromise<ItemDto> {
-            return localVarFp.getItemByName(itemName, options).then((request) => request(axios, basePath));
+        getNatureByName(name: string, options?: RawAxiosRequestConfig): AxiosPromise<NatureDto> {
+            return localVarFp.getNatureByName(name, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * ItemApi - object-oriented interface
+ * NatureApi - object-oriented interface
  */
-export class ItemApi extends BaseAPI {
+export class NatureApi extends BaseAPI {
     /**
-     * Returns a list with all items
-     * @summary Get all items
+     * Get a list with all pokemon natures
+     * @summary Get all natures
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public getAllItems(options?: RawAxiosRequestConfig) {
-        return ItemApiFp(this.configuration).getAllItems(options).then((request) => request(this.axios, this.basePath));
+    public getAllNatures(options?: RawAxiosRequestConfig) {
+        return NatureApiFp(this.configuration).getAllNatures(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Returns an item using an string as parameter
-     * @summary Get item by name
-     * @param {string} itemName The item name to search
+     * Returns a nature based on string parameter
+     * @summary Get a nature by name parameter
+     * @param {string} name 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public getItemByName(itemName: string, options?: RawAxiosRequestConfig) {
-        return ItemApiFp(this.configuration).getItemByName(itemName, options).then((request) => request(this.axios, this.basePath));
+    public getNatureByName(name: string, options?: RawAxiosRequestConfig) {
+        return NatureApiFp(this.configuration).getNatureByName(name, options).then((request) => request(this.axios, this.basePath));
     }
 }

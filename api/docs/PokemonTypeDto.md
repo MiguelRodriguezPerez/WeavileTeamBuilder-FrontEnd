@@ -1,4 +1,4 @@
-# PokemonType
+# PokemonTypeDto
 
 
 ## Properties
@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { PokemonType } from './api';
+import { PokemonTypeDto } from './api';
 
-const instance: PokemonType = {
+const instance: PokemonTypeDto = {
     id,
     name,
     sprite,

@@ -1,23 +1,21 @@
-# PokemonType
+# WeavileErrorResponse
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [optional] [default to undefined]
-**name** | **string** |  | [optional] [default to undefined]
-**sprite** | **string** |  | [optional] [default to undefined]
+**message** | **string** |  | [optional] [default to undefined]
+**date** | **string** |  | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { PokemonType } from './api';
+import { WeavileErrorResponse } from './api';
 
-const instance: PokemonType = {
-    id,
-    name,
-    sprite,
+const instance: WeavileErrorResponse = {
+    message,
+    date,
 };
 ```
 

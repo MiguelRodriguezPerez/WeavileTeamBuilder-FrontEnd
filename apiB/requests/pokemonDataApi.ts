@@ -10,6 +10,7 @@ import { BASE_PATH, BaseAPI, RequiredError, operationServerMap } from '../base';
 import { MissignoDTO } from '../../src/sections/main/components/selectedPokemonMenu/missignoMenu/MissignoDTO';
 
 
+
 /**
  * PokemonDataApi - axios parameter creator
  */
@@ -17,11 +18,11 @@ export const PokemonDataApiAxiosParamCreator = function (configuration?: Configu
     return {
         /**
          * Returns a list of pokemon data which are available in pokemon sv
-         * @summary Retrieve all available pokemon for MissignoCard
+         * @summary Retrieve all available pokemon in sv
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        allMissignoGridPokemonDto: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        allPokemon: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/pokemonData/allMissignoGridPokemonDto`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -46,17 +47,17 @@ export const PokemonDataApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * Request all data about a pokemom (related entities too) using JDBC by id
-         * @summary Get pokemonData by id using JDBC
-         * @param {number} id 
+         * Request a certain pokemonData by name
+         * @summary Get pokemonData by name
+         * @param {string} name 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPokemonDataById: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getPokemonDataById', 'id', id)
-            const localVarPath = `/pokemonData/getPokemonById/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+        getPokemonByName: async (name: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('getPokemonByName', 'name', name)
+            const localVarPath = `/pokemonData/getPokemonByName/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -90,27 +91,27 @@ export const PokemonDataApiFp = function(configuration?: Configuration) {
     return {
         /**
          * Returns a list of pokemon data which are available in pokemon sv
-         * @summary Retrieve all available pokemon for MissignoCard
+         * @summary Retrieve all available pokemon in sv
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async allMissignoGridPokemonDto(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MissignoDTO>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.allMissignoGridPokemonDto(options);
+        async allSVPokemon(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MissignoDTO>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.allPokemon(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PokemonDataApi.allMissignoGridPokemonDto']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PokemonDataApi.allSVPokemon']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Request all data about a pokemom (related entities too) using JDBC by id
-         * @summary Get pokemonData by id using JDBC
-         * @param {number} id 
+         * Request a certain pokemonData by name
+         * @summary Get pokemonData by name
+         * @param {string} name 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPokemonDataById(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPokemonDataById(id, options);
+        async getPokemonByName(name: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPokemonByName(name, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PokemonDataApi.getPokemonDataById']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PokemonDataApi.getPokemonByName']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -124,22 +125,22 @@ export const PokemonDataApiFactory = function (configuration?: Configuration, ba
     return {
         /**
          * Returns a list of pokemon data which are available in pokemon sv
-         * @summary Retrieve all available pokemon for MissignoCard
+         * @summary Retrieve all available pokemon in sv
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        allMissignoGridPokemonDto(options?: RawAxiosRequestConfig): AxiosPromise<Array<MissignoDTO>> {
-            return localVarFp.allMissignoGridPokemonDto(options).then((request) => request(axios, basePath));
+        allSVPokemon(options?: RawAxiosRequestConfig): AxiosPromise<Array<MissignoDTO>> {
+            return localVarFp.allSVPokemon(options).then((request) => request(axios, basePath));
         },
         /**
-         * Request all data about a pokemom (related entities too) using JDBC by id
-         * @summary Get pokemonData by id using JDBC
-         * @param {number} id 
+         * Request a certain pokemonData by name
+         * @summary Get pokemonData by name
+         * @param {string} name 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPokemonDataById(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.getPokemonDataById(id, options).then((request) => request(axios, basePath));
+        getPokemonByName(name: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.getPokemonByName(name, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -150,22 +151,22 @@ export const PokemonDataApiFactory = function (configuration?: Configuration, ba
 export class PokemonDataApi extends BaseAPI {
     /**
      * Returns a list of pokemon data which are available in pokemon sv
-     * @summary Retrieve all available pokemon for MissignoCard
+     * @summary Retrieve all available pokemon in sv
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public allMissignoGridPokemonDto(options?: RawAxiosRequestConfig) {
-        return PokemonDataApiFp(this.configuration).allMissignoGridPokemonDto(options).then((request) => request(this.axios, this.basePath));
+    public allSVPokemon(options?: RawAxiosRequestConfig) {
+        return PokemonDataApiFp(this.configuration).allSVPokemon(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Request all data about a pokemom (related entities too) using JDBC by id
-     * @summary Get pokemonData by id using JDBC
-     * @param {number} id 
+     * Request a certain pokemonData by name
+     * @summary Get pokemonData by name
+     * @param {string} name 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public getPokemonDataById(id: number, options?: RawAxiosRequestConfig) {
-        return PokemonDataApiFp(this.configuration).getPokemonDataById(id, options).then((request) => request(this.axios, this.basePath));
+    public getPokemonByName(name: string, options?: RawAxiosRequestConfig) {
+        return PokemonDataApiFp(this.configuration).getPokemonByName(name, options).then((request) => request(this.axios, this.basePath));
     }
 }

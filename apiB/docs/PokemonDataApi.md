@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost:9002*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**allMissignoGridPokemonDto**](#allmissignogridpokemondto) | **GET** /pokemonData/allMissignoGridPokemonDto | Retrieve all available pokemon for MissignoCard|
-|[**getPokemonDataById**](#getpokemondatabyid) | **GET** /pokemonData/getPokemonById/{id} | Get pokemonData by id using JDBC|
+|[**allSVPokemon**](#allsvpokemon) | **GET** /pokemonData/allSVPokemon | Retrieve all available pokemon in sv|
+|[**getPokemonByName**](#getpokemonbyname) | **GET** /pokemonData/getPokemonByName/{name} | Get pokemonData by name|
 
-# **allMissignoGridPokemonDto**
-> Array<MissignoDto> allMissignoGridPokemonDto()
+# **allSVPokemon**
+> Array<PokemonData> allSVPokemon()
 
 Returns a list of pokemon data which are available in pokemon sv
 
@@ -23,7 +23,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new PokemonDataApi(configuration);
 
-const { status, data } = await apiInstance.allMissignoGridPokemonDto();
+const { status, data } = await apiInstance.allSVPokemon();
 ```
 
 ### Parameters
@@ -32,7 +32,7 @@ This endpoint does not have any parameters.
 
 ### Return type
 
-**Array<MissignoDto>**
+**Array<PokemonData>**
 
 ### Authorization
 
@@ -52,10 +52,10 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getPokemonDataById**
-> getPokemonDataById()
+# **getPokemonByName**
+> getPokemonByName()
 
-Request all data about a pokemom (related entities too) using JDBC by id
+Request a certain pokemonData by name
 
 ### Example
 
@@ -68,10 +68,10 @@ import {
 const configuration = new Configuration();
 const apiInstance = new PokemonDataApi(configuration);
 
-let id: number; // (default to undefined)
+let name: string; // (default to undefined)
 
-const { status, data } = await apiInstance.getPokemonDataById(
-    id
+const { status, data } = await apiInstance.getPokemonByName(
+    name
 );
 ```
 
@@ -79,7 +79,7 @@ const { status, data } = await apiInstance.getPokemonDataById(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **id** | [**number**] |  | defaults to undefined|
+| **name** | [**string**] |  | defaults to undefined|
 
 
 ### Return type

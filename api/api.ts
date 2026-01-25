@@ -13,111 +13,19 @@
  */
 
 
-import type { AxiosInstance, AxiosPromise, RawAxiosRequestConfig } from 'axios';
-import globalAxios from 'axios';
 import type { Configuration } from './configuration';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
+import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from './common';
 import type { RequestArgs } from './base';
-import { DUMMY_BASE_URL, assertParamExists, createRequestFunction, setSearchParams, toPathString } from './common';
 // @ts-ignore
-import { ItemDto } from '../src/domain/dataEntities';
-import { NatureDto } from '../src/domain/teamMemberEntities/NatureDto';
-import { PokemonTeam } from '../src/domain/teamMemberEntities/PokemonTeam';
-import { BASE_PATH, BaseAPI, RequiredError, operationServerMap } from './base';
+import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 
-/**
- * CRUDPokemonTeamsApi - axios parameter creator
- */
-export const CRUDPokemonTeamsApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * Requests to create a new pokemon team. Will retrieve an empty team if succesfull
-         * @summary Create a new pokemon team
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createNewTeam: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/nonLoggedUsers/pokemonTeam/createNewTeam`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
 
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
 
-            localVarHeaderParameter['Accept'] = '*/*';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * CRUDPokemonTeamsApi - functional programming interface
- */
-export const CRUDPokemonTeamsApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = CRUDPokemonTeamsApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * Requests to create a new pokemon team. Will retrieve an empty team if succesfull
-         * @summary Create a new pokemon team
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createNewTeam(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PokemonTeam>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNewTeam(options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CRUDPokemonTeamsApi.createNewTeam']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-    }
-};
-
-/**
- * CRUDPokemonTeamsApi - factory interface
- */
-export const CRUDPokemonTeamsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = CRUDPokemonTeamsApiFp(configuration)
-    return {
-        /**
-         * Requests to create a new pokemon team. Will retrieve an empty team if succesfull
-         * @summary Create a new pokemon team
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createNewTeam(options?: RawAxiosRequestConfig): AxiosPromise<PokemonTeam> {
-            return localVarFp.createNewTeam(options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * CRUDPokemonTeamsApi - object-oriented interface
- */
-export class CRUDPokemonTeamsApi extends BaseAPI {
-    /**
-     * Requests to create a new pokemon team. Will retrieve an empty team if succesfull
-     * @summary Create a new pokemon team
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createNewTeam(options?: RawAxiosRequestConfig) {
-        return CRUDPokemonTeamsApiFp(this.configuration).createNewTeam(options).then((request) => request(this.axios, this.basePath));
-    }
-}
 
 
 

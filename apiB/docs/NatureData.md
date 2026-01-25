@@ -1,4 +1,4 @@
-# PokemonType
+# NatureData
 
 
 ## Properties
@@ -7,17 +7,19 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [optional] [default to undefined]
 **name** | **string** |  | [optional] [default to undefined]
-**sprite** | **string** |  | [optional] [default to undefined]
+**increased_stat** | **string** |  | [optional] [default to undefined]
+**decreased_stat** | **string** |  | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { PokemonType } from './api';
+import { NatureData } from './api';
 
-const instance: PokemonType = {
+const instance: NatureData = {
     id,
     name,
-    sprite,
+    increased_stat,
+    decreased_stat,
 };
 ```
 

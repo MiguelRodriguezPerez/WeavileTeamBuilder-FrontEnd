@@ -10,8 +10,10 @@ export const MissignoCard = ({ dto }: { dto: MissignoDTO }) => {
 
     const { updateMember } = useAddNewPokemonMember();
 
+    
+
     return (
-        <li className={styles['missigno-card']} onClick={() => updateMember(dto.name)}>
+        <li className={styles['missigno-card']} onClick={() => updateMember(dto.id)}>
             <MissignoSprite dto={dto} />
             <span className={styles['missigno-name']}>{toPascalCase(dto.name)}</span>
             <MissignoTypes typeList={dto.type_list} />

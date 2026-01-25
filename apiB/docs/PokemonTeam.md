@@ -1,4 +1,4 @@
-# PokemonType
+# PokemonTeam
 
 
 ## Properties
@@ -7,17 +7,21 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [optional] [default to undefined]
 **name** | **string** |  | [optional] [default to undefined]
-**sprite** | **string** |  | [optional] [default to undefined]
+**teamType** | **string** |  | [optional] [default to undefined]
+**teamMembers** | [**Array&lt;PokemonTeamMember&gt;**](PokemonTeamMember.md) |  | [optional] [default to undefined]
+**teamSize** | **number** |  | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { PokemonType } from './api';
+import { PokemonTeam } from './api';
 
-const instance: PokemonType = {
+const instance: PokemonTeam = {
     id,
     name,
-    sprite,
+    teamType,
+    teamMembers,
+    teamSize,
 };
 ```
 

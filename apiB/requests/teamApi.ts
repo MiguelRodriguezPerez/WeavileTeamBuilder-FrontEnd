@@ -9,6 +9,7 @@ import { DUMMY_BASE_URL, createRequestFunction, setSearchParams, toPathString } 
 import { PokemonTeam } from '../../src/domain/teamMemberEntities/PokemonTeam';
 import { BASE_PATH, BaseAPI, operationServerMap } from '../base';
 
+
 /**
  * PokemonTeamApi - axios parameter creator
  */

@@ -12,7 +12,7 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
 
     const { data, isLoading } = useQuery({
         queryKey: ['missignoGrid'],
-        queryFn: () => pokemonDataApi.allSVPokemon().then(res => res.data),
+        queryFn: () => pokemonDataApi.allMissignoGridPokemonDto().then(res => res.data),
     });
 
     /* Endpoint correcto. Tienes que depurar el lado servidor */

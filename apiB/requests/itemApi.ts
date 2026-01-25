@@ -10,6 +10,7 @@ import { ItemDto } from '../../src/domain/dataEntities';
 import { BASE_PATH, BaseAPI, operationServerMap } from '../base';
 
 
+
 /**
  * ItemApi - axios parameter creator
  */

@@ -1,29 +1,29 @@
-# PokemonDataApi
+# NatureApi
 
 All URIs are relative to *http://localhost:9002*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**allMissignoGridPokemonDto**](#allmissignogridpokemondto) | **GET** /pokemonData/allMissignoGridPokemonDto | Retrieve all available pokemon for MissignoCard|
-|[**getPokemonDataById**](#getpokemondatabyid) | **GET** /pokemonData/getPokemonById/{id} | Get pokemonData by id using JDBC|
+|[**getAllNatures**](#getallnatures) | **GET** /natureData/getAllNatures | Get all natures|
+|[**getNatureByName**](#getnaturebyname) | **GET** /natureData/getNatureByName/{name} | Get a nature by name parameter|
 
-# **allMissignoGridPokemonDto**
-> Array<MissignoDto> allMissignoGridPokemonDto()
+# **getAllNatures**
+> Array<NatureData> getAllNatures()
 
-Returns a list of pokemon data which are available in pokemon sv
+Get a list with all pokemon natures
 
 ### Example
 
 ```typescript
 import {
-    PokemonDataApi,
+    NatureApi,
     Configuration
 } from './api';
 
 const configuration = new Configuration();
-const apiInstance = new PokemonDataApi(configuration);
+const apiInstance = new NatureApi(configuration);
 
-const { status, data } = await apiInstance.allMissignoGridPokemonDto();
+const { status, data } = await apiInstance.getAllNatures();
 ```
 
 ### Parameters
@@ -32,7 +32,7 @@ This endpoint does not have any parameters.
 
 ### Return type
 
-**Array<MissignoDto>**
+**Array<NatureData>**
 
 ### Authorization
 
@@ -48,30 +48,30 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**404** | Not Found |  -  |
-|**200** | Successful request with all pokemon data |  -  |
+|**200** | Nature list successfully retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getPokemonDataById**
-> getPokemonDataById()
+# **getNatureByName**
+> NatureData getNatureByName()
 
-Request all data about a pokemom (related entities too) using JDBC by id
+Returns a nature based on string parameter
 
 ### Example
 
 ```typescript
 import {
-    PokemonDataApi,
+    NatureApi,
     Configuration
 } from './api';
 
 const configuration = new Configuration();
-const apiInstance = new PokemonDataApi(configuration);
+const apiInstance = new NatureApi(configuration);
 
-let id: number; // (default to undefined)
+let name: string; // (default to undefined)
 
-const { status, data } = await apiInstance.getPokemonDataById(
-    id
+const { status, data } = await apiInstance.getNatureByName(
+    name
 );
 ```
 
@@ -79,12 +79,12 @@ const { status, data } = await apiInstance.getPokemonDataById(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **id** | [**number**] |  | defaults to undefined|
+| **name** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-void (empty response body)
+**NatureData**
 
 ### Authorization
 
@@ -100,7 +100,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**404** | There are not any entities that match the parameter given |  -  |
-|**200** | Succesfully retrieved pokemon |  -  |
+|**200** | Nature successfully retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

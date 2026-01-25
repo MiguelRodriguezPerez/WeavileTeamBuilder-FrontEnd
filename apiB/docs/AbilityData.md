@@ -1,4 +1,4 @@
-# PokemonType
+# AbilityData
 
 
 ## Properties
@@ -7,17 +7,21 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [optional] [default to undefined]
 **name** | **string** |  | [optional] [default to undefined]
-**sprite** | **string** |  | [optional] [default to undefined]
+**description** | **string** |  | [optional] [default to undefined]
+**pokemon_list** | [**Set&lt;PokemonData&gt;**](PokemonData.md) |  | [optional] [default to undefined]
+**pokemon_team_list** | [**Set&lt;PokemonTeamMember&gt;**](PokemonTeamMember.md) |  | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { PokemonType } from './api';
+import { AbilityData } from './api';
 
-const instance: PokemonType = {
+const instance: AbilityData = {
     id,
     name,
-    sprite,
+    description,
+    pokemon_list,
+    pokemon_team_list,
 };
 ```
 
