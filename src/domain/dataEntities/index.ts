@@ -1,4 +1,5 @@
 export * from './AbilityDto';
 export * from './ItemDto';
 export * from './MoveDto';
-export * from './PokemonDataDTO';
+export * from './PokemonDataDto';
+export * from './PokemonType';
