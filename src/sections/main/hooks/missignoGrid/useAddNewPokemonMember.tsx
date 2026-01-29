@@ -1,8 +1,10 @@
 import { PokemonDataApiFactory } from "../../../../../api/requests/pokemonDataApi";
+import { PokemonDataDTO } from "../../../../domain/dataEntities";
 import { PokemonTeam, PokemonTeamMember } from "../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../globalContext/WeavileStore";
 import { convertPokemonDataToTeamMember as convertPokemonDataDTOToTeamMember } from "../../../../globalHelpers";
 import { updateStoredTeam } from "../../../../globalHelpers/pokemonTeams/nonLoggedUsers";
+
 
 export const useAddNewPokemonMember = () => {
 
@@ -12,21 +14,20 @@ export const useAddNewPokemonMember = () => {
     const selectedTeam = useWeavileStore(state => state.selectedPokemonTeam!);
     const selectedMember = useWeavileStore(state => state.selectedPokemonMember);
 
-    const updateMember = async (pokemonDataId: number) => {
+    const updatePokemonDataMember = async (dataId: number) => {
         try {
             const selectedMemberId: number = selectedMember!.id;
-
-            const response = await pokemonDataApi.getPokemonDataById(pokemonDataId);
-            /* Este tipo es void y aun así funciona en await convertPokemonDataDTOToTeamMember.
-            No entiendo nada */
-            const pokemonData: void = response.data;
+            const response = await pokemonDataApi.getPokemonDataById(dataId);
+            const pokemonData: PokemonDataDTO = response.data;
 
             if (response.status === 200 && pokemonData) {
+                console.log(pokemonData);
+                
                 const newMember: PokemonTeamMember = await convertPokemonDataDTOToTeamMember(
                     pokemonData,
                     selectedMemberId
                 );
-
+                
                 const updatedMembers = [...selectedTeam.teamMembers];
                 updatedMembers[selectedMemberId] = newMember;
 
@@ -44,5 +45,5 @@ export const useAddNewPokemonMember = () => {
         }
     }
 
-    return { updateMember }
+    return { updateMember: updatePokemonDataMember }
 }

@@ -3,16 +3,14 @@ import globalAxios from 'axios';
 import type { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import type { RequestArgs } from './base';
 import { DUMMY_BASE_URL, assertParamExists, createRequestFunction, setSearchParams, toPathString } from '../common';
+import type { RequestArgs } from '../base';
 // @ts-ignore
 import { BASE_PATH, BaseAPI, RequiredError, operationServerMap } from '../base';
 import { MissignoDTO } from '../../src/sections/main/components/selectedPokemonMenu/missignoMenu/MissignoDTO';
+import { PokemonDataDTO } from '../../src/domain/dataEntities';
 
 
-/**
- * PokemonDataApi - axios parameter creator
- */
 export const PokemonDataApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
@@ -107,7 +105,7 @@ export const PokemonDataApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPokemonDataById(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async getPokemonDataById(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PokemonDataDTO>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPokemonDataById(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PokemonDataApi.getPokemonDataById']?.[localVarOperationServerIndex]?.url;
@@ -138,7 +136,7 @@ export const PokemonDataApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPokemonDataById(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+        getPokemonDataById(id: number, options?: RawAxiosRequestConfig): AxiosPromise<PokemonDataDTO> {
             return localVarFp.getPokemonDataById(id, options).then((request) => request(axios, basePath));
         },
     };
