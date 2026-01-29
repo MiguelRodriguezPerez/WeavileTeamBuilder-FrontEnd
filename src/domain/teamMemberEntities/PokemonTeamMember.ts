@@ -4,7 +4,11 @@ import { NatureDto } from "./NatureDto";
 
 export interface PokemonTeamMember {
 
-    id: number; //Haz que se base en la posición del array
+    /* NOTA: No confundas el team_index_id, que es la posición que ocupa en el equipo con la de
+    pokemon_data_id, que es la que contiene toda la info sobre el pokemón */
+
+    team_index_id: number; 
+    pokemon_data_id: number;
     name: string | null;
 
     front_default_sprite: string | null; // Sospechoso de fallar

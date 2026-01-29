@@ -8,7 +8,8 @@ export const convertPokemonDataToTeamMember = async (data: PokemonDataDTO, posit
     const natureApi = NatureApiFactory();
 
     return {
-        id: position,
+        pokemon_data_id: data.id,
+        team_index_id: position,
         name: data.name,
 
         front_default_sprite: data.front_default_sprite,

@@ -16,18 +16,18 @@ export const useAddNewPokemonMember = () => {
 
     const updatePokemonDataMember = async (dataId: number) => {
         try {
-            const selectedMemberId: number = selectedMember!.id;
+            const selectedMemberId: number = selectedMember!.team_index_id;
             const response = await pokemonDataApi.getPokemonDataById(dataId);
             const pokemonData: PokemonDataDTO = response.data;
 
             if (response.status === 200 && pokemonData) {
                 console.log(pokemonData);
-                
+
                 const newMember: PokemonTeamMember = await convertPokemonDataDTOToTeamMember(
                     pokemonData,
                     selectedMemberId
                 );
-                
+
                 const updatedMembers = [...selectedTeam.teamMembers];
                 updatedMembers[selectedMemberId] = newMember;
 
