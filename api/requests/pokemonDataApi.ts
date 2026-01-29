@@ -8,7 +8,7 @@ import type { RequestArgs } from '../base';
 // @ts-ignore
 import { BASE_PATH, BaseAPI, RequiredError, operationServerMap } from '../base';
 import { MissignoDTO } from '../../src/sections/main/components/selectedPokemonMenu/missignoMenu/MissignoDTO';
-import { PokemonDataDTO } from '../../src/domain/dataEntities';
+import { PokemonDataDto } from '../../src/domain/dataEntities';
 
 
 export const PokemonDataApiAxiosParamCreator = function (configuration?: Configuration) {
@@ -28,7 +28,7 @@ export const PokemonDataApiAxiosParamCreator = function (configuration?: Configu
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -36,7 +36,7 @@ export const PokemonDataApiAxiosParamCreator = function (configuration?: Configu
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -62,7 +62,7 @@ export const PokemonDataApiAxiosParamCreator = function (configuration?: Configu
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -70,7 +70,7 @@ export const PokemonDataApiAxiosParamCreator = function (configuration?: Configu
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -83,7 +83,7 @@ export const PokemonDataApiAxiosParamCreator = function (configuration?: Configu
 /**
  * PokemonDataApi - functional programming interface
  */
-export const PokemonDataApiFp = function(configuration?: Configuration) {
+export const PokemonDataApiFp = function (configuration?: Configuration) {
     const localVarAxiosParamCreator = PokemonDataApiAxiosParamCreator(configuration)
     return {
         /**
@@ -105,7 +105,7 @@ export const PokemonDataApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPokemonDataById(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PokemonDataDTO>> {
+        async getPokemonDataById(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PokemonDataDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPokemonDataById(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PokemonDataApi.getPokemonDataById']?.[localVarOperationServerIndex]?.url;
@@ -136,7 +136,7 @@ export const PokemonDataApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPokemonDataById(id: number, options?: RawAxiosRequestConfig): AxiosPromise<PokemonDataDTO> {
+        getPokemonDataById(id: number, options?: RawAxiosRequestConfig): AxiosPromise<PokemonDataDto> {
             return localVarFp.getPokemonDataById(id, options).then((request) => request(axios, basePath));
         },
     };

@@ -1,5 +1,5 @@
 import { PokemonDataApiFactory } from "../../../../../api/requests/pokemonDataApi";
-import { PokemonDataDTO } from "../../../../domain/dataEntities";
+import { PokemonDataDto } from "../../../../domain/dataEntities";
 import { PokemonTeam, PokemonTeamMember } from "../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../globalContext/WeavileStore";
 import { convertPokemonDataToTeamMember as convertPokemonDataDTOToTeamMember } from "../../../../globalHelpers";
@@ -17,8 +17,10 @@ export const useAddNewPokemonMember = () => {
     const updatePokemonDataMember = async (dataId: number) => {
         try {
             const selectedMemberId: number = selectedMember!.team_index_id;
+            console.log(selectedMember);
+            
             const response = await pokemonDataApi.getPokemonDataById(dataId);
-            const pokemonData: PokemonDataDTO = response.data;
+            const pokemonData: PokemonDataDto = response.data;
 
             if (response.status === 200 && pokemonData) {
                 console.log(pokemonData);
@@ -27,6 +29,8 @@ export const useAddNewPokemonMember = () => {
                     pokemonData,
                     selectedMemberId
                 );
+                console.log(newMember);
+                
 
                 const updatedMembers = [...selectedTeam.teamMembers];
                 updatedMembers[selectedMemberId] = newMember;
@@ -35,6 +39,9 @@ export const useAddNewPokemonMember = () => {
                     ...selectedTeam,
                     teamMembers: updatedMembers,
                 }
+
+                console.log(updatedTeam);
+                
 
                 updateStoredTeam(updatedTeam);
                 changeSelectedTeam(updatedTeam);

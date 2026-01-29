@@ -13,6 +13,7 @@ export const BannerMember = ({ member }: { member: PokemonTeamMember }) => {
 
     const { pathname } = useLocation();
     const navigate = useNavigate();
+    
 
     const changeSelectedPokemon = useWeavileStore(state => state.changeSelectedPokemon); 
 
