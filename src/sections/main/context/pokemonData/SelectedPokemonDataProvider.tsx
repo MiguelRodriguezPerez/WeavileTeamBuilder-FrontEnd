@@ -11,7 +11,7 @@ export const SelectedPokemonDataProvider = ({ children }: { children: ReactNode 
   const pokemonDataApi = PokemonDataApiFactory();
 
   const { data, isLoading } = useQuery({
-    queryFn: () => pokemonDataApi.getPokemonDataById(selectedPokemon!.pokemon_data_id).then(res => res.data),
+    queryFn: () => pokemonDataApi.getPokemonDataById(selectedPokemon!.pokemon_data_id!).then(res => res.data),
     enabled: Boolean(selectedPokemon?.pokemon_data_id),
     queryKey: ['pokemon', selectedPokemon?.pokemon_data_id],
     staleTime: Infinity, 

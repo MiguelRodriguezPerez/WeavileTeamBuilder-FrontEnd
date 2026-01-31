@@ -4,6 +4,7 @@ export const convertMemberToNullMember = (member: PokemonTeamMember): PokemonTea
 
     const nullMember: PokemonTeamMember = {
         team_index_id: member.team_index_id, //Haz que se base en la posición del array
+        pokemon_data_id: null, 
         name: null,
 
         front_default_sprite: null, // Sospechoso de fallar

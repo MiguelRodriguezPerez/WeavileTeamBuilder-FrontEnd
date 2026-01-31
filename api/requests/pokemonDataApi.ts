@@ -109,7 +109,7 @@ export const PokemonDataApiFp = function (configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPokemonDataById(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async getPokemonDataById(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PokemonDataDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPokemonDataById(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PokemonDataApi.getPokemonDataById']?.[localVarOperationServerIndex]?.url;
@@ -140,7 +140,7 @@ export const PokemonDataApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPokemonDataById(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+        getPokemonDataById(id: number, options?: RawAxiosRequestConfig): AxiosPromise<PokemonDataDto> {
             return localVarFp.getPokemonDataById(id, options).then((request) => request(axios, basePath));
         },
     };
