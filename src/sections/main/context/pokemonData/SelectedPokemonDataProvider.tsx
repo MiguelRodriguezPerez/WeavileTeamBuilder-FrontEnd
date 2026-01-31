@@ -14,7 +14,7 @@ export const SelectedPokemonDataProvider = ({ children }: { children: ReactNode 
     queryFn: () => pokemonDataApi.getPokemonDataById(selectedPokemon!.pokemon_data_id).then(res => res.data),
     enabled: Boolean(selectedPokemon?.pokemon_data_id),
     queryKey: ['pokemon', selectedPokemon?.pokemon_data_id],
-    staleTime: 30 * 60 * 1000, // 30 minutos de duración
+    staleTime: Infinity, 
   });
 
   return (
