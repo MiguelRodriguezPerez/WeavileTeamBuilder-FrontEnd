@@ -1,4 +1,4 @@
-# CRUDPokemonTeamsApi
+# PokemonTeamApi
 
 All URIs are relative to *http://localhost:9002*
 
@@ -15,12 +15,12 @@ Requests to create a new pokemon team. Will retrieve an empty team if succesfull
 
 ```typescript
 import {
-    CRUDPokemonTeamsApi,
+    PokemonTeamApi,
     Configuration
 } from './api';
 
 const configuration = new Configuration();
-const apiInstance = new CRUDPokemonTeamsApi(configuration);
+const apiInstance = new PokemonTeamApi(configuration);
 
 const { status, data } = await apiInstance.createNewTeam();
 ```

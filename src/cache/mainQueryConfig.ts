@@ -5,9 +5,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export const globalQueryClient = new QueryClient({
     defaultOptions: {
         queries : {
-            staleTime : 30 * 60 * 1000, // 30 minutos de duración
+            staleTime : Infinity,
+            gcTime: Infinity
         }
-    }
+    },
+    
 });
 
 

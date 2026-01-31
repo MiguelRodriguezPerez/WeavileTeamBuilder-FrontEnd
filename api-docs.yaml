@@ -36,19 +36,21 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/PokemonTeam"
-  /pokemonData/getPokemonByName/{name}:
+  /pokemonData/getPokemonById/{id}:
     get:
       tags:
       - Pokemon Data
-      summary: Get pokemonData by name
-      description: Request a certain pokemonData by name
-      operationId: getPokemonByName
+      summary: Get pokemonData by id using JDBC
+      description: Request all data about a pokemom (related entities too) using JDBC
+        by id
+      operationId: getPokemonDataById
       parameters:
-      - name: name
+      - name: id
         in: path
         required: true
         schema:
-          type: string
+          type: integer
+          format: int64
       responses:
         "404":
           description: There are not any entities that match the parameter given
@@ -58,13 +60,13 @@ paths:
                 $ref: "#/components/schemas/WeavileErrorResponse"
         "200":
           description: Succesfully retrieved pokemon
-  /pokemonData/allSVPokemon:
+  /pokemonData/allMissignoGridPokemonDtoInSV:
     get:
       tags:
       - Pokemon Data
-      summary: Retrieve all available pokemon in sv
+      summary: Retrieve all available pokemon for MissignoCard avaliable in SV
       description: Returns a list of pokemon data which are available in pokemon sv
-      operationId: allSVPokemon
+      operationId: allMissignoGridPokemonDtoAvaliableInSV
       responses:
         "404":
           description: Not Found
@@ -73,7 +75,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/WeavileErrorResponse"
         "200":
-          description: Successful request with all pokemon data
+          description: Successful request with all pokemon data in SV
           content:
             '*/*':
               schema:
@@ -346,9 +348,12 @@ components:
     PokemonTeamMember:
       type: object
       properties:
-        id:
+        team_index_id:
           type: integer
-          format: int64
+          format: int32
+        pokemon_data_id:
+          type: integer
+          format: int32
         name:
           type: string
         front_default_sprite:
@@ -437,7 +442,7 @@ components:
         id:
           type: integer
           format: int64
-        nombre:
+        name:
           type: string
         sprite:
           type: string
@@ -445,6 +450,9 @@ components:
     AbilityDto:
       type: object
       properties:
+        id:
+          type: integer
+          format: int64
         name:
           type: string
         description:
@@ -482,15 +490,29 @@ components:
           uniqueItems: true
           type: array
           items:
-            $ref: "#/components/schemas/PokemonType"
+            $ref: "#/components/schemas/PokemonTypeDto"
         ability_list:
           uniqueItems: true
           type: array
           items:
             $ref: "#/components/schemas/AbilityDto"
+    PokemonTypeDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        sprite:
+          type: string
+          format: byte
     ItemDto:
       type: object
       properties:
+        id:
+          type: integer
+          format: int64
         image_sprite:
           type: string
           format: byte

@@ -1,14 +1,15 @@
 import { NatureApiFactory } from '../../api/requests/natureApi';
-import { PokemonDataDTO } from "../domain/dataEntities";
+import { PokemonDataDto } from "../domain/dataEntities";
 import { PokemonTeamMember } from "../domain/teamMemberEntities";
 
 
-export const convertPokemonDataToTeamMember = async (data: PokemonDataDTO, position: number): Promise<PokemonTeamMember> => {
+export const convertPokemonDataToTeamMember = async (data: PokemonDataDto, position: number): Promise<PokemonTeamMember> => {
 
     const natureApi = NatureApiFactory();
 
     return {
-        id: position,
+        pokemon_data_id: data.id,
+        team_index_id: position,
         name: data.name,
 
         front_default_sprite: data.front_default_sprite,

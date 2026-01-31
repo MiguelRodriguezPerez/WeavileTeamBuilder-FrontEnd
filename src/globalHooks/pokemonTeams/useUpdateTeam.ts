@@ -16,7 +16,7 @@ export const useUpdateTeam = () => {
         tienes que pasarle un nuevo objeto a las funciones que modifican el contexto de zustand.*/
 
         const updatedMembers = [...selectedTeam.teamMembers];
-        updatedMembers[updatedMember.id] = updatedMember;
+        updatedMembers[updatedMember.team_index_id] = updatedMember;
 
         const updatedTeam: PokemonTeam = {
             ...selectedTeam,

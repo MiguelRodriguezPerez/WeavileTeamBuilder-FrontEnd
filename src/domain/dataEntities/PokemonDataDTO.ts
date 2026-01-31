@@ -1,8 +1,9 @@
 import { AbilityDto, MoveDto } from '.';
 import { PokemonType } from './PokemonType';
 
-export interface PokemonDataDTO {
+export interface PokemonDataDto {
 
+    id: number;
     name: string;
 
     front_default_sprite: string; // Sospechoso de fallar

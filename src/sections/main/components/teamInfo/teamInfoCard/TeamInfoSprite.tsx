@@ -19,7 +19,7 @@ export const TeamInfoSprite = ({ member }: { member: PokemonTeamMember }) => {
                         {
                             member.type_list!.map((type, index) => (
                                 <li key={index} >
-                                    <img src={assignPokemonTypeToPng(type)} alt={type.nombre} />
+                                    <img src={assignPokemonTypeToPng(type)} alt={type.name} />
                                 </li>
                             ))
                         }

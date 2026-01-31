@@ -10,19 +10,24 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
 
     const pokemonDataApi = PokemonDataApiFactory();
 
-    const { data, isLoading } = useQuery({
+    /* Te están llegando solo las filas de los pokemón disponibles en sv. Esto es porque localStorage
+    no puede persistir todas las filas porque pesan más de 5MB. 
+    
+    Tienes que implementar indexedDB y de alguna manera integrarlo en tanstack*/
+
+    const { data, isLoading, status } = useQuery({
         queryKey: ['missignoGrid'],
-        queryFn: () => pokemonDataApi.allSVPokemon().then(res => res.data),
+        queryFn: () => pokemonDataApi.allMissignoGridPokemonDtoAvaliableInSV().then(res => res.data),
+        staleTime: Infinity,
+        gcTime: Infinity
     });
 
-    /* Endpoint correcto. Tienes que depurar el lado servidor */
-    // console.log(`${import.meta.env.VITE_SERVER_URL}`);
     
 
     /* No soy capaz de explicar porque, pero originalmente usabas únicamente la variable isLoading para definir
     si mostrabas el icono de cargar datos o no. Probablemente tenga que ver que el persistor de la cache 
     es asíncrono */
-    if (!data || isLoading) return <WeavileLoading/>
+    if (status !== 'success' || isLoading) return <WeavileLoading/>
 
     return (
         <ul className={ styles['missigno-grid'] }>

@@ -3,6 +3,7 @@ import { PokemonType } from "./PokemonType";
 
 export interface MoveDto {
 
+    id: number,
     name: string;
     move_type: MoveType;
     pokemon_type: PokemonType;

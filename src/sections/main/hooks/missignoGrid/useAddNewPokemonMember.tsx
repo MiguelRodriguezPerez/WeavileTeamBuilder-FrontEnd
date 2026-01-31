@@ -1,8 +1,10 @@
 import { PokemonDataApiFactory } from "../../../../../api/requests/pokemonDataApi";
+import { PokemonDataDto } from "../../../../domain/dataEntities";
 import { PokemonTeam, PokemonTeamMember } from "../../../../domain/teamMemberEntities";
 import useWeavileStore from "../../../../globalContext/WeavileStore";
 import { convertPokemonDataToTeamMember as convertPokemonDataDTOToTeamMember } from "../../../../globalHelpers";
 import { updateStoredTeam } from "../../../../globalHelpers/pokemonTeams/nonLoggedUsers";
+
 
 export const useAddNewPokemonMember = () => {
 
@@ -12,20 +14,22 @@ export const useAddNewPokemonMember = () => {
     const selectedTeam = useWeavileStore(state => state.selectedPokemonTeam!);
     const selectedMember = useWeavileStore(state => state.selectedPokemonMember);
 
-    const updateMember = async (name: string) => {
+    const updatePokemonDataMember = async (dataId: number) => {
         try {
-            const selectedMemberId: number = selectedMember!.id;
-
-            const response = await pokemonDataApi.getPokemonByName(name);
-            /* Este tipo es void y aun así funciona en await convertPokemonDataDTOToTeamMember.
-            No entiendo nada */
-            const pokemonData: void = response.data;
+            const selectedMemberId: number = selectedMember!.team_index_id;
+            console.log(selectedMember);
+            
+            const response = await pokemonDataApi.getPokemonDataById(dataId);
+            const pokemonData: PokemonDataDto = response.data;
 
             if (response.status === 200 && pokemonData) {
+                console.log(pokemonData);
+
                 const newMember: PokemonTeamMember = await convertPokemonDataDTOToTeamMember(
                     pokemonData,
                     selectedMemberId
                 );
+                
 
                 const updatedMembers = [...selectedTeam.teamMembers];
                 updatedMembers[selectedMemberId] = newMember;
@@ -34,6 +38,9 @@ export const useAddNewPokemonMember = () => {
                     ...selectedTeam,
                     teamMembers: updatedMembers,
                 }
+
+                console.log(updatedTeam);
+                
 
                 updateStoredTeam(updatedTeam);
                 changeSelectedTeam(updatedTeam);
@@ -44,5 +51,5 @@ export const useAddNewPokemonMember = () => {
         }
     }
 
-    return { updateMember }
+    return { updateMember: updatePokemonDataMember }
 }
