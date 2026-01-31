@@ -60,13 +60,13 @@ paths:
                 $ref: "#/components/schemas/WeavileErrorResponse"
         "200":
           description: Succesfully retrieved pokemon
-  /pokemonData/allMissignoGridPokemonDto:
+  /pokemonData/allMissignoGridPokemonDtoInSV:
     get:
       tags:
       - Pokemon Data
-      summary: Retrieve all available pokemon for MissignoCard
+      summary: Retrieve all available pokemon for MissignoCard avaliable in SV
       description: Returns a list of pokemon data which are available in pokemon sv
-      operationId: allMissignoGridPokemonDto
+      operationId: allMissignoGridPokemonDtoAvaliableInSV
       responses:
         "404":
           description: Not Found
@@ -75,7 +75,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/WeavileErrorResponse"
         "200":
-          description: Successful request with all pokemon data
+          description: Successful request with all pokemon data in SV
           content:
             '*/*':
               schema:
@@ -348,9 +348,12 @@ components:
     PokemonTeamMember:
       type: object
       properties:
-        id:
+        team_index_id:
           type: integer
-          format: int64
+          format: int32
+        pokemon_data_id:
+          type: integer
+          format: int32
         name:
           type: string
         front_default_sprite:
@@ -507,6 +510,9 @@ components:
     ItemDto:
       type: object
       properties:
+        id:
+          type: integer
+          format: int64
         image_sprite:
           type: string
           format: byte

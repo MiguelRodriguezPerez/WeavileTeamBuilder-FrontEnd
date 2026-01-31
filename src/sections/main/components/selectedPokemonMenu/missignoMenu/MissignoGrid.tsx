@@ -17,7 +17,7 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
 
     const { data, isLoading, status } = useQuery({
         queryKey: ['missignoGrid'],
-        queryFn: () => pokemonDataApi.allMissignoGridPokemonDto().then(res => res.data),
+        queryFn: () => pokemonDataApi.allMissignoGridPokemonDtoAvaliableInSV().then(res => res.data),
         staleTime: Infinity,
         gcTime: Infinity
     });

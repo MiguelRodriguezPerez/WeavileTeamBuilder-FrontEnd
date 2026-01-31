@@ -4,7 +4,7 @@ import { PokemonType } from "../../../../../domain/dataEntities/PokemonType";
 /* La razón de ser de esta clase es recibir cada pokemonData del servidor
 y mostrarlo en MissignoGrid sin cargar la lista de movimientos. Recuerda que 
 la lista de movimientos la necesitaras en el contexto del menú del pokemón seleccionado */
-export interface MissignoDTO {
+export interface MissignoDto {
 
     id: number;
     name: string;
