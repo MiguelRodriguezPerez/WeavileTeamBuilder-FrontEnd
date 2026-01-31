@@ -29,7 +29,6 @@ export const useAddNewPokemonMember = () => {
                     pokemonData,
                     selectedMemberId
                 );
-                console.log(newMember);
                 
 
                 const updatedMembers = [...selectedTeam.teamMembers];

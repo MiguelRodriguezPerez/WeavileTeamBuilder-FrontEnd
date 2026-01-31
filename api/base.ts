@@ -19,7 +19,8 @@ import type { Configuration } from './configuration';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 
-export const BASE_PATH = "http://localhost:9002".replace(/\/+$/, "");
+const backendUrl: string = import.meta.env.VITE_SERVER_URL as string;
+export const BASE_PATH = backendUrl.replace(/\/+$/, "");
 
 export const COLLECTION_FORMATS = {
     csv: ",",
