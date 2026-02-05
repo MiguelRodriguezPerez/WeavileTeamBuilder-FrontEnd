@@ -1,7 +1,7 @@
 import { PokemonTeam } from "../../../../domain/teamMemberEntities";
 import { useTeamCardRedirectEvent } from "../../hooks/teamCard";
 
-import styles from '../../styles/teamSpritesList.module.css'
+import styles from '../../styles/teamSpritesList.module.css';
 
 export const TeamSpritesList = ({ team } : { team: PokemonTeam }) => {
   
