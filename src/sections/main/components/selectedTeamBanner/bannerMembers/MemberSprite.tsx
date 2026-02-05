@@ -11,13 +11,16 @@ export const MemberSprite = ({ member }: { member: PokemonTeamMember }) => {
 
     const selectedMember = useWeavileStore(state => state.selectedPokemonMember)!;
     const { width } = useWindowSize();
-    const { chooseSpriteToRender } = useChooseSpriteToRender(member);
+    const { chooseSpriteToRender, getDefaultSprite } = useChooseSpriteToRender(member);
     const spriteToRender: string = useMemo(() => chooseSpriteToRender(), [selectedMember, width]);
+
+    console.log(member);
+    
 
     return (
         <div className={styles['selected-member-sprite']}>
             <img
-                src={spriteToRender}
+                src={spriteToRender ? spriteToRender : getDefaultSprite() }
                 className={clsx(
                     styles["heading-pokemon-sprite"],
                     member.team_index_id === selectedMember.team_index_id && styles["selected-member"],
