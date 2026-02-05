@@ -4,7 +4,6 @@ import { WeavileLoading } from "../../../../../ui/components";
 import { filterMissignoGrid } from "../../../helpers/missigno";
 import styles from '../../../styles/missignoMenu/missignoGrid.module.css';
 import { MissignoCard } from "./missignoCard/MissignoCard";
-import { useEffect } from "react";
 
 
 export const MissignoGrid = ({ search = '' }: { search: string }) => {
