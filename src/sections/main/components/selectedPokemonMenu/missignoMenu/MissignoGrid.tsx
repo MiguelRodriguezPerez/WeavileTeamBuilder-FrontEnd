@@ -4,7 +4,6 @@ import { WeavileLoading } from "../../../../../ui/components";
 import { filterMissignoGrid } from "../../../helpers/missigno";
 import styles from '../../../styles/missignoMenu/missignoGrid.module.css';
 import { MissignoCard } from "./missignoCard/MissignoCard";
-import { useEffect } from "react";
 
 
 export const MissignoGrid = ({ search = '' }: { search: string }) => {
@@ -22,20 +21,6 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
         staleTime: Infinity,
         gcTime: Infinity
     });
-    
-    useEffect(() => {
-        if (data) {
-            const jsonString = JSON.stringify(data);
-            const sizeInBytes = new TextEncoder().encode(jsonString).length;
-            const sizeInMB = (sizeInBytes / (1024 * 1024)).toFixed(2);
-
-            console.log(`📊 Tamaño actual de data: ${sizeInMB} MB`);
-            
-            if (sizeInBytes > 5 * 1024 * 1024) {
-            console.warn("⚠️ ¡Peligro! Los datos exceden los 5MB del localStorage.");
-            }
-        }
-        }, [data]);
     
 
     /* No soy capaz de explicar porque, pero originalmente usabas únicamente la variable isLoading para definir

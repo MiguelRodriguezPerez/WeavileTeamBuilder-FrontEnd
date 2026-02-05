@@ -6,10 +6,10 @@ import styles from '../../../../globalStyles/buttons.module.css'
 export const CreateNewTeamButton = () => {
   
     const navigate = useNavigate();
-    const { createTeam } = useCreateTeam();
+    const { createNewTeam } = useCreateTeam();
 
     const createNewTeamButtonEvent = () => {
-        createTeam();
+        createNewTeam();
         navigate('/');
     }
 
