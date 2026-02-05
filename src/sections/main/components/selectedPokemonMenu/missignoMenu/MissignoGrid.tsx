@@ -23,20 +23,6 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
         gcTime: Infinity
     });
     
-    useEffect(() => {
-        if (data) {
-            const jsonString = JSON.stringify(data);
-            const sizeInBytes = new TextEncoder().encode(jsonString).length;
-            const sizeInMB = (sizeInBytes / (1024 * 1024)).toFixed(2);
-
-            console.log(`📊 Tamaño actual de data: ${sizeInMB} MB`);
-            
-            if (sizeInBytes > 5 * 1024 * 1024) {
-            console.warn("⚠️ ¡Peligro! Los datos exceden los 5MB del localStorage.");
-            }
-        }
-        }, [data]);
-    
 
     /* No soy capaz de explicar porque, pero originalmente usabas únicamente la variable isLoading para definir
     si mostrabas el icono de cargar datos o no. Probablemente tenga que ver que el persistor de la cache 

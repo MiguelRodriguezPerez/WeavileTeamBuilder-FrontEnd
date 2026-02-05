@@ -1,13 +1,13 @@
-import { PokemonTeam } from "../../domain/teamMemberEntities";
+import { PokemonTeam, PokemonTeamMember } from "../../domain/teamMemberEntities";
 import useWeavileStore from "../../globalContext/WeavileStore";
-
-import { storeFirstPokemonTeam, storePokemonTeam } from "../../globalHelpers/pokemonTeams/nonLoggedUsers";
-import { PokemonTeamApiFactory } from '../../../api/requests/teamApi';
+import { TeamType } from "../../domain/enums";
+import { storeFirstPokemonTeam } from "../../globalHelpers/pokemonTeams/nonLoggedUsers";
+import { createNullMember } from "../../globalHelpers/pokemonTeams/nonLoggedUsers/createNullMember";
+import { storePokemonTeam } from '../../globalHelpers/pokemonTeams/nonLoggedUsers/storePokemonTeam';
 
 
 export const useCreateTeam = () => {
  
-    const teamApi = PokemonTeamApiFactory();
     const changeSelectedTeam = useWeavileStore((state) => state.changeSelectedTeam);     
     const changeSelectedMember = useWeavileStore((state) => state.changeSelectedPokemon);
 
@@ -15,32 +15,41 @@ export const useCreateTeam = () => {
     storeFirstPokemonTeam que fuerza que el equipo creado se almacene siempre en localStorage con clave 0.
     Recuerda la race condition del modo estricto */
 
-    const createFirstTeam = async(): Promise<PokemonTeam> => {
-            const response = await teamApi.createNewTeam(); // Server side works fine
+    const createFirstTeam = (): PokemonTeam => {
 
-            if (response.status === 201) {
-                const firstTeam: PokemonTeam = storeFirstPokemonTeam(response.data);
-                changeSelectedTeam(firstTeam);
-                changeSelectedMember(firstTeam.teamMembers[0]);      
-                
-                return firstTeam;
-            } 
-            else throw new Error("Error creating default first pokemon " + response.statusText);
-        };
+        const firstTeam: PokemonTeam = storeFirstPokemonTeam(generateNewTeam());
+        changeSelectedTeam(firstTeam);
+        changeSelectedMember(firstTeam.teamMembers[0]);      
+        
+        return firstTeam;
+    };
 
-        const createTeam = async(): Promise<PokemonTeam> => {
-            const response = await teamApi.createNewTeam(); // Server side works fine
+    const generateNewTeam = (): PokemonTeam => {
+        const resultado: PokemonTeam = {
+            /* storePokemonTeam comprueba si existe un registro en el localStorage con ese id
+            Si existe, le asignará otro */
+            id: 0,
+            // storePokemonTeam le asignará un nombre
+            name: '',
+            teamMembers: [],
+            teamType: TeamType.INDIVIDUAL
+        }
 
-            if (response.status === 201) {
-                const firstTeam: PokemonTeam = storePokemonTeam(response.data);
-                changeSelectedTeam(firstTeam);
-                changeSelectedMember(firstTeam.teamMembers[0]);      
-                
-                return firstTeam;
-            } 
-            else throw new Error("Error creating default first pokemon " + response.statusText);
-        };
+        for (let index = 0; index <= 5; index++) {
+            const newNullMember: PokemonTeamMember = createNullMember(index);
+            resultado.teamMembers[index] = newNullMember;
+        }
+
+        return resultado;
+    };
+
+    const createNewTeam = () => {
+        const team: PokemonTeam = storePokemonTeam(generateNewTeam());
+
+        changeSelectedTeam(team);
+        changeSelectedMember(team.teamMembers[0]);      
+    }
     
-    return { createFirstTeam, createTeam };
+    return { createFirstTeam, createNewTeam };
 }
  
