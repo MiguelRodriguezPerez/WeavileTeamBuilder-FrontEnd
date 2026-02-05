@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from '../styles/weavileHeader.module.css';
+
 import { useWindowSize } from 'react-use';
 
 export const WeavileLogo = () => {
