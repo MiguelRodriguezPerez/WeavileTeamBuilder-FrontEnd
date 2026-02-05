@@ -1,5 +1,5 @@
 import { PokemonType } from "../../../../../../domain/dataEntities/PokemonType";
-import { getImgSrcFromBase64 } from "../../../../../../globalHelpers/getImgSrcFromBase64";
+import { assignPokemonTypeToPng } from "../../../../../../globalHelpers";
 
 import styles from '../../../../styles/missignoMenu/missignoCard.module.css';
 
@@ -9,7 +9,7 @@ export const MissignoTypes = ({ typeList }: { typeList: PokemonType[] }) => {
             {
                 typeList.map((type, index) => (
                     <img
-                        src={getImgSrcFromBase64(type.sprite)}
+                        src={ assignPokemonTypeToPng(type) }
                         alt={`${type.name.toLowerCase()}.png`}
                         key={index}
                     />

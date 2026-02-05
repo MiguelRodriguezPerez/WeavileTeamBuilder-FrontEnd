@@ -4,6 +4,7 @@ import { WeavileLoading } from "../../../../../ui/components";
 import { filterMissignoGrid } from "../../../helpers/missigno";
 import styles from '../../../styles/missignoMenu/missignoGrid.module.css';
 import { MissignoCard } from "./missignoCard/MissignoCard";
+import { useEffect } from "react";
 
 
 export const MissignoGrid = ({ search = '' }: { search: string }) => {
@@ -21,7 +22,6 @@ export const MissignoGrid = ({ search = '' }: { search: string }) => {
         staleTime: Infinity,
         gcTime: Infinity
     });
-
     
 
     /* No soy capaz de explicar porque, pero originalmente usabas únicamente la variable isLoading para definir
