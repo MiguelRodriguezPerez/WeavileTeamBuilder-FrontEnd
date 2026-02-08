@@ -8,19 +8,21 @@ import clsx from "clsx";
 import styles from '../../../styles/selectedTeamBanner/selectedMember/bannerMemberSprite.module.css';
 
 export const MemberSprite = ({ member }: { member: PokemonTeamMember }) => {
+    /* member supuestamente es una prop síncrona, si la logueas con console.log solo se registra una vez
+    con sus datos reales incluso en prod*/
 
     const selectedMember = useWeavileStore(state => state.selectedPokemonMember)!;
     const { width } = useWindowSize();
-    const { chooseSpriteToRender, getDefaultSprite } = useChooseSpriteToRender(member);
-    const spriteToRender: string = useMemo(() => chooseSpriteToRender(), [selectedMember, width]);
+    const { chooseSpriteToRender } = useChooseSpriteToRender(member);
+    const spriteToRender: string = useMemo(() => chooseSpriteToRender(), [member, width]);
 
-    console.log(member);
+    // console.log(spriteToRender);
     
 
     return (
         <div className={styles['selected-member-sprite']}>
             <img
-                src={spriteToRender ? spriteToRender : getDefaultSprite() }
+                src={ spriteToRender }
                 className={clsx(
                     styles["heading-pokemon-sprite"],
                     member.team_index_id === selectedMember.team_index_id && styles["selected-member"],

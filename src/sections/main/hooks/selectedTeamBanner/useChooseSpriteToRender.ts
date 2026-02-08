@@ -6,7 +6,7 @@ export const useChooseSpriteToRender = (member: PokemonTeamMember) => {
     const { width } = useWindowSize();
  
     const chooseSpriteToRender = (): string => {
-        if (member.name !== null) {
+        if (member.front_default_sprite && member.pc_sprite) {
             return (width > 700) ? 
                 `data:image/jpeg;base64,${ member.front_default_sprite }` 
                 : 
@@ -22,8 +22,6 @@ export const useChooseSpriteToRender = (member: PokemonTeamMember) => {
     /* Todas las imágenes pc tienen altura 96px, incluido missigno */
     /* El sprite del pokemón en el teléfono tiene un poco de padding-bottom por lo que su altura no será la 
     misma que si fuera missigno */
-
-
 
     return {
         chooseSpriteToRender,

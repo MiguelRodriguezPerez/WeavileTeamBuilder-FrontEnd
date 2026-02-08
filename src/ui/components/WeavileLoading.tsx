@@ -4,7 +4,8 @@ export const WeavileLoading = () => {
   
     return (
         <div>
-            <img className={ styles['weavile-loading'] } src="/images/ui/loadingPokeball.png" alt="loadingPokeball.png" />
+            <img className={ styles['weavile-loading'] } src="/images/ui/loadingPokeball.png" alt="loadingPokeball.png" 
+                fetchPriority='high'/>
         </div>
     );
 }
